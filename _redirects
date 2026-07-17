@@ -1,0 +1,9 @@
+# Alte OnePage-URLs -> neue Seiten (301 = SEO-sauber)
+/roadmap            /            301
+/roadmap/*          /            301
+/funnel             /kontakt     301
+/funnel/*           /kontakt     301
+/webinar            /            301
+/webinar/*          /            301
+/ausgebucht-pdff    /            301
+/ausgebucht-pdff/*  /            301
