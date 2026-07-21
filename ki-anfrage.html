@@ -588,6 +588,7 @@
 
     /* ---------- 2-stufiger Lead-Flow ---------- */
     var WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/10002468/4u71cgp/';
+    var WEBHOOK_TERMIN = 'https://hooks.zapier.com/hooks/catch/10002468/4u7f5ey/';
     var leadWrap=document.getElementById('leadWrap');
     var calWrap=document.getElementById('calWrap');
     var doneWrap=document.getElementById('doneWrap');
@@ -598,7 +599,8 @@
     function sendEvent(name){
       if(!WEBHOOK_URL||!leadData) return;
       var p={}; for(var k in leadData) p[k]=leadData[k]; p.event=name;
-      try{ fetch(WEBHOOK_URL,{method:'POST',mode:'no-cors',body:JSON.stringify(p),keepalive:true}); }catch(e){}
+      var url=(name==='termin_gebucht')?WEBHOOK_TERMIN:WEBHOOK_URL;
+      try{ fetch(url,{method:'POST',mode:'no-cors',body:JSON.stringify(p),keepalive:true}); }catch(e){}
     }
     function initCalendly(){
       if(calInited) return; calInited=true;
