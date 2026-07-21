@@ -859,7 +859,7 @@
       } else { cmpChart.classList.add('in'); }
     }
 
-    /* Reichweite: rotierende Ringe + aufpoppende Avatare (wie Website) */
+    /* Reichweite: rotierende Ringe + organisch wechselnde Avatare (einzeln, nie am selben Platz) */
     (function () {
       var viz = document.querySelector('.reach-viz');
       if (!viz) return;
@@ -875,35 +875,50 @@
         }
       });
       var used = {};
-      function place(el) {
-        var free = [];
-        for (var s = 0; s < slots.length; s++) if (!used[s]) free.push(s);
-        if (!free.length) return;
-        if (el._slot !== undefined) delete used[el._slot];
-        var pick = free[Math.floor(Math.random() * free.length)];
-        used[pick] = true; el._slot = pick;
+      function rnd(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+      function freeSlots(exclude) {
+        var f = [];
+        for (var s = 0; s < slots.length; s++) if (!used[s] && s !== exclude) f.push(s);
+        return f;
+      }
+      function show(el) {
+        var f = freeSlots(el._last);
+        if (!f.length) return false;
+        var pick = rnd(f);
+        used[pick] = true; el._slot = pick; el._last = pick;
         el.style.left = 'calc(50% + ' + (slots[pick][0] - 23) + 'px)';
         el.style.top = 'calc(50% + ' + (slots[pick][1] - 23) + 'px)';
+        el.classList.add('pop');
+        return true;
       }
-      avs.forEach(place);
-      var running = false, idx = 0;
-      function cycle() {
-        var el = avs[idx % avs.length]; idx++;
-        if (el.classList.contains('pop')) {
-          el.classList.remove('pop');
-          if (el._slot !== undefined) { delete used[el._slot]; el._slot = undefined; }
-          setTimeout(function () { place(el); el.classList.add('pop'); }, 300);
-        } else { place(el); el.classList.add('pop'); }
+      function hide(el) {
+        el.classList.remove('pop');
+        var s = el._slot; el._slot = undefined;
+        setTimeout(function () { if (s !== undefined) delete used[s]; }, 400);
+      }
+      var VISIBLE = Math.min(13, avs.length);
+      function swap() {
+        var popped = avs.filter(function (a) { return a.classList.contains('pop'); });
+        if (popped.length) hide(rnd(popped));
+        setTimeout(function () {
+          var hidden = avs.filter(function (a) { return !a.classList.contains('pop'); });
+          if (hidden.length) show(rnd(hidden));
+        }, 430);
+      }
+      function start() {
+        var order = avs.slice().sort(function () { return Math.random() - 0.5; });
+        var i = 0;
+        var init = setInterval(function () {
+          if (i >= VISIBLE) { clearInterval(init); setInterval(swap, 700); return; }
+          show(order[i]); i++;
+        }, 240);
       }
       if ('IntersectionObserver' in window) {
+        var started = false;
         new IntersectionObserver(function (en) {
-          if (en[0].isIntersecting && !running) {
-            running = true;
-            for (var k = 0; k < 14; k++) setTimeout(cycle, k * 110);
-            setInterval(function () { cycle(); cycle(); cycle(); }, 430);
-          }
+          if (en[0].isIntersecting && !started) { started = true; start(); }
         }, { threshold: 0.25 }).observe(viz);
-      } else { avs.forEach(function (el) { el.classList.add('pop'); }); }
+      } else { start(); }
     })();
 
     /* Fallback-Avatar (Initialen) falls Personen-Foto noch nicht vorhanden */
