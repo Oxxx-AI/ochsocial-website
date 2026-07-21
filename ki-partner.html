@@ -41,7 +41,7 @@
       --radius:6px;
     }
     *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
+    html{scroll-behavior:smooth;overflow-x:hidden}
     body{font-family:'Manrope',system-ui,sans-serif;background:var(--offwhite);color:var(--navy);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
     img{max-width:100%;display:block}
     a{color:inherit;text-decoration:none}
@@ -85,7 +85,10 @@
     .hero{background:radial-gradient(120% 130% at 82% -10%,#1E2A63 0%,#14163A 55%,#0E1030 100%);color:#fff;padding:130px 0 78px;overflow:hidden}
     .hero:before{content:"";position:absolute;top:-160px;right:-120px;width:560px;height:560px;background:radial-gradient(circle,rgba(111,168,245,.24),transparent 68%);pointer-events:none}
     .hero:after{content:"";position:absolute;bottom:-220px;left:-160px;width:520px;height:520px;background:radial-gradient(circle,rgba(30,79,186,.32),transparent 70%);pointer-events:none}
-    .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.12fr .88fr;gap:40px;align-items:center}
+    .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.12fr .88fr;grid-template-areas:"txt vis" "badges vis";gap:14px 40px;align-items:center}
+    .hero-txt{grid-area:txt}
+    .hero-vis{grid-area:vis}
+    .hero-badges{grid-area:badges;align-self:start}
     .hero h1{font-weight:800;font-size:clamp(2.25rem,4.7vw,3.6rem);line-height:1.05;letter-spacing:-.02em;margin-top:22px}
     .hero h1 .hl{color:var(--champagne)}
     .hero .sub{margin-top:22px;font-size:clamp(1.02rem,1.7vw,1.2rem);color:var(--white-72);max-width:52ch;font-weight:400}
@@ -184,11 +187,13 @@
     .reach-ring.r2::before{background:var(--champagne);box-shadow:0 0 14px 3px rgba(240,217,160,.85)}
     .reach-ring.r3{width:540px;height:540px;border-color:rgba(30,79,186,.09);animation-duration:52s}
     @keyframes reach-rotate{to{transform:translate(-50%,-50%) rotate(360deg)}}
-    .reach-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;gap:20px;z-index:3}
-    .reach-logo{width:66px;height:66px;border-radius:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 30px rgba(0,0,0,.18)}
-    .reach-logo svg{width:32px;height:32px}
+    .reach-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;gap:22px;z-index:3;perspective:620px}
+    .reach-logo{position:relative;width:74px;height:74px;border-radius:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 22px 36px -10px rgba(0,0,0,.42),0 7px 12px rgba(0,0,0,.22);transform:rotateX(14deg) rotateY(-12deg);animation:logo-float 5s ease-in-out infinite}
+    .reach-logo::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(135deg,rgba(255,255,255,.5),rgba(255,255,255,0) 46%);pointer-events:none}
+    .reach-logo svg{width:35px;height:35px;position:relative;z-index:1;filter:drop-shadow(0 3px 4px rgba(0,0,0,.32))}
     .reach-logo.ig{color:#fff;background:radial-gradient(circle at 30% 110%,#FEDA75 0%,#F58529 25%,#DD2A7B 55%,#8134AF 80%,#515BD4 100%)}
-    .reach-logo.fb{color:#fff;background:#1877F2}
+    .reach-logo.fb{color:#fff;background:linear-gradient(160deg,#2a90ff,#1877F2);animation-delay:-2.5s}
+    @keyframes logo-float{0%,100%{transform:rotateX(14deg) rotateY(-12deg) translateY(0)}50%{transform:rotateX(14deg) rotateY(-12deg) translateY(-9px)}}
     .reach-av{position:absolute;width:46px;height:46px;border-radius:50%;object-fit:cover;border:2.5px solid var(--cobalt);z-index:2;box-shadow:0 14px 30px -12px rgba(20,22,58,.5);opacity:0;transform:scale(.3);transition:opacity .45s ease,transform .55s cubic-bezier(.34,1.56,.64,1)}
     .reach-av:nth-of-type(even){border-color:var(--champagne)}
     .reach-av.pop{opacity:1;transform:scale(1)}
@@ -332,18 +337,19 @@
     /* ===== Responsive ===== */
     .mbr{display:none}
     @media(max-width:960px){
-      .hero-grid{grid-template-columns:1fr;gap:18px}
-      .hero-vis{min-height:0;margin-top:6px;order:-1}
+      .hero-grid{grid-template-columns:1fr;grid-template-areas:"txt" "vis" "badges";gap:18px}
+      .hero-vis{min-height:0;margin-top:6px}
       .hero-vis .miri{max-width:280px}
       .hero-badges{max-width:none}
       .hero-badges .row{justify-content:space-between;gap:14px}
       .pain-grid{grid-template-columns:1fr}
       .cmp-grid{grid-template-columns:1fr;gap:16px}
-      .cmp-arrow{transform:rotate(90deg)}
+      .cmp-arrow{display:none}
       .boom-split{grid-template-columns:1fr;gap:34px}
       .steps{grid-template-columns:1fr}
       .reach-layout{grid-template-columns:1fr;gap:26px}
-      .reach-viz{height:400px;transform:scale(.72);transform-origin:center;margin:10px 0}
+      .reach-viz{height:360px;margin:16px 0}
+      .reach-scale{transform:scale(.6)}
       .stats-grid{grid-template-columns:1fr 1fr}
       .who-grid{grid-template-columns:1fr 1fr}
       .testi-grid{grid-template-columns:1fr}
@@ -368,6 +374,8 @@
       .chart{height:220px;gap:8px}
       .col .mon{font-size:.68rem}
       .proof-row{gap:12px}
+      .reach-viz{height:300px}
+      .reach-scale{transform:scale(.5)}
       .panel{padding:24px 20px 26px}
     }
   </style>
@@ -406,18 +414,18 @@
             </div>
             <div class="proof-txt"><span class="stars">★★★★★</span> <b>5,0</b> auf Google &middot; von Unternehmern, die skalieren</div>
           </div>
-          <div class="hero-badges">
-            <div class="lbl">Zertifiziert &amp; geprüft</div>
-            <div class="row">
-              <img src="assets/badges/badge_t_meta_business_partner_trim.webp" alt="Meta Business Partner">
-              <img src="assets/badges/badge_t_meta_certified_trim.webp" alt="Meta Certified">
-              <img src="assets/badges/badge_t_funnelcockpit_trim.webp" alt="FunnelCockpit Partner">
-            </div>
-          </div>
         </div>
         <div class="hero-vis">
           <div class="halo"></div>
           <img class="miri" src="assets/team/miri_transparent.webp" alt="Miriam von ochsocial">
+        </div>
+        <div class="hero-badges">
+          <div class="lbl">Zertifiziert &amp; geprüft</div>
+          <div class="row">
+            <img src="assets/badges/badge_t_meta_business_partner_trim.webp" alt="Meta Business Partner">
+            <img src="assets/badges/badge_t_meta_certified_trim.webp" alt="Meta Certified">
+            <img src="assets/badges/badge_t_funnelcockpit_trim.webp" alt="FunnelCockpit Partner">
+          </div>
         </div>
       </div>
     </div>
@@ -519,7 +527,7 @@
     <div class="wrap">
       <div class="sec-head center">
         <span class="eyebrow">So bringen wir dich nach oben</span>
-        <h2>Von unsichtbar zu <span class="accent-cobalt">ausgebucht</span> in 3 Schritten</h2>
+        <h2>Von unsichtbar zu <span class="accent-cobalt">ausgebucht</span> in <span class="nowrap">3 Schritten</span></h2>
         <p>Meta Ads plus Lead-Qualifizierung, gebaut für KI-Anbieter. Wir liefern Sichtbarkeit und Termine, du lieferst Produkt und Abschluss.</p>
       </div>
       <div class="steps">
@@ -649,14 +657,14 @@
       <div class="testi-grid">
         <div class="tcard">
           <div class="thead">
-            <img src="assets/testimonials/kikunde_01.webp" alt="">
+            <img src="assets/testimonials/kikunde_02.webp" alt="">
             <div><div class="nm">Marcus</div><div class="rl">KI-Automatisierung</div></div>          </div>
           <div class="stars">★★★★★</div>
           <blockquote>„Wir bauen KI-Automationen für den Mittelstand, aber die Kundengewinnung war immer unser Flaschenhals. Mit ochsocial kommen jetzt planbar Demo-Termine rein, allein im zweiten Monat haben wir vier neue Kunden über die Kampagnen gewonnen."</blockquote>
         </div>
         <div class="tcard">
           <div class="thead">
-            <img src="assets/testimonials/kikunde_07.webp" alt="">
+            <img src="assets/testimonials/kikunde_09.webp" alt="">
             <div><div class="nm">Thomas</div><div class="rl">KI-Telefonassistenz</div></div>          </div>
           <div class="stars">★★★★★</div>
           <blockquote>„Unser KI-Telefonassistent ist technisch top, nur hat den Markt keiner verstanden. ochsocial hat unsere Botschaft so übersetzt, dass die Anfragen endlich von den richtigen Unternehmen kommen. Die Terminqualität ist eine ganz andere Liga."</blockquote>
