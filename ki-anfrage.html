@@ -396,9 +396,9 @@
   <section class="sec book" id="termin" style="padding-top:118px">
     <div class="wrap">
       <div class="book-head">
-        <span class="eyebrow">Kostenloses Strategiegespräch</span>
-        <h2>Sichere dir deinen <span class="accent-cobalt">Termin</span></h2>
-        <p>Trag dich kurz ein, danach wählst du direkt deinen Wunschtermin. Unverbindlich, ehrlich, konkret.</p>
+        <span class="eyebrow">Dein persönliches Angebot</span>
+        <h2>Fordere dein <span class="accent-cobalt">Angebot</span> an</h2>
+        <p>Trag kurz deine Daten ein, wir melden uns mit deinem persönlichen Angebot. Wenn du magst, sicherst du dir im nächsten Schritt direkt einen Termin. Unverbindlich und kostenfrei.</p>
       </div>
       <div class="book-cols">
         <div>
@@ -416,7 +416,6 @@
 
         <div class="panel">
           <div id="leadWrap">
-            <div class="steplbl">Schritt 1 von 2</div>
             <h3>Deine Daten</h3>
             <form id="leadForm" novalidate>
               <div class="fgrid">
@@ -436,15 +435,15 @@
                 </div>
                 <label class="consent"><input type="checkbox" name="werbung" id="werbung"><span>Ich bin einverstanden, dass ochsocial mich zur Terminvereinbarung kontaktiert. (Pflicht)</span></label>
               </div>
-              <button type="submit" class="btn">Weiter zur Terminauswahl <span class="arw">&rarr;</span></button>
+              <button type="submit" class="btn">Angebot anfordern <span class="arw">&rarr;</span></button>
               <p class="reassure">100&nbsp;% unverbindlich &middot; keine Weitergabe deiner Daten</p>
             </form>
           </div>
 
           <div id="calWrap" style="display:none">
             <button class="backlink" id="backBtn">&larr; zurück</button>
-            <div class="steplbl">Schritt 2 von 2</div>
-            <h3>Wähle deinen Wunschtermin</h3>
+            <h3>Optional: Termin direkt sichern</h3>
+            <p class="reassure" style="text-align:left;margin:2px 0 14px">Deine Anfrage ist raus, wir haben deine Daten. Wenn du willst, buch dir gleich dein Gespräch, sonst melden wir uns bei dir.</p>
             <div id="calBox" class="calendly-inline-widget"></div>
           </div>
 
@@ -621,7 +620,7 @@
       form.addEventListener('submit',function(e){
         e.preventDefault();
         if(!form.checkValidity()){ form.reportValidity(); return; }
-        leadData={quelle:'KI-Partner LP',seite:'ki-partner.html',utm:location.search||'',zeitpunkt:new Date().toISOString()};
+        leadData={quelle:'KI-Partner LP',seite:'ki-anfrage.html',utm:location.search||'',zeitpunkt:new Date().toISOString()};
         form.querySelectorAll('input, select').forEach(function(el){
           if(el.name&&el.type!=='checkbox') leadData[el.name]=el.value;
         });
