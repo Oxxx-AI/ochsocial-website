@@ -1,3 +1,7 @@
+# Kampagnen-Landingpages (kurze URLs -> HTML-Datei)
+/ki                 /ki-partner.html   200
+/ki-partner         /ki-partner.html   200
+
 # Alte OnePage-URLs -> neue Seiten (301 = SEO-sauber)
 /roadmap            /            301
 /roadmap/*          /            301
