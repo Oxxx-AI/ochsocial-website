@@ -989,13 +989,23 @@
         }
         requestAnimationFrame(step);
       }
+      var chartRan=false;
       function runChart(){
+        if(chartRan) return; chartRan=true;
         cmpChart.classList.add('in');
         cmpChart.querySelectorAll('.num').forEach(function(el){ countUp(el, 2200); });
       }
       if('IntersectionObserver' in window){
         var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){requestAnimationFrame(runChart);io.disconnect();}});},{threshold:.3});
         io.observe(cmpChart);
+        /* Sicherheitsnetz: Zahlen duerfen nie auf 0 stehenbleiben */
+        setTimeout(function(){
+          var r=cmpChart.getBoundingClientRect();
+          if(!chartRan && r.top < window.innerHeight) runChart();
+        }, 3000);
+        window.addEventListener('load', function(){
+          setTimeout(function(){ if(!chartRan && document.visibilityState==='hidden') runChart(); }, 6000);
+        });
       } else { runChart(); }
     }
 
