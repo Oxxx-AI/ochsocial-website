@@ -286,7 +286,11 @@
     .field label{font-size:.84rem;font-weight:700;color:var(--navy-70)}
     .field input,.field select{font-family:inherit;font-size:1rem;padding:13px 14px;border:1.5px solid var(--line);border-radius:var(--radius);background:#fff;color:var(--navy);transition:border-color .15s}
     .field input:focus,.field select:focus{outline:none;border-color:var(--cobalt)}
-    .consent{grid-column:1/-1;display:flex;gap:10px;align-items:flex-start;font-size:.82rem;color:var(--navy-55);margin-top:2px}
+    .consent{grid-column:1/-1;display:flex;gap:10px;align-items:flex-start;font-size:.82rem;color:var(--navy-55);margin-top:2px;cursor:pointer}
+    .consent.err{color:#D93A3F}
+    .consent.err input{outline:2px solid #D93A3F;outline-offset:2px}
+    .consent-msg{grid-column:1/-1;display:none;color:#D93A3F;font-size:.82rem;font-weight:700;margin-top:-4px}
+    .consent-msg.show{display:block}
     .consent input{margin-top:3px}
     .panel .btn{width:100%;justify-content:center;margin-top:20px}
     .panel .reassure{text-align:center;font-size:.82rem;color:var(--navy-55);margin-top:12px}
@@ -421,7 +425,8 @@
                     <option>Sonstiges</option>
                   </select>
                 </div>
-                <label class="consent"><input type="checkbox" name="werbung" id="werbung"><span>Ich bin einverstanden, dass ochsocial mich zu meinem Angebot kontaktiert. (Pflicht)</span></label>
+                <label class="consent" id="consentBox"><input type="checkbox" name="werbung" id="werbung" required><span>Ich bin einverstanden, dass ochsocial mich zu meinem Angebot kontaktiert.</span></label>
+                <div class="consent-msg" id="consentMsg">Bitte setze das Häkchen, damit wir dir dein Angebot schicken dürfen.</div>
               </div>
               <button type="submit" class="btn">Angebot anfordern <span class="arw">&rarr;</span></button>
               <p class="reassure">100&nbsp;% unverbindlich &middot; keine Weitergabe deiner Daten</p>
@@ -635,6 +640,17 @@
     if(form){
       form.addEventListener('submit',function(e){
         e.preventDefault();
+        var chk=document.getElementById('werbung');
+        var cbox=document.getElementById('consentBox');
+        var cmsg=document.getElementById('consentMsg');
+        if(chk && !chk.checked){
+          if(cbox) cbox.classList.add('err');
+          if(cmsg) cmsg.classList.add('show');
+          try{ chk.focus(); cbox.scrollIntoView({block:'center',behavior:'smooth'}); }catch(e){}
+          return;
+        }
+        if(cbox) cbox.classList.remove('err');
+        if(cmsg) cmsg.classList.remove('show');
         if(!form.checkValidity()){ form.reportValidity(); return; }
         leadData={quelle:'KI-Partner LP',seite:'ki-anfrage.html',utm:location.search||'',zeitpunkt:new Date().toISOString()};
         form.querySelectorAll('input, select').forEach(function(el){
@@ -646,6 +662,17 @@
         leadWrap.style.display='none'; calWrap.style.display='block'; initCalendly();
       });
     }
+    var consentChk=document.getElementById('werbung');
+    if(consentChk){
+      consentChk.addEventListener('change',function(){
+        if(this.checked){
+          var b=document.getElementById('consentBox'), m=document.getElementById('consentMsg');
+          if(b) b.classList.remove('err');
+          if(m) m.classList.remove('show');
+        }
+      });
+    }
+
     var backBtn=document.getElementById('backBtn');
     if(backBtn) backBtn.onclick=function(){ calWrap.style.display='none'; leadWrap.style.display='block'; };
 
