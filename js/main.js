@@ -135,6 +135,7 @@
        3. Bucht der Lead einen Termin, geht ein zweites Event an den Webhook
        TODO: WEBHOOK_URL (Make) und CALENDLY_URL eintragen. */
     var WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/10002468/4u71cgp/';
+    var N8N_CRM = 'https://n8n.srv1286795.hstgr.cloud/webhook/crm-lead'; /* n8n -> Apps Script -> CRM-Sheet */
     var CALENDLY_URL = 'https://calendly.com/miriam-ochs/erstgesprach-website';
     var form = overlay.querySelector('form');
     if (form) {
@@ -147,6 +148,14 @@
         try {
           fetch(WEBHOOK_URL, {
             method: 'POST', mode: 'no-cors',
+            body: JSON.stringify(payload),
+            keepalive: true
+          });
+        } catch (err) {}
+        try {
+          fetch(N8N_CRM, {
+            method: 'POST', mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload),
             keepalive: true
           });
@@ -385,6 +394,14 @@
           });
         } catch (err) {}
       }
+      try {
+        fetch('https://n8n.srv1286795.hstgr.cloud/webhook/crm-lead', {
+          method: 'POST', mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ event: 'lead', vorname: vn.value, nachname: '', email: em.value, telefon: '', angebot: 'Lead-Magnet 7 Fehler', quelle: 'Lead-Magnet', seite: location.pathname.split('/').pop() || 'index.html', zeitpunkt: new Date().toISOString() }),
+          keepalive: true
+        });
+      } catch (err) {}
       if (window.fbq) fbq('track', 'Lead', { content_name: 'Leadmagnet 7 Fehler' });
       var ok = document.createElement('p');
       ok.className = 'magnet-success';
