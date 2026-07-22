@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Termin auswählen | ochsocial für Versicherungsmakler</title>
-  <meta name="description" content="Such dir direkt deinen Wunschtermin für dein kostenloses Erstgespräch mit Miriam Ochs. Unverbindlich, ehrlich, konkret.">
+  <title>Deine Anfrage | ochsocial für Versicherungsmakler</title>
+  <meta name="description" content="Fordere deine kostenlose Potenzialanalyse an. Wir zeigen dir, wie viele exklusive Anfragen in deiner Sparte und deiner Region realistisch sind.">
   <meta name="robots" content="noindex">
   <link rel="canonical" href="https://ochsocial.de/makler-anfrage.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="ochsocial">
   <meta property="og:locale" content="de_DE">
-  <meta property="og:title" content="Termin auswählen | ochsocial für Versicherungsmakler">
-  <meta property="og:description" content="Such dir direkt deinen Wunschtermin für dein kostenloses Erstgespräch. Unverbindlich, ehrlich, konkret.">
+  <meta property="og:title" content="Deine Anfrage | ochsocial für Versicherungsmakler">
+  <meta property="og:description" content="Fordere deine kostenlose Potenzialanalyse an. Unverbindlich, ehrlich, konkret.">
   <meta property="og:url" content="https://ochsocial.de/makler-anfrage.html">
   <meta property="og:image" content="https://ochsocial.de/assets/og/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
@@ -49,6 +49,12 @@
     .accent-cobalt{background:linear-gradient(120deg,#6FA8F5 0%,#2A5FD0 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
     section{position:relative}
 
+    /* ===== Button ===== */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:'Manrope',system-ui,sans-serif;font-weight:700;font-size:1.02rem;color:#fff;background:var(--cobalt-metallic);border:0;border-radius:var(--radius);padding:16px 26px;cursor:pointer;box-shadow:0 12px 28px rgba(30,79,186,.30);transition:transform .15s,box-shadow .15s}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 18px 36px rgba(30,79,186,.38)}
+    .btn .arw{transition:transform .15s}
+    .btn:hover .arw{transform:translateX(3px)}
+
     /* ===== Header ===== */
     .hdr{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(20,22,58,.55);backdrop-filter:blur(10px)}
     .hdr-in{display:flex;align-items:center;justify-content:space-between;height:74px;max-width:1140px;margin:0 auto;padding:0 24px}
@@ -56,34 +62,44 @@
     .hdr .back{font-weight:700;font-size:.9rem;color:rgba(255,255,255,.8)}
     .hdr .back:hover{color:#fff}
 
-    /* ===== Booking ===== */
+    /* ===== Anfrage ===== */
     .book{background:radial-gradient(120% 120% at 15% 0%,#1E2A63 0%,#14163A 60%,#0E1030 100%);color:#fff;padding:126px 0 92px;min-height:100vh}
     .book .eyebrow{color:var(--champagne)}
     .book-head{text-align:center;max-width:60ch;margin:0 auto}
     .book-head h2{font-weight:800;font-size:clamp(2rem,4.4vw,3rem);line-height:1.08;margin-top:14px}
     .book-head p{margin-top:16px;color:var(--white-72);font-size:1.14rem}
 
-    /* Einspaltig: Host -> Kalender -> Bullets DARUNTER */
+    /* Einspaltig: Formular -> Kalender -> Bullets DARUNTER */
     .book-col{max-width:820px;margin:40px auto 0}
-    .host{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.05);border:1px solid var(--white-14);border-radius:14px;padding:16px 18px;margin-bottom:20px}
-    .host img{width:60px;height:60px;border-radius:50%;object-fit:cover;border:2px solid rgba(240,217,160,.6)}
-    .host b{display:block;font-size:1.05rem;color:#fff}
-    .host span{font-size:.9rem;color:var(--white-72)}
 
-    .panel{background:#fff;border-radius:16px;box-shadow:0 30px 70px rgba(0,0,0,.35);color:var(--navy);padding:20px 20px 22px;overflow:hidden}
-    /* Calendly hängt das iframe direkt in #calBox, ohne eigenen Wrapper -> Höhe muss hier stehen */
-    #calBox{border-radius:10px;overflow:hidden;height:760px}
+    .panel{background:#fff;border-radius:16px;box-shadow:0 30px 70px rgba(0,0,0,.35);color:var(--navy);padding:30px 30px 32px;overflow:hidden}
+    .panel h3{font-size:1.35rem;font-weight:800;margin:0 0 20px}
+    .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .field{display:flex;flex-direction:column;gap:6px}
+    .field.full{grid-column:1 / -1}
+    .field label{font-size:.84rem;font-weight:700;color:var(--navy-70)}
+    .field input,.field select{font-family:inherit;font-size:1rem;padding:13px 14px;border:1.5px solid var(--line);border-radius:var(--radius);background:#fff;color:var(--navy);transition:border-color .15s}
+    .field input:focus,.field select:focus{outline:none;border-color:var(--cobalt)}
+    .consent{grid-column:1/-1;display:flex;gap:10px;align-items:flex-start;font-size:.82rem;color:var(--navy-55);margin-top:2px;cursor:pointer}
+    .consent.err{color:#D93A3F}
+    .consent.err input{outline:2px solid #D93A3F;outline-offset:2px}
+    .consent input{margin-top:3px}
+    .consent-msg{grid-column:1/-1;display:none;color:#D93A3F;font-size:.82rem;font-weight:700;margin-top:-4px}
+    .consent-msg.show{display:block}
+    .panel .btn{width:100%;margin-top:20px}
+    .panel .reassure{text-align:center;font-size:.82rem;color:var(--navy-55);margin-top:12px}
+
+    #calBox{border-radius:10px;overflow:hidden;height:700px}
     #calBox iframe{display:block;width:100%!important;height:100%!important;border:0}
-    .calendly-inline-widget{min-width:280px;width:100%;height:100%}
     .cal-fallback{display:none;text-align:center;margin-top:14px;font-size:.95rem;font-weight:700;color:var(--cobalt)}
-    .cal-loading{text-align:center;padding:70px 20px;color:var(--navy-55);font-weight:600}
+    #calWrap .backlink{background:none;border:0;color:var(--cobalt);font-weight:700;font-size:.9rem;cursor:pointer;padding:0;margin-bottom:12px}
     .done{text-align:center;padding:60px 20px}
     .done .ok{width:76px;height:76px;border-radius:50%;background:var(--mint);display:flex;align-items:center;justify-content:center;margin:0 auto 22px}
     .done .ok svg{width:40px;height:40px;color:#fff}
     .done h3{font-size:1.6rem;font-weight:800;margin-bottom:12px}
     .done p{color:var(--navy-70);font-size:1.05rem;max-width:44ch;margin:0 auto}
 
-    /* Die 4 Punkte UNTER dem Kalender */
+    /* Die 4 Punkte UNTER dem Formular */
     .book-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:22px 30px;margin-top:38px}
     .book-list li{display:flex;gap:14px;align-items:flex-start}
     .book-list svg{width:24px;height:24px;color:var(--mint);flex:0 0 auto;margin-top:2px}
@@ -108,7 +124,8 @@
     @media(max-width:640px){
       .book{padding:100px 0 66px}
       .book-list{grid-template-columns:1fr;gap:18px}
-      .panel{padding:12px 10px 14px}
+      .panel{padding:20px 16px 22px}
+      .fgrid{grid-template-columns:1fr}
       #calBox{height:1020px}
     }
   </style>
@@ -125,24 +142,51 @@
     </div>
   </header>
 
-  <!-- ===== Terminauswahl ===== -->
+  <!-- ===== Anfrage ===== -->
   <section class="book" id="anfrage">
     <div class="wrap">
       <div class="book-head">
-        <span class="eyebrow">Kostenloses Erstgespräch</span>
-        <h2>Such dir deinen <span class="accent-cobalt">Wunschtermin</span></h2>
-        <p>Wähle direkt im Kalender einen Termin, der dir passt. Unverbindlich, ehrlich, konkret.</p>
+        <span class="eyebrow">Deine kostenlose Potenzialanalyse</span>
+        <h2>Fordere deine <span class="accent-cobalt">Analyse</span> an</h2>
+        <p>Trag kurz deine Daten ein. Wir rechnen dir durch, was in deiner Sparte und deiner Region realistisch ist. Unverbindlich und kostenfrei.</p>
       </div>
 
       <div class="book-col">
-        <div class="host">
-          <img src="assets/team/miri_business.webp" alt="Miriam Ochs">
-          <div><b>Dein Gespräch mit Miriam</b><span>Gründerin von ochsocial &middot; spricht persönlich mit dir</span></div>
-        </div>
-
         <div class="panel">
-          <div id="calWrap">
-            <div id="calBox"><div class="cal-loading">Kalender wird geladen &hellip;</div></div>
+          <div id="leadWrap">
+            <h3>Deine Daten</h3>
+            <form id="leadForm" novalidate>
+              <div class="fgrid">
+                <div class="field"><label for="vorname">Vorname*</label><input id="vorname" name="vorname" type="text" required></div>
+                <div class="field"><label for="nachname">Nachname*</label><input id="nachname" name="nachname" type="text" required></div>
+                <div class="field"><label for="email">E-Mail*</label><input id="email" name="email" type="email" required></div>
+                <div class="field"><label for="telefon">Telefon*</label><input id="telefon" name="telefon" type="tel" required></div>
+                <div class="field full"><label for="angebot">Welche Sparte willst du füllen?*</label>
+                  <select id="angebot" name="angebot" required>
+                    <option value="" selected disabled>Bitte wählen</option>
+                    <option>Sterbegeld</option>
+                    <option>Berufsunfähigkeit</option>
+                    <option>Sach &amp; Wohngebäude</option>
+                    <option>Zahnzusatz</option>
+                    <option>Motorrad-Unfall</option>
+                    <option>Kindervorsorge</option>
+                    <option>Mehrere Sparten</option>
+                    <option>Noch unklar</option>
+                  </select>
+                </div>
+                <label class="consent" id="consentBox"><input type="checkbox" name="werbung" id="werbung" required><span>Ich bin einverstanden, dass ochsocial mich zu meiner Anfrage kontaktiert.</span></label>
+                <div class="consent-msg" id="consentMsg">Bitte setze das Häkchen, damit wir dir deine Analyse schicken dürfen.</div>
+              </div>
+              <button type="submit" class="btn">Analyse anfordern <span class="arw">&rarr;</span></button>
+              <p class="reassure">100&nbsp;% unverbindlich &middot; keine Weitergabe deiner Daten</p>
+            </form>
+          </div>
+
+          <div id="calWrap" style="display:none">
+            <button class="backlink" id="backBtn">&larr; zurück</button>
+            <h3>Optional: Termin direkt sichern</h3>
+            <p class="reassure" style="text-align:left;margin:2px 0 14px">Deine Anfrage ist raus, wir haben deine Daten. Wenn du willst, buch dir gleich dein Gespräch, sonst melden wir uns bei dir.</p>
+            <div id="calBox"></div>
             <a id="calFallback" class="cal-fallback" href="https://calendly.com/miriam-ochs/erstgesprach-website" target="_blank" rel="noopener">Kalender lädt nicht? Hier im neuen Tab öffnen &rarr;</a>
           </div>
 
@@ -155,7 +199,7 @@
           </div>
         </div>
 
-        <!-- Die 4 Punkte stehen UNTER dem Kalender -->
+        <!-- Die 4 Punkte stehen UNTER dem Formular -->
         <ul class="book-list">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><div><b>Deine beste Sparte</b><span>Womit du in deiner Region am schnellsten in den Abschluss kommst</span></div></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><div><b>Deine Zahlen</b><span>Wie viele exklusive Anfragen für dich realistisch sind</span></div></li>
@@ -192,7 +236,9 @@
     document.getElementById('yr').textContent = new Date().getFullYear();
 
     var CALENDLY_URL   = 'https://calendly.com/miriam-ochs/erstgesprach-website';
+    var WEBHOOK_URL    = 'https://hooks.zapier.com/hooks/catch/10002468/4u71cgp/';
     var WEBHOOK_TERMIN = 'https://hooks.zapier.com/hooks/catch/10002468/4u7f5ey/';
+    var N8N_CRM        = 'https://n8n.srv1286795.hstgr.cloud/webhook/crm-lead';
     var QUELLE = 'Makler LP';
 
     /* Paket aus der URL (?paket=starter|wachstum|skalierung) -> wandert als utm_content mit nach Calendly */
@@ -217,19 +263,22 @@
     document.getElementById('cy').onclick=function(){try{localStorage.setItem('os_consent','yes');}catch(e){} cb.style.display='none'; loadMetaPixel();};
     document.getElementById('cn').onclick=function(){try{localStorage.setItem('os_consent','no');}catch(e){} cb.style.display='none';};
 
-    /* Calendly-Widget laden */
+    /* Calendly-Widget-Skript laden */
     (function(){
       var s = document.createElement('script');
       s.src = 'https://assets.calendly.com/assets/external/widget.js';
       s.async = true; document.head.appendChild(s);
     })();
 
-    var calBox = document.getElementById('calBox');
-    var calWrap = document.getElementById('calWrap');
+    /* ---------- 2-stufiger Lead-Flow: Formular -> Kalender -> Danke ---------- */
+    var leadWrap = document.getElementById('leadWrap');
+    var calWrap  = document.getElementById('calWrap');
     var doneWrap = document.getElementById('doneWrap');
+    var calBox   = document.getElementById('calBox');
     var calFallback = document.getElementById('calFallback');
+    var form = document.getElementById('leadForm');
+    var leadData = null, calInited = false;
 
-    /* UTMs durchreichen, Paket als utm_content */
     var utm = {
       utmSource:   q('utm_source')   || 'coldmail',
       utmMedium:   q('utm_medium')   || 'email',
@@ -237,45 +286,103 @@
       utmContent:  q('utm_content')  || PAKET || '',
       utmTerm:     q('utm_term')     || ''
     };
-    var directUrl = CALENDLY_URL + '?utm_source=' + encodeURIComponent(utm.utmSource) +
-                    '&utm_medium=' + encodeURIComponent(utm.utmMedium) +
-                    '&utm_campaign=' + encodeURIComponent(utm.utmCampaign) +
-                    (utm.utmContent ? '&utm_content=' + encodeURIComponent(utm.utmContent) : '');
-    if(calFallback) calFallback.href = directUrl;
 
-    var tries = 0;
-    (function initCalendly(){
-      if(window.Calendly && Calendly.initInlineWidget){
-        calBox.innerHTML = '';
-        Calendly.initInlineWidget({
-          url: CALENDLY_URL + '?hide_gdpr_banner=1&primary_color=1e4fba',
-          parentElement: calBox,
-          utm: utm
-        });
-      } else if(tries++ < 60){
-        setTimeout(initCalendly, 250);
-      } else {
-        calBox.innerHTML = '<div class="cal-loading">Der Kalender konnte nicht geladen werden.</div>';
-        if(calFallback) calFallback.style.display = 'block';
+    function sendEvent(name){
+      if(!leadData) return;
+      var p={}; for(var k in leadData) p[k]=leadData[k]; p.event=name;
+      var url=(name==='termin_gebucht')?WEBHOOK_TERMIN:WEBHOOK_URL;
+      try{ fetch(url,{method:'POST',mode:'no-cors',body:JSON.stringify(p),keepalive:true}); }catch(e){}
+      if(name==='lead'){
+        try{ fetch(N8N_CRM,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(p),keepalive:true}); }catch(e){}
       }
-    })();
+    }
+
+    function initCalendly(){
+      if(calInited) return; calInited = true;
+      var name = ((leadData.vorname||'')+' '+(leadData.nachname||'')).trim();
+      if(calFallback){
+        calFallback.href = CALENDLY_URL + '?name=' + encodeURIComponent(name) + '&email=' + encodeURIComponent(leadData.email||'');
+      }
+      var tries = 0;
+      (function go(){
+        tries++;
+        if(window.Calendly && Calendly.initInlineWidget){
+          calBox.innerHTML = '';
+          try{
+            Calendly.initInlineWidget({
+              url: CALENDLY_URL + '?hide_gdpr_banner=1&primary_color=1e4fba',
+              parentElement: calBox,
+              prefill: { name: name, email: leadData.email || '' },
+              utm: utm
+            });
+          }catch(err){ if(calFallback) calFallback.style.display='block'; }
+        } else if(tries < 60){ setTimeout(go, 250); }
+        else if(calFallback){ calFallback.style.display='block'; }
+      })();
+      setTimeout(function(){
+        if(calBox && !calBox.querySelector('iframe') && calFallback){ calFallback.style.display='block'; }
+      }, 6000);
+    }
+
+    if(form){
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        var chk=document.getElementById('werbung');
+        var cbox=document.getElementById('consentBox');
+        var cmsg=document.getElementById('consentMsg');
+        if(chk && !chk.checked){
+          if(cbox) cbox.classList.add('err');
+          if(cmsg) cmsg.classList.add('show');
+          try{ chk.focus(); cbox.scrollIntoView({block:'center',behavior:'smooth'}); }catch(err){}
+          return;
+        }
+        if(cbox) cbox.classList.remove('err');
+        if(cmsg) cmsg.classList.remove('show');
+        if(!form.checkValidity()){ form.reportValidity(); return; }
+
+        leadData = {
+          quelle: QUELLE,
+          seite: 'makler-anfrage.html',
+          paket: PAKET,
+          utm: location.search || '',
+          zeitpunkt: new Date().toISOString(),
+          tags: 'makler-anfrage'
+        };
+        form.querySelectorAll('input, select').forEach(function(el){
+          if(el.name && el.type !== 'checkbox') leadData[el.name] = el.value;
+        });
+        sendEvent('lead');
+        if(window.fbq) fbq('track','Lead',{content_name:QUELLE});
+        leadWrap.style.display='none';
+        calWrap.style.display='block';
+        initCalendly();
+        window.scrollTo({top:0,behavior:'smooth'});
+      });
+    }
+
+    var consentChk=document.getElementById('werbung');
+    if(consentChk){
+      consentChk.addEventListener('change', function(){
+        if(this.checked){
+          var b=document.getElementById('consentBox'), m=document.getElementById('consentMsg');
+          if(b) b.classList.remove('err');
+          if(m) m.classList.remove('show');
+        }
+      });
+    }
+
+    var backBtn=document.getElementById('backBtn');
+    if(backBtn) backBtn.onclick=function(){ calWrap.style.display='none'; leadWrap.style.display='block'; };
 
     /* Buchung: Event an Zapier + Pixel, dann Danke-State */
     window.addEventListener('message', function(ev){
       if(!(ev.data && ev.data.event === 'calendly.event_scheduled')) return;
       var pl = (ev.data.payload) || {};
-      var body = {
-        event: 'termin_gebucht',
-        quelle: QUELLE,
-        seite: 'makler-anfrage.html',
-        paket: PAKET,
-        utm: location.search || '',
-        zeitpunkt: new Date().toISOString(),
-        tags: 'makler-anfrage',
-        calendly_event_uri: (pl.event && pl.event.uri) || '',
-        calendly_invitee_uri: (pl.invitee && pl.invitee.uri) || ''
-      };
-      try{ fetch(WEBHOOK_TERMIN,{method:'POST',mode:'no-cors',body:JSON.stringify(body),keepalive:true}); }catch(e){}
+      if(leadData){
+        leadData.calendly_event_uri   = (pl.event && pl.event.uri) || '';
+        leadData.calendly_invitee_uri = (pl.invitee && pl.invitee.uri) || '';
+      }
+      sendEvent('termin_gebucht');
       if(window.fbq) fbq('track','Schedule',{content_name:QUELLE});
       calWrap.style.display = 'none';
       doneWrap.style.display = 'block';
