@@ -56,9 +56,6 @@
     .btn:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(30,79,186,.5)}
     .btn-champ{background:var(--champ-grad);color:var(--navy);box-shadow:0 12px 30px rgba(240,217,160,.4)}
     .btn-champ:hover{box-shadow:0 16px 40px rgba(240,217,160,.55)}
-    .btn-ghost{background:none;border:1.5px solid var(--line);color:var(--navy);box-shadow:none}
-    .btn-ghost:before{display:none}
-    .btn-ghost:hover{border-color:var(--cobalt);box-shadow:none}
     .btn .arw{transition:transform .16s ease}
     .btn:hover .arw{transform:translateX(4px)}
     .btn:before{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:sheen 3.6s ease-in-out infinite}
@@ -67,49 +64,63 @@
     .cta-inline{display:flex;justify-content:center;margin-top:48px}
 
     /* ===== Header ===== */
-    .hdr{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .25s ease,box-shadow .25s ease}
-    .hdr.solid{background:rgba(243,245,249,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+    .hdr{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(243,245,249,.72);backdrop-filter:blur(10px);transition:background .25s ease,box-shadow .25s ease}
+    .hdr.solid{background:rgba(243,245,249,.94);box-shadow:0 1px 0 var(--line)}
     .hdr-in{display:flex;align-items:center;justify-content:space-between;height:74px;max-width:1140px;margin:0 auto;padding:0 24px}
     .hdr .logo img{height:30px;width:auto}
-    .logo-dark{display:none}.logo-light{display:block}
-    .hdr.solid .logo-dark{display:block}.hdr.solid .logo-light{display:none}
     .hdr .header-cta{font-family:'Manrope',sans-serif;font-weight:700;font-size:.9rem;padding:12px 22px;border-radius:var(--radius);background:var(--cobalt-metallic);color:#fff;transition:transform .15s;box-shadow:0 8px 20px rgba(30,79,186,.3)}
     .hdr .header-cta:hover{transform:translateY(-2px)}
 
-    /* ===== Glow eyebrow ===== */
-    .glow-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);border:1px solid rgba(240,217,160,.4);padding:9px 18px;border-radius:999px;font-size:.82rem;font-weight:700;color:var(--champagne);letter-spacing:.02em;animation:badgeGlow 2.6s ease-in-out infinite}
-    @keyframes badgeGlow{0%,100%{box-shadow:0 0 18px 0 rgba(240,217,160,.18);border-color:rgba(240,217,160,.35)}50%{box-shadow:0 0 0 3px rgba(240,217,160,.08),0 0 34px 2px rgba(240,217,160,.42);border-color:rgba(240,217,160,.75)}}
-    .glow-badge .dot{width:9px;height:9px;border-radius:50%;background:var(--mint);animation:dotPulse 1.7s ease-in-out infinite}
-    @keyframes dotPulse{0%,100%{box-shadow:0 0 0 0 rgba(62,207,151,.55)}70%{box-shadow:0 0 0 8px rgba(62,207,151,0)}}
+    /* ===== Hero (hell, wie ochsocial.de) ===== */
+    .hero{background:var(--offwhite);color:var(--navy);padding:126px 0 72px;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;pointer-events:none;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,#000 72%,transparent 100%);mask-image:linear-gradient(180deg,#000 72%,transparent 100%)}
+    .hero-bg::before,.hero-bg::after{content:'';position:absolute;border-radius:50%;filter:blur(70px);will-change:transform}
+    .hero-bg::before{width:780px;height:780px;top:-220px;right:-140px;background:radial-gradient(circle at 35% 35%,rgba(111,168,245,.5),rgba(30,79,186,.28) 55%,transparent 75%);animation:blob-a 11s ease-in-out infinite}
+    .hero-bg::after{width:620px;height:620px;bottom:-220px;left:-160px;background:radial-gradient(circle at 60% 40%,rgba(240,217,160,.55),rgba(111,168,245,.25) 60%,transparent 78%);animation:blob-b 14s ease-in-out infinite}
+    .hero-bg span{position:absolute;border-radius:50%;filter:blur(60px);width:420px;height:420px;top:32%;left:34%;background:radial-gradient(circle,rgba(30,79,186,.28),transparent 70%);animation:blob-c 13s ease-in-out infinite}
+    @keyframes blob-a{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(-160px,90px) scale(1.22)}66%{transform:translate(70px,-70px) scale(.88)}}
+    @keyframes blob-b{0%,100%{transform:translate(0,0) scale(1)}40%{transform:translate(110px,-70px) scale(1.15)}70%{transform:translate(-50px,30px) scale(.9)}}
+    @keyframes blob-c{0%,100%{transform:translate(0,0) scale(1);opacity:.7}50%{transform:translate(130px,80px) scale(1.3);opacity:1}}
+    @media(prefers-reduced-motion:reduce){.hero-bg::before,.hero-bg::after,.hero-bg span{animation:none}}
 
-    /* ===== Hero ===== */
-    .hero{background:radial-gradient(120% 130% at 82% -10%,#1E2A63 0%,#14163A 55%,#0E1030 100%);color:#fff;padding:130px 0 78px;overflow:hidden}
-    .hero:before{content:"";position:absolute;top:-160px;right:-120px;width:560px;height:560px;background:radial-gradient(circle,rgba(111,168,245,.24),transparent 68%);pointer-events:none}
-    .hero:after{content:"";position:absolute;bottom:-220px;left:-160px;width:520px;height:520px;background:radial-gradient(circle,rgba(30,79,186,.32),transparent 70%);pointer-events:none}
-    .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.12fr .88fr;grid-template-areas:"txt vis" "badges vis";gap:14px 40px;align-items:center}
-    .hero-txt{grid-area:txt}
-    .hero-vis{grid-area:vis}
-    .hero-badges{grid-area:badges;align-self:start}
-    .hero h1{font-weight:800;font-size:clamp(2.25rem,4.7vw,3.6rem);line-height:1.05;letter-spacing:-.02em;margin-top:22px}
-    .hero h1 .hl{color:var(--champagne)}
-    .hero .sub{margin-top:22px;font-size:clamp(1.02rem,1.7vw,1.2rem);color:var(--white-72);max-width:52ch;font-weight:400}
-    .hero-cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:14px}
-    .hero-micro{margin-top:16px;font-size:.92rem;color:var(--champagne);font-weight:700;display:inline-flex;align-items:center;gap:8px}
-    .hero-micro svg{width:16px;height:16px}
-    .proof-row{margin-top:30px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-    .av-stack{display:flex}
-    .av-stack img{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid #1a1d47;margin-left:-12px;background:#2a2d57}
-    .av-stack img:first-child{margin-left:0}
-    .proof-txt{font-size:.9rem;color:var(--white-72);font-weight:600}
-    .proof-txt .stars{color:#FFC53D;letter-spacing:1px}
-    .proof-txt b{color:#fff}
-    .hero-badges{margin-top:22px;background:#fff;border-radius:14px;padding:16px 20px 14px;max-width:max-content;box-shadow:0 14px 34px rgba(0,0,0,.18)}
-    .hero-badges .lbl{font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--navy-55);margin-bottom:10px}
-    .hero-badges .row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
-    .hero-badges img{height:44px;width:auto;object-fit:contain}
-    .hero-vis{position:relative;display:flex;justify-content:center;align-items:flex-end;min-height:460px;align-self:stretch}
-    .hero-vis .halo{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);width:340px;height:340px;background:radial-gradient(circle,rgba(30,79,186,.5),transparent 66%);z-index:1;border-radius:50%}
-    .hero-vis .miri{width:100%;max-width:410px;position:relative;z-index:2;filter:drop-shadow(0 24px 44px rgba(0,0,0,.4));-webkit-mask-image:linear-gradient(180deg,#000 70%,transparent 99%);mask-image:linear-gradient(180deg,#000 70%,transparent 99%)}
+    .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:7fr 5fr;gap:clamp(24px,4vw,60px);align-items:end}
+    .hero-txt{grid-area:auto}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:12px;font-weight:800;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--cobalt)}
+    .hero-eyebrow:before{content:"";width:26px;height:2px;background:var(--cobalt);border-radius:2px}
+    .hero h1{font-weight:800;font-size:clamp(2.25rem,4.7vw,3.6rem);line-height:1.05;letter-spacing:-.025em;margin-top:24px}
+    .hero .sub{margin-top:24px;font-size:clamp(1.02rem,1.7vw,1.2rem);color:var(--navy-70);max-width:54ch;font-weight:400}
+    .hero-ohne{display:flex;gap:12px 28px;flex-wrap:wrap;margin-top:20px}
+    .hero-ohne span{display:inline-flex;align-items:center;gap:8px;font-size:.95rem;font-weight:700;color:var(--navy-55)}
+    .hero-ohne span:before{content:'✕';color:#D64545;font-weight:800;font-size:.8rem}
+    .hero-cta{margin-top:36px;display:flex;flex-wrap:wrap;gap:16px}
+    .btn-wa{background:var(--champ-grad);color:var(--navy);box-shadow:0 12px 30px rgba(240,217,160,.4)}
+    .btn-wa:hover{box-shadow:0 16px 40px rgba(240,217,160,.55)}
+    .btn-wa svg{width:19px;height:19px;color:var(--navy)}
+    .cta-note{font-size:.85rem;color:var(--navy-55);margin-top:14px}
+    /* Proof-Pille wie auf ochsocial.de */
+    .hero-proof{display:inline-flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:22px;padding:12px 22px 12px 14px;background:#fff;border:1px solid var(--line);border-radius:100px;box-shadow:0 18px 40px -24px rgba(20,22,58,.4)}
+    .hero-proof .avatars{display:flex}
+    .hero-proof .avatars img{width:38px;height:38px;border-radius:50%;object-fit:cover;border:2.5px solid #fff;margin-left:-11px}
+    .hero-proof .avatars img:first-child{margin-left:0}
+    .hero-proof .hp-item{display:inline-flex;align-items:center;gap:6px;font-size:.88rem;font-weight:600;color:var(--navy-70);white-space:nowrap}
+    .hero-proof .hp-item b{color:var(--cobalt);font-weight:800;font-size:1rem}
+    .hero-proof .hp-sep{width:1px;height:26px;background:rgba(20,22,58,.12)}
+    .hero-proof .hp-stars{color:var(--champagne);font-size:1.05rem;letter-spacing:2px;text-shadow:0 1px 0 rgba(20,22,58,.15)}
+    .hero-badges{display:flex;gap:26px;align-items:center;margin-top:56px;flex-wrap:wrap}
+    .hero-badges img{height:56px;width:auto;object-fit:contain}
+    .hb-label{display:block;width:100%;font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--navy-55)}
+    /* Miri */
+    .hero-vis{position:relative;align-self:end}
+    .hero-vis .miri{position:relative;z-index:1;width:100%;max-width:460px;margin:0 auto;-webkit-mask-image:linear-gradient(180deg,#000 82%,transparent 100%);mask-image:linear-gradient(180deg,#000 82%,transparent 100%)}
+    .miri-tag{position:absolute;z-index:2;bottom:-8px;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.85);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:100px;padding:10px 22px;white-space:nowrap;font-size:.85rem;font-weight:700;color:var(--navy);box-shadow:0 14px 34px -18px rgba(20,22,58,.4)}
+    .miri-tag span{color:var(--navy-55);font-weight:600}
+
+    /* ===== Sticky Mobile CTA ===== */
+    .mobile-cta-bar{position:fixed;left:0;right:0;bottom:0;z-index:950;display:none;grid-template-columns:1fr 1fr;background:var(--navy);border-top:1px solid var(--white-14);padding:10px 12px calc(10px + env(safe-area-inset-bottom));gap:10px}
+    .mcb-btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 10px;border-radius:var(--radius);font-weight:800;font-size:.92rem}
+    .mcb-btn.form{background:var(--cobalt-metallic);color:#fff}
+    .mcb-btn.wa{background:var(--champ-grad);color:var(--navy)}
+    .mcb-btn svg{width:17px;height:17px}
 
     /* ===== Generic ===== */
     .sec{padding:92px 0}
@@ -134,7 +145,12 @@
     .pain-punch{margin-top:42px;text-align:center;font-size:clamp(1.25rem,3vw,1.75rem);font-weight:700;line-height:1.35;max-width:30ch;margin-left:auto;margin-right:auto}
 
     /* ===== Sparten ===== */
-    .sparten-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:46px}
+    .sparten-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:46px}
+    .sparten-warum{margin-top:44px;background:var(--offwhite);border:1px solid var(--line);border-left:4px solid var(--cobalt);border-radius:14px;padding:30px 32px;max-width:none}
+    .bg-off .sparten-warum{background:#fff}
+    .sparten-warum h3{font-size:1.16rem;font-weight:800;margin-bottom:12px}
+    .sparten-warum p{color:var(--navy-70);font-size:1.02rem}
+    .sparten-warum p + p{margin-top:12px}
     .sparte{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 20px;text-align:center;box-shadow:0 10px 26px rgba(20,22,58,.05);transition:transform .18s ease,box-shadow .18s ease}
     .sparte:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(20,22,58,.1)}
     .bg-off .sparte{background:#fff}
@@ -214,7 +230,7 @@
     .graph-head p{margin-top:16px;color:var(--white-72);font-size:1.1rem}
     .cmp-chart{margin-top:52px;background:rgba(255,255,255,.045);border:1px solid var(--white-14);border-radius:20px;padding:52px 34px 34px;display:flex;align-items:flex-end;justify-content:center;gap:clamp(30px,8vw,90px);height:400px}
     .cbar{width:clamp(110px,22vw,180px);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
-    .cbar .fill{width:100%;border-radius:12px 12px 0 0;height:0;transition:height 1.2s cubic-bezier(.2,.7,.3,1);position:relative}
+    .cbar .fill{width:100%;border-radius:12px 12px 0 0;height:0;transition:height 2.2s cubic-bezier(.22,.7,.28,1);position:relative}
     .cbar.low .fill{background:rgba(255,255,255,.14)}
     .cbar.high .fill{background:var(--cobalt-metallic);box-shadow:0 0 40px rgba(30,79,186,.4)}
     .cbar .num{position:absolute;top:-40px;left:0;right:0;text-align:center;font-weight:800;font-size:clamp(1.4rem,3vw,2rem);color:#fff}
@@ -266,7 +282,7 @@
 
     /* ===== Testimonials ===== */
     .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
-    .tcard{background:var(--offwhite);border:1px solid var(--line);border-radius:16px;padding:26px 26px 24px;box-shadow:0 12px 34px rgba(20,22,58,.05);display:flex;flex-direction:column}
+    .tcard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 26px 24px;box-shadow:0 12px 34px rgba(20,22,58,.05);display:flex;flex-direction:column}
     .tcard .thead{display:flex;align-items:center;gap:13px;margin-bottom:14px}
     .tcard .thead img{width:52px;height:52px;border-radius:50%;object-fit:cover}
     .tcard .thead .nm{font-weight:800;font-size:1rem;line-height:1.15}
@@ -276,8 +292,9 @@
 
     /* ===== Warum ===== */
     .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px}
-    .why-card{padding:30px 28px;border-radius:16px;background:var(--offwhite);border:1px solid var(--line)}
-    .bg-off .why-card{background:#fff}
+    .why-card{padding:30px 28px;border-radius:16px;background:var(--navy);border:1px solid var(--navy);color:#fff;box-shadow:0 18px 44px rgba(20,22,58,.16)}
+    .why-card h3{color:#fff}
+    .why-card p{color:rgba(255,255,255,.82)}
     .why-card .ic{width:50px;height:50px;border-radius:12px;background:var(--champ-grad);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
     .why-card .ic svg{width:25px;height:25px;color:var(--navy)}
     .why-card h3{font-size:1.12rem;font-weight:800;margin-bottom:9px}
@@ -366,11 +383,14 @@
       .pkg.pop{padding-top:44px;margin-top:14px}
     }
     @media(max-width:960px){
-      .hero-grid{grid-template-columns:1fr;grid-template-areas:"txt" "vis" "badges";gap:18px}
-      .hero-vis{min-height:0;margin-top:6px}
-      .hero-vis .miri{max-width:280px}
-      .hero-badges{max-width:none}
-      .hero-badges .row{justify-content:space-between;gap:14px}
+      .hero-grid{grid-template-columns:1fr;gap:18px}
+      .hero-vis{margin-top:10px}
+      .hero-vis .miri{max-width:300px}
+      .hero-badges{gap:14px;margin-top:38px}
+      .hero-badges img{height:44px}
+      .hero-bg{opacity:.3}
+      .hero-proof{flex-direction:column;align-items:flex-start;gap:10px;border-radius:22px;padding:16px 20px}
+      .sparten-grid{grid-template-columns:repeat(2,1fr)}
       .pain-grid{grid-template-columns:1fr}
       .vs-grid{grid-template-columns:1fr;gap:16px}
       .vs-mid{transform:rotate(90deg);margin:2px 0}
@@ -389,11 +409,18 @@
       .hdr .header-cta{padding:10px 16px;font-size:.82rem}
       .mbr{display:inline}
     }
+    @media(max-width:860px){
+      .mobile-cta-bar{display:grid}
+      body{padding-bottom:66px}
+      #consent{bottom:78px}
+    }
     @media(max-width:560px){
       .sec{padding:60px 0}
       .cta-band{padding:52px 0 72px}
       .hero{padding:104px 0 54px}
       .hero h1{font-size:clamp(2rem,8.5vw,2.7rem)}
+      .hero-bg{opacity:.16}
+      .sparten-warum{padding:24px 22px}
       .sparten-grid{grid-template-columns:1fr 1fr;gap:12px}
       .fgrid{grid-template-columns:1fr}
       .stats-grid{grid-template-columns:1fr}
@@ -413,8 +440,7 @@
   <header class="hdr" id="hdr">
     <div class="hdr-in">
       <a href="#top" class="logo" aria-label="ochsocial">
-        <img class="logo-dark" src="assets/logo/lockup_horizontal_schwarz.webp" alt="ochsocial">
-        <img class="logo-light" src="assets/logo/lockup_horizontal_weiss.webp" alt="ochsocial">
+        <img src="assets/logo/lockup_horizontal_schwarz.webp" alt="ochsocial">
       </a>
       <a href="makler-anfrage.html" class="header-cta">Termin sichern</a>
     </div>
@@ -422,38 +448,45 @@
 
   <!-- ===== Hero ===== -->
   <section class="hero" id="top">
+    <div class="hero-bg"><span></span></div>
     <div class="wrap">
       <div class="hero-grid">
         <div class="hero-txt">
-          <span class="glow-badge"><span class="dot"></span>Nur für Versicherungsmakler<span class="dtonly"> &amp; Maklerbüros</span></span>
-          <h1><span class="hl">30-60 exklusive Anfragen</span> jeden Monat für dein <span class="nowrap">Maklerbüro.</span></h1>
+          <span class="hero-eyebrow">Für Versicherungsmakler<span class="dtonly"> &amp; Maklerbüros</span></span>
+          <h1>30-60 exklusive Anfragen jeden Monat für dein <span class="accent-cobalt nowrap">Maklerbüro.</span></h1>
           <p class="sub">Sterbegeld, BU, Sach, Zahnzusatz und Unfall. Wir bauen die Kampagne, qualifizieren jeden Interessenten vor und schicken ihn direkt in deinen Kalender. Exklusiv für dich, nicht fünfmal weiterverkauft.</p>
-          <div class="hero-cta">
-            <a href="makler-anfrage.html" class="btn btn-champ btn-lg">Kostenloses Erstgespräch sichern <span class="arw">&rarr;</span></a>
-            <a href="#preise" class="btn btn-lg" style="background:rgba(255,255,255,.08);box-shadow:none;border:1px solid rgba(255,255,255,.22);color:#fff">Preise ansehen</a>
+          <div class="hero-ohne">
+            <span>Ohne Leadkauf</span><span>Ohne Kaltakquise</span><span>Ohne Zufall</span>
           </div>
-          <div><span class="hero-micro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Alle Preise offen auf dieser Seite &middot; ab 490 &euro; im Monat</span></div>
-          <div class="proof-row">
-            <div class="av-stack">
-              <img src="assets/testimonials/makler_01.webp" alt="">
-              <img src="assets/testimonials/makler_02.webp" alt="">
-              <img src="assets/testimonials/makler_03.webp" alt="">
-              <img src="assets/testimonials/dietmar.webp" alt="">
-            </div>
-            <div class="proof-txt"><span class="stars">★★★★★</span> Empfohlen von <b class="nowrap">Maklern im DACH-Raum</b></div>
+          <div class="hero-cta">
+            <a href="makler-anfrage.html" class="btn btn-lg">Termin sichern <span class="arw">&rarr;</span></a>
+            <a href="https://wa.me/491624932082?text=Hallo%20ochsocial%2C%20ich%20bin%20Versicherungsmakler%20und%20interessiere%20mich%20f%C3%BCr%20eure%20Pakete." class="btn btn-wa btn-lg" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Direkt per WhatsApp
+            </a>
+          </div>
+          <p class="cta-note">✓ Unverbindlich &amp; kostenfrei &middot; Preise offen auf dieser Seite</p>
+          <div class="hero-proof">
+            <span class="avatars">
+              <img src="assets/testimonials/claudia_43.webp" alt="">
+              <img src="assets/testimonials/daniel.webp" alt="">
+              <img src="assets/testimonials/anna.webp" alt="">
+              <img src="assets/testimonials/jennifer.webp" alt="">
+            </span>
+            <span class="hp-item"><b>450+</b> abgeschlossene Projekte</span>
+            <span class="hp-sep"></span>
+            <span class="hp-item"><span class="hp-stars">★★★★★</span> <b>5,0</b> auf Google</span>
+          </div>
+          <div class="hero-badges">
+            <span class="hb-label">Zertifiziert &amp; geprüft</span>
+            <img src="assets/badges/badge_t_meta_business_partner_trim.webp" alt="Meta Business Partner">
+            <img src="assets/badges/badge_t_meta_certified_trim.webp" alt="Meta Certified Media Buying Professional">
+            <img src="assets/badges/badge_t_funnelcockpit_trim.webp" alt="FunnelCockpit Certified Partner">
           </div>
         </div>
         <div class="hero-vis">
-          <div class="halo"></div>
-          <img class="miri" src="assets/team/miri_transparent.webp" alt="Miriam von ochsocial">
-        </div>
-        <div class="hero-badges">
-          <div class="lbl">Zertifiziert &amp; geprüft</div>
-          <div class="row">
-            <img src="assets/badges/badge_t_meta_business_partner_trim.webp" alt="Meta Business Partner">
-            <img src="assets/badges/badge_t_meta_certified_trim.webp" alt="Meta Certified">
-            <img src="assets/badges/badge_t_funnelcockpit_trim.webp" alt="FunnelCockpit Partner">
-          </div>
+          <img class="miri" fetchpriority="high" src="assets/team/miri_transparent.webp" alt="Miriam Ochs — Gründerin von ochsocial">
+          <div class="miri-tag">Miriam Ochs <span>· Gründerin</span></div>
         </div>
       </div>
     </div>
@@ -499,7 +532,7 @@
     <div class="wrap">
       <div class="sec-head center">
         <span class="eyebrow">Deine Sparten</span>
-        <h2>Für diese Sparten bauen wir dir <span class="accent-cobalt">planbaren Zulauf</span></h2>
+        <h2>Diese Sparten füllen wir dir mit <span class="accent-cobalt">exklusiven Anfragen</span></h2>
         <p>Jede Sparte bekommt ihre eigene Kampagne, ihre eigene Botschaft und ihre eigenen Qualifizierungsfragen. Kein Einheitsbrei.</p>
       </div>
       <div class="sparten-grid">
@@ -524,12 +557,22 @@
           <p>Günstige Anfragen, schneller Abschluss, idealer Einstieg</p>
         </div>
         <div class="sparte">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6h4l1.5 4M5.5 17.5 9 9h6l3.5 8.5"/><circle cx="14" cy="4" r="1.6"/></svg></div>
-          <h3>Unfall</h3>
-          <p>Motorradfahrer und Kinderunfall: zwei Nischen mit klarem Trigger</p>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="17.5" r="3.4"/><circle cx="19" cy="17.5" r="3.4"/><path d="M15 6.5h4L20.5 11M5 17.5 8.5 9h6l4.5 8.5"/><circle cx="14.5" cy="4" r="1.5"/></svg></div>
+          <h3>Motorrad-Unfall</h3>
+          <p>Saisonale Nachfrage mit klarem Trigger, sehr günstige Anfragen</p>
+        </div>
+        <div class="sparte">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.6"/><path d="M12 7.6v6M8.6 10.4h6.8M9.6 21l2.4-7.4L14.4 21"/></svg></div>
+          <h3>Kinder-Unfall</h3>
+          <p>Eltern entscheiden schnell, hohe Abschluss- und Cross-Selling-Quote</p>
         </div>
       </div>
-      <p class="sparten-note">Du willst nur eine Sparte starten? Geht. Du willst drei parallel fahren? Auch. Womit du beginnst, entscheiden wir gemeinsam anhand deiner Region und deiner Abschlussstärke.</p>
+      <div class="sparten-warum">
+        <h3>Warum genau diese sechs Sparten?</h3>
+        <p>Weil wir nur das anbieten, wofür wir Zahlen haben. Für diese sechs Sparten kennen wir die Zielgruppen, die Ansprache und die Werbemittel, die funktionieren, und wissen aus laufenden Kampagnen, was eine Anfrage kostet und wie sie sich in Abschlüsse übersetzt.</p>
+        <p>Alles andere, etwa PKV, Gewerbe oder Altersvorsorge, wäre für dich ein Blindflug auf deine Kosten. Wir starten lieber dort, wo wir am ersten Tag wissen, was passiert, und bauen von da aus weiter.</p>
+      </div>
+      <p class="sparten-note">Du willst nur eine Sparte starten? Geht. Du willst mehrere parallel fahren? Auch. Womit du beginnst, entscheiden wir gemeinsam anhand deiner Region und deiner Abschlussstärke.</p>
     </div>
   </section>
 
@@ -655,11 +698,11 @@
       </div>
       <div class="cmp-chart" id="cmpChart">
         <div class="cbar low">
-          <div class="fill"><span class="num">5&ndash;10</span></div>
+          <div class="fill"><span class="num" data-from="5" data-to="10">0&ndash;0</span></div>
           <div class="lbl">Vorher<br><span>Empfehlung &amp; gekaufte Leads</span></div>
         </div>
         <div class="cbar high">
-          <div class="fill"><span class="num">30&ndash;60</span></div>
+          <div class="fill"><span class="num" data-from="30" data-to="60">0&ndash;0</span></div>
           <div class="lbl">Mit ochsocial<br><span>exklusiv &amp; vorqualifiziert</span></div>
         </div>
       </div>
@@ -696,7 +739,7 @@
           </ul>
           <div class="pfoot">
             <div class="pmeta">Mindestlaufzeit 3 Monate</div>
-            <a href="makler-anfrage.html?paket=starter" class="btn btn-ghost">Starter anfragen</a>
+            <a href="makler-anfrage.html?paket=starter" class="btn">Starter anfragen <span class="arw">&rarr;</span></a>
           </div>
         </div>
 
@@ -741,7 +784,7 @@
           </ul>
           <div class="pfoot">
             <div class="pmeta">Mindestlaufzeit 3 Monate</div>
-            <a href="makler-anfrage.html?paket=skalierung" class="btn btn-ghost">Skalierung anfragen</a>
+            <a href="makler-anfrage.html?paket=skalierung" class="btn">Skalierung anfragen <span class="arw">&rarr;</span></a>
           </div>
         </div>
       </div>
@@ -808,7 +851,7 @@
     <div class="wrap">
       <div class="sec-head center">
         <span class="eyebrow">Warum ochsocial</span>
-        <h2>Wir verkaufen keine Klicks. Wir liefern <span class="accent-cobalt">Anfragen</span>.</h2>
+        <h2>Wir verkaufen keine Klicks. Wir liefern <span class="accent-cobalt">qualifizierte Anfragen</span>.</h2>
       </div>
       <div class="why-grid">
         <div class="why-card">
@@ -914,6 +957,12 @@
     </div>
   </div>
 
+  <!-- ===== Sticky Mobile CTA ===== -->
+  <div class="mobile-cta-bar">
+    <a href="makler-anfrage.html" class="mcb-btn form">Termin sichern</a>
+    <a href="https://wa.me/491624932082?text=Hallo%20ochsocial%2C%20ich%20bin%20Versicherungsmakler%20und%20interessiere%20mich%20f%C3%BCr%20eure%20Pakete." class="mcb-btn wa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp</a>
+  </div>
+
   <script>
     document.documentElement.classList.remove('no-js');
     document.getElementById('yr').textContent = new Date().getFullYear();
@@ -922,13 +971,32 @@
     function onScroll(){ hdr.classList.toggle('solid', window.scrollY > 40); }
     onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
 
-    /* Vergleichs-Chart animiert beim Reinscrollen */
+    /* Vergleichs-Chart: Balken wachsen langsam, Zahlen zaehlen hoch */
     var cmpChart=document.getElementById('cmpChart');
     if(cmpChart){
+      var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function countUp(el, dur){
+        var from=parseInt(el.getAttribute('data-from'),10), to=parseInt(el.getAttribute('data-to'),10);
+        if(isNaN(from)||isNaN(to)) return;
+        if(reduced){ el.innerHTML=from+'\u2013'+to; return; }
+        var t0=null;
+        function step(ts){
+          if(!t0) t0=ts;
+          var p=Math.min((ts-t0)/dur,1);
+          var e=1-Math.pow(1-p,3);
+          el.innerHTML=Math.round(from*e)+'\u2013'+Math.round(to*e);
+          if(p<1) requestAnimationFrame(step); else el.innerHTML=from+'\u2013'+to;
+        }
+        requestAnimationFrame(step);
+      }
+      function runChart(){
+        cmpChart.classList.add('in');
+        cmpChart.querySelectorAll('.num').forEach(function(el){ countUp(el, 2200); });
+      }
       if('IntersectionObserver' in window){
-        var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){requestAnimationFrame(function(){cmpChart.classList.add('in');});io.disconnect();}});},{threshold:.15});
+        var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){requestAnimationFrame(runChart);io.disconnect();}});},{threshold:.3});
         io.observe(cmpChart);
-      } else { cmpChart.classList.add('in'); }
+      } else { runChart(); }
     }
 
     /* Reichweite: rotierende Ringe + organisch wechselnde Avatare */
