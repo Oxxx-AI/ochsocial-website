@@ -267,7 +267,7 @@
     .book-head{text-align:center;max-width:60ch;margin:0 auto}
     .book-head h2{font-weight:800;font-size:clamp(2rem,4.4vw,3rem);line-height:1.08;margin-top:14px}
     .book-head p{margin-top:16px;color:var(--white-72);font-size:1.14rem}
-    .book-cols{display:grid;grid-template-columns:.82fr 1.18fr;gap:40px;margin-top:50px;align-items:start}
+    .book-cols{display:grid;grid-template-columns:1fr;gap:34px;margin-top:44px;align-items:start;max-width:780px;margin-left:auto;margin-right:auto}
     .host{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.05);border:1px solid var(--white-14);border-radius:14px;padding:16px 18px;margin-bottom:24px}
     .host img{width:60px;height:60px;border-radius:50%;object-fit:cover;border:2px solid rgba(240,217,160,.6)}
     .host b{display:block;font-size:1.05rem;color:#fff}
@@ -290,7 +290,8 @@
     .consent input{margin-top:3px}
     .panel .btn{width:100%;justify-content:center;margin-top:20px}
     .panel .reassure{text-align:center;font-size:.82rem;color:var(--navy-55);margin-top:12px}
-    .calendly-inline-widget{min-width:300px;height:640px}
+    #calBox{min-width:300px;height:640px}
+    .cal-fallback{display:block;margin-top:14px;text-align:center;font-weight:700;color:var(--cobalt)}
     #calWrap .backlink{background:none;border:0;color:var(--cobalt);font-weight:700;font-size:.9rem;cursor:pointer;padding:0;margin-bottom:12px}
     .done{text-align:center;padding:50px 20px}
     .done .ok{width:76px;height:76px;border-radius:50%;background:var(--mint);display:flex;align-items:center;justify-content:center;margin:0 auto 22px}
@@ -401,15 +402,6 @@
         <p>Trag kurz deine Daten ein, wir melden uns mit deinem persönlichen Angebot. Unverbindlich und kostenfrei.</p>
       </div>
       <div class="book-cols">
-        <div>
-          <ul class="book-list">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><div><b>Persönliches Angebot</b><span>Abgestimmt auf deine KI-Lösung und dein Ziel</span></div></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><div><b>Klare Einschätzung</b><span>Wie viele qualifizierte Kunden realistisch drin sind</span></div></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><div><b>Konkreter Fahrplan</b><span>Was die ersten 30 Tage mit uns aussehen</span></div></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><div><b>Unverbindlich</b><span>Passt es nicht, sagen wir es dir ehrlich</span></div></li>
-          </ul>
-        </div>
-
         <div class="panel">
           <div id="leadWrap">
             <h3>Deine Daten</h3>
@@ -440,7 +432,8 @@
             <button class="backlink" id="backBtn">&larr; zurück</button>
             <h3>Optional: Termin direkt sichern</h3>
             <p class="reassure" style="text-align:left;margin:2px 0 14px">Deine Anfrage ist raus, wir haben deine Daten. Wenn du willst, buch dir gleich dein Gespräch, sonst melden wir uns bei dir.</p>
-            <div id="calBox" class="calendly-inline-widget"></div>
+            <div id="calBox"></div>
+            <a id="calFallback" class="cal-fallback" style="display:none" href="https://calendly.com/miriam-ochs/erstgesprach-website" target="_blank" rel="noopener">Kalender öffnet nicht? Hier im neuen Tab öffnen &rarr;</a>
           </div>
 
           <div id="doneWrap" style="display:none">
@@ -450,6 +443,15 @@
               <p>Du bekommst gleich eine Bestätigung mit allen Details per E-Mail. Wir freuen uns auf das Gespräch.</p>
             </div>
           </div>
+        </div>
+
+        <div>
+          <ul class="book-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><div><b>Persönliches Angebot</b><span>Abgestimmt auf deine KI-Lösung und dein Ziel</span></div></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><div><b>Klare Einschätzung</b><span>Wie viele qualifizierte Kunden realistisch drin sind</span></div></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><div><b>Konkreter Fahrplan</b><span>Was die ersten 30 Tage mit uns aussehen</span></div></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><div><b>Unverbindlich</b><span>Passt es nicht, sagen wir es dir ehrlich</span></div></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -607,14 +609,28 @@
     function initCalendly(){
       if(calInited) return; calInited=true;
       var url=CALENDLY_URL+'?hide_gdpr_banner=1&primary_color=1e4fba';
+      var fb=document.getElementById('calFallback');
+      if(fb&&leadData){
+        var q='&name='+encodeURIComponent(((leadData.vorname||'')+' '+(leadData.nachname||'')).trim())+'&email='+encodeURIComponent(leadData.email||'');
+        fb.href=CALENDLY_URL+'?'+q.slice(1);
+      }
+      var tries=0;
       (function go(){
+        tries++;
         if(window.Calendly&&Calendly.initInlineWidget){
-          Calendly.initInlineWidget({url:url,parentElement:calBox,prefill:{
-            name:((leadData.vorname||'')+' '+(leadData.nachname||'')).trim(),
-            email:leadData.email||''
-          }});
-        } else { setTimeout(go,250); }
+          try{
+            Calendly.initInlineWidget({url:url,parentElement:calBox,prefill:{
+              name:((leadData.vorname||'')+' '+(leadData.nachname||'')).trim(),
+              email:leadData.email||''
+            }});
+          }catch(err){ if(fb) fb.style.display='block'; }
+        } else if(tries<40){ setTimeout(go,250); }
+        else if(fb){ fb.style.display='block'; }
       })();
+      /* Sicherheitsnetz: wenn nach 6s kein Kalender sichtbar ist, Direktlink zeigen */
+      setTimeout(function(){
+        if(calBox && !calBox.querySelector('iframe') && fb){ fb.style.display='block'; }
+      },6000);
     }
     if(form){
       form.addEventListener('submit',function(e){
