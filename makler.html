@@ -98,13 +98,14 @@
     .btn-wa svg{width:19px;height:19px;color:var(--navy)}
     .cta-note{font-size:.85rem;color:var(--navy-55);margin-top:14px}
     /* Proof-Pille wie auf ochsocial.de */
-    .hero-proof{display:inline-flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:22px;padding:12px 22px 12px 14px;background:#fff;border:1px solid var(--line);border-radius:100px;box-shadow:0 18px 40px -24px rgba(20,22,58,.4)}
+    .hero-proof{display:inline-flex;align-items:center;gap:8px 16px;flex-wrap:nowrap;margin-top:22px;padding:12px 22px 12px 14px;background:#fff;border:1px solid var(--line);border-radius:100px;box-shadow:0 18px 40px -24px rgba(20,22,58,.4);max-width:100%}
     .hero-proof .avatars{display:flex}
     .hero-proof .avatars img{width:38px;height:38px;border-radius:50%;object-fit:cover;border:2.5px solid #fff;margin-left:-11px}
     .hero-proof .avatars img:first-child{margin-left:0}
     .hero-proof .hp-item{display:inline-flex;align-items:center;gap:6px;font-size:.88rem;font-weight:600;color:var(--navy-70);white-space:nowrap}
     .hero-proof .hp-item b{color:var(--cobalt);font-weight:800;font-size:1rem}
-    .hero-proof .hp-sep{width:1px;height:26px;background:rgba(20,22,58,.12)}
+    .hero-proof .hp-sep{width:1px;height:26px;background:rgba(20,22,58,.12);flex:0 0 auto}
+    @media(max-width:1180px){.hero-proof{flex-wrap:wrap;border-radius:22px;align-items:flex-start}.hero-proof .hp-sep{display:none}}
     .hero-proof .hp-stars{color:var(--champagne);font-size:1.05rem;letter-spacing:2px;text-shadow:0 1px 0 rgba(20,22,58,.15)}
     .hero-badges{display:flex;gap:26px;align-items:center;margin-top:56px;flex-wrap:wrap}
     .hero-badges img{height:56px;width:auto;object-fit:contain}
@@ -237,6 +238,7 @@
     .cbar.high .num{color:var(--champagne)}
     .cbar .lbl{margin-top:16px;font-weight:800;color:#fff;text-align:center;line-height:1.3}
     .cbar .lbl span{display:block;font-weight:500;font-size:.86rem;color:var(--white-72)}
+    .champ-text{display:inline!important;font-weight:800!important;font-size:inherit!important;background:var(--champ-grad);-webkit-background-clip:text;background-clip:text;color:transparent!important}
     .cmp-chart.in .cbar.low .fill{height:16%}
     .cmp-chart.in .cbar.high .fill{height:100%}
     .chart-note{margin-top:22px;text-align:center;font-size:.92rem;color:var(--white-72)}
@@ -254,7 +256,8 @@
     .pkg .pfor{margin-top:10px;font-size:.98rem;color:var(--navy-55);min-height:48px}
     .pkg.pop .pfor{color:rgba(255,255,255,.8)}
     .pkg .price{margin-top:20px;display:flex;align-items:baseline;gap:7px}
-    .pkg .price b{font-size:clamp(2.2rem,4.4vw,2.9rem);font-weight:800;letter-spacing:-.02em;line-height:1}
+    .pkg .price b{font-size:clamp(2.2rem,4.4vw,2.9rem);font-weight:800;letter-spacing:-.02em;line-height:1;background:var(--cobalt-metallic);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .pkg.pop .price b{background:var(--champ-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
     .pkg .price span{font-size:.98rem;font-weight:700;color:var(--navy-55)}
     .pkg.pop .price span{color:rgba(255,255,255,.75)}
     .pkg .pnet{margin-top:7px;font-size:.84rem;color:var(--navy-55)}
@@ -271,6 +274,22 @@
     .pkg .btn{width:100%;justify-content:center;font-size:.98rem;padding:16px 20px}
     .price-note{margin-top:34px;text-align:center;font-size:.96rem;color:var(--navy-70);max-width:64ch;margin-left:auto;margin-right:auto}
     .price-note b{color:var(--navy)}
+
+    /* ===== Kundenergebnisse ===== */
+    .erg-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:50px}
+    .erg-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px 24px 22px;box-shadow:0 12px 34px rgba(20,22,58,.06);display:flex;flex-direction:column}
+    .bg-white .erg-card{background:var(--offwhite)}
+    .bg-white .erg-shot{background:#fff}
+    .erg-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px;flex-wrap:wrap}
+    .erg-card h3{font-size:1.1rem;font-weight:800}
+    .erg-card .vs{font-size:.74rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--cobalt);background:rgba(30,79,186,.08);padding:5px 11px;border-radius:999px;white-space:nowrap}
+    .erg-kpi{display:flex;gap:26px;flex-wrap:wrap;margin:14px 0 18px}
+    .erg-kpi div{display:flex;flex-direction:column}
+    .erg-kpi b{font-size:1.5rem;font-weight:800;letter-spacing:-.01em;line-height:1;background:var(--cobalt-metallic);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .erg-kpi span{font-size:.8rem;color:var(--navy-55);font-weight:600;margin-top:5px}
+    .erg-shot{margin-top:auto;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--offwhite)}
+    .erg-shot img{width:100%;height:auto;display:block}
+    .erg-note{margin-top:30px;text-align:center;font-size:.92rem;color:var(--navy-55);max-width:70ch;margin-left:auto;margin-right:auto}
 
     /* ===== Stats ===== */
     .stats-head{text-align:center;max-width:60ch;margin:0 auto}
@@ -292,9 +311,9 @@
 
     /* ===== Warum ===== */
     .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px}
-    .why-card{padding:30px 28px;border-radius:16px;background:var(--navy);border:1px solid var(--navy);color:#fff;box-shadow:0 18px 44px rgba(20,22,58,.16)}
+    .why-card{padding:30px 28px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid var(--white-14);color:#fff}
     .why-card h3{color:#fff}
-    .why-card p{color:rgba(255,255,255,.82)}
+    .why-card p{color:var(--white-72)}
     .why-card .ic{width:50px;height:50px;border-radius:12px;background:var(--champ-grad);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
     .why-card .ic svg{width:25px;height:25px;color:var(--navy)}
     .why-card h3{font-size:1.12rem;font-weight:800;margin-bottom:9px}
@@ -391,6 +410,7 @@
       .hero-bg{opacity:.3}
       .hero-proof{flex-direction:column;align-items:flex-start;gap:10px;border-radius:22px;padding:16px 20px}
       .sparten-grid{grid-template-columns:repeat(2,1fr)}
+      .erg-grid{grid-template-columns:1fr}
       .pain-grid{grid-template-columns:1fr}
       .vs-grid{grid-template-columns:1fr;gap:16px}
       .vs-mid{transform:rotate(90deg);margin:2px 0}
@@ -456,7 +476,7 @@
           <h1>30-60 exklusive Anfragen jeden Monat für dein <span class="accent-cobalt nowrap">Maklerbüro.</span></h1>
           <p class="sub">Sterbegeld, BU, Sach, Zahnzusatz und Unfall. Wir bauen die Kampagne, qualifizieren jeden Interessenten vor und schicken ihn direkt in deinen Kalender. Exklusiv für dich, nicht fünfmal weiterverkauft.</p>
           <div class="hero-ohne">
-            <span>Ohne Leadkauf</span><span>Ohne Kaltakquise</span><span>Ohne Zufall</span>
+            <span>Ohne Leadkauf</span><span>Ohne Kaltakquise</span><span>Ohne geteilte Anfragen</span>
           </div>
           <div class="hero-cta">
             <a href="makler-anfrage.html" class="btn btn-lg">Termin sichern <span class="arw">&rarr;</span></a>
@@ -468,10 +488,10 @@
           <p class="cta-note">✓ Unverbindlich &amp; kostenfrei &middot; Preise offen auf dieser Seite</p>
           <div class="hero-proof">
             <span class="avatars">
-              <img src="assets/testimonials/claudia_43.webp" alt="">
-              <img src="assets/testimonials/daniel.webp" alt="">
-              <img src="assets/testimonials/anna.webp" alt="">
-              <img src="assets/testimonials/jennifer.webp" alt="">
+              <img src="assets/testimonials/vk_emre.webp" alt="">
+              <img src="assets/testimonials/vk_aylin.webp" alt="">
+              <img src="assets/testimonials/vk_daniel.webp" alt="">
+              <img src="assets/testimonials/vk_thomas.webp" alt="">
             </span>
             <span class="hp-item"><b>450+</b> abgeschlossene Projekte</span>
             <span class="hp-sep"></span>
@@ -563,14 +583,14 @@
         </div>
         <div class="sparte">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.6"/><path d="M12 7.6v6M8.6 10.4h6.8M9.6 21l2.4-7.4L14.4 21"/></svg></div>
-          <h3>Kinder-Unfall</h3>
+          <h3>Kindervorsorge</h3>
           <p>Eltern entscheiden schnell, hohe Abschluss- und Cross-Selling-Quote</p>
         </div>
       </div>
       <div class="sparten-warum">
         <h3>Warum genau diese sechs Sparten?</h3>
-        <p>Weil wir nur das anbieten, wofür wir Zahlen haben. Für diese sechs Sparten kennen wir die Zielgruppen, die Ansprache und die Werbemittel, die funktionieren, und wissen aus laufenden Kampagnen, was eine Anfrage kostet und wie sie sich in Abschlüsse übersetzt.</p>
-        <p>Alles andere, etwa PKV, Gewerbe oder Altersvorsorge, wäre für dich ein Blindflug auf deine Kosten. Wir starten lieber dort, wo wir am ersten Tag wissen, was passiert, und bauen von da aus weiter.</p>
+        <p>Weil wir für genau diese sechs Sparten seit Jahren Kampagnen fahren und deshalb nicht raten müssen. Wir wissen, welche Zielgruppe auf Instagram und Facebook reagiert, welcher Hook zieht, welches Werbemittel gegen welches gewinnt und ab welchem Punkt eine Kampagne kippt. Diese Erfahrungswerte lassen sich nicht theoretisch herleiten, die hat man oder man hat sie nicht.</p>
+        <p>Genau deshalb können wir dir hier zusagen, dass das System liefert. Wir starten nicht bei null, sondern mit Kampagnenstrukturen, Anzeigen und Qualifizierungsfragen, die in deiner Sparte nachweislich funktionieren. Bei Sparten ohne diese Datenbasis, etwa PKV, Gewerbe oder Altersvorsorge, wäre jede Zusage unseriös, weil du das Lehrgeld zahlen würdest. Deshalb bieten wir sie schlicht nicht an.</p>
       </div>
       <p class="sparten-note">Du willst nur eine Sparte starten? Geht. Du willst mehrere parallel fahren? Auch. Womit du beginnst, entscheiden wir gemeinsam anhand deiner Region und deiner Abschlussstärke.</p>
     </div>
@@ -703,7 +723,7 @@
         </div>
         <div class="cbar high">
           <div class="fill"><span class="num" data-from="30" data-to="60">30&ndash;60</span></div>
-          <div class="lbl">Mit ochsocial<br><span>exklusiv &amp; vorqualifiziert</span></div>
+          <div class="lbl"><span class="champ-text">Mit ochsocial</span><br><span>exklusiv &amp; vorqualifiziert</span></div>
         </div>
       </div>
       <p class="chart-note">Beispielhafte Größenordnung, abhängig von Sparte, Region und Werbebudget. Dein konkretes Potenzial rechnen wir im Erstgespräch durch.</p>
@@ -793,8 +813,59 @@
     </div>
   </section>
 
-  <!-- ===== Zahlen / Stats (white) ===== -->
-  <section class="sec bg-white">
+  <!-- ===== Kundenergebnisse (white) ===== -->
+  <section class="sec bg-white" id="ergebnisse">
+    <div class="wrap">
+      <div class="sec-head center">
+        <span class="eyebrow">Echte Kampagnen, echte Zahlen</span>
+        <h2>Was unsere Makler-Kampagnen <span class="accent-cobalt">tatsächlich liefern</span></h2>
+        <p>Direkt aus dem Werbekonto, ohne Nachbearbeitung. Vier Beispiele aus Sparten, die wir auch für dich fahren.</p>
+      </div>
+      <div class="erg-grid">
+        <div class="erg-card">
+          <div class="erg-top"><h3>Kindervorsorge</h3><span class="vs">ERGO</span></div>
+          <div class="erg-kpi">
+            <div><b>64</b><span>Anfragen</span></div>
+            <div><b>26,25 €</b><span>pro Anfrage</span></div>
+            <div><b>1.675 €</b><span>Werbebudget</span></div>
+          </div>
+          <div class="erg-shot"><img src="assets/cases/vk_erg_kindervorsorge.webp" alt="Werbekonto-Auswertung Kindervorsorge: 24 und 40 Website-Leads zu 26,72 € und 25,85 € pro Lead" loading="lazy"></div>
+        </div>
+        <div class="erg-card">
+          <div class="erg-top"><h3>Sterbegeldversicherung</h3><span class="vs">Hanse Merkur</span></div>
+          <div class="erg-kpi">
+            <div><b>254</b><span>Anfragen</span></div>
+            <div><b>6,49 €</b><span>pro Anfrage</span></div>
+            <div><b>1.649 €</b><span>Werbebudget</span></div>
+          </div>
+          <div class="erg-shot"><img src="assets/cases/vk_erg_sterbegeld.webp" alt="Werbekonto-Auswertung Sterbegeld: 254 Website-Leads zu 6,49 € pro Lead bei 1.649,41 € Ausgaben" loading="lazy"></div>
+        </div>
+        <div class="erg-card">
+          <div class="erg-top"><h3>Berufsunfähigkeit</h3><span class="vs">Signal Iduna</span></div>
+          <div class="erg-kpi">
+            <div><b>126</b><span>Anfragen</span></div>
+            <div><b>24,42 Fr.</b><span>pro Anfrage</span></div>
+            <div><b>3.077 Fr.</b><span>Werbebudget</span></div>
+          </div>
+          <div class="erg-shot"><img src="assets/cases/vk_erg_bu.webp" alt="Werbekonto-Auswertung BU: 126 Website-Leads zu 24,42 Fr. pro Lead bei 3.077,03 Fr. Ausgaben" loading="lazy"></div>
+        </div>
+        <div class="erg-card">
+          <div class="erg-top"><h3>Sachversicherung</h3><span class="vs">Kampagne DACH</span></div>
+          <div class="erg-kpi">
+            <div><b>44</b><span>Anfragen</span></div>
+            <div><b>8,16 Fr.</b><span>pro Anfrage</span></div>
+            <div><b>11.906</b><span>Reichweite</span></div>
+          </div>
+          <div class="erg-shot"><img src="assets/cases/vk_erg_sach.webp" alt="Werbekonto-Auswertung Sachversicherung: 44 Website-Leads zu 8,16 Fr. pro Lead" loading="lazy"></div>
+        </div>
+      </div>
+      <p class="erg-note">Screenshots aus dem Meta-Werbekonto der jeweiligen Kampagne. Ergebnisse schwanken je nach Sparte, Region und Zeitraum. Was in deiner Situation realistisch ist, rechnen wir dir im Erstgespräch durch.</p>
+      <div class="cta-inline"><a href="makler-anfrage.html" class="btn">Termin sichern <span class="arw">&rarr;</span></a></div>
+    </div>
+  </section>
+
+  <!-- ===== Zahlen / Stats (offwhite) ===== -->
+  <section class="sec bg-off">
     <div class="wrap">
       <div class="stats-head">
         <span class="eyebrow">Track Record</span>
@@ -809,8 +880,8 @@
     </div>
   </section>
 
-  <!-- ===== Testimonials (offwhite) ===== -->
-  <section class="sec bg-off">
+  <!-- ===== Testimonials (white) ===== -->
+  <section class="sec bg-white">
     <div class="wrap">
       <div class="sec-head center">
         <span class="eyebrow">Stimmen aus der Zusammenarbeit</span>
@@ -819,24 +890,24 @@
       <div class="testi-grid">
         <div class="tcard">
           <div class="thead">
-            <img src="assets/testimonials/makler_01.webp" alt="">
-            <div><div class="nm">Andreas</div><div class="rl">Versicherungsmakler, Sterbegeld &amp; Unfall</div></div>
+            <img src="assets/testimonials/vk_janis.webp" alt="">
+            <div><div class="nm">Janis</div><div class="rl">Versicherungsmakler, Sterbegeld &amp; Unfall</div></div>
           </div>
           <div class="stars">★★★★★</div>
           <blockquote>„Ich habe jahrelang Leads eingekauft und mich mit vier Kollegen um denselben Kunden geprügelt. Jetzt kommen die Anfragen exklusiv zu mir, und die Leute wissen schon, wer ich bin, wenn ich anrufe. Das ist ein völlig anderes Gespräch."</blockquote>
         </div>
         <div class="tcard">
           <div class="thead">
-            <img src="assets/testimonials/makler_02.webp" alt="">
-            <div><div class="nm">Sven</div><div class="rl">Maklerbüro, BU &amp; Zahnzusatz</div></div>
+            <img src="assets/testimonials/vk_daniel.webp" alt="">
+            <div><div class="nm">Daniel</div><div class="rl">Maklerbüro, BU &amp; Zahnzusatz</div></div>
           </div>
           <div class="stars">★★★★★</div>
           <blockquote>„Wir sind mit Zahnzusatz gestartet, weil das schnell läuft, und haben nach acht Wochen die BU dazugenommen. Zum ersten Mal weiß ich am Monatsanfang, wie viele Termine reinkommen. Danach konnte ich den zweiten Berater einstellen."</blockquote>
         </div>
         <div class="tcard">
           <div class="thead">
-            <img src="assets/testimonials/makler_03.webp" alt="">
-            <div><div class="nm">Michael</div><div class="rl">Versicherungsmakler, Sach &amp; Wohngebäude</div></div>
+            <img src="assets/testimonials/vk_thomas.webp" alt="">
+            <div><div class="nm">Thomas</div><div class="rl">Versicherungsmakler, Sach &amp; Wohngebäude</div></div>
           </div>
           <div class="stars">★★★★★</div>
           <blockquote>„Was mich überzeugt hat: Die Vorqualifizierung filtert wirklich. Ich telefoniere nicht mehr an Leuten vorbei, die gar nicht abschließen wollen. Und ich sehe zum ersten Mal schwarz auf weiß, was mich ein Abschluss kostet."</blockquote>
@@ -846,8 +917,8 @@
     </div>
   </section>
 
-  <!-- ===== Warum (white) ===== -->
-  <section class="sec bg-white">
+  <!-- ===== Warum (navy) ===== -->
+  <section class="sec bg-dark">
     <div class="wrap">
       <div class="sec-head center">
         <span class="eyebrow">Warum ochsocial</span>
@@ -867,7 +938,7 @@
         <div class="why-card">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
           <h3>Wir kennen die Sparten</h3>
-          <p>Sterbegeld spricht man anders an als BU, und Kinderunfall anders als Motorrad. Genau diese Unterschiede machen den Ausschlag.</p>
+          <p>Sterbegeld spricht man anders an als BU, und Kindervorsorge anders als Motorrad. Genau diese Unterschiede machen den Ausschlag.</p>
         </div>
       </div>
     </div>
