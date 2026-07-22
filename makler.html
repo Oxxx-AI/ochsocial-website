@@ -698,11 +698,11 @@
       </div>
       <div class="cmp-chart" id="cmpChart">
         <div class="cbar low">
-          <div class="fill"><span class="num" data-from="5" data-to="10">0&ndash;0</span></div>
+          <div class="fill"><span class="num" data-from="5" data-to="10">5&ndash;10</span></div>
           <div class="lbl">Vorher<br><span>Empfehlung &amp; gekaufte Leads</span></div>
         </div>
         <div class="cbar high">
-          <div class="fill"><span class="num" data-from="30" data-to="60">0&ndash;0</span></div>
+          <div class="fill"><span class="num" data-from="30" data-to="60">30&ndash;60</span></div>
           <div class="lbl">Mit ochsocial<br><span>exklusiv &amp; vorqualifiziert</span></div>
         </div>
       </div>
@@ -980,6 +980,7 @@
         if(isNaN(from)||isNaN(to)) return;
         if(reduced){ el.innerHTML=from+'\u2013'+to; return; }
         var t0=null;
+        el.innerHTML='0\u20130';
         function step(ts){
           if(!t0) t0=ts;
           var p=Math.min((ts-t0)/dur,1);
