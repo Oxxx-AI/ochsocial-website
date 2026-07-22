@@ -143,7 +143,8 @@
     .pcard .q{font-size:1.4rem;font-weight:800;line-height:1;margin-bottom:14px}
     .pcard h3{font-size:1.16rem;font-weight:700;margin-bottom:9px}
     .pcard p{color:var(--navy-70);font-size:1rem}
-    .pain-punch{margin-top:42px;text-align:center;font-size:clamp(1.25rem,3vw,1.75rem);font-weight:700;line-height:1.35;max-width:30ch;margin-left:auto;margin-right:auto}
+    .pain-punch{margin-top:42px;text-align:center;font-size:clamp(1.25rem,3vw,1.75rem);font-weight:700;line-height:1.38;max-width:36ch;margin-left:auto;margin-right:auto;text-wrap:balance}
+    .pain-punch .accent-cobalt{white-space:nowrap}
 
     /* ===== Sparten ===== */
     .sparten-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:46px}
@@ -152,13 +153,17 @@
     .sparten-warum h3{font-size:1.16rem;font-weight:800;margin-bottom:12px}
     .sparten-warum p{color:var(--navy-70);font-size:1.02rem}
     .sparten-warum p + p{margin-top:12px}
-    .sparte{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 20px;text-align:center;box-shadow:0 10px 26px rgba(20,22,58,.05);transition:transform .18s ease,box-shadow .18s ease}
-    .sparte:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(20,22,58,.1)}
+    .sparte{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 20px;text-align:center;box-shadow:0 10px 26px rgba(20,22,58,.05);transition:transform .28s cubic-bezier(.34,1.4,.64,1),box-shadow .28s ease,background .28s ease,border-color .28s ease}
+    .sparte:hover{transform:translateY(-8px);background:var(--navy);border-color:var(--navy);box-shadow:0 26px 54px rgba(20,22,58,.28)}
+    .sparte:hover h3{color:#fff}
+    .sparte:hover p{color:var(--white-72)}
+    .sparte:hover .ic{background:var(--champ-grad);transform:scale(1.08) rotate(-6deg)}
+    .sparte:hover .ic svg{color:var(--navy)}
     .bg-off .sparte{background:#fff}
-    .sparte .ic{width:54px;height:54px;border-radius:13px;background:var(--cobalt-metallic);display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
-    .sparte .ic svg{width:27px;height:27px;color:#fff}
-    .sparte h3{font-size:1.04rem;font-weight:800;margin-bottom:7px}
-    .sparte p{font-size:.9rem;color:var(--navy-55);line-height:1.45}
+    .sparte .ic{width:54px;height:54px;border-radius:13px;background:var(--cobalt-metallic);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;transition:background .28s ease,transform .28s cubic-bezier(.34,1.56,.64,1)}
+    .sparte .ic svg{width:27px;height:27px;color:#fff;transition:color .28s ease}
+    .sparte h3{font-size:1.04rem;font-weight:800;margin-bottom:7px;transition:color .28s ease}
+    .sparte p{font-size:.9rem;color:var(--navy-55);line-height:1.45;transition:color .28s ease}
     .sparten-note{margin-top:30px;text-align:center;font-size:1rem;color:var(--navy-70)}
 
     /* ===== Vergleich gekaufte Leads ===== */
@@ -277,19 +282,17 @@
 
     /* ===== Kundenergebnisse ===== */
     .erg-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:50px}
-    .erg-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px 24px 22px;box-shadow:0 12px 34px rgba(20,22,58,.06);display:flex;flex-direction:column}
-    .bg-white .erg-card{background:var(--offwhite)}
-    .bg-white .erg-shot{background:#fff}
+    .erg-card{background:var(--navy);border:1px solid var(--navy);border-radius:16px;padding:24px 24px 22px;box-shadow:0 18px 44px rgba(20,22,58,.18);display:flex;flex-direction:column;color:#fff}
     .erg-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px;flex-wrap:wrap}
-    .erg-card h3{font-size:1.1rem;font-weight:800}
-    .erg-card .vs{font-size:.74rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--cobalt);background:rgba(30,79,186,.08);padding:5px 11px;border-radius:999px;white-space:nowrap}
+    .erg-card h3{font-size:1.1rem;font-weight:800;color:#fff}
+    .erg-card .vs{font-size:.74rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--champagne);background:rgba(240,217,160,.14);padding:5px 11px;border-radius:999px;white-space:nowrap}
     .erg-kpi{display:flex;gap:26px;flex-wrap:wrap;margin:14px 0 18px}
     .erg-kpi div{display:flex;flex-direction:column}
-    .erg-kpi b{font-size:1.5rem;font-weight:800;letter-spacing:-.01em;line-height:1;background:var(--cobalt-metallic);-webkit-background-clip:text;background-clip:text;color:transparent}
-    .erg-kpi span{font-size:.8rem;color:var(--navy-55);font-weight:600;margin-top:5px}
-    .erg-shot{margin-top:auto;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--offwhite)}
+    .erg-kpi b{font-size:1.5rem;font-weight:800;letter-spacing:-.01em;line-height:1;background:var(--champ-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .erg-kpi span{font-size:.8rem;color:var(--white-72);font-weight:600;margin-top:5px}
+    .erg-shot{margin-top:auto;border:1px solid var(--white-14);border-radius:10px;overflow:hidden;background:#fff}
     .erg-shot img{width:100%;height:auto;display:block}
-    .erg-note{margin-top:30px;text-align:center;font-size:.92rem;color:var(--navy-55);max-width:70ch;margin-left:auto;margin-right:auto}
+    .erg-note{margin-top:30px;text-align:center;font-size:.92rem;color:var(--navy-55);max-width:96ch;margin-left:auto;margin-right:auto;text-wrap:balance}
 
     /* ===== Stats ===== */
     .stats-head{text-align:center;max-width:60ch;margin:0 auto}
@@ -471,10 +474,10 @@
       <div class="hero-grid">
         <div class="hero-txt">
           <span class="hero-eyebrow">Für Versicherungsmakler<span class="dtonly"> &amp; Maklerbüros</span></span>
-          <h1>Monatsanfang und du hast schon <span class="accent-cobalt">5 Termine mit abschlussbereiten Kunden.</span></h1>
+          <h1>Monatsanfang und du hast schon <span class="accent-cobalt">5 Termine</span> mit abschlussbereiten Kunden.</h1>
           <p class="sub">Am Monatsende sind daraus 5 bis 7 Abschlüsse geworden. Und im nächsten Monat wieder, weil das System läuft und nicht von Empfehlungen abhängt. Sterbegeld, BU, Sach, Zahnzusatz, Motorrad und Kindervorsorge.</p>
           <div class="hero-ohne">
-            <span>Ohne Leadkauf</span><span>Ohne Kaltakquise</span><span>Ohne geteilte Anfragen</span>
+            <span>Ohne Leadkauf</span><span>Ohne Kaltakquise</span>
           </div>
           <div class="hero-cta">
             <a href="makler-anfrage.html" class="btn btn-lg">Termin sichern <span class="arw">&rarr;</span></a>
@@ -493,7 +496,7 @@
             </span>
             <span class="hp-item"><b>450+</b> abgeschlossene Projekte</span>
             <span class="hp-sep"></span>
-            <span class="hp-item"><span class="hp-stars">★★★★★</span> <b>5,0</b> auf Google</span>
+            <span class="hp-item"><span class="hp-stars">★★★★★</span> <b>5,0</b> im Schnitt</span>
           </div>
           <div class="hero-badges">
             <span class="hb-label">Zertifiziert &amp; geprüft</span>
@@ -920,7 +923,7 @@
     <div class="wrap">
       <div class="sec-head center">
         <span class="eyebrow">Warum ochsocial</span>
-        <h2>Wir verkaufen keine Klicks. Wir liefern <span class="accent-cobalt">qualifizierte Anfragen</span>.</h2>
+        <h2>Wir verkaufen keine Klicks.<br><span class="nowrap">Wir liefern <span class="accent-cobalt">qualifizierte Anfragen.</span></span></h2>
       </div>
       <div class="why-grid">
         <div class="why-card">
@@ -989,7 +992,7 @@
       <div class="cta-card">
         <img class="os" src="assets/logo/icon_only_weiss.webp" alt="ochsocial">
         <div>
-          <h2>Bereit für Anfragen, die nur <span class="accent-champ">dir</span> gehören?</h2>
+          <h2>Bereit für Anfragen,<br>die nur <span class="accent-champ">dir</span> gehören?</h2>
           <p>Such dir direkt einen Termin im Kalender aus. Wir schauen gemeinsam, welche Sparte für dich am schnellsten läuft.</p>
           <div class="cta-btns">
             <a href="makler-anfrage.html" class="btn btn-champ">Kostenloses Erstgespräch sichern <span class="arw">&rarr;</span></a>
