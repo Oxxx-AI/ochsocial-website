@@ -282,14 +282,34 @@
     .price-note{margin-top:34px;text-align:center;font-size:.96rem;color:var(--navy-70);max-width:64ch;margin-left:auto;margin-right:auto}
     .price-note b{color:var(--navy)}
 
-    /* ===== Mockups ===== */
-    .mockup{margin:52px auto 0;max-width:900px}
-    .mockup img{width:100%;height:auto;border-radius:16px;box-shadow:0 30px 70px rgba(20,22,58,.20)}
-    .bg-dark .mockup img{box-shadow:0 30px 70px rgba(0,0,0,.45)}
-    .mockup figcaption{margin-top:14px;text-align:center;font-size:.88rem;color:var(--navy-55)}
-    .bg-dark .mockup figcaption{color:var(--white-72)}
+    /* ===== Mockup A: eingehende Anfrage, leicht gekippt ===== */
+    .mock-note{position:relative;max-width:680px;margin:58px auto 0;transform:rotate(-1.6deg);transition:transform .35s ease}
+    .mock-note:hover{transform:rotate(0deg) translateY(-4px)}
+    .mock-note img{width:100%;height:auto;border-radius:18px;box-shadow:0 44px 84px -34px rgba(20,22,58,.6)}
+    .mock-note .live{position:absolute;z-index:2;top:-17px;left:26px;display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:.8rem;font-weight:800;color:var(--navy);box-shadow:0 16px 34px -14px rgba(20,22,58,.5)}
+    .mock-note .live .dot{width:9px;height:9px;border-radius:50%;background:var(--mint);animation:dotPulse 1.7s ease-in-out infinite}
+    @keyframes dotPulse{0%,100%{box-shadow:0 0 0 0 rgba(62,207,151,.55)}70%{box-shadow:0 0 0 8px rgba(62,207,151,0)}}
+
+    /* ===== Mockup B: Dashboard auf dunklem Band ===== */
+    .mock-band{position:relative;overflow:hidden;margin-top:58px;border-radius:24px;padding:44px 34px 38px;background:radial-gradient(120% 140% at 50% -25%,#26356F 0%,#14163A 58%,#0E1030 100%)}
+    .mock-band:before{content:"";position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:760px;height:400px;background:radial-gradient(circle,rgba(111,168,245,.28),transparent 70%);pointer-events:none}
+    .mock-chips{position:relative;z-index:2;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:30px}
+    .mock-chips span{background:rgba(255,255,255,.08);border:1px solid var(--white-14);color:rgba(255,255,255,.86);border-radius:999px;padding:10px 18px;font-weight:600;font-size:.9rem;backdrop-filter:blur(6px)}
+    .mock-chips b{color:var(--champagne);font-weight:800;margin-right:5px}
+    .mock-band img{position:relative;z-index:2;display:block;width:100%;max-width:920px;margin:0 auto;height:auto;border-radius:14px;box-shadow:0 54px 94px -34px rgba(0,0,0,.8)}
+    .mock-band-note{position:relative;z-index:2;margin:26px auto 0;text-align:center;font-size:.92rem;color:var(--white-72);max-width:60ch}
+
+    /* ===== Mockup C: Ergebnis-Highlight, volle Breite ===== */
+    .erg-feature{grid-column:1 / -1;display:grid;grid-template-columns:.82fr 1.18fr;align-items:center;background:var(--navy);border-radius:16px;overflow:hidden;box-shadow:0 24px 56px rgba(20,22,58,.24)}
+    .erg-feature .txt{padding:34px 30px 34px 34px}
+    .erg-feature .flag{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--navy);background:var(--champ-grad);padding:6px 13px;border-radius:999px}
+    .erg-feature h3{margin-top:15px;font-size:clamp(1.25rem,2vw,1.62rem);font-weight:800;color:#fff;line-height:1.2}
+    .erg-feature p{margin-top:12px;font-size:.98rem;color:var(--white-72)}
+    .erg-feature .shot{align-self:stretch;display:flex}
+    .erg-feature .shot img{width:100%;height:100%;object-fit:cover;object-position:left center}
 
     /* ===== Kundenergebnisse ===== */
+    .h2-erg{hyphens:none;-webkit-hyphens:none;max-width:none;text-wrap:balance}
     .erg-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:50px}
     .erg-card{background:var(--navy);border:1px solid var(--navy);border-radius:16px;padding:24px 24px 22px;box-shadow:0 18px 44px rgba(20,22,58,.18);display:flex;flex-direction:column;color:#fff}
     .erg-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px;flex-wrap:wrap}
@@ -421,6 +441,10 @@
       .hero-proof{flex-direction:column;align-items:flex-start;gap:10px;border-radius:22px;padding:16px 20px}
       .sparten-grid{grid-template-columns:repeat(2,1fr)}
       .erg-grid{grid-template-columns:1fr}
+      .erg-feature{grid-template-columns:1fr}
+      .erg-feature .shot img{height:auto;object-fit:contain}
+      .mock-band{padding:30px 16px 26px;border-radius:18px}
+      .mock-note{transform:none;margin-top:44px}
       .pain-grid{grid-template-columns:1fr}
       .vs-grid{grid-template-columns:1fr;gap:16px}
       .vs-mid{transform:rotate(90deg);margin:2px 0}
@@ -655,10 +679,10 @@
           </ul>
         </div>
       </div>
-      <figure class="mockup">
+      <div class="mock-note">
+        <span class="live"><span class="dot"></span>Neue Anfrage &middot; gerade eben</span>
         <img src="assets/cases/mock_anfrage.webp" alt="Benachrichtigung über eine neue qualifizierte Anfrage: Bedarf bestätigt, Terminwunsch vorhanden, Kontakt freigegeben" loading="lazy">
-        <figcaption>So kommt eine Anfrage bei dir an: geprüft, exklusiv und mit Terminwunsch.</figcaption>
-      </figure>
+      </div>
     </div>
   </section>
 
@@ -711,10 +735,15 @@
           <p>Jede Anfrage durchläuft unsere Qualifizierung. Wer passt, bucht sich direkt einen Termin bei dir. Wer nicht passt, kostet dich keine Minute.</p>
         </div>
       </div>
-      <figure class="mockup">
+      <div class="mock-band">
+        <div class="mock-chips">
+          <span><b>33</b> Anfragen heute</span>
+          <span><b>184</b> diese Woche</span>
+          <span><b>18,40 &euro;</b> pro Anfrage</span>
+        </div>
         <img src="assets/cases/mock_dashboard.webp" alt="Anfragen-Dashboard mit täglichen Anfragen pro Sparte und WhatsApp-Verlauf einer eingehenden Anfrage" loading="lazy">
-        <figcaption>Dein Überblick: welche Sparte wie viele Anfragen liefert, und was sie kostet.</figcaption>
-      </figure>
+        <p class="mock-band-note">Du siehst jederzeit, welche Sparte liefert und was sie kostet. Die Anfrage landet parallel auf deinem Handy.</p>
+      </div>
       <div class="cta-inline"><a href="#preise" class="btn">Pakete &amp; Preise ansehen <span class="arw">&rarr;</span></a></div>
     </div>
   </section>
@@ -854,14 +883,18 @@
     <div class="wrap">
       <div class="sec-head center">
         <span class="eyebrow">Echte Kampagnen, echte Zahlen</span>
-        <h2>Was unsere Makler-Kampagnen <span class="accent-cobalt">tatsächlich liefern</span></h2>
+        <h2 class="h2-erg">Was unsere Makler-Kampagnen<br class="dbr"> <span class="accent-cobalt">tatsächlich liefern</span></h2>
         <p>Direkt aus dem Werbekonto, ohne Nachbearbeitung. Vier Beispiele aus Sparten, die wir auch für dich fahren.</p>
       </div>
-      <figure class="mockup">
-        <img src="assets/cases/mock_sterbegeld.webp" alt="Auswertung einer Sterbegeld-Kampagne: 265 Leads zu 5,24 Euro pro Lead" loading="lazy">
-        <figcaption>Sterbegeld für die HanseMerkur, Auswertung aus einer weiteren Kampagnenphase.</figcaption>
-      </figure>
       <div class="erg-grid">
+        <div class="erg-feature">
+          <div class="txt">
+            <span class="flag">Kampagnen-Highlight</span>
+            <h3>265 Anfragen für eine <span class="nowrap">Sterbegeld-Kampagne</span></h3>
+            <p>5,24 &euro; pro Anfrage bei 1.389,85 &euro; Werbebudget. Gelaufen für die HanseMerkur, hier eine weitere Kampagnenphase desselben Kunden.</p>
+          </div>
+          <div class="shot"><img src="assets/cases/mock_sterbegeld.webp" alt="Auswertung einer Sterbegeld-Kampagne: 265 Leads zu 5,24 Euro pro Lead" loading="lazy"></div>
+        </div>
         <div class="erg-card">
           <div class="erg-top"><h3>Kindervorsorge</h3><span class="vs">ERGO</span></div>
           <div class="erg-kpi">
