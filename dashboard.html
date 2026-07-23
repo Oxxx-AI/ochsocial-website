@@ -145,6 +145,18 @@
   .lead a.tel{color:var(--ice);font-size:.74rem;font-weight:700}
   .board-hint{color:var(--muted);font-size:.8rem;font-weight:600;margin-bottom:12px}
 
+  /* Traffic */
+  .traf-kpis{display:flex;gap:26px;margin:4px 0 18px}
+  .traf-kpis .tk .v{font-size:1.9rem;font-weight:800;line-height:1}
+  .traf-kpis .tk .l{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-top:4px}
+  .traf-h{font-size:.82rem;font-weight:800;margin:6px 0 10px}
+  .traf-list{display:flex;flex-direction:column;gap:7px}
+  .trow{position:relative;display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border-radius:8px;background:var(--bg2);overflow:hidden;font-size:.85rem}
+  .trow .bar{position:absolute;left:0;top:0;bottom:0;background:var(--accent);opacity:.16;border-radius:8px}
+  .trow .lbl{position:relative;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:75%}
+  .trow .val{position:relative;font-weight:800}
+  .traf-empty{color:var(--muted);font-weight:600;padding:14px 0;font-size:.85rem}
+
   @media(max-width:1000px){
     .kpis{grid-template-columns:repeat(3,1fr)}
     .grid,.grid3{grid-template-columns:1fr}
@@ -238,6 +250,21 @@
         </div>
       </div>
 
+      <div class="grid">
+        <div class="panel">
+          <h2>Website-Traffic</h2>
+          <div class="psub" id="trafSub">Besucher und Aufrufe im Zeitraum · Quelle Plausible</div>
+          <div class="traf-kpis" id="trafKpis"><div class="muted">Lädt …</div></div>
+          <h3 class="traf-h">Top Quellen</h3>
+          <div id="trafSources" class="traf-list"></div>
+        </div>
+        <div class="panel">
+          <h2>Meistbesuchte Seiten</h2>
+          <div class="psub">Aufrufe pro Seite im Zeitraum</div>
+          <div id="trafPages" class="traf-list"></div>
+        </div>
+      </div>
+
       <div class="tablepanel">
         <div class="tabletop">
           <h2>Alle Leads</h2>
@@ -295,7 +322,7 @@
     [].forEach.call(this.querySelectorAll('button'), function(x){ x.classList.toggle('on', x===b); });
     document.getElementById('dashView').style.display = VIEW==='dash'?'block':'none';
     document.getElementById('boardView').style.display = VIEW==='board'?'block':'none';
-    if(VIEW==='dash'){ renderKPIs(); renderCharts(); renderTable(); } else { renderBoard(); }
+    if(VIEW==='dash'){ renderKPIs(); renderCharts(); renderTable(); loadTraffic(); } else { renderBoard(); }
   });
 
   /* Range */
@@ -308,7 +335,7 @@
   });
   document.getElementById('cFrom').addEventListener('change', function(){ if(RANGE==='custom') applyRange(); });
   document.getElementById('cTo').addEventListener('change', function(){ if(RANGE==='custom') applyRange(); });
-  function applyRange(){ renderKPIs(); renderCharts(); renderTable(); }
+  function applyRange(){ renderKPIs(); renderCharts(); renderTable(); loadTraffic(); }
 
   /* KPI-Kacheln als Filter */
   var ACTIVEKPI=null;
@@ -366,7 +393,7 @@
         document.getElementById('app').style.display='block';
         stamp(j.generated);
         buildFilters();
-        if(VIEW==='dash'){ renderKPIs(); renderCharts(); renderTable(); } else { renderBoard(); }
+        if(VIEW==='dash'){ renderKPIs(); renderCharts(); renderTable(); loadTraffic(); } else { renderBoard(); }
       })
       .catch(function(){
         btn.textContent='Entsperren'; btn.disabled=false;
@@ -594,6 +621,52 @@
   function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
   function cssesc(s){ return String(s).replace(/"/g,'\\"'); }
   function slug(s){ return String(s).toLowerCase().replace(/[^a-z]/g,''); }
+
+  /* ---------- Traffic (Plausible via n8n-Proxy) ---------- */
+  var PROXY='https://n8n.srv1286795.hstgr.cloud/webhook/plausible';
+  function pad2(n){ return (n<10?'0':'')+n; }
+  function isoD(d){ return d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate()); }
+  function drRange(){
+    if(RANGE==='heute') return 'day';
+    if(RANGE==='7') return '7d';
+    if(RANGE==='30') return '30d';
+    if(RANGE==='90'){ var e=new Date(); var s=new Date(e.getTime()-90*864e5); return [isoD(s),isoD(e)]; }
+    if(RANGE==='custom'){ var b=rangeBounds(); return [isoD(b.start),isoD(b.end)]; }
+    return '30d';
+  }
+  function plausibleQ(query,cb){
+    var pw=null; try{pw=sessionStorage.getItem('os_dash_pw');}catch(e){}
+    fetch(PROXY,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({token:pw,query:query})})
+      .then(function(r){return r.json();}).then(function(j){ cb(null,j); }).catch(function(e){ cb(e); });
+  }
+  function trafRows(elId, j, labelFmt){
+    var el=document.getElementById(elId); if(!el) return;
+    var rows=(j&&j.results)||[];
+    if(!rows.length){ el.innerHTML='<div class="traf-empty">Noch keine Daten im Zeitraum.</div>'; return; }
+    var max=Math.max.apply(null, rows.map(function(r){return r.metrics[0]||0;}))||1;
+    el.innerHTML=rows.map(function(r){
+      var lbl=labelFmt(r.dimensions&&r.dimensions[0]!=null?r.dimensions[0]:'—');
+      var v=r.metrics[0]||0; var w=Math.max(3,Math.round(v/max*100));
+      return '<div class="trow"><span class="bar" style="width:'+w+'%"></span><span class="lbl">'+esc(lbl)+'</span><span class="val">'+v+'</span></div>';
+    }).join('');
+  }
+  function loadTraffic(){
+    if(VIEW!=='dash') return;
+    var dr=drRange();
+    plausibleQ({metrics:['visitors','pageviews'],date_range:dr}, function(err,j){
+      var el=document.getElementById('trafKpis');
+      if(err||!j||!j.results){ el.innerHTML='<div class="traf-empty">Traffic gerade nicht verfügbar.</div>'; return; }
+      var m=(j.results[0]&&j.results[0].metrics)||[0,0];
+      el.innerHTML='<div class="tk"><div class="v">'+(m[0]||0)+'</div><div class="l">Besucher</div></div>'
+                  +'<div class="tk"><div class="v">'+(m[1]||0)+'</div><div class="l">Aufrufe</div></div>';
+    });
+    plausibleQ({metrics:['pageviews','visitors'],date_range:dr,dimensions:['event:page'],pagination:{limit:12}}, function(err,j){
+      trafRows('trafPages', j, function(p){ return p==='/'?'/ (Startseite)':p; });
+    });
+    plausibleQ({metrics:['visitors'],date_range:dr,dimensions:['visit:source'],pagination:{limit:8}}, function(err,j){
+      trafRows('trafSources', j, function(s){ return (!s||s==='Direct'||s==='')?'Direkt / keine Quelle':s; });
+    });
+  }
 </script>
 </body>
 </html>
