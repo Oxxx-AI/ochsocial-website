@@ -659,7 +659,7 @@
         if(cbox) cbox.classList.remove('err');
         if(cmsg) cmsg.classList.remove('show');
         if(!form.checkValidity()){ form.reportValidity(); return; }
-        leadData={quelle:'KI-Partner LP',seite:'ki-anfrage.html',utm:location.search||'',zeitpunkt:new Date().toISOString()};
+        leadData={quelle:'KI-Partner LP',seite:'ki-anfrage.html',utm:(location.search&&location.search.indexOf('utm')>=0?location.search:(function(){try{return sessionStorage.getItem('os_utm')||''}catch(e){return ''}})()),zeitpunkt:new Date().toISOString()};
         form.querySelectorAll('input, select').forEach(function(el){
           if(el.name&&el.type!=='checkbox') leadData[el.name]=el.value;
         });
