@@ -1,0 +1,140 @@
+{
+  "generated": "2026-07-23T16:11:19.827Z",
+  "account": "Ochsocial Werbekonto 1",
+  "currency": "EUR",
+  "note": "Automatisch alle 30 Min aktualisiert. Nur aktive interne ochsocial-Kampagnen.",
+  "totals": {
+    "7": {
+      "spend": 69.79,
+      "impressions": 1623,
+      "reach": 1326,
+      "clicks": 36,
+      "ctr": 2.22,
+      "cpc": 1.94,
+      "lpv": 4,
+      "metaLeads": 0
+    },
+    "30": {
+      "spend": 69.79,
+      "impressions": 1623,
+      "reach": 1326,
+      "clicks": 36,
+      "ctr": 2.22,
+      "cpc": 1.94,
+      "lpv": 4,
+      "metaLeads": 0
+    },
+    "90": {
+      "spend": 69.79,
+      "impressions": 1623,
+      "reach": 1326,
+      "clicks": 36,
+      "ctr": 2.22,
+      "cpc": 1.94,
+      "lpv": 4,
+      "metaLeads": 0
+    },
+    "heute": {
+      "spend": 18.52,
+      "impressions": 526,
+      "reach": 409,
+      "clicks": 9,
+      "ctr": 1.71,
+      "cpc": 2.06,
+      "lpv": 1,
+      "metaLeads": 0
+    }
+  },
+  "campaigns": [
+    {
+      "id": "120251885944930316",
+      "name": "KI Agency | LeadGen",
+      "status": "ACTIVE",
+      "objective": "Leads",
+      "ranges": {
+        "7": {
+          "spend": 69.79,
+          "impressions": 1623,
+          "reach": 1326,
+          "clicks": 36,
+          "ctr": 2.22,
+          "cpc": 1.94,
+          "lpv": 4,
+          "metaLeads": 0
+        },
+        "30": {
+          "spend": 69.79,
+          "impressions": 1623,
+          "reach": 1326,
+          "clicks": 36,
+          "ctr": 2.22,
+          "cpc": 1.94,
+          "lpv": 4,
+          "metaLeads": 0
+        },
+        "90": {
+          "spend": 69.79,
+          "impressions": 1623,
+          "reach": 1326,
+          "clicks": 36,
+          "ctr": 2.22,
+          "cpc": 1.94,
+          "lpv": 4,
+          "metaLeads": 0
+        },
+        "heute": {
+          "spend": 18.52,
+          "impressions": 526,
+          "reach": 409,
+          "clicks": 9,
+          "ctr": 1.71,
+          "cpc": 2.06,
+          "lpv": 1,
+          "metaLeads": 0
+        }
+      },
+      "adsetsRange": "30",
+      "adsets": [
+        {
+          "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Video Ad Lang",
+          "status": "ACTIVE",
+          "spend": 27.04,
+          "impressions": 462,
+          "reach": 419,
+          "clicks": 12,
+          "ctr": 2.6,
+          "cpc": 2.25,
+          "cpm": 58.53,
+          "lpv": 2,
+          "metaLeads": 0
+        },
+        {
+          "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Video Ad",
+          "status": "ACTIVE",
+          "spend": 20.94,
+          "impressions": 447,
+          "reach": 397,
+          "clicks": 11,
+          "ctr": 2.46,
+          "cpc": 1.9,
+          "cpm": 46.85,
+          "lpv": 1,
+          "metaLeads": 0
+        },
+        {
+          "name": "DACH | Interesse + Geschäftsführung KI | EX Follower",
+          "status": "ACTIVE",
+          "spend": 21.81,
+          "impressions": 714,
+          "reach": 601,
+          "clicks": 13,
+          "ctr": 1.82,
+          "cpc": 1.68,
+          "cpm": 30.55,
+          "lpv": 1,
+          "metaLeads": 0
+        }
+      ]
+    }
+  ]
+}
