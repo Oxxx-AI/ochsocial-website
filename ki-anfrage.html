@@ -604,6 +604,7 @@
     var WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/10002468/4u71cgp/';
     var WEBHOOK_TERMIN = 'https://hooks.zapier.com/hooks/catch/10002468/4u7f5ey/';
     var N8N_KI_LABEL = 'https://n8n.srv1286795.hstgr.cloud/webhook/ki-label';
+    var N8N_CRM = 'https://n8n.srv1286795.hstgr.cloud/webhook/crm-lead';
     var leadWrap=document.getElementById('leadWrap');
     var calWrap=document.getElementById('calWrap');
     var doneWrap=document.getElementById('doneWrap');
@@ -617,6 +618,7 @@
       var url=(name==='termin_gebucht')?WEBHOOK_TERMIN:WEBHOOK_URL;
       try{ fetch(url,{method:'POST',mode:'no-cors',body:JSON.stringify(p),keepalive:true}); }catch(e){}
       if(name==='lead'){ try{ fetch(N8N_KI_LABEL,{method:'POST',mode:'no-cors',body:JSON.stringify(p),keepalive:true}); }catch(e){} }
+      try{ fetch(N8N_CRM,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(p),keepalive:true}); }catch(e){}
     }
     function initCalendly(){
       if(calInited) return; calInited=true;
@@ -663,7 +665,7 @@
         form.querySelectorAll('input, select').forEach(function(el){
           if(el.name&&el.type!=='checkbox') leadData[el.name]=el.value;
         });
-        leadData.tags='ki-partner-anfrage';
+        try{var _u=new URLSearchParams(leadData.utm||'');var _c=_u.get('utm_campaign');if(_c){var _s=_u.get('utm_source')||'Ad';var _ct=_u.get('utm_content');leadData.quelle=_s.charAt(0).toUpperCase()+_s.slice(1)+' - '+_c+(_ct?' - '+_ct:'');}}catch(e){} leadData.tags='ki-partner-anfrage';
         sendEvent('lead');
         if(window.fbq) fbq('track','Lead',{content_name:'KI-Partner LP'});
         leadWrap.style.display='none'; calWrap.style.display='block'; initCalendly();
