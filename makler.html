@@ -97,6 +97,15 @@
     .btn-wa{background:var(--champ-grad);color:var(--navy);box-shadow:0 12px 30px rgba(240,217,160,.4)}
     .btn-wa:hover{box-shadow:0 16px 40px rgba(240,217,160,.55)}
     .btn-wa svg{width:19px;height:19px;color:var(--navy)}
+    /* WhatsApp-Sekundaer auf dunklem Grund: Champagne-Outline */
+    .btn-wa-ghost{background:transparent;border:1.5px solid rgba(240,217,160,.7);color:var(--champagne);box-shadow:none}
+    .btn-wa-ghost:before{display:none}
+    .btn-wa-ghost:hover{background:rgba(240,217,160,.12);box-shadow:none}
+    /* Champagne-CTA auf blauer Karte: pulsierender Rahmen zieht Blick */
+    .cta-ring{position:relative}
+    .cta-ring:after{content:"";position:absolute;inset:-4px;border-radius:calc(var(--radius) + 4px);border:2px solid var(--champagne);opacity:.9;pointer-events:none;animation:ctaRing 2.1s ease-in-out infinite}
+    @keyframes ctaRing{0%,100%{box-shadow:0 0 0 0 rgba(240,217,160,.5);opacity:.9}50%{box-shadow:0 0 0 7px rgba(240,217,160,0);opacity:.55}}
+    @media(prefers-reduced-motion:reduce){.cta-ring:after{animation:none}}
     .cta-note{font-size:.85rem;color:var(--navy-55);margin-top:14px}
     /* Proof-Pille wie auf ochsocial.de */
     .hero-proof{display:inline-flex;align-items:center;gap:8px 16px;flex-wrap:nowrap;margin-top:22px;padding:12px 22px 12px 14px;background:#fff;border:1px solid var(--line);border-radius:100px;box-shadow:0 18px 40px -24px rgba(20,22,58,.4);max-width:100%}
@@ -317,9 +326,9 @@
     .erg-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px;flex-wrap:wrap}
     .erg-card h3{font-size:1.1rem;font-weight:800;color:#fff}
     .erg-card .vs{font-size:.74rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--champagne);background:rgba(240,217,160,.14);padding:5px 11px;border-radius:999px;white-space:nowrap}
-    .erg-kpi{display:flex;gap:26px;flex-wrap:wrap;margin:14px 0 18px}
-    .erg-kpi div{display:flex;flex-direction:column}
-    .erg-kpi b{font-size:1.5rem;font-weight:800;letter-spacing:-.01em;line-height:1;background:var(--champ-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .erg-kpi{display:grid;grid-template-columns:repeat(3,auto);gap:10px 20px;margin:14px 0 18px;justify-content:start}
+    .erg-kpi div{display:flex;flex-direction:column;min-width:0}
+    .erg-kpi b{font-size:clamp(1.15rem,3.4vw,1.5rem);font-weight:800;letter-spacing:-.01em;line-height:1;white-space:nowrap;background:var(--champ-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
     .erg-kpi span{font-size:.8rem;color:var(--white-72);font-weight:600;margin-top:5px}
     .erg-shot{margin-top:auto;border:1px solid var(--white-14);border-radius:10px;overflow:hidden;background:#fff}
     .erg-shot img{width:100%;height:auto;display:block}
@@ -428,6 +437,7 @@
 
     /* ===== Responsive ===== */
     .mbr{display:none}
+    @media(max-width:560px){.mbr{display:inline}}
     @media(max-width:1040px){
       .sparten-grid{grid-template-columns:repeat(3,1fr)}
       .price-grid{grid-template-columns:1fr;max-width:520px;margin-left:auto;margin-right:auto}
@@ -511,7 +521,7 @@
       <div class="hero-grid">
         <div class="hero-txt">
           <span class="hero-eyebrow"><span class="eb-txt">Für Versicherungsmakler<span class="dtonly"> &amp; Maklerbüros</span></span></span>
-          <h1>Monatsanfang und du hast schon <span class="accent-cobalt">5 Termine</span> mit abschlussbereiten Kunden.</h1>
+          <h1>Monatsanfang und du hast schon <span class="accent-cobalt">5 Termine</span><br class="mbr"> mit abschlussbereiten Kunden.</h1>
           <p class="sub">Am Monatsende sind daraus 15 bis 20 Termine und 5 bis 7 Abschlüsse geworden. Und im nächsten Monat wieder, weil das System läuft und nicht von Empfehlungen abhängt. Sterbegeld, BU, Sach, Zahnzusatz, Motorrad und Kindervorsorge.</p>
           <div class="hero-ohne">
             <span>Ohne Leadkauf</span><span>Ohne Kaltakquise</span>
@@ -566,6 +576,31 @@
     </div>
   </section>
 
+  <!-- ===== Reichweite Orbit (white, direkt unter Track Record) ===== -->
+  <section class="sec bg-white">
+    <div class="wrap">
+      <div class="reach-layout">
+        <div class="reach-txt">
+          <span class="eyebrow">Sichtbarkeit, die ankommt</span>
+          <h2>Reichweite auf<br>Instagram &amp; <span class="accent-cobalt">Facebook.</span></h2>
+          <p>Wir bringen dein Angebot dorthin, wo deine Kunden täglich unterwegs sind, und erreichen mit gezielten Kampagnen genau die Menschen in deiner Region, die zu deiner Sparte passen. Tag für Tag, ganz ohne Zufall.</p>
+        </div>
+        <div class="reach-viz" aria-hidden="true">
+          <div class="reach-scale">
+            <div class="reach-ring r1"></div>
+            <div class="reach-ring r2"></div>
+            <div class="reach-ring r3"></div>
+            <div class="reach-center">
+              <span class="reach-logo ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+              <span class="reach-logo fb"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.3 0-1.1-.1-2-.1-2 0-3.4 1.2-3.4 3.5V11H8.5v3H11v7h2.5z"/></svg></span>
+            </div>
+            <img class="reach-av" src="assets/testimonials/kikunde_01.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/kikunde_02.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/nicole.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/kikunde_03.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/cornelia.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/kikunde_05.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/sahar.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/kikunde_06.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/bettina.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/kikunde_08.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/tina.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/kikunde_09.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/kikunde_10.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/larissa.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/kathy.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/kikunde_12.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/kikunde_13.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/katharina.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/anna.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/kikunde_15.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/kikunde_16.webp" alt="" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== Kommt dir das bekannt vor? (offwhite) ===== -->
   <section class="sec bg-off" id="bekannt">
     <div class="wrap">
@@ -578,22 +613,22 @@
         <div class="pcard">
           <div class="q accent-cobalt">01</div>
           <h3>Du kaufst Leads, die schon vier Kollegen angerufen haben</h3>
-          <p>30 bis 80 Euro pro Datensatz, der parallel an mehrere Makler geht. Wenn du anrufst, ist der Interessent schon genervt oder längst abgeschlossen.</p>
+          <p>Derselbe Datensatz geht an mehrere Makler. Wenn du anrufst, ist der Interessent längst genervt oder abgeschlossen.</p>
         </div>
         <div class="pcard">
           <div class="q accent-cobalt">02</div>
           <h3>Empfehlungen kommen, aber nie dann, wenn du sie brauchst</h3>
-          <p>Ein guter Monat, dann zwei ruhige. Du kannst kein Team aufbauen und keine Ziele planen, wenn dein Umsatz vom Zufall abhängt.</p>
+          <p>Ein guter Monat, dann zwei ruhige. Planen kannst du so nicht.</p>
         </div>
         <div class="pcard">
           <div class="q accent-cobalt">03</div>
           <h3>Neugeschäft läuft nur, solange du selbst akquirierst</h3>
-          <p>Jeder Termin kostet dich Zeit, die du nicht in Beratung und Abschluss steckst. Sobald du eine Woche im Kundengeschäft bist, bricht der Zulauf weg.</p>
+          <p>Sobald du eine Woche berätst, bricht der Zulauf weg. Wachstum hängt an dir allein.</p>
         </div>
         <div class="pcard">
           <div class="q accent-cobalt">04</div>
           <h3>Du weißt nicht, was dich ein Abschluss wirklich kostet</h3>
-          <p>Ohne saubere Zahlen zu Anfrage, Termin und Abschluss ist jede Marketingausgabe ein Bauchgefühl. Skalieren geht so nicht.</p>
+          <p>Ohne Zahlen zu Anfrage, Termin und Abschluss bleibt jede Ausgabe ein Bauchgefühl.</p>
         </div>
       </div>
       <p class="pain-punch">Das Problem ist nicht dein Angebot.<br class="dbr">Es ist, dass du dir deine Anfragen mit <span class="accent-cobalt">vier anderen teilst</span>.</p>
@@ -607,44 +642,37 @@
       <div class="sec-head center">
         <span class="eyebrow">Deine Sparten</span>
         <h2>Diese Sparten füllen wir dir mit <span class="accent-cobalt">exklusiven Anfragen</span></h2>
-        <p>Jede Sparte bekommt ihre eigene Kampagne, ihre eigene Botschaft und ihre eigenen Qualifizierungsfragen. Kein Einheitsbrei.</p>
+        <p>Jede Sparte bekommt ihre eigene Kampagne, Botschaft und Qualifizierung.</p>
       </div>
       <div class="sparten-grid">
         <div class="sparte">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1L12 21l7.7-7.6 1.1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
           <h3>Sterbegeld</h3>
-          <p>Zielgruppe 55+, hohe Abschlussquote bei sauberer Ansprache</p>
         </div>
         <div class="sparte">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 6v6c0 5 3.8 9.2 9 10 5.2-.8 9-5 9-10V6l-9-4z"/><path d="m9 12 2 2 4-4"/></svg></div>
           <h3>Berufsunfähigkeit</h3>
-          <p>Der wertvollste Abschluss, wenn die Vorqualifizierung sitzt</p>
         </div>
         <div class="sparte">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 21v-7h6v7"/></svg></div>
           <h3>Sach &amp; Wohngebäude</h3>
-          <p>Hausrat, Wohngebäude, Haftpflicht: Volumen und Cross-Selling</p>
         </div>
         <div class="sparte">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5c2-2 5-2 6.5 0 1.8 2.4.7 6-.6 9-.8 1.8-1.6 3.5-2.8 3.5-1.1 0-1.6-1.3-3.1-1.3s-2 1.3-3.1 1.3c-1.2 0-2-1.7-2.8-3.5-1.3-3-2.4-6.6-.6-9C7 3.5 10 3.5 12 5.5z"/></svg></div>
           <h3>Zahnzusatz</h3>
-          <p>Günstige Anfragen, schneller Abschluss, idealer Einstieg</p>
         </div>
         <div class="sparte">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="17.5" r="3.4"/><circle cx="19" cy="17.5" r="3.4"/><path d="M15 6.5h4L20.5 11M5 17.5 8.5 9h6l4.5 8.5"/><circle cx="14.5" cy="4" r="1.5"/></svg></div>
           <h3>Motorrad-Unfall</h3>
-          <p>Saisonale Nachfrage mit klarem Trigger, sehr günstige Anfragen</p>
         </div>
         <div class="sparte">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.6"/><path d="M12 7.6v6M8.6 10.4h6.8M9.6 21l2.4-7.4L14.4 21"/></svg></div>
           <h3>Kindervorsorge</h3>
-          <p>Eltern entscheiden schnell, hohe Abschluss- und Cross-Selling-Quote</p>
         </div>
       </div>
       <div class="sparten-warum">
         <h3>Warum genau diese sechs Sparten?</h3>
-        <p>Weil wir für genau diese sechs Sparten seit Jahren Kampagnen fahren und deshalb nicht raten müssen. Wir wissen, welche Zielgruppe auf Instagram und Facebook reagiert, welcher Hook zieht, welches Werbemittel gegen welches gewinnt und ab welchem Punkt eine Kampagne kippt. Diese Erfahrungswerte lassen sich nicht theoretisch herleiten, die hat man oder man hat sie nicht.</p>
-        <p>Genau deshalb können wir dir hier zusagen, dass das System liefert. Wir starten nicht bei null, sondern mit Kampagnenstrukturen, Anzeigen und Qualifizierungsfragen, die in deiner Sparte nachweislich funktionieren. Bei Sparten ohne diese Datenbasis, etwa PKV, Gewerbe oder Altersvorsorge, wäre jede Zusage unseriös, weil du das Lehrgeld zahlen würdest. Deshalb bieten wir sie schlicht nicht an.</p>
+        <p>Für diese sechs Sparten fahren wir seit Jahren Kampagnen. Wir wissen, welche Zielgruppe reagiert, welcher Hook zieht und ab wann eine Kampagne kippt. Deshalb können wir dir zusagen, dass das System liefert, statt es auf deine Kosten auszuprobieren. Sparten ohne diese Datenbasis bieten wir schlicht nicht an.</p>
       </div>
       <p class="sparten-note">Du willst nur eine Sparte starten? Geht. Du willst mehrere parallel fahren? Auch. Womit du beginnst, entscheiden wir gemeinsam anhand deiner Region und deiner Abschlussstärke.</p>
     </div>
@@ -695,9 +723,8 @@
         <div class="txt">
           <span class="eyebrow">Warum jetzt</span>
           <h2>Deine Kunden suchen <span class="accent-cobalt">online</span>, nicht im Branchenbuch</h2>
-          <p>Wer heute eine Zahnzusatz oder eine BU abschließt, informiert sich vorher am Handy. Die Frage ist nur, ob er dabei auf dich stößt oder auf ein Vergleichsportal.</p>
-          <p>Wir bringen dich genau dorthin, wo deine Zielgruppe täglich unterwegs ist, mit einer Botschaft, die zu deiner Sparte und deiner Region passt.</p>
-          <p>Kein Kaltakquise-Stress, kein Leadkauf, kein Warten auf die nächste Empfehlung. Sondern ein System, das dir jede Woche Gespräche mit Menschen bringt, die schon Interesse haben.</p>
+          <p>Wer heute eine Versicherung abschließt, informiert sich zuerst am Handy. Die Frage ist nur, ob er dabei auf dich stößt oder auf ein Vergleichsportal.</p>
+          <p>Wir bringen dich genau dorthin, mit einer Botschaft, die zu deiner Sparte und Region passt. Kein Leadkauf, kein Warten auf die nächste Empfehlung.</p>
         </div>
         <div class="boom-card">
           <h3>Was sich für dich ändert</h3>
@@ -724,17 +751,17 @@
         <div class="step">
           <div class="n">1</div>
           <h3>Sparte &amp; Botschaft festlegen</h3>
-          <p>Wir wählen mit dir die Sparte mit dem besten Verhältnis aus Aufwand und Ertrag und formulieren die Botschaft so, dass sie deine Zielgruppe sofort anspricht. Dazu eine eigene Anfragestrecke auf deinen Namen.</p>
+          <p>Wir wählen mit dir die stärkste Sparte und formulieren die Botschaft, die deine Zielgruppe sofort anspricht.</p>
         </div>
         <div class="step">
           <div class="n">2</div>
           <h3>Kampagne live schalten</h3>
-          <p>Wir bauen und steuern die Kampagnen auf Instagram und Facebook, exakt auf deine Region, dein Alterssegment und deine Sparte zugeschnitten. Werbemittel testen wir laufend gegeneinander.</p>
+          <p>Wir bauen und steuern die Kampagnen auf Instagram und Facebook, zugeschnitten auf deine Region und Sparte.</p>
         </div>
         <div class="step">
           <div class="n">3</div>
           <h3>Qualifizieren &amp; Termin buchen</h3>
-          <p>Jede Anfrage durchläuft unsere Qualifizierung. Wer passt, bucht sich direkt einen Termin bei dir. Wer nicht passt, kostet dich keine Minute.</p>
+          <p>Jede Anfrage wird qualifiziert. Wer passt, bucht direkt einen Termin. Wer nicht passt, kostet dich keine Minute.</p>
         </div>
       </div>
       <div class="mock-band">
@@ -746,31 +773,6 @@
         <img src="assets/cases/mock_dashboard.webp" alt="Anfragen-Dashboard mit täglichen Anfragen pro Sparte und WhatsApp-Verlauf einer eingehenden Anfrage" loading="lazy">
         <p class="mock-band-note">Du siehst jederzeit, welche Sparte liefert und was sie kostet. Die Anfrage landet parallel auf deinem Handy.</p>
         <div class="mock-band-cta"><a href="#preise" class="btn btn-champ">Pakete &amp; Preise ansehen <span class="arw">&rarr;</span></a></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Reichweite Orbit (offwhite) ===== -->
-  <section class="sec bg-off">
-    <div class="wrap">
-      <div class="reach-layout">
-        <div class="reach-txt">
-          <span class="eyebrow">Sichtbarkeit, die ankommt</span>
-          <h2>Reichweite auf<br>Instagram &amp; <span class="accent-cobalt">Facebook.</span></h2>
-          <p>Wir bringen dein Angebot dorthin, wo deine Kunden täglich unterwegs sind, und erreichen mit gezielten Kampagnen genau die Menschen in deiner Region, die zu deiner Sparte passen. Tag für Tag, ganz ohne Zufall.</p>
-        </div>
-        <div class="reach-viz" aria-hidden="true">
-          <div class="reach-scale">
-            <div class="reach-ring r1"></div>
-            <div class="reach-ring r2"></div>
-            <div class="reach-ring r3"></div>
-            <div class="reach-center">
-              <span class="reach-logo ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></span>
-              <span class="reach-logo fb"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.3 0-1.1-.1-2-.1-2 0-3.4 1.2-3.4 3.5V11H8.5v3H11v7h2.5z"/></svg></span>
-            </div>
-            <img class="reach-av" src="assets/testimonials/kikunde_01.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/kikunde_02.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/nicole.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/kikunde_03.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/cornelia.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/kikunde_05.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/sahar.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/kikunde_06.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/bettina.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/kikunde_08.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/tina.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/kikunde_09.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/kikunde_10.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/larissa.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/kathy.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/kikunde_12.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/kikunde_13.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/katharina.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/anna.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/kikunde_15.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/kikunde_16.webp" alt="" loading="lazy">
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -981,23 +983,23 @@
     <div class="wrap">
       <div class="sec-head center">
         <span class="eyebrow">Warum ochsocial</span>
-        <h2>Wir verkaufen keine Klicks.<br><span class="nowrap">Wir liefern <span class="accent-cobalt">qualifizierte Anfragen.</span></span></h2>
+        <h2>Wir verkaufen keine Klicks.<br>Wir liefern <span class="accent-cobalt">qualifizierte Anfragen.</span></h2>
       </div>
       <div class="why-grid">
         <div class="why-card">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg></div>
           <h3>Exklusiv, nicht weiterverkauft</h3>
-          <p>Jede Anfrage entsteht in deiner eigenen Kampagne und gehört dir allein. Kein Kollege bekommt denselben Datensatz.</p>
+          <p>Jede Anfrage gehört dir allein. Kein Kollege bekommt denselben Datensatz.</p>
         </div>
         <div class="why-card">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
           <h3>Planbares Neugeschäft</h3>
-          <p>Ein System statt Zufall. Du weißt, wie viele Gespräche reinkommen, und kannst dein Wachstum darauf aufbauen.</p>
+          <p>Ein System statt Zufall. Du weißt, wie viele Gespräche reinkommen.</p>
         </div>
         <div class="why-card">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
           <h3>Wir kennen die Sparten</h3>
-          <p>Sterbegeld spricht man anders an als BU, und Kindervorsorge anders als Motorrad. Genau diese Unterschiede machen den Ausschlag.</p>
+          <p>Jede Sparte spricht man anders an. Genau diese Unterschiede machen den Ausschlag.</p>
         </div>
       </div>
     </div>
@@ -1053,8 +1055,8 @@
           <h2>Bereit für Anfragen,<br>die nur <span class="accent-champ">dir</span> gehören?</h2>
           <p>Such dir direkt einen Termin im Kalender aus. Wir schauen gemeinsam, welche Sparte für dich am schnellsten läuft.</p>
           <div class="cta-btns">
-            <a href="makler-anfrage.html" class="btn btn-champ">Kostenlose Analyse anfordern <span class="arw">&rarr;</span></a>
-            <a href="https://wa.me/491624932082?text=Hallo%20ochsocial%2C%20ich%20bin%20Versicherungsmakler%20und%20interessiere%20mich%20f%C3%BCr%20eure%20Pakete." class="btn" style="background:rgba(255,255,255,.14);box-shadow:none;border:1px solid rgba(255,255,255,.3);color:#fff" target="_blank" rel="noopener">Kurz per WhatsApp fragen</a>
+            <a href="makler-anfrage.html" class="btn btn-champ cta-ring">Kostenlose Analyse anfordern <span class="arw">&rarr;</span></a>
+            <a href="https://wa.me/491624932082?text=Hallo%20ochsocial%2C%20ich%20bin%20Versicherungsmakler%20und%20interessiere%20mich%20f%C3%BCr%20eure%20Pakete." class="btn btn-wa-ghost" target="_blank" rel="noopener">Kurz per WhatsApp fragen</a>
           </div>
           <div class="cta-check">
             <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Preise offen einsehbar</span>
@@ -1125,19 +1127,22 @@
         if(chartRan) return; chartRan=true;
         cmpChart.classList.add('in');
         cmpChart.querySelectorAll('.num').forEach(function(el){ countUp(el, 2200); });
+        window.removeEventListener('scroll', checkChart);
       }
+      function inView(){
+        var r=cmpChart.getBoundingClientRect();
+        return r.top < window.innerHeight * 0.85 && r.bottom > 0;
+      }
+      function checkChart(){ if(!chartRan && inView()) runChart(); }
       if('IntersectionObserver' in window){
-        var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){requestAnimationFrame(runChart);io.disconnect();}});},{threshold:.3});
+        var io=new IntersectionObserver(function(en){
+          en.forEach(function(e){ if(e.isIntersecting){ runChart(); io.disconnect(); } });
+        },{threshold:.2});
         io.observe(cmpChart);
-        /* Sicherheitsnetz: Zahlen duerfen nie auf 0 stehenbleiben */
-        setTimeout(function(){
-          var r=cmpChart.getBoundingClientRect();
-          if(!chartRan && r.top < window.innerHeight) runChart();
-        }, 3000);
-        window.addEventListener('load', function(){
-          setTimeout(function(){ if(!chartRan && document.visibilityState==='hidden') runChart(); }, 6000);
-        });
-      } else { runChart(); }
+      }
+      /* Fallback: Scroll + initialer Check, unabhaengig vom Observer */
+      window.addEventListener('scroll', checkChart, {passive:true});
+      checkChart();
     }
 
     /* Reichweite: rotierende Ringe + organisch wechselnde Avatare */
