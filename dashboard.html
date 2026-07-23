@@ -140,13 +140,13 @@
   .col-head .dot{width:9px;height:9px;border-radius:50%}
   .col-head .cnt{margin-left:auto;font-size:.72rem;font-weight:700;color:var(--muted);background:var(--bg2);border-radius:20px;padding:2px 9px}
   .col-body{display:flex;flex-direction:column;gap:9px;flex:1}
-  .lead{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:11px 12px;cursor:grab;transition:transform .12s,box-shadow .12s}
+  .lead{position:relative;background:var(--card2);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:11px 12px;cursor:grab;box-shadow:0 2px 12px rgba(0,0,0,.28);transition:transform .12s,box-shadow .12s}
   .lead:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
   .lead.dragging{opacity:.5}
-  .lead .ln{font-weight:800;font-size:.88rem}
+  .lead .del{position:absolute;top:6px;right:8px;width:20px;height:20px;line-height:18px;text-align:center;border:0;border-radius:6px;background:transparent;color:var(--muted);font-size:16px;cursor:pointer;opacity:.55}.lead .del:hover{opacity:1;color:var(--red);background:var(--bg2)}.lead .ln{font-weight:800;font-size:.88rem}
   .lead .la{font-size:.76rem;color:var(--muted);margin-top:2px}
   .lead .lmeta{display:flex;align-items:center;gap:6px;margin-top:8px;flex-wrap:wrap}
-  .lead .chip{font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:20px;background:var(--card2);color:var(--muted)}
+  .lead .chip{font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:20px;background:var(--bg2);color:var(--muted)}
   .lead .ld{font-size:.68rem;color:var(--muted);margin-left:auto}
   .lead a.tel{color:var(--ice);font-size:.74rem;font-weight:700}
   .board-hint{color:var(--muted);font-size:.8rem;font-weight:600;margin-bottom:12px}
@@ -454,7 +454,7 @@
       .then(function(j){
         if(!j || !j.ok){ throw new Error('auth'); }
         try{ sessionStorage.setItem('os_dash_pw', pw); }catch(e){}
-        DATA = (j.rows||[]).map(normalize);
+        DATA = (j.rows||[]).map(normalize).filter(function(r){return (r.status||'').toLowerCase()!=='geloescht';});
         document.getElementById('gate').style.display='none';
         document.getElementById('app').style.display='block';
         stamp(j.generated);
@@ -717,12 +717,12 @@
   function cardHtml(r){
     var tel=r.telefon?'<a class="tel" href="tel:'+esc(r.telefon)+'">'+esc(r.telefon)+'</a>':'';
     var mail=r.email?'<span class="chip">'+esc(r.email)+'</span>':'';
-    return '<div class="lead" draggable="true" data-email="'+esc(r.email)+'"><div class="ln">'+esc(r.name||'—')+'</div>'
+    return '<div class="lead" draggable="true" data-email="'+esc(r.email)+'"><button class="del" data-del="'+esc(r.email)+'" draggable="false" title="Loeschen">&times;</button><div class="ln">'+esc(r.name||'—')+'</div>'
       +'<div class="la">'+esc(r.angebot||r.quelle)+'</div>'
       +'<div class="lmeta"><span class="chip">'+esc(r.quelle)+'</span>'+tel+'<span class="ld">'+fmtDate(r.date)+'</span></div>'
       +(mail?'<div class="lmeta">'+mail+'</div>':'')+'</div>';
   }
-  function wireDnD(){
+  function wireDnD(){ [].forEach.call(document.querySelectorAll('.lead .del'), function(btn){ btn.addEventListener('mousedown',function(e){e.stopPropagation();}); btn.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); var em=btn.getAttribute('data-del'); if(confirm('Diesen Lead endgueltig aus dem CRM entfernen?')){ saveStatus(em,'Geloescht',function(ok){ if(ok){ var pw=null; try{pw=sessionStorage.getItem('os_dash_pw');}catch(x){} load(pw,true); } else { alert('Konnte nicht loeschen, bitte erneut versuchen.'); } }); } }); });
     var dragged=null;
     [].forEach.call(document.querySelectorAll('.lead'), function(card){
       card.addEventListener('dragstart', function(e){ dragged=card; card.classList.add('dragging'); e.dataTransfer.setData('text/plain', card.getAttribute('data-email')); e.dataTransfer.effectAllowed='move'; });
