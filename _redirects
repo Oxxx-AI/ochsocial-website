@@ -3,6 +3,8 @@
 /ki-partner         /ki-partner.html   200
 /makler             /makler.html       200
 /versicherung       /makler.html       200
+/dashboard          /dashboard.html    200
+/crm                /dashboard.html    200
 
 # Alte OnePage-URLs -> neue Seiten (301 = SEO-sauber)
 /roadmap            /            301
