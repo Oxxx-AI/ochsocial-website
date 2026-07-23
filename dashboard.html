@@ -113,7 +113,7 @@
   .fgroup h3 .dot{width:9px;height:9px;border-radius:50%}
   .funnel{display:flex;flex-direction:column;gap:9px}
   .fstep{display:flex;align-items:center;gap:12px}
-  .fbar{height:32px;border-radius:7px;display:flex;align-items:center;padding:0 12px;color:#14163A;font-weight:800;font-size:.9rem;min-width:52px;transition:width .5s}
+  .fbar{height:32px;border-radius:7px;display:flex;align-items:center;padding:0 12px;color:#fff;font-weight:800;font-size:.9rem;min-width:52px;transition:width .5s}
   .fstep .fmeta{font-size:.78rem;color:var(--muted);font-weight:600}
 
   /* Table */
@@ -180,7 +180,7 @@
   .aset:last-child{border-bottom:0}
   .aset .an{font-weight:800;font-size:.85rem;margin-bottom:8px}
   .aset .abar-wrap{position:relative;height:26px;background:var(--bg2);border-radius:7px;overflow:hidden;margin-bottom:6px}
-  .aset .abar{position:absolute;left:0;top:0;bottom:0;background:var(--accent-grad);border-radius:7px;display:flex;align-items:center;padding:0 10px;color:#14163A;font-weight:800;font-size:.78rem}
+  .aset .abar{position:absolute;left:0;top:0;bottom:0;background:var(--accent-grad);border-radius:7px;display:flex;align-items:center;padding:0 10px;color:#fff;font-weight:800;font-size:.78rem}
   .aset .ameta{display:flex;gap:16px;flex-wrap:wrap;font-size:.74rem;color:var(--muted);font-weight:600}
   .aset .ameta b{color:var(--text);font-weight:800}
   .camprow{display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap}
@@ -635,11 +635,11 @@
       {lbl:'Ausgaben', val:fmtEUR2(t.spend), sub:rangeLabelText()},
       {lbl:'Impressionen', val:fmtInt(t.impressions), sub:'Reichweite '+fmtInt(t.reach)},
       {lbl:'Klicks', val:fmtInt(t.clicks), sub:'CTR '+fmtPct(t.ctr)},
-      {lbl:'CPC', val:fmtEUR2(t.cpc), sub:'pro Klick'},
+      {lbl:'CPC', val:fmtEUR2(t.cpc), sub:'pro Klick (alle)'},
       {lbl:'Seitenaufrufe', val:fmtInt(t.lpv), sub:'Landing Page Views'},
       {lbl:'Meta-Leads', val:fmtInt(t.metaLeads), sub:'Pixel-Conversions'},
       {lbl:'CRM-Leads', val:crmLeads, sub:'tatsächlich im CRM'},
-      {lbl:'CPL (echt)', val:cpl, sub:'Spend / CRM-Leads'}
+      {lbl:'CPL (echt)', val:cpl, sub:'Spend / CRM-Leads'},{lbl:'Kosten/Aufruf', val:(t.lpv>0?fmtEUR2(t.spend/t.lpv):'-'), sub:'echter Preis pro Seitenaufruf'}
     ];
     document.getElementById('metaKpis').innerHTML=cards.map(function(c){
       return '<div class="mkpi"><div class="lbl">'+c.lbl+'</div><div class="val">'+c.val+'</div><div class="sub">'+c.sub+'</div></div>';
@@ -650,7 +650,7 @@
     if(t.spend>0 && (t.metaLeads||0)===0) health.push('<b>0 Pixel-Leads</b> bei '+fmtEUR2(t.spend)+' Ausgaben — Conversion-Tracking (Pixel/Lead-Event) prüfen, sonst optimiert Meta blind.');
     if(t.clicks>0){ var lpvRate=(t.lpv||0)/t.clicks; if(lpvRate<0.4) health.push('Nur '+fmtInt(t.lpv)+' Seitenaufrufe bei '+fmtInt(t.clicks)+' Klicks ('+Math.round(lpvRate*100)+'%) — großer Absprung zwischen Klick und Landingpage (Ladezeit/Redirect prüfen).'); }
     var perDay = t.spend / (metaKey()==='heute'?1:(metaKey()==='7'?7:(metaKey()==='90'?90:30)));
-    if(perDay<10) health.push('Ø '+fmtEUR2(perDay)+'/Tag Budget — für Metas Lernphase zu wenig. Budget bündeln & erhöhen, sonst keine statistisch belastbaren Ergebnisse.');
+    if(false) health.push('Ø '+fmtEUR2(perDay)+'/Tag Budget — für Metas Lernphase zu wenig. Budget bündeln & erhöhen, sonst keine statistisch belastbaren Ergebnisse.');
     document.getElementById('metaHealth').innerHTML = health.length
       ? '<div class="mbanner warn"><div style="font-weight:800;margin-bottom:6px">Auffälligkeiten</div>'+health.map(function(h){return '• '+h;}).join('<br>')+'</div>'
       : '<div class="mbanner ok">Keine kritischen Auffälligkeiten im gewählten Zeitraum.</div>';
