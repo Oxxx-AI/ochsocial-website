@@ -634,7 +634,7 @@
     var cards=[
       {lbl:'Ausgaben', val:fmtEUR2(t.spend), sub:rangeLabelText()},
       {lbl:'Impressionen', val:fmtInt(t.impressions), sub:'Reichweite '+fmtInt(t.reach)},
-      {lbl:'Klicks', val:fmtInt(t.clicks), sub:'CTR '+fmtPct(t.ctr)},
+      {lbl:'Klicks', val:fmtInt(t.clicks), sub:'CTR '+fmtPct(t.ctr)},{lbl:'Link-Klicks', val:fmtInt(t.linkClicks), sub:'echte Website-Klicks'},{lbl:'Kosten/Link-Klick', val:fmtEUR2(t.costPerLinkClick), sub:'pro echtem Klick'},
       {lbl:'CPC', val:fmtEUR2(t.cpc), sub:'pro Klick (alle)'},
       {lbl:'Seitenaufrufe', val:fmtInt(t.lpv), sub:'Landing Page Views'},
       {lbl:'Meta-Leads', val:fmtInt(t.metaLeads), sub:'Pixel-Conversions'},
@@ -664,7 +664,7 @@
       var w=Math.max(8,Math.round((a.spend||0)/maxSpend*100));
       return '<div class="aset"><div class="an">'+esc(a.name)+'</div>'
         +'<div class="abar-wrap"><div class="abar" style="width:'+w+'%">'+fmtEUR2(a.spend)+'</div></div>'
-        +'<div class="ameta"><span>CTR <b>'+fmtPct(a.ctr)+'</b></span><span>CPC <b>'+fmtEUR2(a.cpc)+'</b></span><span>Klicks <b>'+fmtInt(a.clicks)+'</b></span><span>Impr. <b>'+fmtInt(a.impressions)+'</b></span><span>Seitenaufrufe <b>'+fmtInt(a.lpv)+'</b></span></div></div>';
+        +'<div class="ameta"><span>CTR <b>'+fmtPct(a.ctr)+'</b></span><span>Link-Klicks <b>'+fmtInt(a.linkClicks)+'</b></span><span>Kosten/Klick <b>'+fmtEUR2(a.costPerLinkClick)+'</b></span><span>Klicks alle <b>'+fmtInt(a.clicks)+'</b></span><span>Impr. <b>'+fmtInt(a.impressions)+'</b></span><span>Seitenaufrufe <b>'+fmtInt(a.lpv)+'</b></span></div></div>';
     }).join('') || '<div class="traf-empty">Keine Anzeigengruppen-Daten.</div>';
   }
 
