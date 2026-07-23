@@ -91,6 +91,7 @@
   .kpi.filterable{cursor:pointer}
   .kpi.active{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent) inset}
   .kpi .val.red{color:var(--red)}
+  .kpi .tag{position:absolute;top:12px;right:12px;font-size:.6rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--bg2);padding:2px 7px;border-radius:20px}
 
   /* Charts grid */
   .grid{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin-bottom:18px}
@@ -98,6 +99,11 @@
   .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px 20px 22px}
   .panel h2{font-size:.95rem;font-weight:800;margin-bottom:2px}
   .panel .psub{font-size:.76rem;color:var(--muted);font-weight:600;margin-bottom:16px}
+  .panel .phead{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .panel .phead h2{margin-bottom:0}
+  .panel .phead .psub{margin-bottom:0}
+  .panel select.pageSel{margin-left:auto;font-family:inherit;font-size:.8rem;font-weight:700;padding:7px 10px;border:1px solid var(--line);border-radius:9px;background:var(--bg2);color:var(--text);max-width:60%}
+  .panel select.pageSel:focus{outline:none;border-color:var(--champagne)}
   .chart-wrap{position:relative;height:260px}
   .chart-wrap.sm{height:210px}
 
@@ -151,18 +157,45 @@
   .traf-kpis .tk .l{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-top:4px}
   .traf-h{font-size:.82rem;font-weight:800;margin:6px 0 10px}
   .traf-list{display:flex;flex-direction:column;gap:7px}
-  .trow{position:relative;display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border-radius:8px;background:var(--bg2);overflow:hidden;font-size:.85rem}
+  .trow{position:relative;display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border-radius:8px;background:var(--bg2);overflow:hidden;font-size:.85rem;cursor:default}
+  .trow.clk{cursor:pointer}
+  .trow.clk:hover{outline:1px solid var(--line)}
   .trow .bar{position:absolute;left:0;top:0;bottom:0;background:var(--accent);opacity:.16;border-radius:8px}
   .trow .lbl{position:relative;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:75%}
   .trow .val{position:relative;font-weight:800}
   .traf-empty{color:var(--muted);font-weight:600;padding:14px 0;font-size:.85rem}
 
+  /* Meta */
+  #metaView{display:none}
+  .mkpis{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:18px}
+  .mkpi{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px}
+  .mkpi .lbl{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+  .mkpi .val{font-size:1.55rem;font-weight:800;margin-top:6px;line-height:1.1}
+  .mkpi .sub{font-size:.7rem;color:var(--muted);font-weight:600;margin-top:3px}
+  .mbanner{border-radius:var(--radius);padding:14px 18px;margin-bottom:18px;font-size:.86rem;font-weight:600;line-height:1.5}
+  .mbanner.warn{background:linear-gradient(135deg,rgba(243,167,95,.16),rgba(232,99,122,.16));border:1px solid rgba(232,99,122,.4);color:var(--text)}
+  .mbanner.ok{background:rgba(62,207,151,.12);border:1px solid rgba(62,207,151,.4);color:var(--text)}
+  .mbanner b{color:var(--red)}
+  .aset{padding:12px 0;border-bottom:1px solid var(--line)}
+  .aset:last-child{border-bottom:0}
+  .aset .an{font-weight:800;font-size:.85rem;margin-bottom:8px}
+  .aset .abar-wrap{position:relative;height:26px;background:var(--bg2);border-radius:7px;overflow:hidden;margin-bottom:6px}
+  .aset .abar{position:absolute;left:0;top:0;bottom:0;background:var(--accent-grad);border-radius:7px;display:flex;align-items:center;padding:0 10px;color:#14163A;font-weight:800;font-size:.78rem}
+  .aset .ameta{display:flex;gap:16px;flex-wrap:wrap;font-size:.74rem;color:var(--muted);font-weight:600}
+  .aset .ameta b{color:var(--text);font-weight:800}
+  .camprow{display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap}
+  .camprow .cname{font-weight:800;font-size:.95rem}
+  .statusdot{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:700;color:var(--muted)}
+  .statusdot .d{width:8px;height:8px;border-radius:50%;background:var(--mint)}
+
   @media(max-width:1000px){
     .kpis{grid-template-columns:repeat(3,1fr)}
+    .mkpis{grid-template-columns:repeat(3,1fr)}
     .grid,.grid3{grid-template-columns:1fr}
   }
   @media(max-width:560px){
     .kpis{grid-template-columns:repeat(2,1fr)}
+    .mkpis{grid-template-columns:repeat(2,1fr)}
     .kpi .val{font-size:1.6rem}
   }
 </style>
@@ -187,6 +220,7 @@
       <img class="logo" src="assets/logo/lockup_horizontal_weiss.webp" alt="ochsocial" id="topLogo">
       <div class="segment" id="viewSeg">
         <button data-view="dash" class="on">Dashboard</button>
+        <button data-view="meta">Meta Ads</button>
         <button data-view="board">Board</button>
       </div>
       <div class="spacer"></div>
@@ -201,22 +235,23 @@
       </button>
     </div>
 
+    <!-- Gemeinsame Zeitraum-Leiste (Dashboard + Meta) -->
+    <div class="rangebar" id="rangebarWrap">
+      <div class="seg" id="rangeSeg">
+        <button data-r="heute">Heute</button>
+        <button data-r="7">7 Tage</button>
+        <button data-r="30" class="on">30 Tage</button>
+        <button data-r="90">90 Tage</button>
+        <button data-r="custom">Benutzerdefiniert</button>
+      </div>
+      <div class="custom" id="customRange">
+        <input type="date" id="cFrom"> <span class="muted">bis</span> <input type="date" id="cTo">
+      </div>
+      <span class="rlabel" id="rangeLabel"></span>
+    </div>
+
     <!-- ===== Dashboard-Ansicht ===== -->
     <div id="dashView">
-      <div class="rangebar">
-        <div class="seg" id="rangeSeg">
-          <button data-r="heute">Heute</button>
-          <button data-r="7">7 Tage</button>
-          <button data-r="30" class="on">30 Tage</button>
-          <button data-r="90">90 Tage</button>
-          <button data-r="custom">Benutzerdefiniert</button>
-        </div>
-        <div class="custom" id="customRange">
-          <input type="date" id="cFrom"> <span class="muted">bis</span> <input type="date" id="cTo">
-        </div>
-        <span class="rlabel" id="rangeLabel"></span>
-      </div>
-
       <div class="kpis" id="kpis"></div>
 
       <div class="grid">
@@ -252,15 +287,18 @@
 
       <div class="grid">
         <div class="panel">
-          <h2>Website-Traffic</h2>
+          <div class="phead">
+            <h2>Website- & Funnel-Traffic</h2>
+            <select class="pageSel" id="trafPage"><option value="">Alle Seiten</option></select>
+          </div>
           <div class="psub" id="trafSub">Besucher und Aufrufe im Zeitraum · Quelle Plausible</div>
           <div class="traf-kpis" id="trafKpis"><div class="muted">Lädt …</div></div>
           <h3 class="traf-h">Top Quellen</h3>
           <div id="trafSources" class="traf-list"></div>
         </div>
         <div class="panel">
-          <h2>Meistbesuchte Seiten</h2>
-          <div class="psub">Aufrufe pro Seite im Zeitraum</div>
+          <h2>Traffic pro Seite / Funnel</h2>
+          <div class="psub">Aufrufe pro Seite · zum Filtern anklicken</div>
           <div id="trafPages" class="traf-list"></div>
         </div>
       </div>
@@ -284,6 +322,25 @@
       </div>
     </div>
 
+    <!-- ===== Meta-Ads-Ansicht ===== -->
+    <div id="metaView">
+      <div class="camprow">
+        <span class="cname" id="metaAccount">Meta Ads</span>
+        <span class="statusdot"><span class="d"></span><span id="metaCampCount">interne Kampagnen</span></span>
+        <span class="rlabel" id="metaStamp" style="margin-left:auto"></span>
+      </div>
+      <div class="psub" id="metaSub" style="margin-bottom:16px">Nur interne ochsocial-Kampagnen · nichts wird verändert, nur gespiegelt</div>
+
+      <div class="mkpis" id="metaKpis"></div>
+      <div id="metaHealth"></div>
+
+      <div class="panel" id="metaCampPanel">
+        <h2>Aufschlüsselung nach Anzeigengruppe</h2>
+        <div class="psub" id="metaAsetSub">Ausgaben je Anzeigengruppe (letzte 30 Tage)</div>
+        <div id="metaAsets"></div>
+      </div>
+    </div>
+
     <!-- ===== Board-Ansicht ===== -->
     <div id="boardView">
       <div class="board-hint">Zieh eine Karte in eine andere Spalte, der Status wird sofort ins CRM zurückgeschrieben.</div>
@@ -299,6 +356,7 @@
   var STAGE_LBL = {'Termin vereinbart':'Termin'};
   var STAGE_COL = {'Neu':C.ice,'Angerufen':C.cobalt,'WhatsApp':C.mint,'Nicht erreicht':C.violet,'Termin vereinbart':C.champ,'Kunde':C.dmint,'Kein Interesse':C.red};
   var DATA = [], charts = {}, RANGE='30', cFrom=null, cTo=null, VIEW='dash';
+  var META=null, TRAFPAGE='';
 
   /* Theme */
   function applyTheme(t){
@@ -321,8 +379,12 @@
     VIEW=b.getAttribute('data-view');
     [].forEach.call(this.querySelectorAll('button'), function(x){ x.classList.toggle('on', x===b); });
     document.getElementById('dashView').style.display = VIEW==='dash'?'block':'none';
+    document.getElementById('metaView').style.display = VIEW==='meta'?'block':'none';
     document.getElementById('boardView').style.display = VIEW==='board'?'block':'none';
-    if(VIEW==='dash'){ renderKPIs(); renderCharts(); renderTable(); loadTraffic(); } else { renderBoard(); }
+    document.getElementById('rangebarWrap').style.display = (VIEW==='board')?'none':'flex';
+    if(VIEW==='dash'){ renderKPIs(); renderCharts(); renderTable(); loadTraffic(); }
+    else if(VIEW==='meta'){ renderMeta(); }
+    else { renderBoard(); }
   });
 
   /* Range */
@@ -335,7 +397,10 @@
   });
   document.getElementById('cFrom').addEventListener('change', function(){ if(RANGE==='custom') applyRange(); });
   document.getElementById('cTo').addEventListener('change', function(){ if(RANGE==='custom') applyRange(); });
-  function applyRange(){ renderKPIs(); renderCharts(); renderTable(); loadTraffic(); }
+  function applyRange(){
+    if(VIEW==='dash'){ renderKPIs(); renderCharts(); renderTable(); loadTraffic(); }
+    else if(VIEW==='meta'){ renderMeta(); }
+  }
 
   /* KPI-Kacheln als Filter */
   var ACTIVEKPI=null;
@@ -383,6 +448,7 @@
     if(!pw) return;
     var btn=document.getElementById('unlockBtn'); var err=document.getElementById('gateErr');
     if(!silent){ btn.textContent='Lädt …'; btn.disabled=true; } err.textContent='';
+    loadMeta();
     fetch(API+'?action=leads&token='+encodeURIComponent(pw)+'&_='+Date.now(),{cache:'no-store'})
       .then(function(r){ return r.json(); })
       .then(function(j){
@@ -393,13 +459,21 @@
         document.getElementById('app').style.display='block';
         stamp(j.generated);
         buildFilters();
-        if(VIEW==='dash'){ renderKPIs(); renderCharts(); renderTable(); loadTraffic(); } else { renderBoard(); }
+        if(VIEW==='dash'){ renderKPIs(); renderCharts(); renderTable(); loadTraffic(); }
+        else if(VIEW==='meta'){ renderMeta(); }
+        else { renderBoard(); }
       })
       .catch(function(){
         btn.textContent='Entsperren'; btn.disabled=false;
         try{ sessionStorage.removeItem('os_dash_pw'); }catch(e){}
         if(!silent){ err.textContent='Passwort falsch oder keine Verbindung.'; }
       });
+  }
+  function loadMeta(){
+    fetch('meta.json?_='+Date.now(),{cache:'no-store'})
+      .then(function(r){ return r.json(); })
+      .then(function(j){ META=j; if(VIEW==='dash') renderKPIs(); if(VIEW==='meta') renderMeta(); })
+      .catch(function(){ META=null; });
   }
   function stamp(g){ var d=new Date(g||Date.now()); document.getElementById('updated').textContent='Stand '+d.toLocaleString('de-DE',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}); }
   document.getElementById('refreshBtn').onclick=function(){ var pw=null; try{pw=sessionStorage.getItem('os_dash_pw');}catch(e){} if(pw) load(pw,true); };
@@ -415,6 +489,10 @@
   }
   function startOfDay(d){ return new Date(d.getFullYear(),d.getMonth(),d.getDate()); }
   function fmtDate(d){ return d?d.toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'2-digit'}):'—'; }
+  function fmtInt(n){ return (n||0).toLocaleString('de-DE'); }
+  function fmtEUR0(n){ return Math.round(n||0).toLocaleString('de-DE')+' €'; }
+  function fmtEUR2(n){ return (n||0).toLocaleString('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2})+' €'; }
+  function fmtPct(n){ return (n||0).toLocaleString('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2})+' %'; }
   function bereich(q){ q=(q||'').toLowerCase();
     if(q.indexOf('ki')>=0) return 'KI';
     if(q.indexOf('makler')>=0||q.indexOf('versicher')>=0) return 'Versicherung';
@@ -425,6 +503,8 @@
   function isKunde(r){ return (r.status||'').toLowerCase()==='kunde'; }
   function statusStyle(s){ var c=STAGE_COL[s]||'#5A6076'; return 'background:'+hexA(c,.16)+';color:'+c; }
   function hexA(hex,a){ var n=parseInt(hex.slice(1),16); return 'rgba('+(n>>16&255)+','+(n>>8&255)+','+(n&255)+','+a+')'; }
+  function metaKey(){ if(RANGE==='heute')return 'heute'; if(RANGE==='7')return '7'; if(RANGE==='30')return '30'; if(RANGE==='90')return '90'; return null; }
+  function metaTotals(){ if(!META||!META.totals)return null; var k=metaKey(); return k?META.totals[k]:null; }
 
   /* KPIs */
   function renderKPIs(){
@@ -433,25 +513,27 @@
     var termine=rows.filter(isTermin).length;
     var kunden=rows.filter(isKunde).length;
     var quote=total?Math.round(termine/total*100):0;
-    var offen=rows.filter(function(r){var s=(r.status||'').toLowerCase();return s==='neu'||s==='nicht erreicht';}).length;
     var faellig=DATA.filter(function(r){var s=(r.status||'').toLowerCase();return r.wiedervorlage&&!isNaN(r.wiedervorlage.getTime())&&r.wiedervorlage<=today&&s!=='kunde'&&s.indexOf('kein')<0;}).length;
     var rl=rangeLabelText();
+    var t=metaTotals();
+    var spendVal = t? fmtEUR0(t.spend) : '—';
+    var cplVal = (t && total>0) ? fmtEUR2(t.spend/total) : (t? '—' : '—');
+    var cplSub = (t && total>0) ? ('Spend / '+total+' Leads') : (t? 'noch keine Leads' : 'Meta lädt …');
     var cards=[
       {lbl:'Leads', val:total, sub:rl, f:'all'},
       {lbl:'Termine', val:termine, sub:'im Zeitraum', f:'termine'},
       {lbl:'Kunden', val:kunden, sub:'gewonnen', f:'kunden'},
       {lbl:'Terminquote', val:quote+'%', sub:'Lead → Termin'},
-      {lbl:'Offen', val:offen, sub:'Neu / nicht erreicht', f:'offen'},
-      {lbl:'Ø pro Tag', val:avgPerDay(rows), sub:'im Zeitraum'}
+      {lbl:'Ad Spend', val:spendVal, sub:'Meta · '+rl, tag:'Meta'},
+      {lbl:'CPL', val:cplVal, sub:cplSub, tag:'Meta'}
     ];
-    if(faellig>0) cards[5]={lbl:'Wiedervorlage', val:faellig, sub:'heute fällig', f:'faellig', red:true};
+    if(faellig>0) cards.push({lbl:'Wiedervorlage', val:faellig, sub:'heute fällig', f:'faellig', red:true});
     document.getElementById('kpis').innerHTML=cards.map(function(c){
       var cls='kpi'+(c.f?' filterable':'')+((c.f&&ACTIVEKPI===c.f)?' active':'');
-      return '<div class="'+cls+'"'+(c.f?' data-filter="'+c.f+'"':'')+'><div class="lbl">'+c.lbl+'</div><div class="val'+(c.red?' red':'')+'">'+c.val+'</div><div class="sub">'+c.sub+'</div></div>';
+      return '<div class="'+cls+'"'+(c.f?' data-filter="'+c.f+'"':'')+'>'+(c.tag?'<span class="tag">'+c.tag+'</span>':'')+'<div class="lbl">'+c.lbl+'</div><div class="val'+(c.red?' red':'')+'">'+c.val+'</div><div class="sub">'+c.sub+'</div></div>';
     }).join('');
     document.getElementById('rangeLabel').textContent=rl;
   }
-  function avgPerDay(rows){ var b=rangeBounds(); var days=Math.max(1,Math.round((b.end-b.start)/864e5)); return (rows.length/days).toFixed(1).replace('.',','); }
   function rangeLabelText(){
     if(RANGE==='heute')return 'heute'; if(RANGE==='7')return 'letzte 7 Tage';
     if(RANGE==='30')return 'letzte 30 Tage'; if(RANGE==='90')return 'letzte 90 Tage';
@@ -531,6 +613,59 @@
       }).join('');
       return '<div class="fgroup"><h3><span class="dot" style="background:'+g.c+'"></span>'+g.n+'</h3><div class="funnel">'+bars+'</div></div>';
     }).join('');
+  }
+
+  /* Meta Ads */
+  function renderMeta(){
+    document.getElementById('rangeLabel').textContent=rangeLabelText();
+    if(!META){ document.getElementById('metaKpis').innerHTML='<div class="traf-empty">Meta-Daten werden geladen …</div>'; document.getElementById('metaHealth').innerHTML=''; document.getElementById('metaAsets').innerHTML=''; return; }
+    document.getElementById('metaAccount').textContent=META.account||'Meta Ads';
+    var camps=(META.campaigns||[]).filter(function(c){return (c.status||'').toUpperCase()==='ACTIVE';});
+    document.getElementById('metaCampCount').textContent=camps.length+' aktive interne Kampagne'+(camps.length===1?'':'n');
+    if(META.generated){ var d=new Date(META.generated); document.getElementById('metaStamp').textContent='Meta-Stand '+d.toLocaleString('de-DE',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}); }
+
+    var t=metaTotals();
+    var crmLeads=scoped().length;
+    if(!t){
+      document.getElementById('metaKpis').innerHTML='<div class="traf-empty">Für Benutzerdefiniert liegen keine Meta-Werte vor. Bitte Heute / 7 / 30 / 90 wählen.</div>';
+      document.getElementById('metaHealth').innerHTML=''; document.getElementById('metaAsets').innerHTML=''; return;
+    }
+    var cpl = crmLeads>0 ? fmtEUR2(t.spend/crmLeads) : '—';
+    var cards=[
+      {lbl:'Ausgaben', val:fmtEUR2(t.spend), sub:rangeLabelText()},
+      {lbl:'Impressionen', val:fmtInt(t.impressions), sub:'Reichweite '+fmtInt(t.reach)},
+      {lbl:'Klicks', val:fmtInt(t.clicks), sub:'CTR '+fmtPct(t.ctr)},
+      {lbl:'CPC', val:fmtEUR2(t.cpc), sub:'pro Klick'},
+      {lbl:'Seitenaufrufe', val:fmtInt(t.lpv), sub:'Landing Page Views'},
+      {lbl:'Meta-Leads', val:fmtInt(t.metaLeads), sub:'Pixel-Conversions'},
+      {lbl:'CRM-Leads', val:crmLeads, sub:'tatsächlich im CRM'},
+      {lbl:'CPL (echt)', val:cpl, sub:'Spend / CRM-Leads'}
+    ];
+    document.getElementById('metaKpis').innerHTML=cards.map(function(c){
+      return '<div class="mkpi"><div class="lbl">'+c.lbl+'</div><div class="val">'+c.val+'</div><div class="sub">'+c.sub+'</div></div>';
+    }).join('');
+
+    /* Health */
+    var health=[];
+    if(t.spend>0 && (t.metaLeads||0)===0) health.push('<b>0 Pixel-Leads</b> bei '+fmtEUR2(t.spend)+' Ausgaben — Conversion-Tracking (Pixel/Lead-Event) prüfen, sonst optimiert Meta blind.');
+    if(t.clicks>0){ var lpvRate=(t.lpv||0)/t.clicks; if(lpvRate<0.4) health.push('Nur '+fmtInt(t.lpv)+' Seitenaufrufe bei '+fmtInt(t.clicks)+' Klicks ('+Math.round(lpvRate*100)+'%) — großer Absprung zwischen Klick und Landingpage (Ladezeit/Redirect prüfen).'); }
+    var perDay = t.spend / (metaKey()==='heute'?1:(metaKey()==='7'?7:(metaKey()==='90'?90:30)));
+    if(perDay<10) health.push('Ø '+fmtEUR2(perDay)+'/Tag Budget — für Metas Lernphase zu wenig. Budget bündeln & erhöhen, sonst keine statistisch belastbaren Ergebnisse.');
+    document.getElementById('metaHealth').innerHTML = health.length
+      ? '<div class="mbanner warn"><div style="font-weight:800;margin-bottom:6px">Auffälligkeiten</div>'+health.map(function(h){return '• '+h;}).join('<br>')+'</div>'
+      : '<div class="mbanner ok">Keine kritischen Auffälligkeiten im gewählten Zeitraum.</div>';
+
+    /* Anzeigengruppen */
+    var camp=camps[0]||(META.campaigns||[])[0];
+    var asets=(camp&&camp.adsets)||[];
+    document.getElementById('metaAsetSub').textContent='Kampagne: '+(camp?camp.name:'—')+' · Ausgaben je Anzeigengruppe (letzte 30 Tage)';
+    var maxSpend=Math.max.apply(null, asets.map(function(a){return a.spend||0;}))||1;
+    document.getElementById('metaAsets').innerHTML=asets.map(function(a){
+      var w=Math.max(8,Math.round((a.spend||0)/maxSpend*100));
+      return '<div class="aset"><div class="an">'+esc(a.name)+'</div>'
+        +'<div class="abar-wrap"><div class="abar" style="width:'+w+'%">'+fmtEUR2(a.spend)+'</div></div>'
+        +'<div class="ameta"><span>CTR <b>'+fmtPct(a.ctr)+'</b></span><span>CPC <b>'+fmtEUR2(a.cpc)+'</b></span><span>Klicks <b>'+fmtInt(a.clicks)+'</b></span><span>Impr. <b>'+fmtInt(a.impressions)+'</b></span><span>Seitenaufrufe <b>'+fmtInt(a.lpv)+'</b></span></div></div>';
+    }).join('') || '<div class="traf-empty">Keine Anzeigengruppen-Daten.</div>';
   }
 
   /* Table */
@@ -624,6 +759,7 @@
 
   /* ---------- Traffic (Plausible via n8n-Proxy) ---------- */
   var PROXY='https://n8n.srv1286795.hstgr.cloud/webhook/plausible';
+  var pagesBuilt=false;
   function pad2(n){ return (n<10?'0':'')+n; }
   function isoD(d){ return d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate()); }
   function drRange(){
@@ -634,37 +770,60 @@
     if(RANGE==='custom'){ var b=rangeBounds(); return [isoD(b.start),isoD(b.end)]; }
     return '30d';
   }
+  function pageFilters(){ return TRAFPAGE ? [['is','event:page',[TRAFPAGE]]] : null; }
+  function withFilters(q){ var f=pageFilters(); if(f) q.filters=f; return q; }
   function plausibleQ(query,cb){
     var pw=null; try{pw=sessionStorage.getItem('os_dash_pw');}catch(e){}
     fetch(PROXY,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({token:pw,query:query})})
       .then(function(r){return r.json();}).then(function(j){ cb(null,j); }).catch(function(e){ cb(e); });
   }
-  function trafRows(elId, j, labelFmt){
+  function trafRows(elId, j, labelFmt, clickable){
     var el=document.getElementById(elId); if(!el) return;
     var rows=(j&&j.results)||[];
     if(!rows.length){ el.innerHTML='<div class="traf-empty">Noch keine Daten im Zeitraum.</div>'; return; }
     var max=Math.max.apply(null, rows.map(function(r){return r.metrics[0]||0;}))||1;
     el.innerHTML=rows.map(function(r){
-      var lbl=labelFmt(r.dimensions&&r.dimensions[0]!=null?r.dimensions[0]:'—');
+      var raw=r.dimensions&&r.dimensions[0]!=null?r.dimensions[0]:'';
+      var lbl=labelFmt(raw||'—');
       var v=r.metrics[0]||0; var w=Math.max(3,Math.round(v/max*100));
-      return '<div class="trow"><span class="bar" style="width:'+w+'%"></span><span class="lbl">'+esc(lbl)+'</span><span class="val">'+v+'</span></div>';
+      return '<div class="trow'+(clickable?' clk':'')+'"'+(clickable?' data-page="'+esc(raw)+'"':'')+'><span class="bar" style="width:'+w+'%"></span><span class="lbl">'+esc(lbl)+'</span><span class="val">'+v+'</span></div>';
     }).join('');
+    if(clickable){
+      [].forEach.call(el.querySelectorAll('.trow.clk'), function(row){
+        row.onclick=function(){ TRAFPAGE=row.getAttribute('data-page')||''; syncPageSel(); loadTraffic(); };
+      });
+    }
   }
+  function buildPageSelector(rows){
+    if(pagesBuilt) return;
+    var sel=document.getElementById('trafPage');
+    (rows||[]).forEach(function(r){
+      var p=r.dimensions&&r.dimensions[0]; if(!p) return;
+      var o=document.createElement('option'); o.value=p; o.textContent=(p==='/'?'/ (Startseite)':p); sel.appendChild(o);
+    });
+    sel.onchange=function(){ TRAFPAGE=sel.value; loadTraffic(); };
+    pagesBuilt=true;
+  }
+  function syncPageSel(){ var sel=document.getElementById('trafPage'); if(sel) sel.value=TRAFPAGE; }
   function loadTraffic(){
     if(VIEW!=='dash') return;
     var dr=drRange();
-    plausibleQ({metrics:['visitors','pageviews'],date_range:dr}, function(err,j){
+    var lbl = TRAFPAGE ? ('Seite '+TRAFPAGE) : 'Alle Seiten';
+    document.getElementById('trafSub').textContent='Besucher und Aufrufe im Zeitraum · '+lbl+' · Quelle Plausible';
+    plausibleQ(withFilters({metrics:['visitors','pageviews'],date_range:dr}), function(err,j){
       var el=document.getElementById('trafKpis');
       if(err||!j||!j.results){ el.innerHTML='<div class="traf-empty">Traffic gerade nicht verfügbar.</div>'; return; }
       var m=(j.results[0]&&j.results[0].metrics)||[0,0];
       el.innerHTML='<div class="tk"><div class="v">'+(m[0]||0)+'</div><div class="l">Besucher</div></div>'
                   +'<div class="tk"><div class="v">'+(m[1]||0)+'</div><div class="l">Aufrufe</div></div>';
     });
-    plausibleQ({metrics:['pageviews','visitors'],date_range:dr,dimensions:['event:page'],pagination:{limit:12}}, function(err,j){
-      trafRows('trafPages', j, function(p){ return p==='/'?'/ (Startseite)':p; });
+    plausibleQ(withFilters({metrics:['visitors'],date_range:dr,dimensions:['visit:source'],pagination:{limit:8}}), function(err,j){
+      trafRows('trafSources', j, function(s){ return (!s||s==='Direct'||s==='')?'Direkt / keine Quelle':s; }, false);
     });
-    plausibleQ({metrics:['visitors'],date_range:dr,dimensions:['visit:source'],pagination:{limit:8}}, function(err,j){
-      trafRows('trafSources', j, function(s){ return (!s||s==='Direct'||s==='')?'Direkt / keine Quelle':s; });
+    // Seiten-Liste bleibt global (kein Seitenfilter), zum Auswählen
+    plausibleQ({metrics:['pageviews','visitors'],date_range:dr,dimensions:['event:page'],pagination:{limit:12}}, function(err,j){
+      buildPageSelector((j&&j.results)||[]);
+      trafRows('trafPages', j, function(p){ return p==='/'?'/ (Startseite)':p; }, true);
     });
   }
 </script>
