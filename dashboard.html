@@ -180,7 +180,16 @@
   .aset:last-child{border-bottom:0}
   .aset .an{font-weight:800;font-size:.85rem;margin-bottom:8px}
   .aset .abar-wrap{position:relative;height:26px;background:var(--bg2);border-radius:7px;overflow:hidden;margin-bottom:6px}
-  .aset .abar{position:absolute;left:0;top:0;bottom:0;background:var(--accent-grad);border-radius:7px;display:flex;align-items:center;padding:0 10px;color:#14163A;font-weight:800;font-size:.78rem}
+  .aset .abar{position:absolute;left:0;top:0;bottom:0;background:var(--accent-grad);border-radius:7px;display:flex;align-items:center;padding:0 10px;color:#fff;font-weight:800;font-size:.78rem}
+  .pbanner{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:4px 0 12px;font-size:.92rem;line-height:1.5}
+  .pcard{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:10px}
+  .ph{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .prank{font-weight:800;color:#8890B5;font-size:.85rem}
+  .pname{font-weight:800;font-size:.98rem;flex:1}
+  .pverd{font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px;border:1px solid}
+  .pchips{display:flex;flex-wrap:wrap;gap:8px}
+  .pchip{font-size:.8rem;padding:4px 10px;border-radius:999px;border:1px solid;background:transparent}
+  .pchip b{font-weight:800}
   .aset .ameta{display:flex;gap:16px;flex-wrap:wrap;font-size:.74rem;color:var(--muted);font-weight:600}
   .aset .ameta b{color:var(--text);font-weight:800}
   .camprow{display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap}
@@ -334,6 +343,7 @@
 
       <div class="mkpis" id="metaKpis"></div>
       <div id="metaHealth"></div>
+      <div class="panel" id="metaPerf"></div>
 
       <div class="panel" id="metaCampPanel">
         <h2>Aufschlüsselung nach Anzeigengruppe</h2>
@@ -672,6 +682,20 @@
         +'<div class="abar-wrap"><div class="abar" style="width:'+w+'%">'+fmtEUR2(a.spend)+'</div></div>'
         +'<div class="ameta"><span>CTR <b>'+fmtPct(a.ctr)+'</b></span><span>Link-Klicks <b>'+fmtInt(a.linkClicks)+'</b></span><span>Kosten/Klick <b>'+fmtEUR2(a.costPerLinkClick)+'</b></span><span>Klicks alle <b>'+fmtInt(a.clicks)+'</b></span><span>Impr. <b>'+fmtInt(a.impressions)+'</b></span><span>Seitenaufrufe <b>'+fmtInt(a.lpv)+'</b></span><span style="color:#E7C87E">Leads <b>'+_asetLeads(a)+'</b></span></div></div>';
     }).join('') || '<div class="traf-empty">Keine Anzeigengruppen-Daten.</div>';
+    (function(){
+      var pe=document.getElementById('metaPerf'); if(!pe) return;
+      if(!asets.length){ pe.innerHTML=''; return; }
+      function rate(v,g,a,lb){ if(v==null) return 'na'; return lb?(v<=g?'good':(v<=a?'mid':'bad')):(v>=g?'good':(v>=a?'mid':'bad')); }
+      var COL={good:'#37C99A',mid:'#E7C87E',bad:'#E8637A',na:'#8890B5'};
+      var rows=asets.map(function(a){ var leads=_asetLeads(a); var cpl=leads>0?(a.spend/leads):null; var rc=rate(a.ctr,2.5,1.5,false), rk=rate(a.costPerLinkClick,3,4.5,true), rp=(cpl==null?'na':rate(cpl,100,200,true)); var sc=[rc,rk,rp].reduce(function(s,x){return s+(x==='good'?1:(x==='bad'?-1:0));},0)+(leads>0?1:0); return {a:a,leads:leads,cpl:cpl,rc:rc,rk:rk,rp:rp,sc:sc}; }).sort(function(x,y){ return (y.sc-x.sc)||(y.a.ctr-x.a.ctr); });
+      function sn(n){ var p=(n||'').split('|'); return (p[p.length-1]||'').trim()||n; }
+      function chip(l,v,r){ return '<span class="pchip" style="border-color:'+COL[r]+';color:'+COL[r]+'">'+l+' <b>'+v+'</b></span>'; }
+      var best=rows[0], worst=rows[rows.length-1];
+      var head='<b style="color:#37C99A">'+esc(sn(best.a.name))+'</b> l\u00e4uft am besten ('+fmtPct(best.a.ctr)+' CTR'+(best.leads>0?', CPL '+fmtEUR2(best.cpl):'')+'). ';
+      if(worst!==best){ head+='<b style="color:#E8637A">'+esc(sn(worst.a.name))+'</b> schw\u00e4chste'+(worst.leads===0?' (0 Leads bei '+fmtEUR2(worst.a.spend)+' Ausgaben)':'')+'.'; }
+      var cards=rows.map(function(r,idx){ var verdict=idx===0?'Skalieren':(r.sc<=-1?'\u00dcberarbeiten':'Beobachten'); var vcol=idx===0?'#37C99A':(r.sc<=-1?'#E8637A':'#E7C87E'); return '<div class="pcard"><div class="ph"><span class="prank">#'+(idx+1)+'</span><span class="pname">'+esc(sn(r.a.name))+'</span><span class="pverd" style="background:'+vcol+'22;color:'+vcol+';border-color:'+vcol+'">'+verdict+'</span></div><div class="pchips">'+chip('CTR',fmtPct(r.a.ctr),r.rc)+chip('Kosten/Klick',fmtEUR2(r.a.costPerLinkClick),r.rk)+chip('CPL',(r.cpl==null?'keine Leads':fmtEUR2(r.cpl)),r.rp)+chip('Leads',fmtInt(r.leads),r.leads>0?'good':'na')+'</div></div>'; }).join('');
+      pe.innerHTML='<h2>Performance-Bewertung</h2><div class="psub">Welche Anzeigengruppe liefert, welche nicht. Ampel: gr\u00fcn gut, gelb ok, rot schwach.</div><div class="pbanner">'+head+'</div>'+cards;
+    })();
   }
 
   /* Table */
