@@ -305,6 +305,7 @@
       if(name==='lead'){
         try{ fetch(N8N_CRM,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(p),keepalive:true}); }catch(e){}
       }
+      if(name==='termin_gebucht'){ try{ fetch('https://script.google.com/macros/s/AKfycbwGeCkcM44RBh_ADaUCSuEcXRWEpO8D03ovYhpTBlf_gsRs-FVFVa6ex_33bniJF5TEBQ/exec',{method:'POST',mode:'no-cors',headers:{'content-type':'text/plain;charset=utf-8'},body:JSON.stringify({event:'termin_gebucht',email:(leadData.email||'')}),keepalive:true}); }catch(e){} }
     }
 
     function initCalendly(){
