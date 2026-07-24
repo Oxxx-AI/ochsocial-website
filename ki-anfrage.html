@@ -605,6 +605,7 @@
     var WEBHOOK_TERMIN = 'https://hooks.zapier.com/hooks/catch/10002468/4u7f5ey/';
     var N8N_KI_LABEL = 'https://n8n.srv1286795.hstgr.cloud/webhook/ki-label';
     var N8N_CRM = 'https://n8n.srv1286795.hstgr.cloud/webhook/crm-lead';
+    var CRM_EXEC = 'https://script.google.com/macros/s/AKfycbwGeCkcM44RBh_ADaUCSuEcXRWEpO8D03ovYhpTBlf_gsRs-FVFVa6ex_33bniJF5TEBQ/exec';
     var leadWrap=document.getElementById('leadWrap');
     var calWrap=document.getElementById('calWrap');
     var doneWrap=document.getElementById('doneWrap');
@@ -619,6 +620,7 @@
       try{ fetch(url,{method:'POST',mode:'no-cors',body:JSON.stringify(p),keepalive:true}); }catch(e){}
       if(name==='lead'){ try{ fetch(N8N_KI_LABEL,{method:'POST',mode:'no-cors',body:JSON.stringify(p),keepalive:true}); }catch(e){} }
       try{ fetch(N8N_CRM,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(p),keepalive:true}); }catch(e){}
+      if(name==='termin_gebucht'){ try{ fetch(CRM_EXEC,{method:'POST',mode:'no-cors',headers:{'content-type':'text/plain;charset=utf-8'},body:JSON.stringify({event:'termin_gebucht',email:(leadData.email||'')}),keepalive:true}); }catch(e){} }
     }
     function initCalendly(){
       if(calInited) return; calInited=true;
