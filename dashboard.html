@@ -632,14 +632,15 @@
       document.getElementById('metaKpis').innerHTML='<div class="traf-empty">Für Benutzerdefiniert liegen keine Meta-Werte vor. Bitte Heute / 7 / 30 / 90 wählen.</div>';
       document.getElementById('metaHealth').innerHTML=''; document.getElementById('metaAsets').innerHTML=''; return;
     }
-    var cpl = t.metaLeads>0 ? fmtEUR2(t.spend/t.metaLeads) : '—';
+    var metaAttrLeads = scoped().filter(function(r){return /^meta/i.test((r.quelle||''));}).length;
+    var cpl = metaAttrLeads>0 ? fmtEUR2(t.spend/metaAttrLeads) : '—';
     var cards=[
       {lbl:'Ausgaben', val:fmtEUR2(t.spend), sub:rangeLabelText()},
       {lbl:'Impressionen', val:fmtInt(t.impressions), sub:'Reichweite '+fmtInt(t.reach)},
       {lbl:'Klicks', val:fmtInt(t.clicks), sub:'CTR '+fmtPct(t.ctr)},{lbl:'Link-Klicks', val:fmtInt(t.linkClicks), sub:'echte Website-Klicks'},{lbl:'Kosten/Link-Klick', val:fmtEUR2(t.costPerLinkClick), sub:'pro echtem Klick'},
       {lbl:'CPC', val:fmtEUR2(t.cpc), sub:'pro Klick (alle)'},
       {lbl:'Seitenaufrufe', val:fmtInt(t.lpv), sub:'Landing Page Views'},
-      {lbl:'Meta-Leads', val:fmtInt(t.metaLeads), sub:'Pixel-Conversions'},
+      {lbl:'Meta-Leads', val:fmtInt(metaAttrLeads), sub:'aus UTM zugeordnet'},
       {lbl:'CRM-Leads', val:crmLeads, sub:'tatsächlich im CRM'},
       {lbl:'CPL (Meta)', val:cpl, sub:'Spend / Meta-Leads'},{lbl:'Kosten/Aufruf', val:(t.lpv>0?fmtEUR2(t.spend/t.lpv):'-'), sub:'echter Preis pro Seitenaufruf'}
     ];
@@ -661,12 +662,15 @@
     var camp=camps[0]||(META.campaigns||[])[0];
     var asets=(camp&&camp.adsets)||[];
     document.getElementById('metaAsetSub').textContent='Kampagne: '+(camp?camp.name:'—')+' · Ausgaben je Anzeigengruppe (Laufzeit)';
+    function _adKey(n){ n=(n||'').toLowerCase(); if(n.indexOf('lang')>=0)return 'lang'; if(n.indexOf('video')>=0)return 'video'; return 'base'; }
+    function _leadKey(q){ q=(q||'').toLowerCase(); if(q.indexOf('meta')<0)return null; if(q.indexOf('lang')>=0)return 'lang'; if(q.indexOf('video')>=0)return 'video'; return 'base'; }
+    function _asetLeads(a){ var k=_adKey(a.name); return scoped().filter(function(r){return _leadKey(r.quelle)===k;}).length; }
     var maxSpend=Math.max.apply(null, asets.map(function(a){return a.spend||0;}))||1;
     document.getElementById('metaAsets').innerHTML=asets.map(function(a){
       var w=Math.max(8,Math.round((a.spend||0)/maxSpend*100));
       return '<div class="aset"><div class="an">'+esc(a.name)+'</div>'
         +'<div class="abar-wrap"><div class="abar" style="width:'+w+'%">'+fmtEUR2(a.spend)+'</div></div>'
-        +'<div class="ameta"><span>CTR <b>'+fmtPct(a.ctr)+'</b></span><span>Link-Klicks <b>'+fmtInt(a.linkClicks)+'</b></span><span>Kosten/Klick <b>'+fmtEUR2(a.costPerLinkClick)+'</b></span><span>Klicks alle <b>'+fmtInt(a.clicks)+'</b></span><span>Impr. <b>'+fmtInt(a.impressions)+'</b></span><span>Seitenaufrufe <b>'+fmtInt(a.lpv)+'</b></span></div></div>';
+        +'<div class="ameta"><span>CTR <b>'+fmtPct(a.ctr)+'</b></span><span>Link-Klicks <b>'+fmtInt(a.linkClicks)+'</b></span><span>Kosten/Klick <b>'+fmtEUR2(a.costPerLinkClick)+'</b></span><span>Klicks alle <b>'+fmtInt(a.clicks)+'</b></span><span>Impr. <b>'+fmtInt(a.impressions)+'</b></span><span>Seitenaufrufe <b>'+fmtInt(a.lpv)+'</b></span><span style="color:#E7C87E">Leads <b>'+_asetLeads(a)+'</b></span></div></div>';
     }).join('') || '<div class="traf-empty">Keine Anzeigengruppen-Daten.</div>';
   }
 
