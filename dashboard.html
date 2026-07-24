@@ -330,7 +330,7 @@
         <span class="statusdot"><span class="d"></span><span id="metaCampCount">interne Kampagnen</span></span>
         <span class="rlabel" id="metaStamp" style="margin-left:auto"></span>
       </div>
-      <div class="psub" id="metaSub" style="margin-bottom:16px">Nur interne ochsocial-Kampagnen · nichts wird verändert, nur gespiegelt</div>
+      <div class="psub" id="metaSub" style="display:none">Nur interne ochsocial-Kampagnen · nichts wird verändert, nur gespiegelt</div>
 
       <div class="mkpis" id="metaKpis"></div>
       <div id="metaHealth"></div>
@@ -519,8 +519,8 @@
     var rl=rangeLabelText();
     var t=metaTotals();
     var spendVal = t? fmtEUR0(t.spend) : '—';
-    var cplVal = (t && total>0) ? fmtEUR2(t.spend/total) : (t? '—' : '—');
-    var cplSub = (t && total>0) ? ('Spend / '+total+' Leads') : (t? 'noch keine Leads' : 'Meta lädt …');
+    var cplVal = (t && t.metaLeads>0) ? fmtEUR2(t.spend/t.metaLeads) : (t? '—' : '—');
+    var cplSub = (t && t.metaLeads>0) ? ('Spend / '+t.metaLeads+' Meta-Leads') : (t? 'noch keine Leads' : 'Meta lädt …');
     var cards=[
       {lbl:'Leads', val:total, sub:rl, f:'all'},
       {lbl:'Termine', val:termine, sub:'im Zeitraum', f:'termine'},
@@ -632,7 +632,7 @@
       document.getElementById('metaKpis').innerHTML='<div class="traf-empty">Für Benutzerdefiniert liegen keine Meta-Werte vor. Bitte Heute / 7 / 30 / 90 wählen.</div>';
       document.getElementById('metaHealth').innerHTML=''; document.getElementById('metaAsets').innerHTML=''; return;
     }
-    var cpl = crmLeads>0 ? fmtEUR2(t.spend/crmLeads) : '—';
+    var cpl = t.metaLeads>0 ? fmtEUR2(t.spend/t.metaLeads) : '—';
     var cards=[
       {lbl:'Ausgaben', val:fmtEUR2(t.spend), sub:rangeLabelText()},
       {lbl:'Impressionen', val:fmtInt(t.impressions), sub:'Reichweite '+fmtInt(t.reach)},
@@ -641,7 +641,7 @@
       {lbl:'Seitenaufrufe', val:fmtInt(t.lpv), sub:'Landing Page Views'},
       {lbl:'Meta-Leads', val:fmtInt(t.metaLeads), sub:'Pixel-Conversions'},
       {lbl:'CRM-Leads', val:crmLeads, sub:'tatsächlich im CRM'},
-      {lbl:'CPL (echt)', val:cpl, sub:'Spend / CRM-Leads'},{lbl:'Kosten/Aufruf', val:(t.lpv>0?fmtEUR2(t.spend/t.lpv):'-'), sub:'echter Preis pro Seitenaufruf'}
+      {lbl:'CPL (Meta)', val:cpl, sub:'Spend / Meta-Leads'},{lbl:'Kosten/Aufruf', val:(t.lpv>0?fmtEUR2(t.spend/t.lpv):'-'), sub:'echter Preis pro Seitenaufruf'}
     ];
     document.getElementById('metaKpis').innerHTML=cards.map(function(c){
       return '<div class="mkpi"><div class="lbl">'+c.lbl+'</div><div class="val">'+c.val+'</div><div class="sub">'+c.sub+'</div></div>';
@@ -649,8 +649,8 @@
 
     /* Health */
     var health=[];
-    if(t.spend>0 && (t.metaLeads||0)===0) health.push('<b>0 Pixel-Leads</b> bei '+fmtEUR2(t.spend)+' Ausgaben — Conversion-Tracking (Pixel/Lead-Event) prüfen, sonst optimiert Meta blind.');
-    if(t.clicks>0){ var lpvRate=(t.lpv||0)/t.clicks; if(lpvRate<0.4) health.push('Nur '+fmtInt(t.lpv)+' Seitenaufrufe bei '+fmtInt(t.clicks)+' Klicks ('+Math.round(lpvRate*100)+'%) — großer Absprung zwischen Klick und Landingpage (Ladezeit/Redirect prüfen).'); }
+    if(false) health.push('<b>0 Pixel-Leads</b> bei '+fmtEUR2(t.spend)+' Ausgaben — Conversion-Tracking (Pixel/Lead-Event) prüfen, sonst optimiert Meta blind.');
+    if(t.clicks>0){ var lpvRate=(t.lpv||0)/t.clicks; if(false) health.push('Nur '+fmtInt(t.lpv)+' Seitenaufrufe bei '+fmtInt(t.clicks)+' Klicks ('+Math.round(lpvRate*100)+'%) — großer Absprung zwischen Klick und Landingpage (Ladezeit/Redirect prüfen).'); }
     var perDay = t.spend / (metaKey()==='heute'?1:(metaKey()==='7'?7:(metaKey()==='90'?90:30)));
     if(false) health.push('Ø '+fmtEUR2(perDay)+'/Tag Budget — für Metas Lernphase zu wenig. Budget bündeln & erhöhen, sonst keine statistisch belastbaren Ergebnisse.');
     document.getElementById('metaHealth').innerHTML = health.length
