@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-25T13:05:43.267Z",
+  "generated": "2026-07-25T13:31:05.694Z",
   "account": "Ochsocial Werbekonto 1",
   "currency": "EUR",
   "note": "Summen ohne den laufenden heutigen Tag (wie Ads Manager). Heute separat.",
@@ -41,14 +41,14 @@
       "metaLeads": 0
     },
     "heute": {
-      "spend": 31.46,
-      "impressions": 613,
-      "reach": 548,
-      "clicks": 7,
-      "ctr": 1.14,
-      "cpc": 4.49,
-      "linkClicks": 3,
-      "costPerLinkClick": 10.49,
+      "spend": 32.62,
+      "impressions": 628,
+      "reach": 569,
+      "clicks": 8,
+      "ctr": 1.27,
+      "cpc": 4.08,
+      "linkClicks": 4,
+      "costPerLinkClick": 8.16,
       "lpv": 0,
       "metaLeads": 0
     },
@@ -109,14 +109,14 @@
           "metaLeads": 0
         },
         "heute": {
-          "spend": 31.46,
-          "impressions": 613,
-          "reach": 548,
-          "clicks": 7,
-          "ctr": 1.14,
-          "cpc": 4.49,
-          "linkClicks": 3,
-          "costPerLinkClick": 10.49,
+          "spend": 32.62,
+          "impressions": 628,
+          "reach": 569,
+          "clicks": 8,
+          "ctr": 1.27,
+          "cpc": 4.08,
+          "linkClicks": 4,
+          "costPerLinkClick": 8.16,
           "lpv": 0,
           "metaLeads": 0
         },
@@ -136,7 +136,8 @@
       "adsetsRange": "bis gestern",
       "adsets": [
         {
-          "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Video Ad Lang",
+          "id": "120251886809100316",
+          "name": "DACH | Interesse + Geschaeftsfuehrung KI | EX Follower | Video Ad Lang",
           "status": "ACTIVE",
           "spend": 80.77,
           "impressions": 1310,
@@ -146,12 +147,12 @@
           "cpc": 1.97,
           "linkClicks": 24,
           "costPerLinkClick": 3.37,
-          "cpm": 61.66,
           "lpv": 3,
-          "metaLeads": 0
+          "cpm": 61.66
         },
         {
-          "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Video Ad",
+          "id": "120251886249990316",
+          "name": "DACH | Interesse + Geschaeftsfuehrung KI | EX Follower | Video Ad",
           "status": "ACTIVE",
           "spend": 80.81,
           "impressions": 1463,
@@ -161,12 +162,12 @@
           "cpc": 2.61,
           "linkClicks": 22,
           "costPerLinkClick": 3.67,
-          "cpm": 55.24,
           "lpv": 4,
-          "metaLeads": 0
+          "cpm": 55.24
         },
         {
-          "name": "DACH | Interesse + Geschäftsführung KI | EX Follower",
+          "id": "120251885944940316",
+          "name": "DACH | Interesse + Geschaeftsfuehrung KI | EX Follower",
           "status": "ACTIVE",
           "spend": 78.56,
           "impressions": 2280,
@@ -176,9 +177,8 @@
           "cpc": 1.79,
           "linkClicks": 17,
           "costPerLinkClick": 4.62,
-          "cpm": 34.46,
           "lpv": 3,
-          "metaLeads": 0
+          "cpm": 34.46
         }
       ]
     }
