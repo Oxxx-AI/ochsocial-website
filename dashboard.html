@@ -670,16 +670,19 @@
 
     /* Anzeigengruppen */
     var camp=camps[0]||(META.campaigns||[])[0];
-    var asets=(camp&&camp.adsets)||[];
-    document.getElementById('metaAsetSub').textContent='Kampagne: '+(camp?camp.name:'—')+' · Ausgaben je Anzeigengruppe (Laufzeit)';
+    var asets=(camp&&((camp.adsetsByRange&&camp.adsetsByRange[metaKey()])||camp.adsets))||[];
+    document.getElementById('metaAsetSub').textContent='Kampagne: '+(camp?camp.name:'—')+' · Ausgaben je Anzeigengruppe ('+rangeLabelText()+')';
     function _adKey(n){ n=(n||'').toLowerCase(); if(n.indexOf('lang')>=0)return 'lang'; if(n.indexOf('video')>=0)return 'video'; return 'base'; }
     function _leadKey(q){ q=(q||'').toLowerCase(); if(q.indexOf('meta')<0)return null; if(q.indexOf('lang')>=0)return 'lang'; if(q.indexOf('video')>=0)return 'video'; return 'base'; }
     function _asetLeads(a){ var k=_adKey(a.name); return scoped().filter(function(r){return _leadKey(r.quelle)===k;}).length; }
+    function _rate(v,g,a,lb){ if(v==null) return 'na'; return lb?(v<=g?'good':(v<=a?'mid':'bad')):(v>=g?'good':(v>=a?'mid':'bad')); }
+    function _asetScore(a){ var l=_asetLeads(a); var cpl=l>0?(a.spend/l):null; var rc=_rate(a.ctr,2.5,1.5,false), rk=_rate(a.costPerLinkClick,3,4.5,true), rp=(cpl==null?'na':_rate(cpl,100,200,true)); return [rc,rk,rp].reduce(function(s,x){return s+(x==='good'?1:(x==='bad'?-1:0));},0)+(l>0?1:0); }
+    function _scoreCol(sc){ return sc>=1?'#37C99A':(sc<=-1?'#E8637A':'#E7C87E'); }
     var maxSpend=Math.max.apply(null, asets.map(function(a){return a.spend||0;}))||1;
     document.getElementById('metaAsets').innerHTML=asets.map(function(a){
-      var w=Math.max(8,Math.round((a.spend||0)/maxSpend*100));
+      var w=Math.max(8,Math.round((a.spend||0)/maxSpend*100)); var _sc=_asetScore(a), _bc=_scoreCol(_sc), _bt=(_sc>=1||_sc<=-1)?'#fff':'#14163A';
       return '<div class="aset"><div class="an">'+esc(a.name)+'</div>'
-        +'<div class="abar-wrap"><div class="abar" style="width:'+w+'%">'+fmtEUR2(a.spend)+'</div></div>'
+        +'<div class="abar-wrap"><div class="abar" style="width:'+w+'%;background:'+_bc+';color:'+_bt+'">'+fmtEUR2(a.spend)+'</div></div>'
         +'<div class="ameta"><span>CTR <b>'+fmtPct(a.ctr)+'</b></span><span>Link-Klicks <b>'+fmtInt(a.linkClicks)+'</b></span><span>Kosten/Klick <b>'+fmtEUR2(a.costPerLinkClick)+'</b></span><span>Klicks alle <b>'+fmtInt(a.clicks)+'</b></span><span>Impr. <b>'+fmtInt(a.impressions)+'</b></span><span>Seitenaufrufe <b>'+fmtInt(a.lpv)+'</b></span><span style="color:#E7C87E">Leads <b>'+_asetLeads(a)+'</b></span></div></div>';
     }).join('') || '<div class="traf-empty">Keine Anzeigengruppen-Daten.</div>';
     (function(){
