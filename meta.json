@@ -1,13 +1,13 @@
 {
-  "generated": "2026-07-25T16:03:58.624Z",
+  "generated": "2026-07-25T18:04:30.142Z",
   "account": "Ochsocial Werbekonto 1",
   "currency": "EUR",
   "note": "Summen ohne den laufenden heutigen Tag (wie Ads Manager). Heute separat.",
   "totals": {
     "7": {
-      "spend": 240.45,
-      "impressions": 5057,
-      "reach": 3216,
+      "spend": 240.48,
+      "impressions": 5059,
+      "reach": 3218,
       "clicks": 116,
       "ctr": 2.29,
       "cpc": 2.07,
@@ -17,9 +17,9 @@
       "metaLeads": 0
     },
     "30": {
-      "spend": 240.45,
-      "impressions": 5057,
-      "reach": 3216,
+      "spend": 240.48,
+      "impressions": 5059,
+      "reach": 3218,
       "clicks": 116,
       "ctr": 2.29,
       "cpc": 2.07,
@@ -29,9 +29,9 @@
       "metaLeads": 0
     },
     "90": {
-      "spend": 240.45,
-      "impressions": 5057,
-      "reach": 3216,
+      "spend": 240.48,
+      "impressions": 5059,
+      "reach": 3218,
       "clicks": 116,
       "ctr": 2.29,
       "cpc": 2.07,
@@ -41,21 +41,21 @@
       "metaLeads": 0
     },
     "heute": {
-      "spend": 43.57,
-      "impressions": 902,
-      "reach": 806,
-      "clicks": 12,
-      "ctr": 1.33,
-      "cpc": 3.63,
-      "linkClicks": 5,
-      "costPerLinkClick": 8.71,
+      "spend": 54.26,
+      "impressions": 1066,
+      "reach": 934,
+      "clicks": 17,
+      "ctr": 1.59,
+      "cpc": 3.19,
+      "linkClicks": 6,
+      "costPerLinkClick": 9.04,
       "lpv": 0,
       "metaLeads": 0
     },
     "max": {
-      "spend": 240.45,
-      "impressions": 5057,
-      "reach": 3216,
+      "spend": 240.48,
+      "impressions": 5059,
+      "reach": 3218,
       "clicks": 116,
       "ctr": 2.29,
       "cpc": 2.07,
@@ -73,9 +73,9 @@
       "objective": "Leads",
       "ranges": {
         "7": {
-          "spend": 240.45,
-          "impressions": 5057,
-          "reach": 3216,
+          "spend": 240.48,
+          "impressions": 5059,
+          "reach": 3218,
           "clicks": 116,
           "ctr": 2.29,
           "cpc": 2.07,
@@ -85,9 +85,9 @@
           "metaLeads": 0
         },
         "30": {
-          "spend": 240.45,
-          "impressions": 5057,
-          "reach": 3216,
+          "spend": 240.48,
+          "impressions": 5059,
+          "reach": 3218,
           "clicks": 116,
           "ctr": 2.29,
           "cpc": 2.07,
@@ -97,9 +97,9 @@
           "metaLeads": 0
         },
         "90": {
-          "spend": 240.45,
-          "impressions": 5057,
-          "reach": 3216,
+          "spend": 240.48,
+          "impressions": 5059,
+          "reach": 3218,
           "clicks": 116,
           "ctr": 2.29,
           "cpc": 2.07,
@@ -109,21 +109,21 @@
           "metaLeads": 0
         },
         "heute": {
-          "spend": 43.57,
-          "impressions": 902,
-          "reach": 806,
-          "clicks": 12,
-          "ctr": 1.33,
-          "cpc": 3.63,
-          "linkClicks": 5,
-          "costPerLinkClick": 8.71,
+          "spend": 54.26,
+          "impressions": 1066,
+          "reach": 934,
+          "clicks": 17,
+          "ctr": 1.59,
+          "cpc": 3.19,
+          "linkClicks": 6,
+          "costPerLinkClick": 9.04,
           "lpv": 0,
           "metaLeads": 0
         },
         "max": {
-          "spend": 240.45,
-          "impressions": 5057,
-          "reach": 3216,
+          "spend": 240.48,
+          "impressions": 5059,
+          "reach": 3218,
           "clicks": 116,
           "ctr": 2.29,
           "cpc": 2.07,
@@ -136,8 +136,8 @@
       "adsetsRange": "bis gestern",
       "adsets": [
         {
-          "id": "120251886809100316",
           "name": "DACH | Interesse + Geschaeftsfuehrung KI | EX Follower | Video Ad Lang",
+          "id": "120251886809100316",
           "status": "ACTIVE",
           "spend": 80.77,
           "impressions": 1310,
@@ -151,8 +151,8 @@
           "cpm": 61.66
         },
         {
-          "id": "120251886249990316",
           "name": "DACH | Interesse + Geschaeftsfuehrung KI | EX Follower | Video Ad",
+          "id": "120251886249990316",
           "status": "ACTIVE",
           "spend": 80.81,
           "impressions": 1463,
@@ -166,19 +166,19 @@
           "cpm": 55.24
         },
         {
-          "id": "120251885944940316",
           "name": "DACH | Interesse + Geschaeftsfuehrung KI | EX Follower",
+          "id": "120251885944940316",
           "status": "ACTIVE",
-          "spend": 78.87,
-          "impressions": 2284,
+          "spend": 78.9,
+          "impressions": 2286,
           "reach": 1472,
           "clicks": 44,
-          "ctr": 1.93,
+          "ctr": 1.92,
           "cpc": 1.79,
           "linkClicks": 17,
           "costPerLinkClick": 4.64,
           "lpv": 3,
-          "cpm": 34.53
+          "cpm": 34.51
         }
       ]
     }
