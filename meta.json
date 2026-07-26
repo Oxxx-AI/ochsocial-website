@@ -2,7 +2,7 @@
   "generated": "2026-07-26T14:03:51.540Z",
   "account": "Ochsocial Werbekonto 1",
   "currency": "EUR",
-  "note": "Summen ohne den laufenden heutigen Tag (wie Ads Manager). Heute separat.",
+  "note": "Summen ohne den laufenden heutigen Tag (wie Ads Manager). Heute separat. Anzeigengruppen je Zeitraum.",
   "totals": {
     "7": {
       "spend": 336.06,
@@ -133,7 +133,7 @@
           "metaLeads": 0
         }
       },
-      "adsetsRange": "bis gestern",
+      "adsetsRange": "folgt Zeitraum",
       "adsets": [
         {
           "name": "DACH | Interesse + Geschaeftsfuehrung KI | EX Follower | Video Ad Lang",
@@ -177,7 +177,232 @@
           "lpv": 3,
           "cpm": 36.44
         }
-      ]
+      ],
+      "adsetsByRange": {
+        "7": [
+          {
+            "name": "DACH | Interesse + Geschaeftsfuehrung KI | EX Follower | Video Ad Lang",
+            "status": "ACTIVE",
+            "spend": 112.22,
+            "impressions": 1890,
+            "reach": 1541,
+            "clicks": 54,
+            "ctr": 2.86,
+            "cpc": 2.08,
+            "linkClicks": 32,
+            "costPerLinkClick": 3.51,
+            "lpv": 4,
+            "cpm": 59.38
+          },
+          {
+            "name": "DACH | Interesse + Geschaeftsfuehrung KI | EX Follower | Video Ad",
+            "status": "ACTIVE",
+            "spend": 112.25,
+            "impressions": 2221,
+            "reach": 1707,
+            "clicks": 44,
+            "ctr": 1.98,
+            "cpc": 2.55,
+            "linkClicks": 29,
+            "costPerLinkClick": 3.87,
+            "lpv": 5,
+            "cpm": 50.54
+          },
+          {
+            "name": "DACH | Interesse + Geschaeftsfuehrung KI | EX Follower",
+            "status": "ACTIVE",
+            "spend": 111.59,
+            "impressions": 3062,
+            "reach": 1922,
+            "clicks": 55,
+            "ctr": 1.8,
+            "cpc": 2.03,
+            "linkClicks": 22,
+            "costPerLinkClick": 5.07,
+            "lpv": 3,
+            "cpm": 36.44
+          }
+        ],
+        "30": [
+          {
+            "name": "DACH | Interesse + Geschaeftsfuehrung KI | EX Follower | Video Ad Lang",
+            "status": "ACTIVE",
+            "spend": 112.22,
+            "impressions": 1890,
+            "reach": 1541,
+            "clicks": 54,
+            "ctr": 2.86,
+            "cpc": 2.08,
+            "linkClicks": 32,
+            "costPerLinkClick": 3.51,
+            "lpv": 4,
+            "cpm": 59.38
+          },
+          {
+            "name": "DACH | Interesse + Geschaeftsfuehrung KI | EX Follower | Video Ad",
+            "status": "ACTIVE",
+            "spend": 112.25,
+            "impressions": 2221,
+            "reach": 1707,
+            "clicks": 44,
+            "ctr": 1.98,
+            "cpc": 2.55,
+            "linkClicks": 29,
+            "costPerLinkClick": 3.87,
+            "lpv": 5,
+            "cpm": 50.54
+          },
+          {
+            "name": "DACH | Interesse + Geschaeftsfuehrung KI | EX Follower",
+            "status": "ACTIVE",
+            "spend": 111.59,
+            "impressions": 3062,
+            "reach": 1922,
+            "clicks": 55,
+            "ctr": 1.8,
+            "cpc": 2.03,
+            "linkClicks": 22,
+            "costPerLinkClick": 5.07,
+            "lpv": 3,
+            "cpm": 36.44
+          }
+        ],
+        "90": [
+          {
+            "name": "DACH | Interesse + Geschaeftsfuehrung KI | EX Follower | Video Ad Lang",
+            "status": "ACTIVE",
+            "spend": 112.22,
+            "impressions": 1890,
+            "reach": 1541,
+            "clicks": 54,
+            "ctr": 2.86,
+            "cpc": 2.08,
+            "linkClicks": 32,
+            "costPerLinkClick": 3.51,
+            "lpv": 4,
+            "cpm": 59.38
+          },
+          {
+            "name": "DACH | Interesse + Geschaeftsfuehrung KI | EX Follower | Video Ad",
+            "status": "ACTIVE",
+            "spend": 112.25,
+            "impressions": 2221,
+            "reach": 1707,
+            "clicks": 44,
+            "ctr": 1.98,
+            "cpc": 2.55,
+            "linkClicks": 29,
+            "costPerLinkClick": 3.87,
+            "lpv": 5,
+            "cpm": 50.54
+          },
+          {
+            "name": "DACH | Interesse + Geschaeftsfuehrung KI | EX Follower",
+            "status": "ACTIVE",
+            "spend": 111.59,
+            "impressions": 3062,
+            "reach": 1922,
+            "clicks": 55,
+            "ctr": 1.8,
+            "cpc": 2.03,
+            "linkClicks": 22,
+            "costPerLinkClick": 5.07,
+            "lpv": 3,
+            "cpm": 36.44
+          }
+        ],
+        "heute": [
+          {
+            "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Video Ad Lang",
+            "status": "ACTIVE",
+            "spend": 11.51,
+            "impressions": 161,
+            "reach": 152,
+            "clicks": 9,
+            "ctr": 5.59,
+            "cpc": 1.28,
+            "linkClicks": 4,
+            "costPerLinkClick": 2.88,
+            "cpm": 71.49,
+            "lpv": 2,
+            "metaLeads": 0
+          },
+          {
+            "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Video Ad",
+            "status": "ACTIVE",
+            "spend": 9.08,
+            "impressions": 198,
+            "reach": 186,
+            "clicks": 4,
+            "ctr": 2.02,
+            "cpc": 2.27,
+            "linkClicks": 3,
+            "costPerLinkClick": 3.03,
+            "cpm": 45.86,
+            "lpv": 0,
+            "metaLeads": 0
+          },
+          {
+            "name": "DACH | Interesse + Geschäftsführung KI | EX Follower",
+            "status": "ACTIVE",
+            "spend": 10.12,
+            "impressions": 335,
+            "reach": 305,
+            "clicks": 4,
+            "ctr": 1.19,
+            "cpc": 2.53,
+            "linkClicks": 2,
+            "costPerLinkClick": 5.06,
+            "cpm": 30.21,
+            "lpv": 1,
+            "metaLeads": 0
+          }
+        ],
+        "max": [
+          {
+            "name": "DACH | Interesse + Geschaeftsfuehrung KI | EX Follower | Video Ad Lang",
+            "status": "ACTIVE",
+            "spend": 112.22,
+            "impressions": 1890,
+            "reach": 1541,
+            "clicks": 54,
+            "ctr": 2.86,
+            "cpc": 2.08,
+            "linkClicks": 32,
+            "costPerLinkClick": 3.51,
+            "lpv": 4,
+            "cpm": 59.38
+          },
+          {
+            "name": "DACH | Interesse + Geschaeftsfuehrung KI | EX Follower | Video Ad",
+            "status": "ACTIVE",
+            "spend": 112.25,
+            "impressions": 2221,
+            "reach": 1707,
+            "clicks": 44,
+            "ctr": 1.98,
+            "cpc": 2.55,
+            "linkClicks": 29,
+            "costPerLinkClick": 3.87,
+            "lpv": 5,
+            "cpm": 50.54
+          },
+          {
+            "name": "DACH | Interesse + Geschaeftsfuehrung KI | EX Follower",
+            "status": "ACTIVE",
+            "spend": 111.59,
+            "impressions": 3062,
+            "reach": 1922,
+            "clicks": 55,
+            "ctr": 1.8,
+            "cpc": 2.03,
+            "linkClicks": 22,
+            "costPerLinkClick": 5.07,
+            "lpv": 3,
+            "cpm": 36.44
+          }
+        ]
+      }
     }
   ]
 }
