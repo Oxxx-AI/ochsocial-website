@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-26T12:03:22.000Z",
+  "generated": "2026-07-26T14:03:51.540Z",
   "account": "Ochsocial Werbekonto 1",
   "currency": "EUR",
   "note": "Summen ohne den laufenden heutigen Tag (wie Ads Manager). Heute separat.",
@@ -41,15 +41,15 @@
       "metaLeads": 0
     },
     "heute": {
-      "spend": 19.33,
-      "impressions": 496,
-      "reach": 426,
-      "clicks": 10,
-      "ctr": 2.02,
-      "cpc": 1.93,
-      "linkClicks": 7,
-      "costPerLinkClick": 2.76,
-      "lpv": 1,
+      "spend": 30.3,
+      "impressions": 670,
+      "reach": 583,
+      "clicks": 16,
+      "ctr": 2.39,
+      "cpc": 1.89,
+      "linkClicks": 9,
+      "costPerLinkClick": 3.37,
+      "lpv": 3,
       "metaLeads": 0
     },
     "max": {
@@ -109,15 +109,15 @@
           "metaLeads": 0
         },
         "heute": {
-          "spend": 19.33,
-          "impressions": 496,
-          "reach": 426,
-          "clicks": 10,
-          "ctr": 2.02,
-          "cpc": 1.93,
-          "linkClicks": 7,
-          "costPerLinkClick": 2.76,
-          "lpv": 1,
+          "spend": 30.3,
+          "impressions": 670,
+          "reach": 583,
+          "clicks": 16,
+          "ctr": 2.39,
+          "cpc": 1.89,
+          "linkClicks": 9,
+          "costPerLinkClick": 3.37,
+          "lpv": 3,
           "metaLeads": 0
         },
         "max": {
@@ -136,9 +136,8 @@
       "adsetsRange": "bis gestern",
       "adsets": [
         {
-          "id": "120251886809100316",
           "name": "DACH | Interesse + Geschaeftsfuehrung KI | EX Follower | Video Ad Lang",
-          "effective_status": "ACTIVE",
+          "status": "ACTIVE",
           "spend": 112.22,
           "impressions": 1890,
           "reach": 1541,
@@ -151,9 +150,8 @@
           "cpm": 59.38
         },
         {
-          "id": "120251886249990316",
           "name": "DACH | Interesse + Geschaeftsfuehrung KI | EX Follower | Video Ad",
-          "effective_status": "ACTIVE",
+          "status": "ACTIVE",
           "spend": 112.25,
           "impressions": 2221,
           "reach": 1707,
@@ -166,9 +164,8 @@
           "cpm": 50.54
         },
         {
-          "id": "120251885944940316",
           "name": "DACH | Interesse + Geschaeftsfuehrung KI | EX Follower",
-          "effective_status": "ACTIVE",
+          "status": "ACTIVE",
           "spend": 111.59,
           "impressions": 3062,
           "reach": 1922,
