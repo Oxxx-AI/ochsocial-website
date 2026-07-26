@@ -1,8 +1,8 @@
 {
-  "generated": "2026-07-26T20:03:18+02:00",
+  "generated": "2026-07-26T21:55:17+02:00",
   "account": "Ochsocial Werbekonto 1",
   "currency": "EUR",
-  "note": "Summen ohne den laufenden heutigen Tag (wie Ads Manager). Heute separat. Aktuell keine aktive interne Kampagne - alle Kampagnen pausiert (Stand 26.07.2026), daher Summen 0.",
+  "note": "Summen ohne den laufenden heutigen Tag (wie Ads Manager). Heute separat. Aktuell keine aktive interne Kampagne (alle pausiert am 26.07.2026).",
   "totals": {
     "7": {
       "spend": 0,
