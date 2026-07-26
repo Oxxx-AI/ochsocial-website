@@ -1,13 +1,13 @@
 {
-  "generated": "2026-07-26T10:03:51+0200",
+  "generated": "2026-07-26T10:03:30.683Z",
   "account": "Ochsocial Werbekonto 1",
   "currency": "EUR",
   "note": "Summen ohne den laufenden heutigen Tag (wie Ads Manager). Heute separat.",
   "totals": {
     "7": {
       "spend": 336.05,
-      "impressions": 7170,
-      "reach": 4407,
+      "impressions": 7171,
+      "reach": 4408,
       "clicks": 153,
       "ctr": 2.13,
       "cpc": 2.2,
@@ -18,8 +18,8 @@
     },
     "30": {
       "spend": 336.05,
-      "impressions": 7170,
-      "reach": 4407,
+      "impressions": 7171,
+      "reach": 4408,
       "clicks": 153,
       "ctr": 2.13,
       "cpc": 2.2,
@@ -30,8 +30,8 @@
     },
     "90": {
       "spend": 336.05,
-      "impressions": 7170,
-      "reach": 4407,
+      "impressions": 7171,
+      "reach": 4408,
       "clicks": 153,
       "ctr": 2.13,
       "cpc": 2.2,
@@ -41,21 +41,21 @@
       "metaLeads": 0
     },
     "heute": {
-      "spend": 1.63,
-      "impressions": 55,
-      "reach": 35,
-      "clicks": 1,
-      "ctr": 1.82,
-      "cpc": 1.63,
+      "spend": 12.49,
+      "impressions": 297,
+      "reach": 262,
+      "clicks": 5,
+      "ctr": 1.68,
+      "cpc": 2.5,
       "linkClicks": 1,
-      "costPerLinkClick": 1.63,
+      "costPerLinkClick": 6.25,
       "lpv": 0,
       "metaLeads": 0
     },
     "max": {
       "spend": 336.05,
-      "impressions": 7170,
-      "reach": 4407,
+      "impressions": 7171,
+      "reach": 4408,
       "clicks": 153,
       "ctr": 2.13,
       "cpc": 2.2,
@@ -74,8 +74,8 @@
       "ranges": {
         "7": {
           "spend": 336.05,
-          "impressions": 7170,
-          "reach": 4407,
+          "impressions": 7171,
+          "reach": 4408,
           "clicks": 153,
           "ctr": 2.13,
           "cpc": 2.2,
@@ -86,8 +86,8 @@
         },
         "30": {
           "spend": 336.05,
-          "impressions": 7170,
-          "reach": 4407,
+          "impressions": 7171,
+          "reach": 4408,
           "clicks": 153,
           "ctr": 2.13,
           "cpc": 2.2,
@@ -98,8 +98,8 @@
         },
         "90": {
           "spend": 336.05,
-          "impressions": 7170,
-          "reach": 4407,
+          "impressions": 7171,
+          "reach": 4408,
           "clicks": 153,
           "ctr": 2.13,
           "cpc": 2.2,
@@ -109,21 +109,21 @@
           "metaLeads": 0
         },
         "heute": {
-          "spend": 1.63,
-          "impressions": 55,
-          "reach": 35,
-          "clicks": 1,
-          "ctr": 1.82,
-          "cpc": 1.63,
+          "spend": 12.49,
+          "impressions": 297,
+          "reach": 262,
+          "clicks": 5,
+          "ctr": 1.68,
+          "cpc": 2.5,
           "linkClicks": 1,
-          "costPerLinkClick": 1.63,
+          "costPerLinkClick": 6.25,
           "lpv": 0,
           "metaLeads": 0
         },
         "max": {
           "spend": 336.05,
-          "impressions": 7170,
-          "reach": 4407,
+          "impressions": 7171,
+          "reach": 4408,
           "clicks": 153,
           "ctr": 2.13,
           "cpc": 2.2,
@@ -170,15 +170,15 @@
           "name": "DACH | Interesse + Geschaeftsfuehrung KI | EX Follower",
           "status": "ACTIVE",
           "spend": 111.58,
-          "impressions": 3059,
-          "reach": 1920,
+          "impressions": 3060,
+          "reach": 1921,
           "clicks": 55,
           "ctr": 1.8,
           "cpc": 2.03,
           "linkClicks": 22,
           "costPerLinkClick": 5.07,
           "lpv": 3,
-          "cpm": 36.48
+          "cpm": 36.46
         }
       ]
     }
