@@ -3,6 +3,9 @@
 /ki-partner         /ki-partner.html   200
 /makler             /makler.html       200
 /versicherung       /makler.html       200
+/multi-agent-system /multi-agent-system.html   200
+/mas                /multi-agent-system.html   200
+/vsl                /multi-agent-system.html   200
 /dashboard          /dashboard.html    200
 /crm                /dashboard.html    200
 
