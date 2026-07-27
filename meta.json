@@ -1,66 +1,66 @@
 {
-  "generated": "2026-07-27T02:34:26.143Z",
+  "generated": "2026-07-27T03:02:22Z",
   "account": "Ochsocial Werbekonto 1",
   "currency": "EUR",
   "note": "Summen ohne den laufenden heutigen Tag (wie Ads Manager). Heute separat.",
   "totals": {
     "7": {
-      "spend": 386.21,
-      "impressions": 8320,
-      "reach": 4954,
+      "spend": 388.92,
+      "impressions": 8336,
+      "reach": 4959,
       "clicks": 178,
       "ctr": 2.14,
-      "cpc": 2.17,
+      "cpc": 2.18,
       "linkClicks": 96,
-      "costPerLinkClick": 4.02,
+      "costPerLinkClick": 4.05,
       "lpv": 15,
       "metaLeads": 0
     },
     "30": {
-      "spend": 386.21,
-      "impressions": 8320,
-      "reach": 4954,
+      "spend": 388.92,
+      "impressions": 8336,
+      "reach": 4959,
       "clicks": 178,
       "ctr": 2.14,
-      "cpc": 2.17,
+      "cpc": 2.18,
       "linkClicks": 96,
-      "costPerLinkClick": 4.02,
+      "costPerLinkClick": 4.05,
       "lpv": 15,
       "metaLeads": 0
     },
     "90": {
-      "spend": 386.21,
-      "impressions": 8320,
-      "reach": 4954,
+      "spend": 388.92,
+      "impressions": 8336,
+      "reach": 4959,
       "clicks": 178,
       "ctr": 2.14,
-      "cpc": 2.17,
+      "cpc": 2.18,
       "linkClicks": 96,
-      "costPerLinkClick": 4.02,
+      "costPerLinkClick": 4.05,
       "lpv": 15,
       "metaLeads": 0
     },
     "heute": {
-      "spend": 50.15,
-      "impressions": 1147,
-      "reach": 1003,
+      "spend": 52.86,
+      "impressions": 1163,
+      "reach": 1018,
       "clicks": 25,
-      "ctr": 2.18,
-      "cpc": 2.01,
+      "ctr": 2.15,
+      "cpc": 2.11,
       "linkClicks": 13,
-      "costPerLinkClick": 3.86,
+      "costPerLinkClick": 4.07,
       "lpv": 3,
       "metaLeads": 0
     },
     "max": {
-      "spend": 386.21,
-      "impressions": 8320,
-      "reach": 4954,
+      "spend": 388.92,
+      "impressions": 8336,
+      "reach": 4959,
       "clicks": 178,
       "ctr": 2.14,
-      "cpc": 2.17,
+      "cpc": 2.18,
       "linkClicks": 96,
-      "costPerLinkClick": 4.02,
+      "costPerLinkClick": 4.05,
       "lpv": 15,
       "metaLeads": 0
     }
@@ -73,62 +73,62 @@
       "objective": "Leads",
       "ranges": {
         "7": {
-          "spend": 386.21,
-          "impressions": 8320,
-          "reach": 4954,
+          "spend": 388.92,
+          "impressions": 8336,
+          "reach": 4959,
           "clicks": 178,
           "ctr": 2.14,
-          "cpc": 2.17,
+          "cpc": 2.18,
           "linkClicks": 96,
-          "costPerLinkClick": 4.02,
+          "costPerLinkClick": 4.05,
           "lpv": 15,
           "metaLeads": 0
         },
         "30": {
-          "spend": 386.21,
-          "impressions": 8320,
-          "reach": 4954,
+          "spend": 388.92,
+          "impressions": 8336,
+          "reach": 4959,
           "clicks": 178,
           "ctr": 2.14,
-          "cpc": 2.17,
+          "cpc": 2.18,
           "linkClicks": 96,
-          "costPerLinkClick": 4.02,
+          "costPerLinkClick": 4.05,
           "lpv": 15,
           "metaLeads": 0
         },
         "90": {
-          "spend": 386.21,
-          "impressions": 8320,
-          "reach": 4954,
+          "spend": 388.92,
+          "impressions": 8336,
+          "reach": 4959,
           "clicks": 178,
           "ctr": 2.14,
-          "cpc": 2.17,
+          "cpc": 2.18,
           "linkClicks": 96,
-          "costPerLinkClick": 4.02,
+          "costPerLinkClick": 4.05,
           "lpv": 15,
           "metaLeads": 0
         },
         "heute": {
-          "spend": 50.15,
-          "impressions": 1147,
-          "reach": 1003,
+          "spend": 52.86,
+          "impressions": 1163,
+          "reach": 1018,
           "clicks": 25,
-          "ctr": 2.18,
-          "cpc": 2.01,
+          "ctr": 2.15,
+          "cpc": 2.11,
           "linkClicks": 13,
-          "costPerLinkClick": 3.86,
+          "costPerLinkClick": 4.07,
           "lpv": 3,
           "metaLeads": 0
         },
         "max": {
-          "spend": 386.21,
-          "impressions": 8320,
-          "reach": 4954,
+          "spend": 388.92,
+          "impressions": 8336,
+          "reach": 4959,
           "clicks": 178,
           "ctr": 2.14,
-          "cpc": 2.17,
+          "cpc": 2.18,
           "linkClicks": 96,
-          "costPerLinkClick": 4.02,
+          "costPerLinkClick": 4.05,
           "lpv": 15,
           "metaLeads": 0
         }
@@ -139,33 +139,31 @@
           "id": "120252001070490316",
           "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Bild klingt spannend",
           "status": "ACTIVE",
-          "spend": 3.31,
-          "impressions": 32,
-          "reach": 28,
+          "spend": 4.73,
+          "impressions": 39,
+          "reach": 33,
           "clicks": 0,
           "ctr": 0,
           "cpc": 0,
           "linkClicks": 0,
           "costPerLinkClick": 0,
           "lpv": 0,
-          "cpm": 103.44,
-          "metaLeads": 0
+          "cpm": 121.28
         },
         {
           "id": "120252001052920316",
           "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Bild RAG",
           "status": "ACTIVE",
-          "spend": 3.38,
-          "impressions": 52,
-          "reach": 45,
+          "spend": 4.67,
+          "impressions": 61,
+          "reach": 55,
           "clicks": 1,
-          "ctr": 1.92,
-          "cpc": 3.38,
+          "ctr": 1.64,
+          "cpc": 4.67,
           "linkClicks": 0,
           "costPerLinkClick": 0,
           "lpv": 0,
-          "cpm": 65,
-          "metaLeads": 0
+          "cpm": 76.56
         },
         {
           "id": "120251886809100316",
@@ -180,8 +178,7 @@
           "linkClicks": 39,
           "costPerLinkClick": 3.24,
           "lpv": 6,
-          "cpm": 59.55,
-          "metaLeads": 0
+          "cpm": 59.55
         },
         {
           "id": "120251886249990316",
@@ -196,8 +193,7 @@
           "linkClicks": 32,
           "costPerLinkClick": 3.95,
           "lpv": 5,
-          "cpm": 50.06,
-          "metaLeads": 0
+          "cpm": 50.06
         },
         {
           "id": "120251885944940316",
@@ -212,8 +208,7 @@
           "linkClicks": 25,
           "costPerLinkClick": 5.07,
           "lpv": 4,
-          "cpm": 35.31,
-          "metaLeads": 0
+          "cpm": 35.31
         }
       ],
       "adsetsByRange": {
@@ -222,33 +217,31 @@
             "id": "120252001070490316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Bild klingt spannend",
             "status": "ACTIVE",
-            "spend": 3.31,
-            "impressions": 32,
-            "reach": 28,
+            "spend": 4.73,
+            "impressions": 39,
+            "reach": 33,
             "clicks": 0,
             "ctr": 0,
             "cpc": 0,
             "linkClicks": 0,
             "costPerLinkClick": 0,
             "lpv": 0,
-            "cpm": 103.44,
-            "metaLeads": 0
+            "cpm": 121.28
           },
           {
             "id": "120252001052920316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Bild RAG",
             "status": "ACTIVE",
-            "spend": 3.38,
-            "impressions": 52,
-            "reach": 45,
+            "spend": 4.67,
+            "impressions": 61,
+            "reach": 55,
             "clicks": 1,
-            "ctr": 1.92,
-            "cpc": 3.38,
+            "ctr": 1.64,
+            "cpc": 4.67,
             "linkClicks": 0,
             "costPerLinkClick": 0,
             "lpv": 0,
-            "cpm": 65,
-            "metaLeads": 0
+            "cpm": 76.56
           },
           {
             "id": "120251886809100316",
@@ -263,8 +256,7 @@
             "linkClicks": 39,
             "costPerLinkClick": 3.24,
             "lpv": 6,
-            "cpm": 59.55,
-            "metaLeads": 0
+            "cpm": 59.55
           },
           {
             "id": "120251886249990316",
@@ -279,8 +271,7 @@
             "linkClicks": 32,
             "costPerLinkClick": 3.95,
             "lpv": 5,
-            "cpm": 50.06,
-            "metaLeads": 0
+            "cpm": 50.06
           },
           {
             "id": "120251885944940316",
@@ -295,8 +286,7 @@
             "linkClicks": 25,
             "costPerLinkClick": 5.07,
             "lpv": 4,
-            "cpm": 35.31,
-            "metaLeads": 0
+            "cpm": 35.31
           }
         ],
         "30": [
@@ -304,33 +294,31 @@
             "id": "120252001070490316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Bild klingt spannend",
             "status": "ACTIVE",
-            "spend": 3.31,
-            "impressions": 32,
-            "reach": 28,
+            "spend": 4.73,
+            "impressions": 39,
+            "reach": 33,
             "clicks": 0,
             "ctr": 0,
             "cpc": 0,
             "linkClicks": 0,
             "costPerLinkClick": 0,
             "lpv": 0,
-            "cpm": 103.44,
-            "metaLeads": 0
+            "cpm": 121.28
           },
           {
             "id": "120252001052920316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Bild RAG",
             "status": "ACTIVE",
-            "spend": 3.38,
-            "impressions": 52,
-            "reach": 45,
+            "spend": 4.67,
+            "impressions": 61,
+            "reach": 55,
             "clicks": 1,
-            "ctr": 1.92,
-            "cpc": 3.38,
+            "ctr": 1.64,
+            "cpc": 4.67,
             "linkClicks": 0,
             "costPerLinkClick": 0,
             "lpv": 0,
-            "cpm": 65,
-            "metaLeads": 0
+            "cpm": 76.56
           },
           {
             "id": "120251886809100316",
@@ -345,8 +333,7 @@
             "linkClicks": 39,
             "costPerLinkClick": 3.24,
             "lpv": 6,
-            "cpm": 59.55,
-            "metaLeads": 0
+            "cpm": 59.55
           },
           {
             "id": "120251886249990316",
@@ -361,8 +348,7 @@
             "linkClicks": 32,
             "costPerLinkClick": 3.95,
             "lpv": 5,
-            "cpm": 50.06,
-            "metaLeads": 0
+            "cpm": 50.06
           },
           {
             "id": "120251885944940316",
@@ -377,8 +363,7 @@
             "linkClicks": 25,
             "costPerLinkClick": 5.07,
             "lpv": 4,
-            "cpm": 35.31,
-            "metaLeads": 0
+            "cpm": 35.31
           }
         ],
         "90": [
@@ -386,33 +371,31 @@
             "id": "120252001070490316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Bild klingt spannend",
             "status": "ACTIVE",
-            "spend": 3.31,
-            "impressions": 32,
-            "reach": 28,
+            "spend": 4.73,
+            "impressions": 39,
+            "reach": 33,
             "clicks": 0,
             "ctr": 0,
             "cpc": 0,
             "linkClicks": 0,
             "costPerLinkClick": 0,
             "lpv": 0,
-            "cpm": 103.44,
-            "metaLeads": 0
+            "cpm": 121.28
           },
           {
             "id": "120252001052920316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Bild RAG",
             "status": "ACTIVE",
-            "spend": 3.38,
-            "impressions": 52,
-            "reach": 45,
+            "spend": 4.67,
+            "impressions": 61,
+            "reach": 55,
             "clicks": 1,
-            "ctr": 1.92,
-            "cpc": 3.38,
+            "ctr": 1.64,
+            "cpc": 4.67,
             "linkClicks": 0,
             "costPerLinkClick": 0,
             "lpv": 0,
-            "cpm": 65,
-            "metaLeads": 0
+            "cpm": 76.56
           },
           {
             "id": "120251886809100316",
@@ -427,8 +410,7 @@
             "linkClicks": 39,
             "costPerLinkClick": 3.24,
             "lpv": 6,
-            "cpm": 59.55,
-            "metaLeads": 0
+            "cpm": 59.55
           },
           {
             "id": "120251886249990316",
@@ -443,8 +425,7 @@
             "linkClicks": 32,
             "costPerLinkClick": 3.95,
             "lpv": 5,
-            "cpm": 50.06,
-            "metaLeads": 0
+            "cpm": 50.06
           },
           {
             "id": "120251885944940316",
@@ -459,8 +440,7 @@
             "linkClicks": 25,
             "costPerLinkClick": 5.07,
             "lpv": 4,
-            "cpm": 35.31,
-            "metaLeads": 0
+            "cpm": 35.31
           }
         ],
         "heute": [
@@ -468,33 +448,31 @@
             "id": "120252001070490316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Bild klingt spannend",
             "status": "ACTIVE",
-            "spend": 3.31,
-            "impressions": 32,
-            "reach": 28,
+            "spend": 4.73,
+            "impressions": 39,
+            "reach": 33,
             "clicks": 0,
             "ctr": 0,
             "cpc": 0,
             "linkClicks": 0,
             "costPerLinkClick": 0,
             "lpv": 0,
-            "cpm": 103.44,
-            "metaLeads": 0
+            "cpm": 121.28
           },
           {
             "id": "120252001052920316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Bild RAG",
             "status": "ACTIVE",
-            "spend": 3.38,
-            "impressions": 52,
-            "reach": 45,
+            "spend": 4.67,
+            "impressions": 61,
+            "reach": 55,
             "clicks": 1,
-            "ctr": 1.92,
-            "cpc": 3.38,
+            "ctr": 1.64,
+            "cpc": 4.67,
             "linkClicks": 0,
             "costPerLinkClick": 0,
             "lpv": 0,
-            "cpm": 65,
-            "metaLeads": 0
+            "cpm": 76.56
           },
           {
             "id": "120251886809100316",
@@ -509,8 +487,7 @@
             "linkClicks": 7,
             "costPerLinkClick": 2.05,
             "lpv": 2,
-            "cpm": 60.94,
-            "metaLeads": 0
+            "cpm": 60.94
           },
           {
             "id": "120251886249990316",
@@ -525,8 +502,7 @@
             "linkClicks": 3,
             "costPerLinkClick": 4.68,
             "lpv": 0,
-            "cpm": 46.52,
-            "metaLeads": 0
+            "cpm": 46.52
           },
           {
             "id": "120251885944940316",
@@ -541,8 +517,7 @@
             "linkClicks": 3,
             "costPerLinkClick": 5.03,
             "lpv": 1,
-            "cpm": 28.69,
-            "metaLeads": 0
+            "cpm": 28.69
           }
         ],
         "max": [
@@ -550,33 +525,31 @@
             "id": "120252001070490316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Bild klingt spannend",
             "status": "ACTIVE",
-            "spend": 3.31,
-            "impressions": 32,
-            "reach": 28,
+            "spend": 4.73,
+            "impressions": 39,
+            "reach": 33,
             "clicks": 0,
             "ctr": 0,
             "cpc": 0,
             "linkClicks": 0,
             "costPerLinkClick": 0,
             "lpv": 0,
-            "cpm": 103.44,
-            "metaLeads": 0
+            "cpm": 121.28
           },
           {
             "id": "120252001052920316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Bild RAG",
             "status": "ACTIVE",
-            "spend": 3.38,
-            "impressions": 52,
-            "reach": 45,
+            "spend": 4.67,
+            "impressions": 61,
+            "reach": 55,
             "clicks": 1,
-            "ctr": 1.92,
-            "cpc": 3.38,
+            "ctr": 1.64,
+            "cpc": 4.67,
             "linkClicks": 0,
             "costPerLinkClick": 0,
             "lpv": 0,
-            "cpm": 65,
-            "metaLeads": 0
+            "cpm": 76.56
           },
           {
             "id": "120251886809100316",
@@ -591,8 +564,7 @@
             "linkClicks": 39,
             "costPerLinkClick": 3.24,
             "lpv": 6,
-            "cpm": 59.55,
-            "metaLeads": 0
+            "cpm": 59.55
           },
           {
             "id": "120251886249990316",
@@ -607,8 +579,7 @@
             "linkClicks": 32,
             "costPerLinkClick": 3.95,
             "lpv": 5,
-            "cpm": 50.06,
-            "metaLeads": 0
+            "cpm": 50.06
           },
           {
             "id": "120251885944940316",
@@ -623,8 +594,7 @@
             "linkClicks": 25,
             "costPerLinkClick": 5.07,
             "lpv": 4,
-            "cpm": 35.31,
-            "metaLeads": 0
+            "cpm": 35.31
           }
         ]
       }
