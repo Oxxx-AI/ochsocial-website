@@ -1,12 +1,12 @@
 {
-  "generated": "2026-07-27T07:34:27.362Z",
+  "generated": "2026-07-27T08:03:49.019Z",
   "account": "Ochsocial Werbekonto 1",
   "currency": "EUR",
   "note": "Summen ohne den laufenden heutigen Tag (wie Ads Manager). Heute separat.",
   "totals": {
     "7": {
-      "spend": 419.04,
-      "impressions": 8719,
+      "spend": 419.09,
+      "impressions": 8722,
       "reach": 5127,
       "clicks": 183,
       "ctr": 2.1,
@@ -17,8 +17,8 @@
       "metaLeads": 0
     },
     "30": {
-      "spend": 419.04,
-      "impressions": 8719,
+      "spend": 419.09,
+      "impressions": 8722,
       "reach": 5127,
       "clicks": 183,
       "ctr": 2.1,
@@ -29,8 +29,8 @@
       "metaLeads": 0
     },
     "90": {
-      "spend": 419.04,
-      "impressions": 8719,
+      "spend": 419.09,
+      "impressions": 8722,
       "reach": 5127,
       "clicks": 183,
       "ctr": 2.1,
@@ -41,20 +41,20 @@
       "metaLeads": 0
     },
     "heute": {
-      "spend": 2.5,
-      "impressions": 31,
-      "reach": 22,
-      "clicks": 2,
-      "ctr": 6.45,
-      "cpc": 1.25,
-      "linkClicks": 1,
-      "costPerLinkClick": 2.5,
+      "spend": 6.79,
+      "impressions": 70,
+      "reach": 59,
+      "clicks": 3,
+      "ctr": 4.29,
+      "cpc": 2.26,
+      "linkClicks": 2,
+      "costPerLinkClick": 3.4,
       "lpv": 0,
       "metaLeads": 0
     },
     "max": {
-      "spend": 419.04,
-      "impressions": 8719,
+      "spend": 419.09,
+      "impressions": 8723,
       "reach": 5127,
       "clicks": 183,
       "ctr": 2.1,
@@ -73,8 +73,8 @@
       "objective": "Leads",
       "ranges": {
         "7": {
-          "spend": 419.04,
-          "impressions": 8719,
+          "spend": 419.09,
+          "impressions": 8722,
           "reach": 5127,
           "clicks": 183,
           "ctr": 2.1,
@@ -85,8 +85,8 @@
           "metaLeads": 0
         },
         "30": {
-          "spend": 419.04,
-          "impressions": 8719,
+          "spend": 419.09,
+          "impressions": 8722,
           "reach": 5127,
           "clicks": 183,
           "ctr": 2.1,
@@ -97,8 +97,8 @@
           "metaLeads": 0
         },
         "90": {
-          "spend": 419.04,
-          "impressions": 8719,
+          "spend": 419.09,
+          "impressions": 8722,
           "reach": 5127,
           "clicks": 183,
           "ctr": 2.1,
@@ -109,20 +109,20 @@
           "metaLeads": 0
         },
         "heute": {
-          "spend": 2.5,
-          "impressions": 31,
-          "reach": 22,
-          "clicks": 2,
-          "ctr": 6.45,
-          "cpc": 1.25,
-          "linkClicks": 1,
-          "costPerLinkClick": 2.5,
+          "spend": 6.79,
+          "impressions": 70,
+          "reach": 59,
+          "clicks": 3,
+          "ctr": 4.29,
+          "cpc": 2.26,
+          "linkClicks": 2,
+          "costPerLinkClick": 3.4,
           "lpv": 0,
           "metaLeads": 0
         },
         "max": {
-          "spend": 419.04,
-          "impressions": 8719,
+          "spend": 419.09,
+          "impressions": 8723,
           "reach": 5127,
           "clicks": 183,
           "ctr": 2.1,
@@ -136,37 +136,34 @@
       "adsetsRange": "folgt Zeitraum",
       "adsets": [
         {
-          "id": "120252001070490316",
           "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Bild klingt spannend",
           "status": "ACTIVE",
-          "spend": 19.65,
-          "impressions": 226,
-          "reach": 206,
+          "spend": 19.69,
+          "impressions": 229,
+          "reach": 207,
           "clicks": 1,
           "ctr": 0.44,
-          "cpc": 19.65,
+          "cpc": 19.69,
           "linkClicks": 0,
           "costPerLinkClick": 0,
           "lpv": 0,
-          "cpm": 86.95
+          "cpm": 85.98
         },
         {
-          "id": "120252001052920316",
           "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Bild RAG",
           "status": "ACTIVE",
-          "spend": 19.78,
-          "impressions": 256,
-          "reach": 221,
+          "spend": 19.79,
+          "impressions": 257,
+          "reach": 222,
           "clicks": 5,
           "ctr": 1.95,
           "cpc": 3.96,
           "linkClicks": 2,
-          "costPerLinkClick": 9.89,
+          "costPerLinkClick": 9.9,
           "lpv": 0,
-          "cpm": 77.27
+          "cpm": 77
         },
         {
-          "id": "120251886809100316",
           "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Video Ad Lang",
           "status": "PAUSED",
           "spend": 126.54,
@@ -181,7 +178,6 @@
           "cpm": 59.55
         },
         {
-          "id": "120251886249990316",
           "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Video Ad",
           "status": "PAUSED",
           "spend": 126.3,
@@ -196,7 +192,6 @@
           "cpm": 50.06
         },
         {
-          "id": "120251885944940316",
           "name": "DACH | Interesse + Geschäftsführung KI | EX Follower",
           "status": "PAUSED",
           "spend": 126.77,
@@ -214,37 +209,34 @@
       "adsetsByRange": {
         "7": [
           {
-            "id": "120252001070490316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Bild klingt spannend",
             "status": "ACTIVE",
-            "spend": 19.65,
-            "impressions": 226,
-            "reach": 206,
+            "spend": 19.69,
+            "impressions": 229,
+            "reach": 207,
             "clicks": 1,
             "ctr": 0.44,
-            "cpc": 19.65,
+            "cpc": 19.69,
             "linkClicks": 0,
             "costPerLinkClick": 0,
             "lpv": 0,
-            "cpm": 86.95
+            "cpm": 85.98
           },
           {
-            "id": "120252001052920316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Bild RAG",
             "status": "ACTIVE",
-            "spend": 19.78,
-            "impressions": 256,
-            "reach": 221,
+            "spend": 19.79,
+            "impressions": 257,
+            "reach": 222,
             "clicks": 5,
             "ctr": 1.95,
             "cpc": 3.96,
             "linkClicks": 2,
-            "costPerLinkClick": 9.89,
+            "costPerLinkClick": 9.9,
             "lpv": 0,
-            "cpm": 77.27
+            "cpm": 77
           },
           {
-            "id": "120251886809100316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Video Ad Lang",
             "status": "PAUSED",
             "spend": 126.54,
@@ -259,7 +251,6 @@
             "cpm": 59.55
           },
           {
-            "id": "120251886249990316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Video Ad",
             "status": "PAUSED",
             "spend": 126.3,
@@ -274,7 +265,6 @@
             "cpm": 50.06
           },
           {
-            "id": "120251885944940316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower",
             "status": "PAUSED",
             "spend": 126.77,
@@ -291,37 +281,34 @@
         ],
         "30": [
           {
-            "id": "120252001070490316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Bild klingt spannend",
             "status": "ACTIVE",
-            "spend": 19.65,
-            "impressions": 226,
-            "reach": 206,
+            "spend": 19.69,
+            "impressions": 229,
+            "reach": 207,
             "clicks": 1,
             "ctr": 0.44,
-            "cpc": 19.65,
+            "cpc": 19.69,
             "linkClicks": 0,
             "costPerLinkClick": 0,
             "lpv": 0,
-            "cpm": 86.95
+            "cpm": 85.98
           },
           {
-            "id": "120252001052920316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Bild RAG",
             "status": "ACTIVE",
-            "spend": 19.78,
-            "impressions": 256,
-            "reach": 221,
+            "spend": 19.79,
+            "impressions": 257,
+            "reach": 222,
             "clicks": 5,
             "ctr": 1.95,
             "cpc": 3.96,
             "linkClicks": 2,
-            "costPerLinkClick": 9.89,
+            "costPerLinkClick": 9.9,
             "lpv": 0,
-            "cpm": 77.27
+            "cpm": 77
           },
           {
-            "id": "120251886809100316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Video Ad Lang",
             "status": "PAUSED",
             "spend": 126.54,
@@ -336,7 +323,6 @@
             "cpm": 59.55
           },
           {
-            "id": "120251886249990316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Video Ad",
             "status": "PAUSED",
             "spend": 126.3,
@@ -351,7 +337,6 @@
             "cpm": 50.06
           },
           {
-            "id": "120251885944940316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower",
             "status": "PAUSED",
             "spend": 126.77,
@@ -368,37 +353,34 @@
         ],
         "90": [
           {
-            "id": "120252001070490316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Bild klingt spannend",
             "status": "ACTIVE",
-            "spend": 19.65,
-            "impressions": 226,
-            "reach": 206,
+            "spend": 19.69,
+            "impressions": 229,
+            "reach": 207,
             "clicks": 1,
             "ctr": 0.44,
-            "cpc": 19.65,
+            "cpc": 19.69,
             "linkClicks": 0,
             "costPerLinkClick": 0,
             "lpv": 0,
-            "cpm": 86.95
+            "cpm": 85.98
           },
           {
-            "id": "120252001052920316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Bild RAG",
             "status": "ACTIVE",
-            "spend": 19.78,
-            "impressions": 256,
-            "reach": 221,
+            "spend": 19.79,
+            "impressions": 257,
+            "reach": 222,
             "clicks": 5,
             "ctr": 1.95,
             "cpc": 3.96,
             "linkClicks": 2,
-            "costPerLinkClick": 9.89,
+            "costPerLinkClick": 9.9,
             "lpv": 0,
-            "cpm": 77.27
+            "cpm": 77
           },
           {
-            "id": "120251886809100316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Video Ad Lang",
             "status": "PAUSED",
             "spend": 126.54,
@@ -413,7 +395,6 @@
             "cpm": 59.55
           },
           {
-            "id": "120251886249990316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Video Ad",
             "status": "PAUSED",
             "spend": 126.3,
@@ -428,7 +409,6 @@
             "cpm": 50.06
           },
           {
-            "id": "120251885944940316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower",
             "status": "PAUSED",
             "spend": 126.77,
@@ -445,37 +425,34 @@
         ],
         "heute": [
           {
-            "id": "120252001070490316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Bild klingt spannend",
             "status": "ACTIVE",
-            "spend": 1.7,
-            "impressions": 15,
-            "reach": 12,
+            "spend": 2.4,
+            "impressions": 30,
+            "reach": 29,
             "clicks": 0,
             "ctr": 0,
             "cpc": 0,
             "linkClicks": 0,
             "costPerLinkClick": 0,
             "lpv": 0,
-            "cpm": 113.33
+            "cpm": 80
           },
           {
-            "id": "120252001052920316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Bild RAG",
             "status": "ACTIVE",
-            "spend": 0.8,
-            "impressions": 16,
-            "reach": 11,
-            "clicks": 2,
-            "ctr": 12.5,
-            "cpc": 0.4,
-            "linkClicks": 1,
-            "costPerLinkClick": 0.8,
+            "spend": 5.45,
+            "impressions": 44,
+            "reach": 36,
+            "clicks": 3,
+            "ctr": 6.82,
+            "cpc": 1.82,
+            "linkClicks": 2,
+            "costPerLinkClick": 2.73,
             "lpv": 0,
-            "cpm": 50
+            "cpm": 123.86
           },
           {
-            "id": "120251886809100316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Video Ad Lang",
             "status": "PAUSED",
             "spend": 0,
@@ -490,7 +467,6 @@
             "cpm": 0
           },
           {
-            "id": "120251886249990316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Video Ad",
             "status": "PAUSED",
             "spend": 0,
@@ -505,7 +481,6 @@
             "cpm": 0
           },
           {
-            "id": "120251885944940316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower",
             "status": "PAUSED",
             "spend": 0,
@@ -522,37 +497,34 @@
         ],
         "max": [
           {
-            "id": "120252001070490316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Bild klingt spannend",
             "status": "ACTIVE",
-            "spend": 19.65,
-            "impressions": 226,
-            "reach": 206,
+            "spend": 19.69,
+            "impressions": 229,
+            "reach": 207,
             "clicks": 1,
             "ctr": 0.44,
-            "cpc": 19.65,
+            "cpc": 19.69,
             "linkClicks": 0,
             "costPerLinkClick": 0,
             "lpv": 0,
-            "cpm": 86.95
+            "cpm": 85.98
           },
           {
-            "id": "120252001052920316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Bild RAG",
             "status": "ACTIVE",
-            "spend": 19.78,
-            "impressions": 256,
-            "reach": 221,
+            "spend": 19.79,
+            "impressions": 257,
+            "reach": 222,
             "clicks": 5,
             "ctr": 1.95,
             "cpc": 3.96,
             "linkClicks": 2,
-            "costPerLinkClick": 9.89,
+            "costPerLinkClick": 9.9,
             "lpv": 0,
-            "cpm": 77.27
+            "cpm": 77
           },
           {
-            "id": "120251886809100316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Video Ad Lang",
             "status": "PAUSED",
             "spend": 126.54,
@@ -567,7 +539,6 @@
             "cpm": 59.55
           },
           {
-            "id": "120251886249990316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower | Video Ad",
             "status": "PAUSED",
             "spend": 126.3,
@@ -582,7 +553,6 @@
             "cpm": 50.06
           },
           {
-            "id": "120251885944940316",
             "name": "DACH | Interesse + Geschäftsführung KI | EX Follower",
             "status": "PAUSED",
             "spend": 126.77,
