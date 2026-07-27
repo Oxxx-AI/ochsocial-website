@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="de" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video freischalten | ochsocial</title>
+  <meta name="description" content="Trag kurz deine Daten ein und schau dir an, wie wir über unser Multi-Agent System planbar qualifizierte Anfragen generieren.">
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="https://ochsocial.de/multi-agent-system-optin.html">
+
+  <link rel="icon" href="assets/favicon/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon-180.png">
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/manrope-400.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/manrope-800.woff2" crossorigin>
+
+  <style>
+    @font-face { font-family:'Manrope'; src:url('assets/fonts/manrope-300.woff2') format('woff2'); font-weight:300; font-display:swap; }
+    @font-face { font-family:'Manrope'; src:url('assets/fonts/manrope-400.woff2') format('woff2'); font-weight:400; font-display:swap; }
+    @font-face { font-family:'Manrope'; src:url('assets/fonts/manrope-600.woff2') format('woff2'); font-weight:600; font-display:swap; }
+    @font-face { font-family:'Manrope'; src:url('assets/fonts/manrope-700.woff2') format('woff2'); font-weight:700; font-display:swap; }
+    @font-face { font-family:'Manrope'; src:url('assets/fonts/manrope-800.woff2') format('woff2'); font-weight:800; font-display:swap; }
+
+    :root{
+      --cobalt:#1E4FBA; --champagne:#F0D9A0; --offwhite:#F3F5F9; --navy:#14163A;
+      --ice:#6FA8F5; --mint:#3ECF97;
+      --navy-70:rgba(20,22,58,.70); --navy-55:rgba(20,22,58,.55); --line:rgba(20,22,58,.10);
+      --white-72:rgba(255,255,255,.72); --white-14:rgba(255,255,255,.14);
+      --champ-grad:linear-gradient(135deg,#F0D9A0 0%,#F8ECCB 100%);
+      --cobalt-metallic:linear-gradient(135deg,#3E6FD9 0%,#2A5FD0 30%,#1E4FBA 60%,#15347C 100%);
+      --radius:6px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{overflow-x:hidden}
+    body{font-family:'Manrope',system-ui,sans-serif;background:var(--offwhite);color:var(--navy);line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:100%;max-width:1140px;margin:0 auto;padding:0 24px}
+    .eyebrow{font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--champagne)}
+    .accent-champ{color:var(--champagne)}
+
+    .btn{font-family:'Manrope',system-ui,sans-serif;display:inline-flex;align-items:center;justify-content:center;gap:11px;font-weight:700;font-size:1.05rem;padding:18px 34px;border-radius:var(--radius);border:0;cursor:pointer;line-height:1;position:relative;overflow:hidden;transition:transform .16s ease,box-shadow .16s ease;background:var(--cobalt-metallic);color:#fff;box-shadow:0 12px 30px rgba(30,79,186,.35)}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(30,79,186,.5)}
+    .btn .arw{transition:transform .16s ease}
+    .btn:hover .arw{transform:translateX(4px)}
+    .btn .play{width:20px;height:20px;flex:0 0 auto}
+    .btn:before{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:sheen 3.6s ease-in-out infinite}
+    @keyframes sheen{0%,60%{left:-120%}100%{left:160%}}
+
+    .hdr{position:absolute;top:0;left:0;right:0;z-index:50}
+    .hdr-in{display:flex;align-items:center;justify-content:space-between;height:74px;max-width:1140px;margin:0 auto;padding:0 24px}
+    .hdr .logo img{height:30px;width:auto}
+    .hdr .header-cta{font-family:'Manrope',sans-serif;font-weight:700;font-size:.9rem;color:var(--white-72)}
+    .hdr .header-cta:hover{color:#fff}
+
+    .book{flex:1;display:flex;align-items:center;background:radial-gradient(120% 120% at 15% 0%,#1E2A63 0%,#14163A 60%,#0E1030 100%);color:#fff;padding:118px 0 70px}
+    .book-head{text-align:center;max-width:60ch;margin:0 auto}
+    .book-head h1{font-weight:800;font-size:clamp(1.9rem,4.4vw,2.8rem);line-height:1.1;margin-top:14px}
+    .book-head h1 .hl{color:var(--champagne)}
+    .book-head p{margin-top:16px;color:var(--white-72);font-size:1.1rem}
+
+    .book-cols{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;margin-top:44px;align-items:center}
+    .panel{background:#fff;border-radius:16px;box-shadow:0 30px 70px rgba(0,0,0,.35);color:var(--navy);padding:32px 32px 34px}
+    .panel .steplbl{font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--cobalt)}
+    .panel h2{font-size:1.4rem;font-weight:800;margin:8px 0 22px}
+    .field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+    .field label{font-size:.84rem;font-weight:700;color:var(--navy-70)}
+    .field input{font-family:inherit;font-size:1rem;padding:14px 15px;border:1.5px solid var(--line);border-radius:var(--radius);background:#fff;color:var(--navy);transition:border-color .15s}
+    .field input:focus{outline:none;border-color:var(--cobalt)}
+    .safe{display:flex;align-items:center;gap:8px;background:var(--offwhite);border:1px solid var(--line);border-radius:10px;padding:11px 14px;font-size:.9rem;color:var(--navy-70);font-weight:600;margin:4px 0 14px}
+    .consent{display:flex;gap:10px;align-items:flex-start;font-size:.86rem;color:var(--navy-70);margin-top:2px}
+    .consent input{margin-top:3px;flex:0 0 auto}
+    .consent a{color:var(--cobalt);font-weight:700;text-decoration:underline}
+    .consent-msg{display:none;color:#C0392B;font-size:.82rem;font-weight:700;margin-top:8px}
+    .consent-msg.show{display:block}
+    .consentBox.err input{outline:2px solid #C0392B;outline-offset:2px}
+    .panel .btn{width:100%;margin-top:20px}
+    .panel .reassure{text-align:center;font-size:.82rem;color:var(--navy-55);margin-top:12px}
+
+    .side-list{list-style:none;display:grid;gap:20px}
+    .side-list li{display:flex;gap:14px;align-items:flex-start}
+    .side-list svg{width:24px;height:24px;color:var(--mint);flex:0 0 auto;margin-top:2px}
+    .side-list b{display:block;font-size:1.04rem;font-weight:700;margin-bottom:3px}
+    .side-list span{color:var(--white-72);font-size:.96rem}
+    .side-proof{display:flex;align-items:center;gap:14px;margin-top:28px;background:rgba(255,255,255,.05);border:1px solid var(--white-14);border-radius:14px;padding:14px 18px}
+    .side-proof .av-stack{display:flex}
+    .side-proof .av-stack img{width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid #1a1d47;margin-left:-12px;background:#2a2d57}
+    .side-proof .av-stack img:first-child{margin-left:0}
+    .side-proof .stars{color:#F5A623;letter-spacing:1px;display:block;font-size:.9rem}
+    .side-proof b{color:#fff;font-size:.92rem}
+    .side-proof .txt{font-size:.85rem;color:var(--white-72);font-weight:600}
+
+    footer{background:var(--navy);color:var(--white-72);padding:30px 0;font-size:.9rem}
+    .foot-in{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
+    footer img{height:24px}
+    .foot-links{display:flex;gap:22px;flex-wrap:wrap}
+    .foot-links a:hover{color:#fff}
+
+    #consent{position:fixed;left:16px;right:16px;bottom:16px;z-index:80;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 20px 50px rgba(20,22,58,.22);padding:20px 22px;max-width:560px;margin:0 auto;display:none;color:var(--navy)}
+    #consent p{font-size:.9rem;color:var(--navy-70)}
+    #consent .row{display:flex;gap:10px;margin-top:14px}
+    #consent button{font-family:'Manrope',sans-serif;font-weight:700;font-size:.9rem;padding:10px 18px;border-radius:var(--radius);border:0;cursor:pointer}
+    #cy{background:var(--cobalt);color:#fff}
+    #cn{background:var(--offwhite);color:var(--navy);border:1px solid var(--line)}
+
+    @media(max-width:900px){
+      .book-cols{grid-template-columns:1fr;gap:30px}
+      .side{order:2}
+    }
+    @media(max-width:560px){
+      .book{padding:100px 0 54px}
+      .panel{padding:24px 20px 26px}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hdr">
+    <div class="hdr-in">
+      <a href="multi-agent-system.html" class="logo" aria-label="ochsocial">
+        <img src="assets/logo/lockup_horizontal_weiss.webp" alt="ochsocial">
+      </a>
+      <a href="multi-agent-system.html" class="header-cta">&larr; Zurück</a>
+    </div>
+  </header>
+
+  <section class="book">
+    <div class="wrap">
+      <div class="book-head">
+        <span class="eyebrow">Nur noch ein Schritt</span>
+        <h1>Wohin dürfen wir dir <span class="hl">das Video</span> schicken?</h1>
+        <p>Trag kurz deine Daten ein und du bist direkt drin. In 9 Minuten zeigen wir dir, wie unser Multi-Agent System planbar qualifizierte Anfragen liefert.</p>
+      </div>
+
+      <div class="book-cols">
+        <div class="panel">
+          <span class="steplbl">Deine Daten</span>
+          <h2>Video freischalten</h2>
+          <form id="leadForm" novalidate>
+            <div class="field"><label for="vorname">Vorname*</label><input id="vorname" name="vorname" type="text" autocomplete="given-name" required></div>
+            <div class="field"><label for="nachname">Nachname*</label><input id="nachname" name="nachname" type="text" autocomplete="family-name" required></div>
+            <div class="field"><label for="email">E-Mail*</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+
+            <label class="consent consentBox" id="consentBox">
+              <input type="checkbox" name="datenschutz" id="datenschutz" required>
+              <span>Ich akzeptiere die <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzbestimmungen</a>.</span>
+            </label>
+            <div class="consent-msg" id="consentMsg">Bitte akzeptiere die Datenschutzbestimmungen, um fortzufahren.</div>
+
+            <button type="submit" class="btn">
+              <svg class="play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              Jetzt Video ansehen <span class="arw">&rarr;</span>
+            </button>
+            <p class="reassure">&#128274; Deine Daten sind sicher &middot; keine Weitergabe &middot; kein Spam</p>
+          </form>
+        </div>
+
+        <div class="side">
+          <ul class="side-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><div><b>Das Multi-Agent System erklärt</b><span>Wie wir planbar qualifizierte Anfragen für Dienstleister &amp; Berater generieren</span></div></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><div><b>Echte Zahlen aus echten Kampagnen</b><span>Was in deiner Branche realistisch drin ist</span></div></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><div><b>Direkt danach: Termin sichern</b><span>Wenn es passt, buchst du dir gleich dein Erstgespräch</span></div></li>
+          </ul>
+          <div class="side-proof">
+            <div class="av-stack">
+              <img src="assets/testimonials/anna.webp" alt="">
+              <img src="assets/testimonials/marcus.webp" alt="">
+              <img src="assets/testimonials/daniel.webp" alt="">
+              <img src="assets/testimonials/cornelia.webp" alt="">
+            </div>
+            <div><span class="stars">&starf;&starf;&starf;&starf;&starf;</span><span class="txt"><b>450+ glückliche Kunden</b> vertrauen uns</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap foot-in">
+      <a href="multi-agent-system.html"><img src="assets/logo/lockup_horizontal_weiss.webp" alt="ochsocial"></a>
+      <div class="foot-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+      <span>&copy; <span id="yr"></span> ochsocial Ltd.</span>
+    </div>
+  </footer>
+
+  <div id="consent">
+    <p><strong>Cookies &amp; Marketing:</strong> Wir nutzen den Meta-Pixel, um unsere Werbung zu verbessern. Ist das für dich okay?</p>
+    <div class="row">
+      <button id="cy">Einverstanden</button>
+      <button id="cn">Nur notwendige</button>
+    </div>
+  </div>
+
+  <script>
+    document.documentElement.classList.remove('no-js');
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    /* ===== Meta Pixel (nur nach Consent) ===== */
+    var PIXEL_ID = '760767924722009';
+    function loadMetaPixel(){
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', PIXEL_ID); fbq('track','PageView');
+    }
+    var consentState=null; try{consentState=localStorage.getItem('os_consent');}catch(e){}
+    var cb=document.getElementById('consent');
+    if(consentState==='yes'){loadMetaPixel();} else if(consentState!=='no'){cb.style.display='block';}
+    document.getElementById('cy').onclick=function(){try{localStorage.setItem('os_consent','yes');}catch(e){} cb.style.display='none'; loadMetaPixel();};
+    document.getElementById('cn').onclick=function(){try{localStorage.setItem('os_consent','no');}catch(e){} cb.style.display='none';};
+
+    /* ===== Funnel-Tracking (Schritt 2: Opt-in) ===== */
+    var OS_TRACK_URL='https://n8n.srv1286795.hstgr.cloud/webhook/vsl-track';
+    function osVisitor(){try{var v=localStorage.getItem('os_vid');if(!v){v='v'+Date.now().toString(36)+Math.random().toString(36).slice(2,8);localStorage.setItem('os_vid',v);}return v;}catch(e){return 'v0';}}
+    function trackEvent(name,extra){
+      var d={event:name,step:'2_optin',vid:osVisitor(),page:'multi-agent-system-optin.html',ts:new Date().toISOString()};
+      if(extra) for(var k in extra) d[k]=extra[k];
+      try{ if(OS_TRACK_URL) fetch(OS_TRACK_URL,{method:'POST',mode:'no-cors',keepalive:true,body:JSON.stringify(d)}); }catch(e){}
+      try{ if(window.fbq) fbq('trackCustom','vsl_'+name,d); }catch(e){}
+    }
+    trackEvent('page_view');
+    var startedForm=false;
+
+    /* ===== Lead-Erfassung -> Zapier, dann weiter zur Video-Seite ===== */
+    var WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/10002468/4u71cgp/';
+    var form = document.getElementById('leadForm');
+    form.querySelectorAll('input').forEach(function(el){
+      el.addEventListener('focus',function(){ if(!startedForm){ startedForm=true; trackEvent('form_start'); } },{once:true});
+    });
+
+    function getUtm(){
+      if(location.search && location.search.indexOf('utm')>=0) return location.search;
+      try{ return sessionStorage.getItem('os_utm') || ''; }catch(e){ return ''; }
+    }
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var chk=document.getElementById('datenschutz');
+      var cbox=document.getElementById('consentBox');
+      var cmsg=document.getElementById('consentMsg');
+      if(chk && !chk.checked){
+        if(cbox) cbox.classList.add('err');
+        if(cmsg) cmsg.classList.add('show');
+        try{ chk.focus(); cbox.scrollIntoView({block:'center',behavior:'smooth'}); }catch(e){}
+        return;
+      }
+      if(cbox) cbox.classList.remove('err');
+      if(cmsg) cmsg.classList.remove('show');
+      if(!form.checkValidity()){ form.reportValidity(); return; }
+
+      var leadData = {
+        quelle:'VSL',
+        seite:'multi-agent-system-optin.html',
+        tags:'vsl-lead',
+        utm:getUtm(),
+        zeitpunkt:new Date().toISOString()
+      };
+      form.querySelectorAll('input').forEach(function(el){
+        if(el.name && el.type!=='checkbox') leadData[el.name]=el.value.trim();
+      });
+
+      /* An Zapier (Lead ins CRM) */
+      var p={}; for(var k in leadData) p[k]=leadData[k]; p.event='lead';
+      try{ fetch(WEBHOOK_URL,{method:'POST',mode:'no-cors',body:JSON.stringify(p),keepalive:true}); }catch(err){}
+      if(window.fbq) fbq('track','Lead',{content_name:'VSL'});
+      trackEvent('lead',{email:leadData.email});
+
+      /* Daten für die Video-Seite (Calendly-Prefill + termin_gebucht) merken */
+      try{ sessionStorage.setItem('os_lead', JSON.stringify(leadData)); }catch(err){}
+
+      /* Weiter zur Video-Seite */
+      window.location.href = 'multi-agent-system-video.html';
+    });
+
+    var chk=document.getElementById('datenschutz');
+    if(chk){ chk.addEventListener('change',function(){
+      if(this.checked){
+        document.getElementById('consentBox').classList.remove('err');
+        document.getElementById('consentMsg').classList.remove('show');
+      }
+    });}
+  </script>
+
+</body>
+</html>
