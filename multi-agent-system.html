@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>6.162 qualifizierte Anfragen in 2 Monaten | ochsocial</title>
-  <meta name="description" content="Für Dienstleistungs- und Beratungsunternehmen: 6.162 qualifizierte Anfragen in nur 2 Monaten, generiert über unser Multi-Agent System. Jetzt Video anschauen.">
+  <meta name="description" content="Für Dienstleistungs- und Beratungsunternehmen: 6.162 qualifizierte Anfragen in nur 2 Monaten, generiert über unser 5D Agent System. Jetzt Video anschauen.">
   <meta name="robots" content="noindex">
   <link rel="canonical" href="https://ochsocial.de/multi-agent-system.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="ochsocial">
   <meta property="og:locale" content="de_DE">
   <meta property="og:title" content="6.162 qualifizierte Anfragen in nur 2 Monaten">
-  <meta property="og:description" content="Für Dienstleistungs- und Beratungsunternehmen: planbare, qualifizierte Anfragen über unser Multi-Agent System.">
+  <meta property="og:description" content="Für Dienstleistungs- und Beratungsunternehmen: planbare, qualifizierte Anfragen über unser 5D Agent System.">
   <meta property="og:url" content="https://ochsocial.de/multi-agent-system.html">
   <meta property="og:image" content="https://ochsocial.de/assets/og/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
@@ -184,6 +184,45 @@
       .hero-badges img{height:34px}
       .proof-row{gap:12px}
     }
+  
+    /* ===== 5D Agent System ===== */
+    .fived{background:radial-gradient(120% 130% at 50% -20%,#1E2A63 0%,#14163A 55%,#0B0D24 100%);color:#fff;padding:96px 0 108px}
+    .fived .sec-head{margin-left:auto;margin-right:auto}
+    .fived .sec-head h2{color:#fff}
+    .fived .sec-head p{color:var(--white-72)}
+    .orbit{position:relative;max-width:900px;margin:64px auto 0;height:660px;perspective:1200px}
+    .orbit .lines{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+    .orbit .lines line{stroke:rgba(240,217,160,.28);stroke-width:.25}
+    .orbit .lines circle{fill:var(--champagne);opacity:.8}
+    .orbit .hub{position:absolute;top:50%;left:50%;width:154px;height:154px;transform:translate(-50%,-50%);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle at 38% 30%,#4A79E0 0%,#1E4FBA 55%,#123072 100%);box-shadow:0 0 0 10px rgba(30,79,186,.10),0 0 64px 10px rgba(30,79,186,.55),inset 0 6px 18px rgba(255,255,255,.30),inset 0 -12px 24px rgba(0,0,0,.40);animation:hubFloat 5s ease-in-out infinite;z-index:6}
+    .orbit .hub img{width:62px;height:auto;filter:drop-shadow(0 4px 8px rgba(0,0,0,.45))}
+    .orbit .hub .lbl{font-weight:800;font-size:.7rem;letter-spacing:.24em;color:rgba(255,255,255,.92);margin-top:3px}
+    @keyframes hubFloat{0%,100%{transform:translate(-50%,-50%) translateY(0)}50%{transform:translate(-50%,-50%) translateY(-10px)}}
+    .orbit .node{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);z-index:2;transform-style:preserve-3d}
+    .orbit .node .card{width:252px;background:linear-gradient(180deg,rgba(33,42,84,.94),rgba(14,18,42,.96));border:1px solid var(--white-14);border-radius:16px;padding:16px 18px;box-shadow:0 20px 44px rgba(0,0,0,.48);backdrop-filter:blur(6px);transition:transform .28s cubic-bezier(.2,.7,.3,1),box-shadow .28s ease,border-color .28s ease}
+    .orbit .node .chead{display:flex;align-items:center;gap:11px}
+    .orbit .node .ic,.fived-list .ic{width:40px;height:40px;flex:0 0 auto;border-radius:11px;display:flex;align-items:center;justify-content:center;background:var(--champ-grad);box-shadow:inset 0 2px 4px rgba(255,255,255,.55),0 6px 14px rgba(240,217,160,.28)}
+    .orbit .node .ic svg,.fived-list .ic svg{width:21px;height:21px;color:var(--navy)}
+    .orbit .node .chead b,.fived-list .chead b{font-size:1.08rem;font-weight:800;color:#fff}
+    .orbit .node .short,.fived-list .short{margin-top:10px;font-size:.9rem;color:var(--white-72);line-height:1.48}
+    .orbit .node .detail{max-height:0;opacity:0;overflow:hidden;font-size:.9rem;color:#fff;line-height:1.5;transition:max-height .32s ease,opacity .28s ease,margin .28s ease,padding .28s ease;border-top:1px solid transparent}
+    .orbit .node:hover{z-index:20}
+    .orbit .node:hover .card{transform:translateZ(70px) scale(1.05);border-color:rgba(240,217,160,.55);box-shadow:0 44px 80px rgba(0,0,0,.6),0 0 0 1px rgba(240,217,160,.3)}
+    .orbit .node:hover .detail{max-height:190px;opacity:1;margin-top:13px;padding-top:13px;border-top-color:var(--white-14)}
+    .orbit .n1{--x:50%;--y:11%}
+    .orbit .n2{--x:85%;--y:38%}
+    .orbit .n3{--x:71%;--y:85%}
+    .orbit .n4{--x:29%;--y:85%}
+    .orbit .n5{--x:15%;--y:38%}
+    .fived-list{display:none}
+    @media(max-width:900px){
+      .orbit{display:none}
+      .fived-list{display:grid;gap:14px;margin:36px auto 0;max-width:560px}
+      .fived-list .card{background:linear-gradient(180deg,rgba(33,42,84,.94),rgba(14,18,42,.96));border:1px solid var(--white-14);border-radius:16px;padding:18px}
+      .fived-list .chead{display:flex;align-items:center;gap:11px}
+      .fived-list .detail{margin-top:11px;font-size:.9rem;color:#fff;line-height:1.5;border-top:1px solid var(--white-14);padding-top:11px}
+    }
+
   </style>
 </head>
 <body>
@@ -204,7 +243,7 @@
       <div class="hero-grid">
         <div class="hero-txt">
           <span class="pre-badge"><span class="dot"></span>Für Dienstleistungs- &amp; Beratungsunternehmen</span>
-          <h1><span class="accent-cobalt">6.162</span> qualifizierte Anfragen in nur 2 Monaten, generiert über unser <span class="accent-cobalt nowrap">Multi-Agent System.</span></h1>
+          <h1><span class="accent-cobalt">6.162</span> qualifizierte Anfragen in nur 2 Monaten, generiert über unser <span class="accent-cobalt nowrap">5D Agent System.</span></h1>
           <p class="sub">Wir bringen dein Dienstleistungs- oder Beratungsunternehmen in die Sichtbarkeit und füllen deinen Kalender mit Anfragen, die wirklich kaufen wollen. Planbar statt Zufall.</p>
           <div class="hero-cta">
             <a href="multi-agent-system-optin.html" class="btn btn-lg" data-cta="hero">
@@ -259,6 +298,36 @@
         <img src="assets/logos/n_impuls.webp" alt="Impuls">
         <img src="assets/logos/l_fachdienst.png" alt="Fachdienst">
         <img src="assets/logos/l_passmann.jpg" alt="Passmann">
+      </div>
+    </div>
+  </section>
+
+    <!-- ===== 5D Agent System ===== -->
+  <section class="fived" id="system">
+    <div class="wrap">
+      <div class="sec-head center">
+        <span class="eyebrow">Unser System</span>
+        <h2>Das <span class="accent-champ">5D Agent System</span></h2>
+        <p>Fünf Dimensionen, die ineinandergreifen. Die meisten Agenturen beherrschen ein, zwei davon. Wir verbinden alle fünf zu einem System.</p>
+      </div>
+      <div class="orbit">
+        <svg class="lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <line x1="50" y1="50" x2="50" y2="11"/><line x1="50" y1="50" x2="85" y2="38"/><line x1="50" y1="50" x2="71" y2="85"/><line x1="50" y1="50" x2="29" y2="85"/><line x1="50" y1="50" x2="15" y2="38"/>
+          <circle cx="50" cy="28.6" r=".7"/><circle cx="69.3" cy="43.4" r=".7"/><circle cx="61.6" cy="69.3" r=".7"/><circle cx="38.4" cy="69.3" r=".7"/><circle cx="30.7" cy="43.4" r=".7"/>
+        </svg>
+        <div class="hub"><img src="assets/logo/icon_only_weiss.webp" alt="ochsocial"><span class="lbl">5D</span></div>
+        <div class="node n1"><div class="card"><div class="chead"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></span><b>Daten</b></div><p class="short">Wir starten nie mit dem Bauchgefühl, sondern mit harten Daten über deinen Markt und deine Wunschkunden.</p><p class="detail">Bevor der erste Euro fließt, analysieren wir Zielgruppe, Wettbewerb und Kaufverhalten. So treffen die Kampagnen ab Tag eins die richtigen Menschen.</p></div></div>
+        <div class="node n2"><div class="card"><div class="chead"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16v4z"/><path d="M14 6l4 4"/></svg></span><b>Design</b></div><p class="short">Werbemittel und Botschaften, die im Feed stoppen und wirklich verkaufen.</p><p class="detail">Wir übersetzen dein Angebot in Creatives und Texte, die deinen Wunschkunden sofort abholen. Klare Botschaften statt Buzzwords, die zum Handeln bewegen.</p></div></div>
+        <div class="node n3"><div class="card"><div class="chead"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span><b>Diversifizierung</b></div><p class="short">Wir setzen nie alles auf eine Anzeige, sondern testen viele Ansätze parallel.</p><p class="detail">Verschiedene Hooks, Formate und Zielgruppen laufen gleichzeitig. So finden wir die Gewinner, skalieren sie und holen deinen Kunden auf jeder Ebene ab.</p></div></div>
+        <div class="node n4"><div class="card"><div class="chead"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></span><b>Digital</b></div><p class="short">Ein durchgängig automatisiertes System vom ersten Klick bis zum fertigen Termin.</p><p class="detail">KI qualifiziert jeden Interessenten vor, Buchung und Nachverfolgung laufen rund um die Uhr. Du sprichst nur noch mit kaufbereiten Leuten.</p></div></div>
+        <div class="node n5"><div class="card"><div class="chead"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></span><b>Dynamisch</b></div><p class="short">Wir reagieren blitzschnell auf Trends, Marktlage und neue Chancen.</p><p class="detail">Dank interner, automatisierter Prozesse setzen wir Anpassungen in Tagen um statt in Wochen. Verändert sich der Markt, steuern wir in Echtzeit nach.</p></div></div>
+      </div>
+      <div class="fived-list">
+      <div class="card"><div class="chead"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></span><b>Daten</b></div><p class="short">Wir starten nie mit dem Bauchgefühl, sondern mit harten Daten über deinen Markt und deine Wunschkunden.</p><p class="detail">Bevor der erste Euro fließt, analysieren wir Zielgruppe, Wettbewerb und Kaufverhalten. So treffen die Kampagnen ab Tag eins die richtigen Menschen.</p></div>
+      <div class="card"><div class="chead"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16v4z"/><path d="M14 6l4 4"/></svg></span><b>Design</b></div><p class="short">Werbemittel und Botschaften, die im Feed stoppen und wirklich verkaufen.</p><p class="detail">Wir übersetzen dein Angebot in Creatives und Texte, die deinen Wunschkunden sofort abholen. Klare Botschaften statt Buzzwords, die zum Handeln bewegen.</p></div>
+      <div class="card"><div class="chead"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span><b>Diversifizierung</b></div><p class="short">Wir setzen nie alles auf eine Anzeige, sondern testen viele Ansätze parallel.</p><p class="detail">Verschiedene Hooks, Formate und Zielgruppen laufen gleichzeitig. So finden wir die Gewinner, skalieren sie und holen deinen Kunden auf jeder Ebene ab.</p></div>
+      <div class="card"><div class="chead"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></span><b>Digital</b></div><p class="short">Ein durchgängig automatisiertes System vom ersten Klick bis zum fertigen Termin.</p><p class="detail">KI qualifiziert jeden Interessenten vor, Buchung und Nachverfolgung laufen rund um die Uhr. Du sprichst nur noch mit kaufbereiten Leuten.</p></div>
+      <div class="card"><div class="chead"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></span><b>Dynamisch</b></div><p class="short">Wir reagieren blitzschnell auf Trends, Marktlage und neue Chancen.</p><p class="detail">Dank interner, automatisierter Prozesse setzen wir Anpassungen in Tagen um statt in Wochen. Verändert sich der Markt, steuern wir in Echtzeit nach.</p></div>
       </div>
     </div>
   </section>
@@ -356,7 +425,7 @@
         <img class="os" src="assets/logo/lockup_horizontal_weiss.webp" alt="ochsocial">
         <div>
           <h2>Sieh dir an, wie das System für dich arbeitet</h2>
-          <p>Im Video zeigen wir dir Schritt für Schritt, wie wir über unser Multi-Agent System planbar qualifizierte Anfragen für Dienstleister und Berater generieren.</p>
+          <p>Im Video zeigen wir dir Schritt für Schritt, wie wir über unser 5D Agent System planbar qualifizierte Anfragen für Dienstleister und Berater generieren.</p>
           <div class="cta-btns">
             <a href="multi-agent-system-optin.html" class="btn btn-champ btn-lg" data-cta="footer">
               <svg class="play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
