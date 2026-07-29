@@ -224,9 +224,9 @@
       var isYT=/youtube\.com|youtu\.be/.test(VIDEO_EMBED_URL);
       var isVimeo=/vimeo\.com/.test(VIDEO_EMBED_URL);
       var pctMarks={25:false,50:false,75:false,90:false};
-      var watched=0, lastT=0, started=false, ended=false;
+      var watched=0, lastT=0, started=false, ended=false, maxPct=0;
       function mark(pct){ [25,50,75,90].forEach(function(m){ if(!pctMarks[m]&&pct>=m){ pctMarks[m]=true; trackEvent('video_progress',{pct:m}); } }); }
-      function sendWatch(){ trackEvent('video_watch_seconds',{seconds:Math.round(watched)}); }
+      function sendWatch(){ trackEvent('video_watch_seconds',{seconds:Math.round(watched)}); if(maxPct>0) trackEvent('video_progress',{pct:maxPct}); }
       window.addEventListener('pagehide',sendWatch);
       document.addEventListener('visibilitychange',function(){ if(document.visibilityState==='hidden') sendWatch(); });
 
@@ -248,7 +248,7 @@
               if(player.getPlayerState&&player.getPlayerState()===1){
                 var t=player.getCurrentTime(), dur=player.getDuration();
                 if(t>lastT){ watched+=(t-lastT); } lastT=t;
-                if(dur>0) mark(Math.round(t/dur*100));
+                if(dur>0){ var pc=Math.round(t/dur*100); if(pc>maxPct)maxPct=pc; mark(pc); }
               }
             }catch(e){}
           },1000);
@@ -263,7 +263,7 @@
           var vplay=document.getElementById('vplay');
           if(vplay){ vplay.style.display='flex'; vplay.onclick=function(){ player.play(); }; }
           player.on('play',function(){ if(!started){started=true;trackEvent('video_start');} if(vplay) vplay.style.display='none'; });
-          player.on('timeupdate',function(d){ if(d.seconds>lastT){ watched+=(d.seconds-lastT); } lastT=d.seconds; if(d.percent) mark(Math.round(d.percent*100)); });
+          player.on('timeupdate',function(d){ if(d.seconds>lastT){ watched+=(d.seconds-lastT); } lastT=d.seconds; if(d.percent){ var pc=Math.round(d.percent*100); if(pc>maxPct)maxPct=pc; mark(pc); } });
           player.on('ended',function(){ if(!ended){ended=true;trackEvent('video_complete');sendWatch();} });
         };
         document.head.appendChild(vs);
