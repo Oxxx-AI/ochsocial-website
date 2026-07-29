@@ -55,7 +55,7 @@
     .lead p{margin-top:16px;color:var(--white-72);font-size:1.12rem;max-width:56ch;margin-left:auto;margin-right:auto}
 
     .video-sec{padding:34px 0 10px}
-    .video-frame{position:relative;width:100%;aspect-ratio:16/9;background:#0B0D24;border-radius:18px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.5);border:1px solid var(--white-14)}
+    .video-frame{position:relative;width:100%;aspect-ratio:16/9;background:linear-gradient(#0B0D24,#0B0D24) padding-box,linear-gradient(135deg,#3E6FD9 0%,#2A5FD0 30%,#1E4FBA 60%,#15347C 100%) border-box;border:2px solid transparent;border-radius:18px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.5),0 0 42px rgba(30,79,186,.3)}
     .video-frame iframe,.video-frame video{position:absolute;inset:0;width:100%;height:100%;border:0}
     .video-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;padding:24px;background:radial-gradient(circle at 50% 40%,rgba(30,79,186,.35),transparent 60%),#0B0D24}
     .video-ph .pbtn{width:82px;height:82px;border-radius:50%;background:var(--champ-grad);display:flex;align-items:center;justify-content:center;box-shadow:0 16px 40px rgba(240,217,160,.4);animation:ppulse 2.2s ease-in-out infinite}
@@ -96,7 +96,17 @@
       .lead{padding:84px 0 4px}
       .book{padding:48px 0 66px}
       .cal-panel{padding:8px}
-    }
+    }    .vplay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:5;width:92px;height:92px;border:0;border-radius:50%;background:var(--champ-grad);cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 18px 46px rgba(240,217,160,.5);animation:vpulse 2.2s ease-in-out infinite}
+    .vplay svg{width:38px;height:38px;color:var(--navy);margin-left:5px}
+    .vplay:hover{filter:brightness(1.06)}
+    @keyframes vpulse{0%,100%{box-shadow:0 18px 46px rgba(240,217,160,.42)}50%{box-shadow:0 24px 62px rgba(240,217,160,.72)}}
+    .sec-white{background:#fff;color:#2C3140}
+    .sec-white .eyebrow{color:var(--cobalt)}
+    .sec-white .book-head h2{color:#14163A}
+    .sec-white .book-head p{color:var(--navy-70)}
+    .sec-white .host{background:#F3F5F9;border:1px solid var(--line)}
+    .sec-white .host b{color:#14163A}
+    .sec-white .host span{color:var(--navy-55)}
   </style>
 </head>
 <body>
@@ -113,7 +123,7 @@
   <section class="lead">
     <div class="wrap">
       <span class="eyebrow">Dein Video ist freigeschaltet</span>
-      <h1>So generieren wir <span class="hl">planbar qualifizierte Anfragen</span></h1>
+      <h1>Planbar qualifizierte Anfragen mit unserem <span class="hl">5D Agent System</span></h1>
       <p>Schau dir das Video in Ruhe an. Direkt darunter kannst du dir dein kostenfreies Erstgespräch sichern.</p>
     </div>
   </section>
@@ -134,24 +144,25 @@
           <b>Video wird hier eingebettet</b>
           <span>Platzhalter &ndash; sobald der Video-Link eingesetzt ist, läuft das Video an dieser Stelle.</span>
         </div>
+        <button class="vplay" id="vplay" type="button" aria-label="Video abspielen"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
       </div>
       <p class="video-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>Danach: Termin sichern</p>
     </div>
   </section>
 
-  <section class="book" id="termin">
+  <section class="book sec-white" id="termin">
     <div class="wrap">
       <div class="book-head">
         <span class="eyebrow">Nächster Schritt</span>
-        <h2>Sichere dir dein <span class="accent-champ">kostenfreies Erstgespräch</span></h2>
-        <p>Wir schauen gemeinsam, ob und wie wir dir planbar qualifizierte Anfragen liefern können. Unverbindlich und ehrlich.</p>
+        <h2>Sichere dir dein<br><span class="accent-cobalt">kostenfreies Erstgespräch</span></h2>
+        <p>Im Erstgespräch zeigen wir dir, wie sich das 5D Agent System konkret auf dein Unternehmen übertragen lässt, für planbar qualifizierte Anfragen statt schwankender Ergebnisse.</p>
       </div>
       <div class="host">
         <img src="assets/team/miri_business.webp" alt="Miriam Ochs">
         <div><b>Miriam Ochs</b><span>Gründerin von ochsocial</span></div>
       </div>
       <div style="text-align:center;margin-top:32px">
-        <a href="5d-agent-system-termin.html" class="btn" id="terminCta" data-cta="video_to_termin" style="padding:21px 44px;font-size:1.12rem">Jetzt Termin sichern <span class="arw">&rarr;</span></a>
+        <a href="5d-agent-system-termin.html" class="btn" id="terminCta" data-cta="video_to_termin" style="background:var(--cobalt-metallic);color:#fff;padding:21px 44px;font-size:1.12rem;box-shadow:0 12px 30px rgba(30,79,186,.35)">Jetzt Termin sichern <span class="arw">&rarr;</span></a>
       </div>
     </div>
   </section>
@@ -249,7 +260,9 @@
         var vs=document.createElement('script'); vs.src='https://player.vimeo.com/api/player.js';
         vs.onload=function(){
           var player=new Vimeo.Player(ifr);
-          player.on('play',function(){ if(!started){started=true;trackEvent('video_start');} });
+          var vplay=document.getElementById('vplay');
+          if(vplay){ vplay.style.display='flex'; vplay.onclick=function(){ player.play(); }; }
+          player.on('play',function(){ if(!started){started=true;trackEvent('video_start');} if(vplay) vplay.style.display='none'; });
           player.on('timeupdate',function(d){ if(d.seconds>lastT){ watched+=(d.seconds-lastT); } lastT=d.seconds; if(d.percent) mark(Math.round(d.percent*100)); });
           player.on('ended',function(){ if(!ended){ended=true;trackEvent('video_complete');sendWatch();} });
         };
