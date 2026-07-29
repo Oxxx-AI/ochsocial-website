@@ -263,9 +263,10 @@
         if(el.name && el.type!=='checkbox') leadData[el.name]=el.value.trim();
       });
 
-      /* An Zapier (Lead ins CRM) */
+      /* An Zapier (Trello/Mail) UND ins CRM-Sheet (auch ohne Termin) */
       var p={}; for(var k in leadData) p[k]=leadData[k]; p.event='lead';
       try{ fetch(WEBHOOK_URL,{method:'POST',mode:'no-cors',body:JSON.stringify(p),keepalive:true}); }catch(err){}
+      try{ fetch('https://n8n.srv1286795.hstgr.cloud/webhook/crm-lead',{method:'POST',mode:'no-cors',body:JSON.stringify(p),keepalive:true}); }catch(err){}
       if(window.fbq) fbq('track','Lead',{content_name:'VSL'});
       trackEvent('lead',{email:leadData.email});
 
