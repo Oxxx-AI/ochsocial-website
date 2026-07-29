@@ -142,24 +142,16 @@
   <section class="book" id="termin">
     <div class="wrap">
       <div class="book-head">
-        <span class="eyebrow">Kostenfreies Erstgespräch</span>
-        <h2>Sichere dir jetzt deinen <span class="accent-champ">Termin</span></h2>
+        <span class="eyebrow">Nächster Schritt</span>
+        <h2>Sichere dir dein <span class="accent-champ">kostenfreies Erstgespräch</span></h2>
         <p>Wir schauen gemeinsam, ob und wie wir dir planbar qualifizierte Anfragen liefern können. Unverbindlich und ehrlich.</p>
       </div>
       <div class="host">
         <img src="assets/team/miri_business.webp" alt="Miriam Ochs">
         <div><b>Miriam Ochs</b><span>Gründerin von ochsocial</span></div>
       </div>
-
-      <div class="cal-panel" id="calPanel">
-        <div id="calBox"></div>
-        <a id="calFallback" class="cal-fallback" href="https://calendly.com/miriam-ochs/erstgesprach-website" target="_blank" rel="noopener">Kalender öffnet nicht? Hier im neuen Tab öffnen &rarr;</a>
-      </div>
-
-      <div class="done" id="doneWrap">
-        <div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
-        <h3>Perfekt, dein Termin steht!</h3>
-        <p>Du bekommst gleich eine Bestätigung mit allen Details per E-Mail. Wir freuen uns auf das Gespräch.</p>
+      <div style="text-align:center;margin-top:32px">
+        <a href="5d-agent-system-termin.html" class="btn" id="terminCta" data-cta="video_to_termin" style="padding:21px 44px;font-size:1.12rem">Jetzt Termin sichern <span class="arw">&rarr;</span></a>
       </div>
     </div>
   </section>
@@ -269,58 +261,9 @@
       }
     })();
 
-    /* ===== Termin-Buchung -> CRM ===== */
-    var WEBHOOK_TERMIN = 'https://hooks.zapier.com/hooks/catch/10002468/4u7f5ey/';
-    function sendTermin(){
-      if(!leadData) return;
-      var p={}; for(var k in leadData) p[k]=leadData[k]; p.event='termin_gebucht';
-      try{ fetch(WEBHOOK_TERMIN,{method:'POST',mode:'no-cors',body:JSON.stringify(p),keepalive:true}); }catch(e){}
-    }
-
-    /* ===== Calendly ===== */
-    var CALENDLY_URL = 'https://calendly.com/miriam-ochs/erstgesprach-website';
-    (function(){
-      var s=document.createElement('script');
-      s.src='https://assets.calendly.com/assets/external/widget.js';
-      s.async=true; document.head.appendChild(s);
-    })();
-
-    (function initCalendly(){
-      var calBox=document.getElementById('calBox');
-      var fb=document.getElementById('calFallback');
-      var name=leadData?(((leadData.vorname||'')+' '+(leadData.nachname||'')).trim()):'';
-      var email=leadData?(leadData.email||''):'';
-      var url=CALENDLY_URL+'?hide_gdpr_banner=1&primary_color=1e4fba';
-      if(fb){
-        var q=[]; if(name) q.push('name='+encodeURIComponent(name)); if(email) q.push('email='+encodeURIComponent(email));
-        fb.href=CALENDLY_URL+(q.length?('?'+q.join('&')):'');
-      }
-      var calSeen=false;
-      var tries=0;
-      (function go(){
-        tries++;
-        if(window.Calendly&&Calendly.initInlineWidget){
-          try{
-            Calendly.initInlineWidget({url:url,parentElement:calBox,prefill:{name:name,email:email}});
-            trackEvent('calendly_view');
-          }catch(err){ if(fb) fb.style.display='block'; }
-        } else if(tries<40){ setTimeout(go,250); }
-        else if(fb){ fb.style.display='block'; }
-      })();
-      setTimeout(function(){ if(calBox && !calBox.querySelector('iframe') && fb){ fb.style.display='block'; } },6000);
-    })();
-
-    /* ===== Termin gebucht -> CRM + Done-State ===== */
-    window.addEventListener('message',function(ev){
-      if(ev.data && ev.data.event==='calendly.event_scheduled'){
-        sendTermin();
-        trackEvent('termin_gebucht');
-        if(window.fbq) fbq('track','Schedule',{content_name:'VSL'});
-        document.getElementById('calPanel').style.display='none';
-        var d=document.getElementById('doneWrap'); d.style.display='block';
-        try{ d.scrollIntoView({block:'center',behavior:'smooth'}); }catch(e){}
-      }
-    });
+    /* ===== CTA zur Terminseite ===== */
+    var cta=document.getElementById('terminCta');
+    if(cta) cta.addEventListener('click',function(){ trackEvent('cta_termin_click'); });
   </script>
 
 </body>
