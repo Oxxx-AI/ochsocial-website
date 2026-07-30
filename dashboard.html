@@ -861,21 +861,37 @@
   }
 </script>
 <section id="vsl-panel" style="display:none;max-width:1140px;margin:26px auto;padding:0 24px;font-family:'Manrope',system-ui,sans-serif">
-<div style="background:linear-gradient(180deg,#1b2350,#141935);border:1px solid rgba(240,217,160,.28);border-radius:16px;padding:20px 22px;box-shadow:0 20px 50px rgba(0,0,0,.4)">
-<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap"><div style="font-weight:800;font-size:1.1rem;color:#fff">Video-Engagement (VSL)</div><div style="font-size:.8rem;color:#F0D9A0" id="vsl-sub">lädt…</div></div>
-<div id="vsl-funnel" style="margin-top:16px;display:grid;gap:8px"></div>
-<div style="margin-top:18px;overflow:auto"><table style="width:100%;border-collapse:collapse;font-size:.86rem;color:#e8ecf7"><thead><tr style="text-align:left;color:#9fb0d8"><th style="padding:6px 8px">Lead</th><th style="padding:6px 8px">Geschaut</th><th style="padding:6px 8px">Zeit</th><th style="padding:6px 8px">Status</th></tr></thead><tbody id="vsl-rows"></tbody></table></div>
-</div></section>
+  <div style="background:linear-gradient(180deg,#1b2350,#141935);border:1px solid rgba(240,217,160,.28);border-radius:16px;padding:20px 22px;box-shadow:0 20px 50px rgba(0,0,0,.4)">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <div style="font-weight:800;font-size:1.1rem;color:#fff">Video-Engagement (VSL)</div>
+      <div style="font-size:.8rem;color:#F0D9A0" id="vsl-sub">l&auml;dt&hellip;</div>
+    </div>
+    <div id="vsl-range" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px"></div>
+    <div id="vsl-funnel" style="margin-top:16px;display:grid;gap:8px"></div>
+    <div style="margin-top:18px;overflow:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:.86rem;color:#e8ecf7">
+        <thead><tr style="text-align:left;color:#9fb0d8"><th style="padding:6px 8px">Lead</th><th style="padding:6px 8px">Geschaut</th><th style="padding:6px 8px">Zeit</th><th style="padding:6px 8px">Status</th></tr></thead>
+        <tbody id="vsl-rows"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
 <script>(function(){
-var P=document.getElementById('vsl-panel');
-var STATS='https://n8n.srv1286795.hstgr.cloud/webhook/vsl-stats';var goodPw=null;
-function cands(){var a=[];try{for(var i=0;i<sessionStorage.length;i++){var v=sessionStorage.getItem(sessionStorage.key(i));if(v&&typeof v==='string'&&v.length<60&&v.indexOf('{')<0)a.push(v);}}catch(e){}return a;}
-function bar(l,c,t,ac){var p=t>0?Math.round(c/t*100):0;return '<div><div style="display:flex;justify-content:space-between;font-size:.82rem;color:#cfd8ef;margin-bottom:3px"><span>'+l+'</span><span>'+c+' · '+p+'%</span></div><div style="height:10px;border-radius:6px;background:rgba(255,255,255,.08);overflow:hidden"><div style="height:100%;width:'+p+'%;background:'+(ac||'linear-gradient(90deg,#F0D9A0,#F8ECCB)')+'"></div></div></div>';}
-function render(d){var f=d.funnel||{};var v=f.viewers||0;document.getElementById('vsl-sub').textContent=v+' Zuschauer gesamt';document.getElementById('vsl-funnel').innerHTML=[bar('Seite geöffnet',v,v),bar('Video gestartet',f.started||0,v),bar('25% geschaut',f.p25||0,v),bar('50% geschaut',f.p50||0,v),bar('75% geschaut',f.p75||0,v),bar('90% geschaut',f.p90||0,v),bar('Video zu Ende',f.completed||0,v),bar('Termin gebucht',f.termin||0,v,'linear-gradient(90deg,#3ECF97,#2fae80)')].join('');
-var rows=(d.viewers||[]).map(function(o){var st=o.termin?'<span style="color:#3ECF97">Termin ✓</span>':(o.completed?'Ende':(o.started?'geschaut':'nur geöffnet'));var s=o.seconds||0;var mm=Math.floor(s/60),ss=s%60;return '<tr style="border-top:1px solid rgba(255,255,255,.07)"><td style="padding:6px 8px">'+(o.email||'<i style="color:#8394ba">anonym</i>')+'</td><td style="padding:6px 8px;font-weight:700;color:#F0D9A0">'+(o.maxPct||0)+'%</td><td style="padding:6px 8px">'+mm+':'+(ss<10?'0':'')+ss+'</td><td style="padding:6px 8px">'+st+'</td></tr>';}).join('');
-document.getElementById('vsl-rows').innerHTML=rows||'<tr><td colspan="4" style="padding:12px 8px;color:#8394ba">Noch keine Zuschauer.</td></tr>';P.style.display='block';}
-function tryLoad(){var c=goodPw?[goodPw]:cands();if(!c.length){setTimeout(tryLoad,3000);return;}var i=0;(function next(){if(i>=c.length){if(!goodPw)setTimeout(tryLoad,3000);return;}var pw=c[i++];fetch(STATS,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token:pw})}).then(function(r){return r.json();}).then(function(d){if(d&&d.ok){goodPw=pw;render(d);setTimeout(tryLoad,30000);}else{next();}}).catch(function(){next();});})();}
-if(document.readyState!=='loading')tryLoad();else document.addEventListener('DOMContentLoaded',tryLoad);
+  var P=document.getElementById('vsl-panel');
+  var STATS='https://n8n.srv1286795.hstgr.cloud/webhook/vsl-stats';
+  var goodPw=null, curRange='all', fullMap={};
+  function cands(){var a=[];try{for(var i=0;i<sessionStorage.length;i++){var v=sessionStorage.getItem(sessionStorage.key(i));if(v&&typeof v==='string'&&v.length<60&&v.indexOf('{')<0)a.push(v);}}catch(e){}return a;}
+  function ranges(){var now=new Date();var sT=new Date(now.getFullYear(),now.getMonth(),now.getDate());var sY=new Date(sT.getTime()-86400000);return {today:{label:'Heute',from:sT.toISOString(),to:null},yest:{label:'Gestern',from:sY.toISOString(),to:sT.toISOString()},d7:{label:'7 Tage',from:new Date(now.getTime()-7*86400000).toISOString(),to:null},d30:{label:'30 Tage',from:new Date(now.getTime()-30*86400000).toISOString(),to:null},all:{label:'Alle',from:null,to:null}};}
+  function bar(l,c,t,ac){var p=t>0?Math.round(c/t*100):0;return '<div><div style="display:flex;justify-content:space-between;font-size:.82rem;color:#cfd8ef;margin-bottom:3px"><span>'+l+'</span><span>'+c+' &middot; '+p+'%</span></div><div style="height:10px;border-radius:6px;background:rgba(255,255,255,.08);overflow:hidden"><div style="height:100%;width:'+p+'%;background:'+(ac||'linear-gradient(90deg,#F0D9A0,#F8ECCB)')+'"></div></div></div>';}
+  function fmtT(s){s=s||0;var m=Math.floor(s/60),x=s%60;return m+':'+(x<10?'0':'')+x;}
+  function renderRange(){var R=ranges();var el=document.getElementById('vsl-range');el.innerHTML=Object.keys(R).map(function(k){var on=k===curRange;return '<button data-r="'+k+'" style="cursor:pointer;border:1px solid '+(on?'#F0D9A0':'rgba(255,255,255,.18)')+';background:'+(on?'rgba(240,217,160,.16)':'transparent')+';color:'+(on?'#F0D9A0':'#c7d2ea')+';border-radius:999px;padding:6px 14px;font-size:.8rem;font-weight:700">'+R[k].label+'</button>';}).join('');el.querySelectorAll('button').forEach(function(b){b.onclick=function(){curRange=b.getAttribute('data-r');renderRange();load();};});}
+  function render(d){var f=d.funnel||{};var v=f.viewers||0;document.getElementById('vsl-sub').textContent=v+' Zuschauer ('+ranges()[curRange].label+')';document.getElementById('vsl-funnel').innerHTML=[bar('Seite ge&ouml;ffnet',v,v),bar('Video gestartet',f.started||0,v),bar('25% geschaut',f.p25||0,v),bar('50% geschaut',f.p50||0,v),bar('75% geschaut',f.p75||0,v),bar('90% geschaut',f.p90||0,v),bar('Video zu Ende',f.completed||0,v),bar('Termin gebucht',f.termin||0,v,'linear-gradient(90deg,#3ECF97,#2fae80)')].join('');var rows=(d.viewers||[]).map(function(o){var st=o.termin?'<span style="color:#3ECF97">Termin &#10003;</span>':(o.completed?'Ende':(o.started?'geschaut':'nur ge&ouml;ffnet'));return '<tr style="border-top:1px solid rgba(255,255,255,.07)"><td style="padding:6px 8px">'+(o.email||'<i style=\"color:#8394ba\">anonym</i>')+'</td><td style="padding:6px 8px;font-weight:700;color:#F0D9A0">'+(o.maxPct||0)+'%</td><td style="padding:6px 8px">'+fmtT(o.seconds)+'</td><td style="padding:6px 8px">'+st+'</td></tr>';}).join('');document.getElementById('vsl-rows').innerHTML=rows||'<tr><td colspan="4" style="padding:12px 8px;color:#8394ba">Keine Zuschauer im Zeitraum.</td></tr>';P.style.display='block';}
+  function post(body){return fetch(STATS,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json();});}
+  function load(){if(!goodPw)return;var R=ranges()[curRange];var body={token:goodPw};if(R.from)body.from=R.from;if(R.to)body.to=R.to;post(body).then(function(d){if(d&&d.ok)render(d);}).catch(function(){});post({token:goodPw}).then(function(d){if(d&&d.ok){fullMap={};(d.viewers||[]).forEach(function(o){if(o.email)fullMap[o.email.toLowerCase()]={pct:o.maxPct||0,sec:o.seconds||0};});augment();}}).catch(function(){});}
+  function augment(){var ks=Object.keys(fullMap);if(!ks.length)return;var all=document.querySelectorAll('body *:not(script):not(style)');all.forEach(function(el){if(el.children.length!==0)return;if(el.getAttribute('data-vslaug'))return;if(el.closest&&el.closest('#vsl-panel'))return;var tx=(el.textContent||'').trim().toLowerCase();var m=fullMap[tx];if(m){el.setAttribute('data-vslaug','1');var b=document.createElement('span');b.textContent=' 🎬 '+m.pct+'% · '+fmtT(m.sec);b.style.cssText='display:inline-block;margin-left:6px;font-size:.72rem;font-weight:700;color:#8a6d1f;background:linear-gradient(90deg,#F0D9A0,#F8ECCB);border-radius:999px;padding:1px 8px;vertical-align:middle';el.appendChild(b);}});}
+  function tryLoad(){var c=goodPw?[goodPw]:cands();if(!c.length){setTimeout(tryLoad,3000);return;}var i=0;(function next(){if(i>=c.length){if(!goodPw)setTimeout(tryLoad,3000);return;}var pw=c[i++];post({token:pw}).then(function(d){if(d&&d.ok){goodPw=pw;renderRange();load();setInterval(load,30000);setInterval(augment,4000);}else next();}).catch(function(){next();});})();}
+  if(document.readyState!=='loading')tryLoad();else document.addEventListener('DOMContentLoaded',tryLoad);
 })();</script>
+
 </body>
 </html>
