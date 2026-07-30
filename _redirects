@@ -20,3 +20,11 @@
 /webinar/*          /            301
 /ausgebucht-pdff    /            301
 /ausgebucht-pdff/*  /            301
+
+# Alte VSL/Multi-Agent-LPs deaktiviert -> 5d
+/multi-agent-system.html /5d-agent-system 301!
+/multi-agent-system-optin.html /5d-agent-system 301!
+/multi-agent-system-video.html /5d-agent-system 301!
+/vsl.html /5d-agent-system 301!
+/vsl-optin.html /5d-agent-system 301!
+/vsl-video.html /5d-agent-system 301!
