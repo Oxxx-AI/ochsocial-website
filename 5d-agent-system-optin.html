@@ -116,10 +116,10 @@
 
   <header class="hdr">
     <div class="hdr-in">
-      <a href="5d-agent-system.html" class="logo" aria-label="ochsocial">
+      <a aria-label='ochsocial' class='logo' href='/5d-agent-system'>
         <img src="assets/logo/lockup_horizontal_weiss.webp" alt="ochsocial">
       </a>
-      <a href="5d-agent-system.html" class="header-cta">&larr; Zurück</a>
+      <a class='header-cta' href='/5d-agent-system'>&larr; Zurück</a>
     </div>
   </header>
 
@@ -142,7 +142,7 @@
 
             <label class="consent consentBox" id="consentBox">
               <input type="checkbox" name="datenschutz" id="datenschutz" required>
-              <span>Ich akzeptiere die <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzbestimmungen</a>.</span>
+              <span>Ich akzeptiere die <a href='/datenschutz' rel='noopener' target='_blank'>Datenschutzbestimmungen</a>.</span>
             </label>
             <div class="consent-msg" id="consentMsg">Bitte akzeptiere die Datenschutzbestimmungen, um fortzufahren.</div>
 
@@ -176,10 +176,10 @@
 
   <footer>
     <div class="wrap foot-in">
-      <a href="5d-agent-system.html"><img src="assets/logo/lockup_horizontal_weiss.webp" alt="ochsocial"></a>
+      <a href='/5d-agent-system'><img src="assets/logo/lockup_horizontal_weiss.webp" alt="ochsocial"></a>
       <div class="foot-links">
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
+        <a href='/impressum'>Impressum</a>
+        <a href='/datenschutz'>Datenschutz</a>
       </div>
       <span>&copy; <span id="yr"></span> ochsocial Ltd.</span>
     </div>
@@ -253,7 +253,7 @@
       if(!form.checkValidity()){ form.reportValidity(); return; }
 
       var leadData = {
-        quelle:'VSL',
+        quelle:(function(){try{var s=sessionStorage.getItem('os_utm');if(s){s=(''+s).trim();if(s.charAt(0)==='{'){var o=JSON.parse(s);var a=[o.utm_source||o.source||'Meta',o.utm_campaign||o.campaign,o.utm_content||o.content].filter(Boolean);if(a.length>1)return a.join(' - ');}else if(s){return s;}}var p=new URLSearchParams(location.search);var sc=p.get('utm_source'),cm=p.get('utm_campaign'),ct=p.get('utm_content');if(sc||cm)return [sc||'Meta',cm,ct].filter(Boolean).join(' - ');}catch(e){}return 'VSL';})(),
         seite:'5d-agent-system-optin.html',
         tags:'vsl-lead',
         utm:getUtm(),
@@ -286,5 +286,7 @@
     });}
   </script>
 
+
+<script async id="netlify-rum-container" src="/.netlify/scripts/rum" data-netlify-rum-site-id="84b28141-1cdb-4751-97c0-6f0d2029ee3c" data-netlify-deploy-branch="main" data-netlify-deploy-context="production" data-netlify-cwv-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaXRlX2lkIjoiODRiMjgxNDEtMWNkYi00NzUxLTk3YzAtNmYwZDIwMjllZTNjIiwiYWNjb3VudF9pZCI6IjZhNDI4MDM4YmVlMWM3MWZiZDRiYTc1MSIsImRlcGxveV9pZCI6IjZhNmM2ZGE3MjIxOTQ2MDAwODZhZmZjZiIsImlzc3VlciI6Im5mc2VydmVyIn0.tqveBw679bIHbLGHq7ZCJeKGs-43Esodkok0FwHHmxI"></script>
 </body>
 </html>
