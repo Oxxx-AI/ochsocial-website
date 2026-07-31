@@ -253,7 +253,7 @@
       if(!form.checkValidity()){ form.reportValidity(); return; }
 
       var leadData = {
-        quelle:(function(){try{var s=sessionStorage.getItem('os_utm');if(s){s=(''+s).trim();if(s.charAt(0)==='{'){var o=JSON.parse(s);var a=[o.utm_source||o.source||'Meta',o.utm_campaign||o.campaign,o.utm_content||o.content].filter(Boolean);if(a.length>1)return a.join(' - ');}else if(s){return s;}}var p=new URLSearchParams(location.search);var sc=p.get('utm_source'),cm=p.get('utm_campaign'),ct=p.get('utm_content');if(sc||cm)return [sc||'Meta',cm,ct].filter(Boolean).join(' - ');}catch(e){}return 'VSL';})(),
+        quelle:(function(){try{var raw=sessionStorage.getItem('os_utm')||location.search||'';if(raw&&raw.charAt(0)==='{'){var o=JSON.parse(raw);var a=[o.utm_source||o.source||'Meta',o.utm_campaign||o.campaign,o.utm_content||o.content].filter(Boolean);if(a.length>1)return a.join(' - ');}var qs=raw.indexOf('?')>=0?raw.slice(raw.indexOf('?')):raw;var p=new URLSearchParams(qs);var sc=p.get('utm_source'),cm=p.get('utm_campaign'),ct=p.get('utm_content');if(sc||cm)return [sc||'Meta',cm,ct].filter(Boolean).join(' - ');}catch(e){}return 'VSL';})(),
         seite:'5d-agent-system-optin.html',
         tags:'vsl-lead',
         utm:getUtm(),
@@ -288,5 +288,7 @@
 
 
 <script async id="netlify-rum-container" src="/.netlify/scripts/rum" data-netlify-rum-site-id="84b28141-1cdb-4751-97c0-6f0d2029ee3c" data-netlify-deploy-branch="main" data-netlify-deploy-context="production" data-netlify-cwv-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaXRlX2lkIjoiODRiMjgxNDEtMWNkYi00NzUxLTk3YzAtNmYwZDIwMjllZTNjIiwiYWNjb3VudF9pZCI6IjZhNDI4MDM4YmVlMWM3MWZiZDRiYTc1MSIsImRlcGxveV9pZCI6IjZhNmM2ZGE3MjIxOTQ2MDAwODZhZmZjZiIsImlzc3VlciI6Im5mc2VydmVyIn0.tqveBw679bIHbLGHq7ZCJeKGs-43Esodkok0FwHHmxI"></script>
+
+<script async id="netlify-rum-container" src="/.netlify/scripts/rum" data-netlify-rum-site-id="84b28141-1cdb-4751-97c0-6f0d2029ee3c" data-netlify-deploy-branch="main" data-netlify-deploy-context="production" data-netlify-cwv-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaXRlX2lkIjoiODRiMjgxNDEtMWNkYi00NzUxLTk3YzAtNmYwZDIwMjllZTNjIiwiYWNjb3VudF9pZCI6IjZhNDI4MDM4YmVlMWM3MWZiZDRiYTc1MSIsImRlcGxveV9pZCI6IjZhNmM4ZDE1ZTU2NGNjMDAwODVhNzY0NCIsImlzc3VlciI6Im5mc2VydmVyIn0.xp4GQoNJqG582B8Oo5pveyxMgSumPQNGjw8Yyn9K4f4"></script>
 </body>
 </html>
