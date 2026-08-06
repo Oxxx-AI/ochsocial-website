@@ -1,4 +1,7 @@
 # Kampagnen-Landingpages (kurze URLs -> HTML-Datei)
+/shk                /shk-check.html    200
+/shk-check          /shk-check.html    200
+/konkurrenz-check   /shk-check.html    200
 /ki                 /ki-partner.html   200
 /ki-partner         /ki-partner.html   200
 /makler             /makler.html       200
