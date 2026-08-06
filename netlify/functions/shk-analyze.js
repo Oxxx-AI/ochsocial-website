@@ -59,29 +59,31 @@ exports.handler = async (event) => {
   const domain = url.replace(/^https?:\/\//, "").replace(/\/.*$/, "").replace(/^www\./, "");
 
   try {
-    // 1) Website + Impressum -> Name, Ort, Formular, Online-Termin, FB-Seite
+    // 1) Website + Impressum -> Rechtsname, Formular, Online-Termin, FB-Seite
     const site = await scrapeSite(domain);
 
-    // 2) Betrieb bei Google finden (Name + Ort/PLZ) -> Standort, Rating, Bewertungen
-    const self = await findBusiness(site.name || domain, `${plz} ${site.city || ""}`.trim());
+    // 2) Region-Center aus der ZUVERLAESSIGEN PLZ (Places), nicht aus dem Impressum
+    const region = await placesCenter(plz);
+    const brand = domain.split(".")[0];   // z.B. "schmidtstallateur"
 
-    // 3) Konkurrenten im 30-km-Umkreis
-    const center = self?.geometry || (await geocodePlz(plz));
+    // 3) Betrieb finden: auf die PLZ-Region begrenzt, ueber Rechtsname/Domain-Brand
+    const self = await findBusiness(brand, site.legalName, region);
+    const center = self?.geometry || region?.geometry;
+
+    // 4) Konkurrenten im 30-km-Umkreis
     let comps = await findCompetitors(center, self?.place_id);
-
-    // 4) Details (Rating + Bewertungen) fuer Konkurrenten, dann ranken
     comps = await enrichAndRank(comps, self);
     const top3 = comps.slice(0, 3);
 
     // 5) Meta-Werbung: eigener Betrieb + Konkurrenten
-    const selfAds = await metaActiveAds(site.fbPageId, site.name || domain);
+    const selfAds = await metaActiveAds(site.fbPageId, self?.name || brand);
     const compAdsFlags = await Promise.all(top3.map(c => metaActiveAds(null, c.name).then(n => n > 0)));
 
     // 6) PageSpeed (mobil) fuer eigene Seite
     const ps = await pageSpeed(domain);
 
     // 7) Score + Ausgabe bauen
-    const payload = buildPayload({ domain, plz, site, self, top3, selfAds, compAdsFlags, ps });
+    const payload = buildPayload({ domain, plz, site, self, top3, selfAds, compAdsFlags, ps, city: region?.city });
     return { statusCode: 200, headers: cors, body: j(payload) };
   } catch (e) {
     return { statusCode: 500, headers: cors, body: j({ error: "analyse fehlgeschlagen", detail: String(e) }) };
@@ -92,7 +94,7 @@ exports.handler = async (event) => {
 // Website + Impressum auslesen
 // ---------------------------------------------------------------------------
 async function scrapeSite(domain) {
-  const out = { name: "", city: "", form: false, booking: false, fbPageId: null };
+  const out = { legalName: "", form: false, booking: false, fbPageId: null };
   const pages = [`https://${domain}/`, `https://${domain}/impressum`, `https://${domain}/impressum/`, `https://${domain}/kontakt`];
   let html = "";
   for (const p of pages) {
@@ -102,15 +104,10 @@ async function scrapeSite(domain) {
     } catch {}
   }
   const low = html.toLowerCase();
+  const text = html.replace(/<[^>]+>/g, " ").replace(/&[a-z]+;/gi, " ");
 
-  // Firmenname: og:site_name oder <title>
-  out.name =
-    (html.match(/property=["']og:site_name["']\s+content=["']([^"']+)/i)?.[1]) ||
-    (html.match(/<title>([^<]+)<\/title>/i)?.[1] || "").split(/[|\-\u2013\u2014]/)[0].trim();
-
-  // Ort/PLZ aus Impressum (deutsche PLZ + Stadt)
-  const addr = html.match(/(\d{5})\s+([A-Za-z\u00c4\u00d6\u00dc\u00e4\u00f6\u00fc\u00df.\-\s]{2,40})/);
-  if (addr) out.city = addr[2].trim().split(/\n|,|<|Tel|Telefon/)[0].trim();
+  // Echter Firmen-Rechtsname aus dem Text (Zeile mit Rechtsform)
+  out.legalName = (text.match(/([A-Z\u00c4\u00d6\u00dc][\w\u00c4\u00d6\u00dc\u00e4\u00f6\u00fc\u00df.&\-]*(?:[ ][\w\u00c4\u00d6\u00dc\u00e4\u00f6\u00fc\u00df.&\-]+){0,4}[ ](?:GmbH(?:[ ]&[ ]Co\.?[ ]KG)?|GbR|UG|OHG|e\.[ ]?K\.|KG|Inh\.))/)?.[1] || "").replace(/\s+/g, " ").trim();
 
   // Anfrageformular vorhanden?
   out.form = /<form[\s\S]*?(name|mail|kontakt|anfrage|nachricht)/i.test(html) || /mailto:/i.test(low);
@@ -133,22 +130,40 @@ async function gfetch(u) {
   const r = await fetch(u);
   return r.ok ? r.json() : {};
 }
-async function findBusiness(name, where) {
+// Region-Center + Ortsname aus der PLZ (nur Places API, kein Geocoding-Key noetig)
+async function placesCenter(plz) {
   if (!GKEY) return null;
-  const q = encodeURIComponent(`${name} ${where}`);
-  const d = await gfetch(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=${q}&region=de&language=de&key=${GKEY}`);
+  const d = await gfetch(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(plz + " Deutschland")}&language=de&key=${GKEY}`);
   const p = d.results?.[0];
   if (!p) return null;
-  return {
-    place_id: p.place_id, name: p.name,
-    rating: p.rating ?? null, reviews: p.user_ratings_total ?? 0,
-    geometry: p.geometry?.location || null
-  };
+  const city = (p.formatted_address || "").replace(/\d{5}/, "").replace(/,?\s*Deutschland/i, "").replace(/^[\s,]+/, "").trim();
+  return { geometry: p.geometry?.location || null, city };
 }
-async function geocodePlz(plz) {
-  if (!GKEY) return null;
-  const d = await gfetch(`https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:${plz}|country:DE&key=${GKEY}`);
-  return d.results?.[0]?.geometry?.location || null;
+// distanz in km (Haversine)
+function distKm(a, b) {
+  const R = 6371, r = Math.PI / 180;
+  const dLat = (b.lat - a.lat) * r, dLng = (b.lng - a.lng) * r;
+  const s = Math.sin(dLat / 2) ** 2 + Math.cos(a.lat * r) * Math.cos(b.lat * r) * Math.sin(dLng / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(s));
+}
+// Betrieb finden, auf die PLZ-Region begrenzt. Rechtsname zuerst, dann Domain-Brand.
+async function findBusiness(brand, legalName, region) {
+  if (!GKEY || !region?.geometry) return null;
+  const c = region.geometry;
+  const city = region.city || "";
+  const tries = [];
+  if (legalName) tries.push(legalName + " " + city);
+  tries.push(brand + " " + city);
+  tries.push(brand + " Sanitaer Heizung " + city);
+  for (const q of tries) {
+    const d = await gfetch(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(q)}&location=${c.lat},${c.lng}&radius=25000&region=de&language=de&key=${GKEY}`);
+    const p = d.results?.[0];
+    const loc = p?.geometry?.location;
+    if (p && loc && distKm(c, loc) <= 40) {  // muss wirklich in der Region liegen
+      return { place_id: p.place_id, name: p.name, rating: p.rating ?? null, reviews: p.user_ratings_total ?? 0, geometry: loc };
+    }
+  }
+  return null;
 }
 async function findCompetitors(center, selfId) {
   if (!GKEY || !center) return [];
@@ -225,7 +240,7 @@ async function pageSpeed(domain) {
 // ---------------------------------------------------------------------------
 // Score + JSON fuer das Frontend
 // ---------------------------------------------------------------------------
-function buildPayload({ domain, plz, site, self, top3, selfAds, compAdsFlags, ps }) {
+function buildPayload({ domain, plz, site, self, top3, selfAds, compAdsFlags, ps, city }) {
   const avgRating = top3.length ? top3.reduce((s, c) => s + (c.rating || 0), 0) / top3.length : null;
   const avgReviews = top3.length ? Math.round(top3.reduce((s, c) => s + (c.reviews || 0), 0) / top3.length) : null;
   const compAdsCount = compAdsFlags.filter(Boolean).length;
@@ -317,8 +332,8 @@ function buildPayload({ domain, plz, site, self, top3, selfAds, compAdsFlags, ps
 
   return {
     business: {
-      name: self?.name || site.name || domain,
-      location: `Sanit\u00e4r \u00b7 Heizung \u00b7 Klima \u2014 PLZ ${plz}${site.city ? " \u00b7 " + site.city : ""}`
+      name: self?.name || domain,
+      location: `Sanit\u00e4r \u00b7 Heizung \u00b7 Klima \u00b7 ${city || "PLZ " + plz}`
     },
     score, verdict, metrics, competitors, gapSummary, cta: "/kontakt"
   };
