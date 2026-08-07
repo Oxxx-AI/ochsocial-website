@@ -70,20 +70,16 @@ exports.handler = async (event) => {
     const self = await findBusiness(brand, site.legalName, region);
     const center = self?.geometry || region?.geometry;
 
-    // 4) Konkurrenten im 30-km-Umkreis
-    let comps = await findCompetitors(center, self?.place_id);
-    comps = await enrichAndRank(comps, self);
-    const top3 = comps.slice(0, 3);
+    // 4) Konkurrenten im 30-km-Umkreis (roh) + lokale Platzierung
+    const rawComps = await findCompetitors(center, self?.place_id);
+    const rank = localRank(self, rawComps);          // {rank,total} oder null
+    const top3 = (await enrichAndRank(rawComps, self)).slice(0, 3);
 
-    // 5) Meta-Werbung: eigener Betrieb + Konkurrenten
-    const selfAds = await metaActiveAds(site.fbPageId, self?.name || brand);
-    const compAdsFlags = await Promise.all(top3.map(c => metaActiveAds(null, c.name).then(n => n > 0)));
-
-    // 6) PageSpeed (mobil) fuer eigene Seite
+    // 5) PageSpeed (mobil) fuer eigene Seite
     const ps = await pageSpeed(domain);
 
-    // 7) Score + Ausgabe bauen
-    const payload = buildPayload({ domain, plz, site, self, top3, selfAds, compAdsFlags, ps, city: region?.city });
+    // 6) Score + Ausgabe bauen
+    const payload = buildPayload({ domain, plz, site, self, top3, ps, rank, city: region?.city });
     return { statusCode: 200, headers: cors, body: j(payload) };
   } catch (e) {
     return { statusCode: 500, headers: cors, body: j({ error: "analyse fehlgeschlagen", detail: String(e) }) };
@@ -94,7 +90,7 @@ exports.handler = async (event) => {
 // Website + Impressum auslesen
 // ---------------------------------------------------------------------------
 async function scrapeSite(domain) {
-  const out = { legalName: "", form: false, booking: false, fbPageId: null };
+  const out = { legalName: "", form: false, booking: false, hasFb: false, hasInsta: false };
   const pages = [`https://${domain}/`, `https://${domain}/impressum`, `https://${domain}/impressum/`, `https://${domain}/kontakt`];
   let html = "";
   for (const p of pages) {
@@ -115,12 +111,22 @@ async function scrapeSite(domain) {
   // Online-Terminbuchung?
   out.booking = /(calendly|terminland|timify|shore\.com|cituro|etermin|terminvereinbarung online|termin buchen|online[- ]?termin)/i.test(low);
 
-  // Facebook-Seite / Page-ID
-  const fb = html.match(/facebook\.com\/([^"'\s?]+)/i)?.[1] || "";
-  const idm = fb.match(/(\d{6,})/);
-  if (idm) out.fbPageId = idm[1];
+  // Social-Media-Praesenz (verlinkt der Betrieb Facebook / Instagram?)
+  out.hasFb = /facebook\.com\/[A-Za-z0-9._%\-]/i.test(html);
+  out.hasInsta = /instagram\.com\/[A-Za-z0-9._%\-]/i.test(html);
 
   return out;
+}
+
+// Lokale Platzierung: wo steht der Betrieb unter allen SHK-Betrieben der Region?
+function localRank(self, comps) {
+  if (!self) return null;
+  const sc = c => (c.rating || 0) * Math.log10((c.reviews || 0) + 1);
+  const all = [...comps.filter(c => (c.reviews || 0) >= 1), { ...self, __self: true }]
+    .map(c => ({ ...c, _s: sc(c) }))
+    .sort((a, b) => b._s - a._s);
+  const idx = all.findIndex(c => c.__self);
+  return idx >= 0 ? { rank: idx + 1, total: all.length } : null;
 }
 
 // ---------------------------------------------------------------------------
@@ -240,14 +246,25 @@ async function pageSpeed(domain) {
 // ---------------------------------------------------------------------------
 // Score + JSON fuer das Frontend
 // ---------------------------------------------------------------------------
-function buildPayload({ domain, plz, site, self, top3, selfAds, compAdsFlags, ps, city }) {
+function buildPayload({ domain, plz, site, self, top3, ps, rank, city }) {
   const avgRating = top3.length ? top3.reduce((s, c) => s + (c.rating || 0), 0) / top3.length : null;
   const avgReviews = top3.length ? Math.round(top3.reduce((s, c) => s + (c.reviews || 0), 0) / top3.length) : null;
-  const compAdsCount = compAdsFlags.filter(Boolean).length;
-  const bookingCount = 0; // Konkurrenz-Booking wird v2 aus deren Sites geprueft; hier neutral
 
   const metrics = [];
   let score = 50, gaps = [];
+
+  // Lokale Suchplatzierung (staerkster Aufhaenger: erscheint der Betrieb ganz oben?)
+  if (rank && rank.total >= 3) {
+    const behind = rank.rank > 3;
+    metrics.push({
+      name: "Lokale Suchplatzierung",
+      status: behind ? "gap" : "ok",
+      badge: behind ? "R\u00fcckstand" : "Gut sichtbar",
+      you: `Platz ${rank.rank} von ${rank.total}`,
+      them: "Top 3 bekommen die Anfragen", themLabel: "Region"
+    });
+    if (behind) { gaps.push("Lokale Sichtbarkeit"); score -= 12; } else score += 8;
+  }
 
   // Google-Bewertungen
   if (self && avgReviews != null) {
@@ -260,21 +277,6 @@ function buildPayload({ domain, plz, site, self, top3, selfAds, compAdsFlags, ps
       them: `${deStar(avgRating)} \u2605 \u00b7 ${num(avgReviews)} Bew.`
     });
     if (behind) { gaps.push("Google-Bewertungen"); score -= 12; } else score += 6;
-  }
-
-  // Meta-Werbung
-  if (selfAds != null) {
-    const ahead = selfAds >= Math.max(1, compAdsCount);
-    metrics.push({
-      icon: "ads", name: "Meta-Werbung (Facebook / Instagram)",
-      sub: "Aktive Anzeigen in der Meta-Werbebibliothek",
-      status: ahead && selfAds > 0 ? "ok" : "gap",
-      badge: selfAds > 0 ? (ahead ? "Du bist vorn" : "Konkurrenz aktiver") : "Du wirbst nicht",
-      you: `${selfAds} aktiv`,
-      them: `${compAdsCount} von ${top3.length} werben`
-    });
-    if (selfAds === 0 && compAdsCount > 0) { gaps.push("Meta-Werbung"); score -= 14; }
-    else if (ahead && selfAds > 0) score += 8;
   }
 
   // Online-Terminbuchung
@@ -309,6 +311,19 @@ function buildPayload({ domain, plz, site, self, top3, selfAds, compAdsFlags, ps
       you: `${ps.lcpSec.toFixed(1).replace(".", ",")} s`, them: "unter 2,5 s", themLabel: "Zielwert"
     });
     if (slow) { gaps.push("Ladezeit"); score -= 8; } else score += 5;
+  }
+
+  // Social-Media-Praesenz
+  {
+    const social = site.hasFb || site.hasInsta;
+    const you = social ? [site.hasFb ? "Facebook" : null, site.hasInsta ? "Instagram" : null].filter(Boolean).join(" + ") : "Nicht verlinkt";
+    metrics.push({
+      name: "Social-Media-Pr\u00e4senz",
+      status: social ? "ok" : "gap",
+      badge: social ? "Vorhanden" : "Fehlt",
+      you, them: "Facebook + Instagram", themLabel: "Top-Betriebe"
+    });
+    if (!social) { gaps.push("Social Media"); score -= 5; } else score += 3;
   }
 
   score = Math.max(18, Math.min(92, Math.round(score)));
