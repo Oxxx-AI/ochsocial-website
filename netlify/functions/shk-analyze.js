@@ -59,26 +59,23 @@ exports.handler = async (event) => {
   const domain = url.replace(/^https?:\/\//, "").replace(/\/.*$/, "").replace(/^www\./, "");
 
   try {
-    // 1) Website + Impressum -> Rechtsname, Formular, Online-Termin, FB-Seite
-    const site = await scrapeSite(domain);
-
-    // 2) Region-Center aus der ZUVERLAESSIGEN PLZ (Places), nicht aus dem Impressum
-    const region = await placesCenter(plz);
+    // 1) Website-Scan + Region-Center (PLZ) parallel
+    const [site, region] = await Promise.all([scrapeSite(domain), placesCenter(plz)]);
     const brand = domain.split(".")[0];   // z.B. "schmidtstallateur"
 
-    // 3) Betrieb finden: auf die PLZ-Region begrenzt, ueber Rechtsname/Domain-Brand
+    // 2) Betrieb finden: auf die PLZ-Region begrenzt, ueber Rechtsname/Domain-Brand
     const self = await findBusiness(brand, site.legalName, region);
     const center = self?.geometry || region?.geometry;
 
-    // 4) Konkurrenten im 30-km-Umkreis (roh) + lokale Platzierung
-    const rawComps = await findCompetitors(center, self?.place_id);
+    // 3) Konkurrenten-Suche + PageSpeed parallel (beides unabhaengig)
+    const [rawComps, ps] = await Promise.all([
+      findCompetitors(center, self?.place_id),
+      pageSpeed(domain)
+    ]);
     const rank = localRank(self, rawComps);          // {rank,total} oder null
     const top3 = (await enrichAndRank(rawComps, self)).slice(0, 3);
 
-    // 5) PageSpeed (mobil) fuer eigene Seite
-    const ps = await pageSpeed(domain);
-
-    // 6) Score + Ausgabe bauen
+    // 4) Score + Ausgabe bauen
     const payload = buildPayload({ domain, plz, site, self, top3, ps, rank, city: region?.city });
     return { statusCode: 200, headers: cors, body: j(payload) };
   } catch (e) {
@@ -91,14 +88,12 @@ exports.handler = async (event) => {
 // ---------------------------------------------------------------------------
 async function scrapeSite(domain) {
   const out = { legalName: "", form: false, booking: false, hasFb: false, hasInsta: false };
-  const pages = [`https://${domain}/`, `https://${domain}/impressum`, `https://${domain}/impressum/`, `https://${domain}/kontakt`];
-  let html = "";
-  for (const p of pages) {
-    try {
-      const r = await fetch(p, { headers: { "User-Agent": "Mozilla/5.0 ochsocial-check" }, redirect: "follow" });
-      if (r.ok) html += "\n" + (await r.text());
-    } catch {}
-  }
+  const pages = [`https://${domain}/`, `https://${domain}/impressum`, `https://${domain}/kontakt`];
+  const parts = await Promise.all(pages.map(async p => {
+    try { const r = await tfetch(p, 5000, { headers: { "User-Agent": "Mozilla/5.0 ochsocial-check" }, redirect: "follow" }); return r.ok ? await r.text() : ""; }
+    catch { return ""; }
+  }));
+  const html = parts.join("\n");
   const low = html.toLowerCase();
   const text = html.replace(/<[^>]+>/g, " ").replace(/&[a-z]+;/gi, " ");
 
@@ -135,6 +130,13 @@ function localRank(self, comps) {
 async function gfetch(u) {
   const r = await fetch(u);
   return r.ok ? r.json() : {};
+}
+// fetch mit hartem Timeout (verhindert, dass eine langsame Seite die Function killt)
+async function tfetch(u, ms, opts = {}) {
+  const ac = new AbortController();
+  const t = setTimeout(() => ac.abort(), ms);
+  try { return await fetch(u, { ...opts, signal: ac.signal }); }
+  finally { clearTimeout(t); }
 }
 // Region-Center + Ortsname aus der PLZ (nur Places API, kein Geocoding-Key noetig)
 async function placesCenter(plz) {
@@ -175,7 +177,7 @@ async function findCompetitors(center, selfId) {
   if (!GKEY || !center) return [];
   const seen = {};
   const out = [];
-  for (const kw of ["Sanit\u00e4r Heizung", "Heizungsbau", "Badsanierung", "Klimaanlage"]) {
+  for (const kw of ["Sanit\u00e4r Heizung", "Badsanierung", "Klimaanlage"]) {
     const d = await gfetch(
       `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${center.lat},${center.lng}&radius=${RADIUS_M}&keyword=${encodeURIComponent(kw)}&language=de&key=${GKEY}`
     );
@@ -234,9 +236,8 @@ async function metaActiveAds(pageId, name) {
 async function pageSpeed(domain) {
   if (!GKEY) return null;
   try {
-    const d = await gfetch(
-      `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=https://${domain}&strategy=mobile&category=performance&key=${GKEY}`
-    );
+    const r = await tfetch(`https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=https://${domain}&strategy=mobile&category=performance&key=${GKEY}`, 9000);
+    const d = r.ok ? await r.json() : {};
     const lcp = d.lighthouseResult?.audits?.["largest-contentful-paint"]?.numericValue;
     const perf = d.lighthouseResult?.categories?.performance?.score;
     return { lcpSec: lcp ? lcp / 1000 : null, perf: perf != null ? Math.round(perf * 100) : null };
