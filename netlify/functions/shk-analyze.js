@@ -87,13 +87,15 @@ exports.handler = async (event) => {
 // Website + Impressum auslesen
 // ---------------------------------------------------------------------------
 async function scrapeSite(domain) {
-  const out = { legalName: "", form: false, booking: false, hasFb: false, hasInsta: false };
+  const out = { legalName: "", form: false, booking: false, hasFb: false, hasInsta: false, loadMs: null };
   const pages = [`https://${domain}/`, `https://${domain}/impressum`, `https://${domain}/kontakt`];
-  const parts = await Promise.all(pages.map(async p => {
-    try { const r = await tfetch(p, 5000, { headers: { "User-Agent": "Mozilla/5.0 ochsocial-check" }, redirect: "follow" }); return r.ok ? await r.text() : ""; }
-    catch { return ""; }
+  const parts = await Promise.all(pages.map(async (p, idx) => {
+    const t0 = Date.now();
+    try { const r = await tfetch(p, 8000, { headers: { "User-Agent": "Mozilla/5.0 ochsocial-check" }, redirect: "follow" }); const txt = r.ok ? await r.text() : ""; return { txt, ms: idx === 0 ? Date.now() - t0 : null }; }
+    catch { return { txt: "", ms: idx === 0 ? Date.now() - t0 : null }; }
   }));
-  const html = parts.join("\n");
+  out.loadMs = parts[0].ms;                 // Antwortzeit der Startseite (Fallback fuer Ladezeit)
+  const html = parts.map(p => p.txt).join("\n");
   const low = html.toLowerCase();
   const text = html.replace(/<[^>]+>/g, " ").replace(/&[a-z]+;/gi, " ");
 
@@ -236,7 +238,7 @@ async function metaActiveAds(pageId, name) {
 async function pageSpeed(domain) {
   if (!GKEY) return null;
   try {
-    const r = await tfetch(`https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=https://${domain}&strategy=mobile&category=performance&key=${GKEY}`, 9000);
+    const r = await tfetch(`https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=https://${domain}&strategy=mobile&category=performance&key=${GKEY}`, 11000);
     const d = r.ok ? await r.json() : {};
     const lcp = d.lighthouseResult?.audits?.["largest-contentful-paint"]?.numericValue;
     const perf = d.lighthouseResult?.categories?.performance?.score;
@@ -302,14 +304,14 @@ function buildPayload({ domain, plz, site, self, top3, ps, rank, city }) {
   });
   if (!site.form) { gaps.push("Anfrageformular"); score -= 6; } else score += 3;
 
-  // Ladezeit
-  if (ps && ps.lcpSec != null) {
-    const slow = ps.lcpSec > 3.0;
+  // Ladezeit (PageSpeed-LCP bevorzugt, sonst Antwortzeit der Startseite als Fallback)
+  const lcp = (ps && ps.lcpSec != null) ? ps.lcpSec : (site.loadMs != null ? site.loadMs / 1000 : null);
+  if (lcp != null) {
+    const slow = lcp > 3.0;
     metrics.push({
-      icon: "bolt", name: "Website-Ladezeit (Mobil)",
-      sub: "Langsame Seiten verlieren jeden 2. Besucher",
+      name: "Website-Ladezeit (Mobil)",
       status: slow ? "gap" : "ok", badge: slow ? "Zu langsam" : "Schnell",
-      you: `${ps.lcpSec.toFixed(1).replace(".", ",")} s`, them: "unter 2,5 s", themLabel: "Zielwert"
+      you: `${lcp.toFixed(1).replace(".", ",")} s`, them: "unter 2,5 s", themLabel: "Zielwert"
     });
     if (slow) { gaps.push("Ladezeit"); score -= 8; } else score += 5;
   }
