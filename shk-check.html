@@ -11,42 +11,32 @@
 body{background:#FFFFFF}
 .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
 
-header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--navy-06)}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--navy-06)}
 .hd{display:flex;align-items:center;justify-content:space-between;height:70px}
-.wordmark{font-weight:800;letter-spacing:.11em;font-size:1.1rem;text-transform:lowercase}
-.wordmark b{color:var(--cobalt)}
+.hd .logo{height:30px;width:auto;display:block}
 .hd .pill{font-size:.8rem;font-weight:700;color:var(--navy-60);border:1px solid var(--navy-12);padding:6px 14px;border-radius:100px}
 
 .screen{display:none}
 .screen.active{display:block;animation:fade .45s ease}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
-/* neutrale Icon-Badges: nur navy/cobalt/champagne, dezent */
-.ic{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex:none;background:var(--navy-06);color:var(--cobalt)}
-.ic svg{width:20px;height:20px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
-.ic.champ{background:var(--grad-champagne);color:var(--navy)}
-
-/* Screen 1 */
-.hero{padding:60px 0 20px;text-align:center}
+/* ---------- Screen 1 (Start) ---------- */
+.hero{padding:56px 0 20px;text-align:center}
+.hero .eyebrow{justify-content:center}
 .hero .lead{font-size:1.2rem;color:var(--navy-60);max-width:640px;margin:18px auto 0}
-.inputcard{max-width:600px;margin:36px auto 0;padding:30px;text-align:left}
+.inputcard{max-width:600px;margin:34px auto 0;padding:30px;text-align:left}
 .inputcard label{font-size:.8rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--navy-40);display:block;margin-bottom:8px}
 .inputcard input{width:100%;font-family:inherit;font-size:1.05rem;padding:15px 18px;border:1.5px solid var(--navy-12);border-radius:var(--radius-cta);background:#fff;color:var(--navy);transition:border .15s}
 .inputcard input:focus{outline:none;border-color:var(--cobalt)}
 .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 .plz{max-width:150px}
-.hint{flex:1;min-width:180px;color:var(--navy-40);font-size:.85rem}
 .inputcard .btn{width:100%;margin-top:20px}
-.trust{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-top:30px;color:var(--navy-60);font-size:.9rem;font-weight:600}
+.trust{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-top:28px;color:var(--navy-60);font-size:.9rem;font-weight:600}
 .trust span{display:inline-flex;align-items:center;gap:8px}
 .trust .c{color:var(--mint);font-weight:800}
-.feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:52px 0 60px}
-.feat{padding:24px}
-.feat h3{margin:14px 0 6px;font-size:1.1rem}
-.feat p{color:var(--navy-60);font-size:.94rem}
 
-/* Report-Vorschau auf der Startseite */
-.preview{display:grid;grid-template-columns:1.05fr 1fr;gap:44px;align-items:center;margin:64px 0 60px}
+/* Report-Vorschau */
+.preview{display:grid;grid-template-columns:1.05fr 1fr;gap:44px;align-items:center;margin:60px 0 56px}
 @media(max-width:820px){.preview{grid-template-columns:1fr;gap:34px}}
 .pv-mock{background:#fff;border:1px solid var(--navy-06);border-radius:16px;box-shadow:0 22px 55px rgba(20,22,58,.12);overflow:hidden}
 .pv-bar{display:flex;gap:6px;padding:12px 14px;background:var(--offwhite);border-bottom:1px solid var(--navy-06)}
@@ -56,7 +46,7 @@ header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.85);backdro
 .pv-eyebrow{font-size:.64rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--cobalt)}
 .pv-biz{font-weight:800;font-size:.95rem;margin-top:3px}
 .pv-score{text-align:center;line-height:1}
-.pv-score b{font-size:2rem;font-weight:800;color:var(--cobalt)}
+.pv-score b{font-size:2rem;font-weight:800;color:#E4572E}
 .pv-score small{font-size:.7rem;color:var(--navy-40);font-weight:700}
 .pv-metric{padding:13px 0;border-top:1px solid var(--navy-06)}
 .pv-mrow{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:.92rem}
@@ -66,88 +56,169 @@ header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.85);backdro
 .pv-cmp{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px}
 .pv-cmp>div{background:var(--offwhite);border-radius:8px;padding:8px 11px;font-size:.72rem;color:var(--navy-60);font-weight:700;display:flex;justify-content:space-between;align-items:center}
 .pv-cmp b{font-size:1rem;color:var(--navy)}
-.pv-cmp b.blue{color:var(--cobalt)}.pv-cmp b.green{color:#1c8f63}
+.pv-cmp b.red{color:#C2410C}.pv-cmp b.blue{color:var(--cobalt)}.pv-cmp b.green{color:#1c8f63}
 .pv-copy .eyebrow{color:var(--cobalt)}
-.pv-list{list-style:none;display:flex;flex-direction:column;gap:16px}
+.pv-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:16px}
 .pv-list li{display:flex;gap:12px;color:var(--navy-60)}
-.pv-list li .b{width:24px;height:24px;border-radius:50%;background:var(--grad-cobalt-metallic);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none;font-size:13px}
-.pv-list li b{color:var(--navy)}
+.pv-list li .b{width:24px;height:24px;border-radius:50%;background:var(--grad-cobalt-metallic);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none;font-size:13px;margin-top:2px}
+.pv-list li b{color:var(--navy);display:block}
+.pv-list li span.t{font-size:.94rem}
+.pv-copy .btn{margin-top:16px}
 
-/* Screen 2 */
-.analyse{padding:52px 0 70px;text-align:center}
-.spinner{width:60px;height:60px;border-radius:50%;border:5px solid var(--navy-06);border-top-color:var(--cobalt);margin:0 auto 22px;animation:spin 1s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.counters{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:620px;margin:34px auto 0}
-.counter{padding:20px 12px;text-align:center}
-.counter .num{font-size:2.3rem;font-weight:800;color:var(--cobalt);line-height:1}
-.counter .lbl{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--navy-40);margin-top:8px}
-.videobox{max-width:660px;margin:38px auto 0;aspect-ratio:16/9;border-radius:var(--radius-card);background:var(--grad-cobalt-metallic);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;cursor:pointer}
-.videobox .play{width:78px;height:78px;border-radius:50%;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center}
-.videobox .play::after{content:'';border-left:22px solid #fff;border-top:14px solid transparent;border-bottom:14px solid transparent;margin-left:6px}
-.videobox .vlabel{position:absolute;bottom:16px;left:20px;color:rgba(255,255,255,.92);font-weight:700;font-size:.92rem}
-.checklist{max-width:500px;margin:34px auto 0;text-align:left}
-.checkrow{display:flex;align-items:center;gap:12px;padding:11px 16px;border-radius:12px;color:var(--navy-40);font-weight:600;transition:.3s}
+/* ---------- Screen 2 (Analyse + Video) ---------- */
+.analyse{padding:44px 0 70px;text-align:center}
+.analyse .eyebrow{justify-content:center}
+.videowrap{max-width:720px;margin:26px auto 0;border-radius:var(--radius-card);overflow:hidden;box-shadow:0 24px 60px rgba(20,22,58,.18);position:relative;background:#000;aspect-ratio:16/9}
+.videowrap iframe,.videowrap video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.videoph{position:absolute;inset:0;background:var(--grad-cobalt-metallic);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+.counters{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:640px;margin:26px auto 0}
+.counter{padding:18px 12px;text-align:center}
+.counter .num{font-size:2.1rem;font-weight:800;color:var(--cobalt);line-height:1}
+.counter .lbl{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--navy-40);margin-top:8px}
+.checklist{max-width:520px;margin:26px auto 0;text-align:left}
+.checkrow{display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:12px;color:var(--navy-40);font-weight:600;transition:.3s}
 .checkrow.done{color:var(--navy);background:var(--navy-06)}
 .checkrow .cbx{width:22px;height:22px;border-radius:50%;border:2px solid var(--navy-12);flex:none;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff}
 .checkrow.done .cbx{background:var(--mint);border-color:var(--mint)}
-.pbar{max-width:500px;height:6px;background:var(--navy-06);border-radius:100px;margin:10px auto 0;overflow:hidden}
-.pbar>i{display:block;height:100%;width:0;background:var(--grad-cobalt-metallic);transition:width .3s linear}
+.pbar{max-width:520px;height:6px;background:var(--navy-06);border-radius:100px;margin:14px auto 0;overflow:hidden}
+.pbar>i{display:block;height:100%;width:0;background:var(--grad-cobalt-metallic);transition:width .4s linear}
 
-/* Screen 3 */
-.results{padding:44px 0 80px}
-.scoretop{display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;padding:34px}
-@media(max-width:720px){.scoretop{grid-template-columns:1fr;text-align:center}}
-.gauge{position:relative;width:170px;height:170px;flex:none;margin:0 auto}
+/* ---------- Screen 3 (Ergebnis) ---------- */
+.results{padding:34px 0 0}
+.r-eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#1c8f63;background:rgba(62,207,151,.12);padding:7px 14px;border-radius:100px}
+.r-eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--mint)}
+.scoretop{display:grid;grid-template-columns:auto 1fr auto;gap:34px;align-items:center;padding:32px 34px;margin-top:16px}
+@media(max-width:820px){.scoretop{grid-template-columns:1fr;text-align:center;gap:22px}}
+.gauge{position:relative;width:168px;height:168px;flex:none;margin:0 auto}
 .gauge svg{transform:rotate(-90deg)}
 .gauge .val{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.gauge .val b{font-size:2.8rem;font-weight:800;line-height:1}
-.gauge .val small{font-size:.78rem;font-weight:700;color:var(--navy-40)}
-.scoretop .biz{font-weight:800;font-size:1.05rem}
-.scoretop .loc{color:var(--navy-60);font-weight:600;font-size:.94rem}
-.verdict{margin-top:14px}
-.sec-title{margin:52px 0 8px;text-align:center}
+.gauge .val b{font-size:3rem;font-weight:800;line-height:1}
+.gauge .val small{font-size:.72rem;font-weight:700;color:var(--navy-40)}
+.scoretop .pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+@media(max-width:820px){.scoretop .pills{justify-content:center}}
+.scoretop .pills span{font-size:.72rem;font-weight:700;color:var(--navy-60);background:var(--offwhite);border:1px solid var(--navy-06);padding:5px 11px;border-radius:100px}
+.scoretop .biz{font-weight:800;font-size:1.35rem;letter-spacing:-.01em}
+.scoretop .loc{color:var(--navy-60);font-weight:600;font-size:.94rem;margin-top:2px}
+.scoretop .verdict{margin-top:12px;font-size:1.02rem;max-width:520px}
+@media(max-width:820px){.scoretop .verdict{margin-left:auto;margin-right:auto}}
+.scoretop .lost{flex:none;text-align:center;border:1.5px solid rgba(228,87,46,.3);background:rgba(228,87,46,.06);border-radius:16px;padding:16px 20px}
+.scoretop .lost .k{font-size:.64rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#C2410C}
+.scoretop .lost .v{font-size:1.7rem;font-weight:800;color:#E4572E;line-height:1.1;margin:4px 0}
+.scoretop .lost .s{font-size:.74rem;color:var(--navy-60);font-weight:600}
+
+/* Offer / Pitch mit Verknappung (direkt unter Score) */
+.offer{margin-top:22px;background:var(--grad-cobalt-metallic);border-radius:var(--radius-card);color:#fff;overflow:hidden;display:grid;grid-template-columns:1.1fr .9fr}
+@media(max-width:820px){.offer{grid-template-columns:1fr}}
+.offer-l{padding:38px 36px}
+.offer .scar{display:inline-flex;align-items:center;gap:8px;font-size:.74rem;font-weight:800;background:#E4572E;color:#fff;padding:6px 13px;border-radius:100px;text-transform:uppercase;letter-spacing:.04em}
+.offer h2{color:#fff;margin:16px 0 6px;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.12}
+.offer h2 em{font-style:normal;color:var(--champagne)}
+.offer .ol{list-style:none;margin:18px 0 0;display:flex;flex-direction:column;gap:12px}
+.offer .ol li{display:flex;gap:11px;color:rgba(255,255,255,.9);font-size:.98rem}
+.offer .ol li .ck{width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.18);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none;font-size:13px}
+.offer .oact{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:26px}
+.offer .oact img{height:44px}
+.offer-r{background:rgba(255,255,255,.08);padding:34px 30px;border-left:1px solid rgba(255,255,255,.14)}
+@media(max-width:820px){.offer-r{border-left:none;border-top:1px solid rgba(255,255,255,.14)}}
+.offer-r .rk{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--champagne)}
+.offer-r h4{color:#fff;font-size:1.05rem;margin:6px 0 16px}
+.offer-r ul{list-style:none;display:flex;flex-direction:column;gap:13px}
+.offer-r li{display:flex;gap:10px;color:rgba(255,255,255,.88);font-size:.9rem;align-items:flex-start}
+.offer-r li .n{width:22px;height:22px;border-radius:6px;background:var(--champagne);color:var(--navy);font-weight:800;font-size:.72rem;display:flex;align-items:center;justify-content:center;flex:none}
+
+/* Abschnitts-Baender */
+.band{background:var(--offwhite);border-radius:28px;padding:44px 0;margin-top:56px}
+.band .wrap{max-width:1080px}
+.sec-title{margin:0 0 8px;text-align:center}
 .sec-sub{text-align:center;color:var(--navy-60);max-width:600px;margin:0 auto 30px}
-.metric{padding:22px 26px;margin-bottom:14px;display:grid;grid-template-columns:1fr auto;gap:8px 20px;align-items:center}
-.metric .mhead{display:flex;align-items:center;gap:12px}
-.metric .mname{font-weight:700}
-.metric .msub{font-size:.85rem;color:var(--navy-60)}
-.metric .badge{font-size:.76rem;font-weight:800;padding:6px 12px;border-radius:100px;white-space:nowrap}
+
+/* Metriken */
+.metric{padding:22px 26px;margin-bottom:16px;display:grid;grid-template-columns:1fr auto;gap:10px 20px;align-items:center;border-left:4px solid var(--navy-12)}
+.metric.gap{border-left-color:#E4572E}
+.metric.ok{border-left-color:var(--mint)}
+.metric .mname{font-weight:800;font-size:1.05rem}
+.metric .badge{font-size:.76rem;font-weight:800;padding:6px 13px;border-radius:100px;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
 .badge.gap{background:rgba(228,87,46,.12);color:#C2410C}
 .badge.ok{background:rgba(62,207,151,.16);color:#1c8f63}
-.cmp{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
-.cmp>div{padding:14px 16px;border-radius:12px;background:var(--offwhite);border:1px solid var(--navy-06)}
-.cmp .who{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--navy-60)}
-.cmp .figure{font-weight:800;font-size:1.12rem;margin-top:2px}
+.cmp{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px}
+.cmp>div{padding:14px 16px;border-radius:12px;background:#fff;border:1px solid var(--navy-06)}
+.metric.gap .cmp .you{background:rgba(228,87,46,.06);border-color:rgba(228,87,46,.22)}
+.metric.ok .cmp .you{background:rgba(62,207,151,.08);border-color:rgba(62,207,151,.25)}
+.cmp .who{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--navy-40)}
+.cmp .figure{font-weight:800;font-size:1.15rem;margin-top:2px}
 .cmp .you.bad .figure{color:#C2410C}
-.cmp .them .figure{color:var(--cobalt)}
 .cmp .you.good .figure{color:#1c8f63}
-.comp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-@media(max-width:720px){.comp-grid{grid-template-columns:1fr}}
-.comp{padding:22px}
-.comp .rank{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--champagne);background:var(--navy);display:inline-block;padding:4px 10px;border-radius:6px}
-.comp h3{margin:12px 0 4px;font-size:1.08rem}
+.cmp .them .figure{color:var(--cobalt)}
+
+/* Konkurrenten */
+.comp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:820px){.comp-grid{grid-template-columns:1fr}}
+.comp{padding:24px;position:relative;overflow:hidden}
+.comp::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad-cobalt-metallic)}
+.comp .rank{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--champagne);background:var(--navy);display:inline-block;padding:5px 12px;border-radius:6px}
+.comp h3{margin:14px 0 4px;font-size:1.12rem}
 .comp .stars{color:#E9A93B;font-weight:800}
-.comp ul{list-style:none;margin-top:12px;font-size:.9rem}
-.comp li{display:flex;gap:8px;padding:4px 0;color:var(--navy-60)}
+.comp ul{list-style:none;margin-top:14px;font-size:.9rem}
+.comp li{display:flex;gap:8px;padding:5px 0;color:var(--navy-60)}
 .comp li .x{color:var(--mint);font-weight:800}
-.gapsum{max-width:620px;margin:44px auto 0;padding:24px 30px;border:1.5px dashed var(--navy-12);border-radius:var(--radius-card);text-align:center}
-.gapsum b{color:#C2410C}
-.pitch{margin-top:26px;padding:46px 40px;text-align:center;background:var(--grad-cobalt-metallic);border-radius:var(--radius-card);color:#fff}
-.pitch h2{color:#fff}
-.pitch p{color:rgba(255,255,255,.85);max-width:560px;margin:16px auto 0}
-.pitch .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px}
-.restart{display:block;margin:36px auto 0;color:var(--navy-40);font-size:.85rem;background:none;border:none;text-decoration:underline;cursor:pointer}
+
+/* Potenzialanalyse */
+.pot{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center;max-width:900px;margin:0 auto}
+@media(max-width:720px){.pot{grid-template-columns:1fr;gap:14px}.pot .arrow{transform:rotate(90deg);margin:0 auto}}
+.pot .pc{padding:28px 30px;border-radius:20px}
+.pot .now{background:rgba(228,87,46,.06);border:1.5px solid rgba(228,87,46,.2)}
+.pot .fut{background:rgba(62,207,151,.08);border:1.5px solid rgba(62,207,151,.28)}
+.pot .pk{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.pot .now .pk{color:#C2410C}.pot .fut .pk{color:#1c8f63}
+.pot .prow{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-top:1px solid var(--navy-06);font-size:.86rem;color:var(--navy-60);font-weight:600}
+.pot .prow:first-of-type{border-top:none}
+.pot .prow b{font-size:1.15rem}
+.pot .now .prow b{color:#E4572E}.pot .fut .prow b{color:#1c8f63}
+.pot .arrow{width:46px;height:46px;border-radius:50%;background:var(--grad-cobalt-metallic);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;flex:none}
+
+/* Trust */
+.trustsec{text-align:center;padding:52px 0 0}
+.trust-count{font-weight:800;font-size:1.05rem;margin:12px 0 4px}
+.trust-sub{color:var(--navy-40);font-size:.88rem}
+.logos{display:grid;grid-template-columns:repeat(4,1fr);gap:26px 34px;align-items:center;max-width:820px;margin:30px auto 0}
+@media(max-width:640px){.logos{grid-template-columns:repeat(3,1fr)}}
+.logos img{max-height:34px;width:auto;margin:0 auto;filter:grayscale(1);opacity:.62;transition:.2s}
+.logos img:hover{filter:none;opacity:1}
+.badges{display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:34px}
+.badges img{height:60px;width:auto}
+.grating{display:inline-flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--navy-06);box-shadow:0 8px 24px rgba(20,22,58,.06);border-radius:14px;padding:12px 18px;font-weight:700}
+.grating .st{color:#E9A93B;font-weight:800}
+.grating .g{font-weight:800}
+
+/* Roadmap (naechste Schritte) */
+.roadmap{padding:56px 0 0}
+.rm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+@media(max-width:820px){.rm-grid{grid-template-columns:1fr}}
+.rm{padding:26px;position:relative}
+.rm.active{border:2px solid var(--cobalt);box-shadow:0 20px 50px rgba(30,79,186,.15)}
+.rm .top{height:4px;border-radius:100px;margin:-26px -26px 20px;border-top-left-radius:var(--radius-card);border-top-right-radius:var(--radius-card)}
+.rm.done .top{background:var(--mint)}.rm.active .top{background:var(--grad-cobalt-metallic)}.rm.next .top{background:var(--navy-12)}
+.rm .n{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.15rem}
+.rm.done .n{background:rgba(62,207,151,.15);color:#1c8f63}.rm.active .n{background:var(--grad-cobalt-metallic);color:#fff}.rm.next .n{background:var(--navy-06);color:var(--navy-40)}
+.rm .k{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--navy-40);margin:16px 0 6px}
+.rm h3{font-size:1.15rem;margin-bottom:8px}
+.rm p{color:var(--navy-60);font-size:.94rem}
+.rm .btn{width:100%;margin-top:16px}
+.rm .done-lbl{display:inline-flex;align-items:center;gap:7px;color:#1c8f63;font-weight:800;font-size:.88rem;margin-top:16px}
+.rm .microcopy{text-align:center;font-size:.78rem;color:var(--navy-40);margin-top:12px}
+
+.restart{display:block;margin:44px auto 0;color:var(--navy-40);font-size:.85rem;background:none;border:none;text-decoration:underline;cursor:pointer}
 .errbox{max-width:600px;margin:20px auto 0;padding:16px 20px;border-radius:12px;background:rgba(228,87,46,.1);color:#C2410C;font-weight:600;display:none}
-footer{padding:28px 0;text-align:center;color:var(--navy-40);font-size:.82rem;border-top:1px solid var(--navy-06)}
+footer{padding:30px 0 40px;text-align:center;color:var(--navy-40);font-size:.82rem;border-top:1px solid var(--navy-06);margin-top:56px}
 </style>
 </head>
 <body>
 <header><div class="wrap hd">
-  <div class="wordmark"><b>och</b>social</div>
+  <img class="logo" src="assets/logo/lockup_horizontal_schwarz.webp" alt="ochsocial">
   <div class="pill">Sichtbarkeits-Report f&#252;r SHK</div>
 </div></header>
 
-<!-- SCREEN 1 -->
+<!-- ================= SCREEN 1 ================= -->
 <section class="screen active" id="s1">
   <div class="wrap hero">
     <div class="eyebrow">Kostenloser Konkurrenz-Check &#183; Sanit&#228;r &#183; Heizung &#183; Klima</div>
@@ -176,102 +247,210 @@ footer{padding:28px 0;text-align:center;color:var(--navy-40);font-size:.82rem;bo
         <div class="pv-bar"><span></span><span></span><span></span></div>
         <div class="pv-body">
           <div class="pv-head">
-            <div><div class="pv-eyebrow">Sichtbarkeits-Report</div><div class="pv-biz">Muster SHK GmbH &#183; Karlsruhe</div></div>
-            <div class="pv-score"><b>61</b><small>/100</small></div>
+            <div><div class="pv-eyebrow">Sichtbarkeits-Report</div><div class="pv-biz">Sanit&#228;r Berger GmbH &#183; Karlsruhe</div></div>
+            <div class="pv-score"><b>34</b><small>/100</small></div>
           </div>
-          <div class="pv-metric"><div class="pv-mrow"><span>Google-Bewertungen</span><span class="pv-tag red">R&#252;ckstand</span></div><div class="pv-cmp"><div>Du<b>38</b></div><div>Top 3<b class="blue">190</b></div></div></div>
-          <div class="pv-metric"><div class="pv-mrow"><span>Meta-Werbung</span><span class="pv-tag green">Du vorn</span></div><div class="pv-cmp"><div>Du<b class="green">32</b></div><div>Top 3<b>9</b></div></div></div>
+          <div class="pv-metric"><div class="pv-mrow"><span>Lokale Suchplatzierung</span><span class="pv-tag red">R&#252;ckstand</span></div><div class="pv-cmp"><div>Du<b class="red">Platz 41</b></div><div>Top 3<b class="blue">bekommen Anfragen</b></div></div></div>
+          <div class="pv-metric"><div class="pv-mrow"><span>Google-Bewertungen</span><span class="pv-tag red">R&#252;ckstand</span></div><div class="pv-cmp"><div>Du<b class="red">28</b></div><div>Top 3<b class="blue">210</b></div></div></div>
           <div class="pv-metric"><div class="pv-mrow"><span>Online-Terminbuchung</span><span class="pv-tag red">Fehlt</span></div></div>
         </div>
       </div>
       <div class="pv-copy">
         <div class="eyebrow">Das zeigt dir dein Report</div>
-        <h2 class="display-s" style="margin:12px 0 22px">Schwarz auf wei&#223;, wo du Auftr&#228;ge an die Konkurrenz verlierst.</h2>
+        <h2 class="display-s" style="margin:12px 0 4px">Schwarz auf wei&#223;, wo du Auftr&#228;ge an die Konkurrenz verlierst.</h2>
         <ul class="pv-list">
-          <li><span class="b">&#10003;</span><div><b>Google-Bewertungen im Direktvergleich</b> mit deinen Top-3-Wettbewerbern in der Region.</div></li>
-          <li><span class="b">&#10003;</span><div><b>Wer aktiv auf Meta wirbt</b> und dir dort Kunden abgr&#228;bt, w&#228;hrend du nicht sichtbar bist.</div></li>
-          <li><span class="b">&#10003;</span><div><b>Wo deine Website Anfragen verliert:</b> Ladezeit, Anfrageformular und Online-Terminbuchung.</div></li>
+          <li><span class="b">&#10003;</span><div><b>Deine Platzierung in der lokalen Suche</b><span class="t">Wer in deiner Region ganz oben steht und die Anfragen abbekommt.</span></div></li>
+          <li><span class="b">&#10003;</span><div><b>Google-Bewertungen im Direktvergleich</b><span class="t">Wie deine Sterne und Anzahl gegen die Top 3 deiner Region stehen.</span></div></li>
+          <li><span class="b">&#10003;</span><div><b>Wo deine Website Anfragen verliert</b><span class="t">Ladezeit, Anfrageformular und Online-Terminbuchung.</span></div></li>
         </ul>
-        <button class="btn btn-cobalt" style="margin-top:26px" onclick="document.getElementById('inpUrl').scrollIntoView({behavior:'smooth',block:'center'});document.getElementById('inpUrl').focus();">Jetzt meinen Betrieb pr&#252;fen &#8594;</button>
+        <button class="btn btn-cobalt" onclick="focusInput()">Jetzt meinen Betrieb pr&#252;fen &#8594;</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SCREEN 2 -->
+<!-- ================= SCREEN 2 ================= -->
 <section class="screen" id="s2">
   <div class="wrap analyse">
-    <div class="spinner"></div>
-    <div class="eyebrow" style="justify-content:center">Live-Analyse l&#228;uft</div>
+    <div class="eyebrow">Live-Analyse l&#228;uft</div>
     <h2 class="display-s" style="margin-top:12px">Analysiere <span id="anaDomain" style="color:var(--cobalt)">deine Website</span></h2>
-    <p style="color:var(--navy-60);margin-top:8px">Wir gleichen deinen Betrieb mit den st&#228;rksten Wettbewerbern im Umkreis ab. Das dauert 60 &#8211; 90 Sekunden.</p>
+    <p style="color:var(--navy-60);margin-top:8px">Schau dir das kurze Video an, w&#228;hrend wir deinen Betrieb mit den st&#228;rksten Wettbewerbern in deiner Region abgleichen.</p>
+
+    <div class="videowrap" id="videowrap">
+      <div class="videoph" id="videoph">Video wird geladen&#8230;</div>
+    </div>
 
     <div class="counters">
       <div class="card counter"><div class="num" id="c1">0</div><div class="lbl">Konkurrenten gepr&#252;ft</div></div>
-      <div class="card counter"><div class="num" id="c2">0</div><div class="lbl">Anzeigen erfasst</div></div>
-      <div class="card counter"><div class="num" id="c3">0</div><div class="lbl">Datenpunkte</div></div>
+      <div class="card counter"><div class="num" id="c2">0</div><div class="lbl">Datenpunkte</div></div>
+      <div class="card counter"><div class="num" id="c3">0</div><div class="lbl">Bewertungen erfasst</div></div>
     </div>
-
-    <div class="videobox"><div class="play"></div><div class="vlabel">&#9654; Kurz erkl&#228;rt: Was du gleich siehst</div></div>
 
     <div class="checklist">
       <div class="checkrow"><span class="cbx">&#10003;</span> Standort &amp; Region best&#228;tigt (PLZ + Impressum)</div>
       <div class="checkrow"><span class="cbx">&#10003;</span> Konkurrenten im 30-km-Umkreis gefunden</div>
+      <div class="checkrow"><span class="cbx">&#10003;</span> Lokale Suchplatzierung berechnet</div>
       <div class="checkrow"><span class="cbx">&#10003;</span> Google-Bewertungen abgeglichen</div>
-      <div class="checkrow"><span class="cbx">&#10003;</span> Meta-Werbebibliothek gepr&#252;ft</div>
       <div class="checkrow"><span class="cbx">&#10003;</span> Website, Ladezeit &amp; Anfrage-Wege bewertet</div>
     </div>
     <div class="pbar"><i id="prog"></i></div>
   </div>
 </section>
 
-<!-- SCREEN 3 -->
+<!-- ================= SCREEN 3 ================= -->
 <section class="screen" id="s3">
   <div class="wrap results">
-    <div class="eyebrow" style="margin-bottom:14px">Dein Sichtbarkeits-Report</div>
+    <span class="r-eyebrow"><span class="dot"></span>Schritt 1 von 3 &#183; Deine Diagnose ist fertig</span>
+
     <div class="card scoretop">
       <div class="gauge">
-        <svg width="170" height="170"><circle cx="85" cy="85" r="74" stroke="var(--navy-06)" stroke-width="13" fill="none"/><circle id="gaugeArc" cx="85" cy="85" r="74" stroke="var(--cobalt)" stroke-width="13" fill="none" stroke-linecap="round" stroke-dasharray="465" stroke-dashoffset="465"/></svg>
+        <svg width="168" height="168"><circle cx="84" cy="84" r="73" stroke="var(--navy-06)" stroke-width="13" fill="none"/><circle id="gaugeArc" cx="84" cy="84" r="73" stroke="#E4572E" stroke-width="13" fill="none" stroke-linecap="round" stroke-dasharray="459" stroke-dashoffset="459"/></svg>
         <div class="val"><b id="scoreNum">0</b><small>von 100</small></div>
       </div>
       <div>
+        <div class="pills"><span id="pillCat">Sanit&#228;r &#183; Heizung &#183; Klima</span><span id="pillState">wird geladen</span></div>
         <div class="biz" id="rBiz">-</div>
         <div class="loc" id="rLoc">-</div>
         <div class="verdict" id="rVerdict">-</div>
       </div>
+      <div class="lost">
+        <div class="k">Aktuell verloren</div>
+        <div class="v" id="lostVal">-</div>
+        <div class="s">qualifizierte Anfragen / Monat</div>
+      </div>
     </div>
 
-    <h2 class="display-s sec-title">Wo deine Wettbewerber dir Kunden wegnehmen</h2>
-    <p class="sec-sub">Dein Betrieb im direkten Vergleich zum Durchschnitt der Top 3 in deiner Region.</p>
-    <div id="metricList"></div>
+    <!-- Pitch mit Verknappung, direkt unter dem Ergebnis -->
+    <div class="offer">
+      <div class="offer-l">
+        <span class="scar">&#128293; Nur 3 Pl&#228;tze diese Woche</span>
+        <h2>Wir holen dir die <em>Sichtbarkeit</em> zur&#252;ck. Kostenloser Fahrplan.</h2>
+        <ul class="ol">
+          <li><span class="ck">&#10003;</span> Konkreter Plan, wie du an die Top 3 deiner Region rankommst</li>
+          <li><span class="ck">&#10003;</span> Mehr Google-Bewertungen &amp; lokale Sichtbarkeit, systematisch aufgebaut</li>
+          <li><span class="ck">&#10003;</span> Eine Website, die aus Besuchern echte Anfragen macht</li>
+        </ul>
+        <div class="oact">
+          <a class="btn btn-champagne" href="#" id="ctaMain">Jetzt Strategiegespr&#228;ch sichern &#8594;</a>
+        </div>
+      </div>
+      <div class="offer-r">
+        <div class="rk">Das bekommst du im Gespr&#228;ch</div>
+        <h4>15 Minuten, 0 &#8364; &#8212; dein Sichtbarkeits-Fahrplan.</h4>
+        <ul>
+          <li><span class="n">1</span> Deine 3 gr&#246;&#223;ten L&#252;cken, priorisiert nach Wirkung auf neue Anfragen.</li>
+          <li><span class="n">2</span> Was deine Top-3-Konkurrenten anders machen, konkret analysiert.</li>
+          <li><span class="n">3</span> Ein klarer Fahrplan f&#252;r die n&#228;chsten 3 Monate, umsetzbar ab Tag 1.</li>
+        </ul>
+      </div>
+    </div>
 
-    <h2 class="display-s sec-title">Deine Top 3 Wettbewerber im Umkreis</h2>
-    <p class="sec-sub">Automatisch nach Bewertung, Werbeaktivit&#228;t und Website-St&#228;rke im 30-km-Umkreis ermittelt.</p>
-    <div class="comp-grid" id="compGrid"></div>
+    <!-- Metriken -->
+    <div class="band"><div class="wrap">
+      <h2 class="display-s sec-title">Wo deine Wettbewerber dir Kunden wegnehmen</h2>
+      <p class="sec-sub">Dein Betrieb im direkten Vergleich zum Durchschnitt der Top 3 in deiner Region.</p>
+      <div id="metricList"></div>
+    </div></div>
 
-    <div class="gapsum" id="gapSum"></div>
+    <!-- Potenzialanalyse -->
+    <div class="band"><div class="wrap">
+      <h2 class="display-s sec-title">So holst du dir den Markt zur&#252;ck</h2>
+      <p class="sec-sub">Realistisch erreichbar in 3 bis 6 Monaten, wenn du die L&#252;cken schlie&#223;t.</p>
+      <div class="pot" id="potBox"></div>
+    </div></div>
 
-    <div class="pitch">
-      <h2 class="display-s">Willst du diese L&#252;cken schlie&#223;en?</h2>
-      <p>Wir bei ochsocial machen SHK-Betriebe in ihrer Region sichtbar: mehr Bewertungen, aktive Meta-Werbung und eine Website, die Anfragen bringt statt nur zu existieren. In einem kurzen Gespr&#228;ch zeigen wir dir, wie dein Betrieb an der Konkurrenz vorbeizieht.</p>
-      <div class="actions">
-        <a class="btn btn-champagne" href="#" id="ctaMain">Kostenloses Strategiegespr&#228;ch sichern &#8594;</a>
+    <!-- Konkurrenten -->
+    <div class="wrap" style="margin-top:56px">
+      <h2 class="display-s sec-title">Deine Top 3 Wettbewerber im Umkreis</h2>
+      <p class="sec-sub">Automatisch nach Bewertung und Sichtbarkeit im 30-km-Umkreis ermittelt.</p>
+      <div class="comp-grid" id="compGrid"></div>
+    </div>
+
+    <!-- Trust -->
+    <div class="wrap trustsec">
+      <div class="trust-count">&#220;ber 420+ Betriebe erfolgreich sichtbarer gemacht</div>
+      <div class="trust-sub">Betreut &amp; skaliert von ochsocial</div>
+      <div class="logos">
+        <img src="assets/logos/l_edeka.webp" alt="">
+        <img src="assets/logos/l_bondbeyond.png" alt="">
+        <img src="assets/logos/l_fachdienst.png" alt="">
+        <img src="assets/logos/l_jetzt_performance.webp" alt="">
+        <img src="assets/logos/l_profireha.png" alt="">
+        <img src="assets/logos/l_lilliancare.png" alt="">
+        <img src="assets/logos/n_coachingfellows.webp" alt="">
+        <img src="assets/logos/n_delviento.webp" alt="">
+      </div>
+      <div class="badges">
+        <img src="assets/badges/badge_t_meta_business_partner_trim.webp" alt="Meta Business Partner">
+        <img src="assets/badges/badge_t_meta_certified_trim.webp" alt="Meta Certified">
+        <img src="assets/badges/badge_t_funnelcockpit_trim.webp" alt="FunnelCockpit">
+        <span class="grating"><span class="g" style="color:#4285F4">G</span><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 4,9 &#183; 41 Bewertungen</span>
+      </div>
+    </div>
+
+    <!-- Roadmap: n&#228;chste Schritte -->
+    <div class="wrap roadmap">
+      <div class="eyebrow" style="justify-content:center">Deine Roadmap</div>
+      <h2 class="display-s sec-title" style="margin-top:10px">Deine n&#228;chsten Schritte zu mehr Sichtbarkeit.</h2>
+      <p class="sec-sub">Du hast Schritt 1 abgeschlossen. So geht es weiter, wir nehmen dir die Umsetzung komplett ab.</p>
+      <div class="rm-grid">
+        <div class="card rm done"><div class="top"></div>
+          <div class="n">1</div>
+          <div class="k">Erledigt &#183; heute</div>
+          <h3>Sichtbarkeits-Diagnose</h3>
+          <p>Wir haben deinen Betrieb mit deiner Region verglichen. Du wei&#223;t jetzt, wo du stehst und wo die L&#252;cken sind.</p>
+          <span class="done-lbl">&#10003; Abgeschlossen</span>
+        </div>
+        <div class="card rm active"><div class="top"></div>
+          <div class="n">2</div>
+          <div class="k">Jetzt &#183; innerhalb 24 Stunden</div>
+          <h3>Dein Sichtbarkeits-Fahrplan</h3>
+          <p>Im kostenlosen Gespr&#228;ch bekommst du den konkreten Plan, wie dein Betrieb an die Top 3 rankommt.</p>
+          <a class="btn btn-cobalt" href="#" id="ctaRoad">Schritt 2 jetzt starten &#8594;</a>
+          <div class="microcopy">100 % kostenfrei &#183; kein Risiko &#183; unverbindlich</div>
+        </div>
+        <div class="card rm next"><div class="top"></div>
+          <div class="n">3</div>
+          <div class="k">Danach &#183; laufend</div>
+          <h3>Mehr Anfragen aus deiner Region</h3>
+          <p>Du wirst zur ersten Wahl in deinem Gebiet. Kunden finden dich zuerst, die Konkurrenz l&#228;uft dir nicht mehr davon.</p>
+          <div class="microcopy" style="text-align:left">Folgt automatisch aus Schritt 2</div>
+        </div>
       </div>
     </div>
 
     <button class="restart" onclick="reset()">&#8592; Andere Website pr&#252;fen</button>
   </div>
+
+  <footer><div class="wrap">&#169; ochsocial Ltd. &#183; Sichtbarkeits-Report f&#252;r SHK-Betriebe</div></footer>
 </section>
 
-<footer><div class="wrap">&#169; ochsocial Ltd. &#183; Sichtbarkeits-Report f&#252;r SHK-Betriebe</div></footer>
-
+<script src="https://player.vimeo.com/api/player.js"></script>
 <script>
-// === Live-Endpoint (n8n / Netlify Function). Liefert er nichts, greift die Demo-Fallback. ===
 const ENDPOINT = "/.netlify/functions/shk-analyze";
+// Vimeo-ID des SHK-Videos hier eintragen (Video ~70s). Leer = Platzhalter + Timer.
+const VIMEO_ID = "";
+const VIDEO_SECONDS = 72;   // Analyse dauert exakt so lange wie das Video
 
 const $=id=>document.getElementById(id);
 function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));$(id).classList.add('active');window.scrollTo(0,0);}
+function focusInput(){$('inpUrl').scrollIntoView({behavior:'smooth',block:'center'});$('inpUrl').focus();}
 function animateCounter(el,to,dur){let t0=performance.now();(function tick(t){let p=Math.min((t-t0)/dur,1);el.textContent=Math.floor(p*to);if(p<1)requestAnimationFrame(tick);})(performance.now());}
+function scoreColor(s){ if(s<=50)return '#E4572E'; if(s<=65)return '#F5811E'; if(s<=90)return '#E7B008'; return '#22B07D'; }
+function scoreLabel(s){ if(s<=50)return 'Kritisch'; if(s<=65)return 'Ausbauf\u00e4hig'; if(s<=90)return 'Gut'; return 'Stark'; }
+function lostRange(s){ if(s<=50)return '10-20'; if(s<=65)return '6-12'; if(s<=90)return '2-6'; return '0-2'; }
+
+let dataPromise=null, transitioned=false, player=null;
+
+function initVideo(){
+  const wrap=$('videowrap');
+  if(VIMEO_ID){
+    wrap.innerHTML='<iframe id="vplayer" src="https://player.vimeo.com/video/'+VIMEO_ID+'?autoplay=1&muted=1&title=0&byline=0&portrait=0&pip=0&transparent=0" allow="autoplay; fullscreen"></iframe>';
+    try{ player=new Vimeo.Player('vplayer'); player.on('ended',finish); }catch(e){}
+  }else{
+    wrap.innerHTML='<div class="videoph">\u25b6 Video (Vimeo-ID wird eingesetzt)</div>';
+  }
+}
 
 async function startAnalyse(){
   const url=$('inpUrl').value.trim();
@@ -280,37 +459,46 @@ async function startAnalyse(){
   if(!url){showErr('Bitte deine Website eintragen.');return;}
   if(!/^\d{5}$/.test(plz)){showErr('Bitte eine 5-stellige Postleitzahl eingeben.');return;}
   $('anaDomain').textContent=url.replace(/^https?:\/\//,'').replace(/\/$/,'');
+  transitioned=false;
   show('s2');
+  initVideo();
 
-  // Warte-Animationen (Video-Zeit)
-  animateCounter($('c1'),14,7000);animateCounter($('c2'),40,7000);animateCounter($('c3'),120,7500);
-  const rows=[...document.querySelectorAll('.checkrow')];rows.forEach((r,i)=>setTimeout(()=>r.classList.add('done'),700+i*1300));
-  let p=0;const pi=setInterval(()=>{p+=1.4;$('prog').style.width=Math.min(p,100)+'%';if(p>=100)clearInterval(pi);},120);
+  const ms=VIDEO_SECONDS*1000;
+  animateCounter($('c1'),14,ms*0.7);animateCounter($('c2'),128,ms*0.85);animateCounter($('c3'),640,ms*0.9);
+  const rows=[...document.querySelectorAll('.checkrow')];rows.forEach((r,i)=>setTimeout(()=>r.classList.add('done'),1500+i*(ms*0.16)));
+  let p=0;const pi=setInterval(()=>{p+=100/(VIDEO_SECONDS*2.5);$('prog').style.width=Math.min(p,100)+'%';if(p>=100)clearInterval(pi);},400);
 
-  const started=Date.now();
-  let data;
-  try{
-    const res=await fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url,plz})});
-    if(!res.ok)throw new Error('bad');
-    data=await res.json();
-  }catch(e){ data=DEMO; }               // Fallback solange Backend nicht verdrahtet ist
-  // Video mindestens ~8s laufen lassen
-  const wait=Math.max(0,8000-(Date.now()-started));
-  setTimeout(()=>renderResults(data),wait);
+  dataPromise=fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url,plz})})
+    .then(r=>{if(!r.ok)throw new Error('bad');return r.json();}).catch(()=>DEMO);
+
+  setTimeout(finish,ms);   // Fallback: nach Videol\u00e4nge auf jeden Fall zeigen
 }
 function showErr(m){$('err').textContent=m;$('err').style.display='block';}
 
+async function finish(){
+  if(transitioned)return; transitioned=true;
+  try{ if(player) player.pause(); }catch(e){}
+  const d=await (dataPromise||Promise.resolve(DEMO));
+  renderResults(d||DEMO);
+}
+
+function parseNum(s){const m=(s||'').replace(/\./g,'').match(/\d+/);return m?parseInt(m[0]):null;}
+
 function renderResults(d){
+  const col=scoreColor(d.score);
   $('rBiz').textContent=d.business.name;
   $('rLoc').textContent=d.business.location;
   $('rVerdict').innerHTML=d.verdict;
-  if(d.cta)$('ctaMain').href=d.cta;
+  $('pillCat').textContent=(d.business.location||'').split('\u00b7').slice(0,3).join('\u00b7').trim()||'Sanit\u00e4r \u00b7 Heizung \u00b7 Klima';
+  const st=$('pillState');st.textContent=scoreLabel(d.score);st.style.color=col;st.style.borderColor=col;st.style.background=col+'14';
+  $('lostVal').textContent=lostRange(d.score);
+  if(d.cta){$('ctaMain').href=d.cta;$('ctaRoad').href=d.cta;}
 
-  // Metriken
+  // Metriken (getrennte Karten, farbcodiert)
   $('metricList').innerHTML=d.metrics.map(m=>`
-    <div class="card metric">
-      <div class="mhead"><div class="mname">${m.name}</div></div>
-      <div class="badge ${m.status}">${m.badge}</div>
+    <div class="card metric ${m.status}">
+      <div class="mname">${m.name}</div>
+      <div class="badge ${m.status}">${m.status==='ok'?'\u2713':'\u25cf'} ${m.badge}</div>
       <div class="cmp">
         <div class="you ${m.status==='ok'?'good':'bad'}"><div class="who">Du</div><div class="figure">${m.you}</div></div>
         <div class="them"><div class="who">${m.themLabel||'Top 3 \u00d8'}</div><div class="figure">${m.them}</div></div>
@@ -323,42 +511,57 @@ function renderResults(d){
       <div class="stars">${c.rating} \u2605 \u00b7 ${c.reviews} Bewertungen</div>
       <ul>${c.points.map(p=>`<li><span class="x">\u2713</span> ${p}</li>`).join('')}</ul></div>`).join('');
 
-  $('gapSum').innerHTML=d.gapSummary;
+  // Potenzialanalyse aus den Metrikwerten ableiten
+  const mRank=d.metrics.find(m=>/Platzierung/i.test(m.name));
+  const mRev=d.metrics.find(m=>/Bewertung/i.test(m.name));
+  const rank=mRank?parseNum(mRank.you):null, total=mRank?parseNum((mRank.you.match(/von\s*\d+/)||[''])[0]):null;
+  const revYou=mRev?parseNum(mRev.you):null, revThem=mRev?parseNum(mRev.them):null;
+  const futRank=total?Math.max(1,Math.min(3,Math.round(total*0.05))):3;
+  const futRev=revThem||((revYou||20)*4);
+  $('potBox').innerHTML=`
+    <div class="pc now">
+      <div class="pk">Stand jetzt</div>
+      <div class="prow"><span>Lokale Platzierung</span><b>${rank?('Platz '+rank):'weit hinten'}</b></div>
+      <div class="prow"><span>Google-Bewertungen</span><b>${revYou!=null?revYou:'wenige'}</b></div>
+      <div class="prow"><span>Anfragen / Monat</span><b>-${lostRange(d.score)}</b></div>
+    </div>
+    <div class="arrow">\u2192</div>
+    <div class="pc fut">
+      <div class="pk">In 3-6 Monaten</div>
+      <div class="prow"><span>Lokale Platzierung</span><b>Top ${futRank}</b></div>
+      <div class="prow"><span>Google-Bewertungen</span><b>${futRev}+</b></div>
+      <div class="prow"><span>Anfragen / Monat</span><b>+${lostRange(d.score)}</b></div>
+    </div>`;
 
   show('s3');
-  const arc=$('gaugeArc'),circ=465;
+  const arc=$('gaugeArc'),circ=459;
+  arc.setAttribute('stroke',col);
+  $('scoreNum').style.color=col;
   animateCounter($('scoreNum'),d.score,1400);
   setTimeout(()=>{arc.style.transition='stroke-dashoffset 1.4s ease';arc.style.strokeDashoffset=circ-(circ*d.score/100);},100);
 }
 
-function reset(){$('prog').style.width='0';document.querySelectorAll('.checkrow').forEach(r=>r.classList.remove('done'));const arc=$('gaugeArc');arc.style.transition='none';arc.style.strokeDashoffset=465;$('scoreNum').textContent='0';show('s1');}
+function reset(){$('prog').style.width='0';document.querySelectorAll('.checkrow').forEach(r=>r.classList.remove('done'));const arc=$('gaugeArc');arc.style.transition='none';arc.style.strokeDashoffset=459;$('scoreNum').textContent='0';transitioned=false;show('s1');}
 
-const ICONS={
-  star:'<svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16 14 18 21 12 17 6 21 8 14 2 9 9 9"/></svg>',
-  ads:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg>',
-  calendar:'<svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>',
-  bolt:'<svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10"/></svg>',
-  form:'<svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>'
-};
-
-// === Demo-Fallback (Beispieldaten Markus Schmidt GmbH). Wird ersetzt sobald ENDPOINT antwortet. ===
+// === Demo-Fallback (nur wenn Backend nicht antwortet) ===
 const DEMO={
-  business:{name:"Markus Schmidt GmbH",location:"Sanit\u00e4r \u00b7 Heizung \u00b7 W\u00e4rmepumpen - Rheinstetten, Raum Karlsruhe"},
-  score:61,
-  verdict:"<b>Solide Basis, aber du verschenkst Sichtbarkeit.</b> Du wirbst aktiv auf Meta, verlierst aber bei Google-Bewertungen und Anfrage-Wegen gegen die st\u00e4rksten 3 Betriebe im Umkreis.",
-  cta:"#",
+  business:{name:"Sanit\u00e4r Berger GmbH",location:"Sanit\u00e4r \u00b7 Heizung \u00b7 Klima \u00b7 Karlsruhe"},
+  score:34,
+  verdict:"<b>Solide Basis, aber du verschenkst Sichtbarkeit.</b> Gr\u00f6\u00dfte L\u00fccken: Lokale Sichtbarkeit, Google-Bewertungen, Online-Termin. Genau hier ziehen die st\u00e4rksten Betriebe deiner Region an dir vorbei.",
+  cta:"/kontakt",
   metrics:[
-    {icon:"star",name:"Google-Bewertungen",sub:"Anzahl entscheidet, ob du auf Karte & Suche oben stehst",status:"gap",badge:"R\u00fcckstand",you:"4,6 \u2605 \u00b7 38 Bew.",them:"4,8 \u2605 \u00b7 190 Bew.",champ:true},
-    {icon:"ads",name:"Meta-Werbung (Facebook / Instagram)",sub:"Aktive Anzeigen in der Meta-Werbebibliothek",status:"ok",badge:"Du bist vorn",you:"32 aktiv",them:"9 aktiv"},
-    {icon:"calendar",name:"Online-Terminbuchung",sub:"Kunde bucht selbst einen Termin, ohne anzurufen",status:"gap",badge:"Fehlt",you:"Nicht vorhanden",them:"2 von 3 bieten es",themLabel:"Top 3"},
-    {icon:"bolt",name:"Website-Ladezeit (Mobil)",sub:"Langsame Seiten verlieren jeden 2. Besucher",status:"gap",badge:"Zu langsam",you:"4,1 s",them:"2,2 s"}
+    {name:"Lokale Suchplatzierung",status:"gap",badge:"R\u00fcckstand",you:"Platz 41 von 60",them:"Top 3 bekommen die Anfragen",themLabel:"Region"},
+    {name:"Google-Bewertungen",status:"gap",badge:"R\u00fcckstand",you:"4,8 \u2605 \u00b7 28 Bew.",them:"4,9 \u2605 \u00b7 210 Bew."},
+    {name:"Online-Terminbuchung",status:"gap",badge:"Fehlt",you:"Nicht vorhanden",them:"Standard bei Top-Betrieben",themLabel:"Top 3"},
+    {name:"Anfrageformular",status:"ok",badge:"Vorhanden",you:"Vorhanden",them:"Standard bei Top-Betrieben",themLabel:"Top 3"},
+    {name:"Website-Ladezeit (Mobil)",status:"gap",badge:"Zu langsam",you:"4,1 s",them:"unter 2,5 s",themLabel:"Zielwert"},
+    {name:"Social-Media-Pr\u00e4senz",status:"ok",badge:"Vorhanden",you:"Facebook + Instagram",them:"Facebook + Instagram",themLabel:"Top-Betriebe"}
   ],
   competitors:[
-    {name:"Musterbetrieb B\u00e4der & W\u00e4rme",rating:"4,9",reviews:214,points:["Wirbt aktiv auf Meta","Online-Termin buchbar","Schnelle Mobil-Website"]},
-    {name:"Heizung & Sanit\u00e4r Mustermann",rating:"4,8",reviews:176,points:["Wirbt aktiv auf Meta","Anfrageformular prominent","Starke Google-Pr\u00e4senz"]},
-    {name:"Klima-Technik Beispiel GmbH",rating:"4,7",reviews:181,points:["Online-Termin buchbar","Schnelle Mobil-Website","Viele frische Bewertungen"]}
-  ],
-  gapSummary:"Zusammengefasst: Deine Konkurrenz sammelt im Schnitt <b>5x mehr Google-Bewertungen</b>, bietet <b>Online-Terminbuchung</b> und l\u00e4dt <b>fast doppelt so schnell</b>. Genau da entscheidet sich, wer in deiner Region den n\u00e4chsten Auftrag bekommt."
+    {name:"Klimaalarm24 GmbH",rating:"4,9",reviews:312,points:["312 Google-Bewertungen","Sichtbar im 30-km-Umkreis","Erscheint bei lokalen Suchen weit oben"]},
+    {name:"MKS Klimasysteme GmbH",rating:"4,9",reviews:289,points:["289 Google-Bewertungen","Online-Termin buchbar","Starke lokale Pr\u00e4senz"]},
+    {name:"Roth K\u00e4lteanlagen GmbH",rating:"5,0",reviews:179,points:["179 Google-Bewertungen","Sichtbar im 30-km-Umkreis","Viele frische Bewertungen"]}
+  ]
 };
 </script>
 </body>
