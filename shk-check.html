@@ -389,6 +389,7 @@ footer .cpy{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,2
         </div>
       </div>
     </div>
+  </div><!-- /wrap.results -->
 
     <!-- Ranking -->
     <div class="band band-soft"><div class="wrap">
@@ -460,7 +461,6 @@ footer .cpy{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,2
         </div>
       </div>
     </div></div>
-  </div>
 </section>
 
 <footer><div class="wrap">
@@ -487,7 +487,7 @@ function focusInput(){$('inpUrl').scrollIntoView({behavior:'smooth',block:'cente
 function animateCounter(el,to,dur){el.textContent=to;let t0=performance.now();(function tick(t){let p=Math.min((t-t0)/dur,1);el.textContent=Math.floor(p*to);if(p<1)requestAnimationFrame(tick);else el.textContent=to;})(performance.now());}
 function scoreColor(s){ if(s<=50)return '#E4572E'; if(s<=65)return '#F5811E'; if(s<=90)return '#E7B008'; return '#22B07D'; }
 function scoreLabel(s){ if(s<=50)return 'Kritisch'; if(s<=65)return 'Ausbauf\u00e4hig'; if(s<=90)return 'Gut'; return 'Stark'; }
-function lostRange(s){ if(s<=50)return '10-20'; if(s<=65)return '6-12'; if(s<=90)return '2-6'; return '0-2'; }
+function lostRange(s){ if(s<=35)return '18-32'; if(s<=50)return '12-22'; if(s<=65)return '7-14'; if(s<=80)return '4-8'; if(s<=90)return '2-5'; return '0-2'; }
 function parseNum(s){const m=(s||'').replace(/\./g,'').match(/\d+/);return m?parseInt(m[0]):null;}
 
 let dataPromise=null, transitioned=false, player=null;
@@ -509,8 +509,7 @@ async function startAnalyse(){
   const clean=url.replace(/^https?:\/\//,'').replace(/\/$/,'');
   $('anaDomain').textContent=clean; $('anaDomain2').textContent=clean;
   const full=/^https?:\/\//.test(url)?url:('https://'+clean);
-  const shot=$('siteShot'); shot.onload=()=>{const l=document.querySelector('.sc-shot .load');if(l)l.style.display='none';};
-  shot.src='https://s.wordpress.com/mshots/v1/'+encodeURIComponent(full)+'?w=1200';
+  loadSiteShot(full,clean);
   transitioned=false;
   show('s2');
   initVideo();
@@ -529,6 +528,31 @@ async function startAnalyse(){
   setTimeout(finish,ms);
 }
 function showErr(m){$('err').textContent=m;$('err').style.display='block';}
+
+// Live-Vorschau robust laden: thum.io zuerst (rendert live), bei Fehler/Haenger mShots als Fallback, dann Retry mit Cache-Buster.
+function loadSiteShot(full,clean){
+  const shot=$('siteShot'); const load=document.querySelector('.sc-shot .load');
+  const hide=()=>{ if(load)load.style.display='none'; };
+  const srcs=[
+    'https://image.thum.io/get/width/1200/crop/800/noanimate/'+full,
+    'https://s.wordpress.com/mshots/v1/'+encodeURIComponent(full)+'?w=1200',
+    'https://image.thum.io/get/width/1200/crop/800/https://'+clean
+  ];
+  let i=0, done=false, timer=null;
+  function tryNext(){
+    if(done) return;
+    if(i>=srcs.length){ // alles durch -> nochmal thum.io mit Cache-Buster
+      shot.src=srcs[0]+'?r='+Date.now(); return;
+    }
+    const url=srcs[i++];
+    clearTimeout(timer);
+    timer=setTimeout(tryNext, 9000);            // haengt zu lange -> naechste Quelle
+    shot.src=url;
+  }
+  shot.onload=()=>{ if(shot.naturalWidth>20){ done=true; clearTimeout(timer); hide(); } };
+  shot.onerror=()=>{ clearTimeout(timer); tryNext(); };
+  tryNext();
+}
 
 async function finish(){
   if(transitioned)return; transitioned=true;
