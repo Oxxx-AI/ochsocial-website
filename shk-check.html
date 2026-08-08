@@ -566,7 +566,7 @@ function renderResults(d){
   $('rBiz').textContent=d.business.name;
   $('rLoc').textContent=d.business.location;
   $('rVerdict').innerHTML=d.verdict;
-  $('pillCat').textContent=(d.business.location||'').split('\u00b7').slice(0,3).join('\u00b7').trim()||'Sanit\u00e4r \u00b7 Heizung \u00b7 Klima';
+  $('pillCat').textContent=d.business.sparten||(d.business.location||'').split('\u00b7').slice(0,3).join('\u00b7').trim()||'Sanit\u00e4r \u00b7 Heizung \u00b7 Klima';
   const st=$('pillState');st.textContent=scoreLabel(d.score);st.style.color=col;st.style.borderColor=col;st.style.background=col+'14';
   $('lostVal').textContent=lostRange(d.score);
   if(d.cta){$('ctaMain').href=d.cta;$('ctaRoad').href=d.cta;}
