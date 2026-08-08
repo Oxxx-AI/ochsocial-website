@@ -69,7 +69,7 @@ exports.handler = async (event) => {
 
     // 3) Konkurrenten-Suche + PageSpeed parallel (beides unabhaengig)
     const [rawComps, ps] = await Promise.all([
-      findCompetitors(center, self?.place_id),
+      findCompetitors(center, self?.place_id, site.services),
       pageSpeed(domain)
     ]);
     const rank = localRank(self, rawComps);          // {rank,total} oder null
@@ -111,6 +111,16 @@ async function scrapeSite(domain) {
   // Social-Media-Praesenz (verlinkt der Betrieb Facebook / Instagram?)
   out.hasFb = /facebook\.com\/[A-Za-z0-9._%\-]/i.test(html);
   out.hasInsta = /instagram\.com\/[A-Za-z0-9._%\-]/i.test(html);
+
+  // Branchen-Fokus des Betriebs erkennen (damit nur passende Konkurrenz verglichen wird)
+  const svc = {
+    heizung: /heizung|heiztechnik|heizungsbau|w(\u00e4|ae)rmepumpe|brennwert|heizk(\u00f6|oe)rper|fu(\u00df|ss)bodenheizung|gasheizung|(\u00f6|oe)lheizung/i.test(low),
+    sanitaer: /sanit(\u00e4|ae)r|badsanierung|badezimmer|b(\u00e4|ae)der|installat|klempner|rohrreinigung|trinkwasser|d(u|ue)sche/i.test(low),
+    klima: /klimaanlage|klimatechnik|klimager(\u00e4|ae)t|klima[- ]?service|k(\u00e4|ae)ltetechnik|k(\u00e4|ae)lteanlage|split[- ]?ger(\u00e4|ae)t|klimatisierung/i.test(low)
+  };
+  // Wenn nichts sicher erkennbar: als Generalist behandeln (alle Sparten), damit die Konkurrenzsuche nie leer laeuft
+  if (!svc.heizung && !svc.sanitaer && !svc.klima) { svc.heizung = svc.sanitaer = svc.klima = true; }
+  out.services = svc;
 
   return out;
 }
@@ -175,16 +185,34 @@ async function findBusiness(brand, legalName, region) {
   }
   return null;
 }
-async function findCompetitors(center, selfId) {
+// Reiner Klima-/Kaeltebetrieb (kein SHK-Generalist)? -> Name deutet nur auf Klima/Kaelte hin
+function isKlimaOnly(name) {
+  const n = (name || "").toLowerCase();
+  const klima = /klima|k(\u00e4|ae)lte|clima|air ?condition/.test(n);
+  const shk = /heiz|sanit|bad|installat|haustechnik|shk|klempner|rohr|gas|w(\u00e4|ae)rme/.test(n);
+  return klima && !shk;
+}
+async function findCompetitors(center, selfId, services) {
   if (!GKEY || !center) return [];
+  const svc = services || { heizung: true, sanitaer: true, klima: true };
+  // Suchbegriffe passend zum Branchen-Fokus des Kunden (keine Klima-Suche, wenn Kunde kein Klima macht)
+  const kws = [];
+  if (svc.heizung) kws.push("Heizung", "Heizungsbau");
+  if (svc.sanitaer) kws.push("Sanit\u00e4r", "Badsanierung");
+  if (svc.heizung || svc.sanitaer) kws.push("Sanit\u00e4r Heizung");
+  if (svc.klima) kws.push("Klimaanlage");
+  if (!kws.length) kws.push("Sanit\u00e4r Heizung");
+  const keywords = [...new Set(kws)];
   const seen = {};
   const out = [];
-  for (const kw of ["Sanit\u00e4r Heizung", "Badsanierung", "Klimaanlage"]) {
+  for (const kw of keywords) {
     const d = await gfetch(
       `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${center.lat},${center.lng}&radius=${RADIUS_M}&keyword=${encodeURIComponent(kw)}&language=de&key=${GKEY}`
     );
     for (const p of d.results || []) {
       if (p.place_id === selfId || seen[p.place_id]) continue;
+      // Kunde macht kein Klima -> reine Klima-/Kaeltebetriebe raus (falsche Zielgruppe)
+      if (!svc.klima && isKlimaOnly(p.name)) continue;
       seen[p.place_id] = 1;
       out.push({ place_id: p.place_id, name: p.name, rating: p.rating ?? null, reviews: p.user_ratings_total ?? 0 });
     }
@@ -348,10 +376,16 @@ function buildPayload({ domain, plz, site, self, top3, ps, rank, city }) {
     ? `Zusammengefasst: In den Bereichen <b>${gaps.slice(0, 3).join("</b>, <b>")}</b> liegt deine Konkurrenz vorn. Genau da entscheidet sich, wer in deiner Region den n\u00e4chsten Auftrag bekommt.`
     : `Du bist gut aufgestellt. Der Fokus liegt jetzt darauf, den Vorsprung zu halten und auszubauen.`;
 
+  // Sparten-Label aus dem erkannten Branchen-Fokus (Kunde soll sich abgeholt fuehlen)
+  const sv = site.services || { heizung: true, sanitaer: true, klima: true };
+  const sparten = [sv.sanitaer && "Sanit\u00e4r", sv.heizung && "Heizung", sv.klima && "Klima"].filter(Boolean);
+  const spartenLabel = sparten.length ? sparten.join(" \u00b7 ") : "SHK";
+
   return {
     business: {
       name: self?.name || domain,
-      location: `Sanit\u00e4r \u00b7 Heizung \u00b7 Klima \u00b7 ${city || "PLZ " + plz}`
+      location: `${spartenLabel} \u00b7 ${city || "PLZ " + plz}`,
+      sparten: spartenLabel
     },
     score, verdict, metrics, competitors, gapSummary, cta: "/kontakt"
   };
