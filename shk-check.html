@@ -7,72 +7,78 @@
 <link rel="icon" href="assets/favicon/favicon.ico">
 <link rel="stylesheet" href="css/main.css">
 <style>
-/* Seiten-spezifisch - Rest kommt aus main.css (Manrope, Buttons, Styleguide) */
 body{background:#FFFFFF}
 .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.eyebrow::before{display:none!important}
+.eyebrow{color:var(--cobalt)}
+.gcob{background:linear-gradient(120deg,#3B71E8 0%,#1E4FBA 60%,#123273 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.gchamp{background:var(--grad-champagne);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.eyecenter{text-align:center}
 
-header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--navy-06)}
-.hd{display:flex;align-items:center;justify-content:space-between;height:70px}
-.hd .logo{height:30px;width:auto;display:block}
-.hd .pill{font-size:.8rem;font-weight:700;color:var(--navy-60);border:1px solid var(--navy-12);padding:6px 14px;border-radius:100px}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--navy-06)}
+.hd{display:flex;align-items:center;height:68px}
+.hd .logo{height:29px;width:auto;display:block}
 
 .screen{display:none}
 .screen.active{display:block;animation:fade .45s ease}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
-/* ---------- Screen 1 (Start) ---------- */
+/* ---------- Screen 1 ---------- */
 .hero{padding:56px 0 20px;text-align:center}
 .hero .eyebrow{justify-content:center}
-.hero .lead{font-size:1.2rem;color:var(--navy-60);max-width:640px;margin:18px auto 0}
-.inputcard{max-width:600px;margin:34px auto 0;padding:30px;text-align:left}
-.inputcard label{font-size:.8rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--navy-40);display:block;margin-bottom:8px}
-.inputcard input{width:100%;font-family:inherit;font-size:1.05rem;padding:15px 18px;border:1.5px solid var(--navy-12);border-radius:var(--radius-cta);background:#fff;color:var(--navy);transition:border .15s}
-.inputcard input:focus{outline:none;border-color:var(--cobalt)}
+.hero h1{font-size:clamp(2.5rem,6vw,4.4rem);font-weight:800;line-height:1.04;letter-spacing:-.028em;margin-top:18px}
+.hero .lead{font-size:1.2rem;color:var(--navy-60);max-width:640px;margin:20px auto 0}
+
+.inputbox{max-width:600px;margin:34px auto 0;border:2px solid var(--cobalt);border-radius:22px;background:linear-gradient(180deg,#F5F8FF 0%,#FFFFFF 60%);box-shadow:0 26px 60px -18px rgba(30,79,186,.45);padding:30px;text-align:left}
+.inputbox .ib-h{font-weight:800;font-size:1.02rem;margin-bottom:16px;display:flex;align-items:center;gap:9px}
+.inputbox .ib-h .b{width:24px;height:24px;border-radius:7px;background:var(--cobalt);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px}
+.inputbox label{font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--navy-40);display:block;margin-bottom:8px}
+.inputbox input{width:100%;font-family:inherit;font-size:1.05rem;padding:15px 18px;border:1.5px solid var(--navy-12);border-radius:var(--radius-cta);background:#fff;color:var(--navy);transition:border .15s}
+.inputbox input:focus{outline:none;border-color:var(--cobalt)}
 .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 .plz{max-width:150px}
-.inputcard .btn{width:100%;margin-top:20px}
-.trust{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-top:28px;color:var(--navy-60);font-size:.9rem;font-weight:600}
+.inputbox .btn{width:100%;margin-top:20px}
+.trust{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-top:26px;color:var(--navy-60);font-size:.9rem;font-weight:600}
 .trust span{display:inline-flex;align-items:center;gap:8px}
 .trust .c{color:var(--mint);font-weight:800}
 
-/* Report-Vorschau */
-.preview{display:grid;grid-template-columns:1.05fr 1fr;gap:44px;align-items:center;margin:60px 0 56px}
-@media(max-width:820px){.preview{grid-template-columns:1fr;gap:34px}}
-.pv-mock{background:#fff;border:1px solid var(--navy-06);border-radius:16px;box-shadow:0 22px 55px rgba(20,22,58,.12);overflow:hidden}
-.pv-bar{display:flex;gap:6px;padding:12px 14px;background:var(--offwhite);border-bottom:1px solid var(--navy-06)}
-.pv-bar span{width:10px;height:10px;border-radius:50%;background:var(--navy-12)}
-.pv-body{padding:22px}
-.pv-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.pv-eyebrow{font-size:.64rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--cobalt)}
-.pv-biz{font-weight:800;font-size:.95rem;margin-top:3px}
-.pv-score{text-align:center;line-height:1}
-.pv-score b{font-size:2rem;font-weight:800;color:#E4572E}
-.pv-score small{font-size:.7rem;color:var(--navy-40);font-weight:700}
-.pv-metric{padding:13px 0;border-top:1px solid var(--navy-06)}
-.pv-mrow{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:.92rem}
-.pv-tag{font-size:.64rem;font-weight:800;padding:3px 9px;border-radius:100px}
+/* Vorschau (realistischer Report-Mock) */
+.preview{display:grid;grid-template-columns:1.1fr .9fr;gap:46px;align-items:center;margin:64px 0 56px;text-align:left}
+@media(max-width:860px){.preview{grid-template-columns:1fr;gap:30px}}
+.pv-mock{background:#fff;border:1px solid var(--navy-06);border-radius:16px;box-shadow:0 26px 64px rgba(20,22,58,.16);overflow:hidden}
+.pv-bar{display:flex;gap:6px;padding:11px 14px;background:#14163A}
+.pv-bar span{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.3)}
+.pv-body{padding:20px}
+.pv-eyebrow{font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#1c8f63}
+.pv-head{display:flex;justify-content:space-between;align-items:center;margin:8px 0 14px}
+.pv-biz{font-weight:800;font-size:1rem}
+.pv-loc{font-size:.72rem;color:var(--navy-40);font-weight:600}
+.pv-gauge{position:relative;width:64px;height:64px;flex:none}
+.pv-gauge b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.3rem;color:#E4572E}
+.pv-metric{padding:11px 0;border-top:1px solid var(--navy-06)}
+.pv-mrow{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:.86rem}
+.pv-tag{font-size:.6rem;font-weight:800;padding:3px 9px;border-radius:100px}
 .pv-tag.red{background:rgba(228,87,46,.12);color:#C2410C}
-.pv-tag.green{background:rgba(62,207,151,.16);color:#1c8f63}
-.pv-cmp{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px}
-.pv-cmp>div{background:var(--offwhite);border-radius:8px;padding:8px 11px;font-size:.72rem;color:var(--navy-60);font-weight:700;display:flex;justify-content:space-between;align-items:center}
-.pv-cmp b{font-size:1rem;color:var(--navy)}
-.pv-cmp b.red{color:#C2410C}.pv-cmp b.blue{color:var(--cobalt)}.pv-cmp b.green{color:#1c8f63}
-.pv-copy .eyebrow{color:var(--cobalt)}
-.pv-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:16px}
-.pv-list li{display:flex;gap:12px;color:var(--navy-60)}
-.pv-list li .b{width:24px;height:24px;border-radius:50%;background:var(--grad-cobalt-metallic);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none;font-size:13px;margin-top:2px}
+.pv-cmp{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:8px}
+.pv-cmp>div{background:var(--offwhite);border-radius:8px;padding:7px 10px;font-size:.66rem;color:var(--navy-60);font-weight:700;display:flex;justify-content:space-between;align-items:center}
+.pv-cmp b{font-size:.92rem;color:var(--navy)}
+.pv-cmp b.red{color:#C2410C}.pv-cmp b.blue{color:var(--cobalt)}
+.pv-copy h2{font-size:clamp(1.7rem,3vw,2.3rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin:12px 0 0}
+.pv-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.pv-list li{display:flex;gap:12px}
+.pv-list li .b{width:24px;height:24px;border-radius:50%;background:var(--cobalt);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none;font-size:13px;margin-top:2px}
 .pv-list li b{color:var(--navy);display:block}
-.pv-list li span.t{font-size:.94rem}
-.pv-copy .btn{margin-top:16px}
+.pv-list li span.t{font-size:.92rem;color:var(--navy-60)}
+.pv-copy .btn{margin-top:22px}
 
-/* ---------- Screen 2 (Analyse + Video) ---------- */
+/* ---------- Screen 2 ---------- */
 .analyse{padding:44px 0 70px;text-align:center}
 .analyse .eyebrow{justify-content:center}
 .videowrap{max-width:720px;margin:26px auto 0;border-radius:var(--radius-card);overflow:hidden;box-shadow:0 24px 60px rgba(20,22,58,.18);position:relative;background:#000;aspect-ratio:16/9}
 .videowrap iframe,.videowrap video{position:absolute;inset:0;width:100%;height:100%;border:0}
-.videoph{position:absolute;inset:0;background:var(--grad-cobalt-metallic);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+.videoph{position:absolute;inset:0;background:var(--cobalt);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
 .counters{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:640px;margin:26px auto 0}
-.counter{padding:18px 12px;text-align:center}
+.counter{padding:18px 12px;text-align:center;box-shadow:0 10px 30px rgba(20,22,58,.06)}
 .counter .num{font-size:2.1rem;font-weight:800;color:var(--cobalt);line-height:1}
 .counter .lbl{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--navy-40);margin-top:8px}
 .checklist{max-width:520px;margin:26px auto 0;text-align:left}
@@ -81,59 +87,71 @@ header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.88);backdro
 .checkrow .cbx{width:22px;height:22px;border-radius:50%;border:2px solid var(--navy-12);flex:none;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff}
 .checkrow.done .cbx{background:var(--mint);border-color:var(--mint)}
 .pbar{max-width:520px;height:6px;background:var(--navy-06);border-radius:100px;margin:14px auto 0;overflow:hidden}
-.pbar>i{display:block;height:100%;width:0;background:var(--grad-cobalt-metallic);transition:width .4s linear}
+.pbar>i{display:block;height:100%;width:0;background:var(--cobalt);transition:width .4s linear}
 
-/* ---------- Screen 3 (Ergebnis) ---------- */
+/* ---------- Screen 3 ---------- */
 .results{padding:34px 0 0}
 .r-eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#1c8f63;background:rgba(62,207,151,.12);padding:7px 14px;border-radius:100px}
 .r-eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--mint)}
-.scoretop{display:grid;grid-template-columns:auto 1fr auto;gap:34px;align-items:center;padding:32px 34px;margin-top:16px}
-@media(max-width:820px){.scoretop{grid-template-columns:1fr;text-align:center;gap:22px}}
+.scoretop{display:grid;grid-template-columns:auto 1fr auto;gap:34px;align-items:center;padding:32px 34px;margin-top:16px;box-shadow:0 20px 50px rgba(20,22,58,.08)}
+@media(max-width:860px){.scoretop{grid-template-columns:1fr;text-align:center;gap:22px}}
 .gauge{position:relative;width:168px;height:168px;flex:none;margin:0 auto}
 .gauge svg{transform:rotate(-90deg)}
 .gauge .val{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .gauge .val b{font-size:3rem;font-weight:800;line-height:1}
 .gauge .val small{font-size:.72rem;font-weight:700;color:var(--navy-40)}
 .scoretop .pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
-@media(max-width:820px){.scoretop .pills{justify-content:center}}
+@media(max-width:860px){.scoretop .pills{justify-content:center}}
 .scoretop .pills span{font-size:.72rem;font-weight:700;color:var(--navy-60);background:var(--offwhite);border:1px solid var(--navy-06);padding:5px 11px;border-radius:100px}
-.scoretop .biz{font-weight:800;font-size:1.35rem;letter-spacing:-.01em}
+.scoretop .biz{font-weight:800;font-size:1.4rem;letter-spacing:-.01em}
 .scoretop .loc{color:var(--navy-60);font-weight:600;font-size:.94rem;margin-top:2px}
 .scoretop .verdict{margin-top:12px;font-size:1.02rem;max-width:520px}
-@media(max-width:820px){.scoretop .verdict{margin-left:auto;margin-right:auto}}
+@media(max-width:860px){.scoretop .verdict{margin-left:auto;margin-right:auto}}
 .scoretop .lost{flex:none;text-align:center;border:1.5px solid rgba(228,87,46,.3);background:rgba(228,87,46,.06);border-radius:16px;padding:16px 20px}
 .scoretop .lost .k{font-size:.64rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#C2410C}
 .scoretop .lost .v{font-size:1.7rem;font-weight:800;color:#E4572E;line-height:1.1;margin:4px 0}
 .scoretop .lost .s{font-size:.74rem;color:var(--navy-60);font-weight:600}
 
-/* Offer / Pitch mit Verknappung (direkt unter Score) */
-.offer{margin-top:22px;background:var(--grad-cobalt-metallic);border-radius:var(--radius-card);color:#fff;overflow:hidden;display:grid;grid-template-columns:1.1fr .9fr}
-@media(max-width:820px){.offer{grid-template-columns:1fr}}
-.offer-l{padding:38px 36px}
-.offer .scar{display:inline-flex;align-items:center;gap:8px;font-size:.74rem;font-weight:800;background:#E4572E;color:#fff;padding:6px 13px;border-radius:100px;text-transform:uppercase;letter-spacing:.04em}
-.offer h2{color:#fff;margin:16px 0 6px;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.12}
-.offer h2 em{font-style:normal;color:var(--champagne)}
-.offer .ol{list-style:none;margin:18px 0 0;display:flex;flex-direction:column;gap:12px}
-.offer .ol li{display:flex;gap:11px;color:rgba(255,255,255,.9);font-size:.98rem}
-.offer .ol li .ck{width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.18);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none;font-size:13px}
-.offer .oact{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:26px}
-.offer .oact img{height:44px}
-.offer-r{background:rgba(255,255,255,.08);padding:34px 30px;border-left:1px solid rgba(255,255,255,.14)}
-@media(max-width:820px){.offer-r{border-left:none;border-top:1px solid rgba(255,255,255,.14)}}
+/* Offer / Pitch (solid cobalt, EIN Champagne-Textverlauf) */
+.offer{margin-top:22px;background:var(--cobalt);border-radius:var(--radius-card);color:#fff;overflow:hidden;display:grid;grid-template-columns:1.1fr .9fr}
+@media(max-width:860px){.offer{grid-template-columns:1fr}}
+.offer-l{padding:40px 38px}
+.offer .scar{display:inline-flex;align-items:center;gap:8px;font-size:.74rem;font-weight:800;background:#E4572E;color:#fff;padding:7px 14px;border-radius:100px;text-transform:uppercase;letter-spacing:.04em}
+.offer h2{color:#fff;margin:18px 0 6px;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.1;font-weight:800}
+.offer .ol{list-style:none;margin:20px 0 0;display:flex;flex-direction:column;gap:13px}
+.offer .ol li{display:flex;gap:12px;color:rgba(255,255,255,.92);font-size:1rem}
+.offer .ol li .ck{width:24px;height:24px;border-radius:50%;background:var(--champagne);color:var(--navy);font-weight:800;display:flex;align-items:center;justify-content:center;flex:none;font-size:13px}
+.offer .oact{margin-top:28px}
+.offer-r{background:#173F94;padding:36px 32px;display:flex;flex-direction:column;justify-content:center}
 .offer-r .rk{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--champagne)}
-.offer-r h4{color:#fff;font-size:1.05rem;margin:6px 0 16px}
-.offer-r ul{list-style:none;display:flex;flex-direction:column;gap:13px}
-.offer-r li{display:flex;gap:10px;color:rgba(255,255,255,.88);font-size:.9rem;align-items:flex-start}
-.offer-r li .n{width:22px;height:22px;border-radius:6px;background:var(--champagne);color:var(--navy);font-weight:800;font-size:.72rem;display:flex;align-items:center;justify-content:center;flex:none}
+.offer-r h4{color:#fff;font-size:1.1rem;margin:8px 0 20px;line-height:1.3}
+.offer-r ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+.offer-r li{display:flex;gap:12px;color:rgba(255,255,255,.9);font-size:.92rem;align-items:flex-start;line-height:1.4}
+.offer-r li .n{width:26px;height:26px;border-radius:8px;background:rgba(255,255,255,.14);color:#fff;font-weight:800;font-size:.8rem;display:flex;align-items:center;justify-content:center;flex:none}
 
-/* Abschnitts-Baender */
-.band{background:var(--offwhite);border-radius:28px;padding:44px 0;margin-top:56px}
-.band .wrap{max-width:1080px}
+/* Sektionen */
+.sec{padding:52px 0 0}
 .sec-title{margin:0 0 8px;text-align:center}
 .sec-sub{text-align:center;color:var(--navy-60);max-width:600px;margin:0 auto 30px}
 
-/* Metriken */
-.metric{padding:22px 26px;margin-bottom:16px;display:grid;grid-template-columns:1fr auto;gap:10px 20px;align-items:center;border-left:4px solid var(--navy-12)}
+/* Ranking-Liste */
+.rankbox{border-radius:var(--radius-card);overflow:hidden;box-shadow:0 16px 44px rgba(20,22,58,.08)}
+.rank-row{display:flex;align-items:center;gap:16px;padding:16px 22px;background:#fff;border-bottom:1px solid var(--navy-06)}
+.rank-row:last-child{border-bottom:none}
+.rank-row .pos{font-weight:800;font-size:1.05rem;color:var(--navy-40);width:44px;flex:none}
+.rank-row .nm{font-weight:800;flex:1}
+.rank-row .nm small{display:block;font-weight:600;font-size:.8rem;color:var(--navy-40)}
+.rank-row .rv{font-weight:800;color:#E9A93B;white-space:nowrap}
+.rank-row.top1{background:rgba(233,169,59,.06)}
+.rank-row.you{background:rgba(228,87,46,.07);border-left:4px solid #E4572E}
+.rank-row.you .pos{color:#E4572E}
+.rank-row .youtag{background:#E4572E;color:#fff;font-size:.66rem;font-weight:800;padding:3px 10px;border-radius:100px}
+.rank-row .dom{background:var(--navy);color:var(--champagne);font-size:.66rem;font-weight:800;padding:3px 10px;border-radius:100px}
+.rank-sep{text-align:center;color:var(--navy-40);font-weight:800;padding:8px;background:#fff;border-bottom:1px solid var(--navy-06)}
+
+/* Metriken (helle Sektion, weisse Karten die auffallen) */
+.metricsec{background:var(--offwhite);border-radius:32px;padding:46px 0;margin-top:52px}
+.metric{padding:22px 26px;margin-bottom:16px;display:grid;grid-template-columns:1fr auto;gap:10px 20px;align-items:center;border-left:4px solid var(--navy-12);box-shadow:0 12px 34px rgba(20,22,58,.07)}
 .metric.gap{border-left-color:#E4572E}
 .metric.ok{border-left-color:var(--mint)}
 .metric .mname{font-weight:800;font-size:1.05rem}
@@ -141,7 +159,7 @@ header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.88);backdro
 .badge.gap{background:rgba(228,87,46,.12);color:#C2410C}
 .badge.ok{background:rgba(62,207,151,.16);color:#1c8f63}
 .cmp{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px}
-.cmp>div{padding:14px 16px;border-radius:12px;background:#fff;border:1px solid var(--navy-06)}
+.cmp>div{padding:14px 16px;border-radius:12px;background:var(--offwhite);border:1px solid var(--navy-06)}
 .metric.gap .cmp .you{background:rgba(228,87,46,.06);border-color:rgba(228,87,46,.22)}
 .metric.ok .cmp .you{background:rgba(62,207,151,.08);border-color:rgba(62,207,151,.25)}
 .cmp .who{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--navy-40)}
@@ -150,56 +168,55 @@ header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.88);backdro
 .cmp .you.good .figure{color:#1c8f63}
 .cmp .them .figure{color:var(--cobalt)}
 
-/* Konkurrenten */
+/* Potenzial (weisse Karten, dezente Farbe) */
+.pot{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center;max-width:900px;margin:0 auto}
+@media(max-width:720px){.pot{grid-template-columns:1fr;gap:14px}.pot .arrow{transform:rotate(90deg);margin:0 auto}}
+.pot .pc{padding:28px 30px;border-radius:20px;background:#fff;box-shadow:0 14px 40px rgba(20,22,58,.07)}
+.pot .now{border-top:4px solid #E4572E}
+.pot .fut{border-top:4px solid var(--mint)}
+.pot .pk{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.pot .now .pk{color:#C2410C}.pot .fut .pk{color:#1c8f63}
+.pot .prow{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-top:1px solid var(--navy-06);font-size:.9rem;color:var(--navy-60);font-weight:600}
+.pot .prow:nth-of-type(1){border-top:none}
+.pot .prow b{font-size:1.15rem;color:var(--navy)}
+.pot .now .prow b.hl{color:#E4572E}.pot .fut .prow b.hl{color:#1c8f63}
+.pot .arrow{width:46px;height:46px;border-radius:50%;background:var(--cobalt);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;flex:none}
+
+/* Konkurrenten (pro Rang umrahmt) */
 .comp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 @media(max-width:820px){.comp-grid{grid-template-columns:1fr}}
-.comp{padding:24px;position:relative;overflow:hidden}
-.comp::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad-cobalt-metallic)}
-.comp .rank{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--champagne);background:var(--navy);display:inline-block;padding:5px 12px;border-radius:6px}
+.comp{padding:24px;border:2px solid var(--navy-06);box-shadow:0 12px 34px rgba(20,22,58,.06)}
+.comp.r1{border-color:rgba(233,169,59,.55)}
+.comp.r2{border-color:rgba(111,168,245,.5)}
+.comp.r3{border-color:rgba(196,142,90,.45)}
+.comp .rank{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#fff;display:inline-block;padding:5px 12px;border-radius:6px}
+.comp.r1 .rank{background:#C9962B}.comp.r2 .rank{background:#5C86C9}.comp.r3 .rank{background:#A97B4E}
 .comp h3{margin:14px 0 4px;font-size:1.12rem}
 .comp .stars{color:#E9A93B;font-weight:800}
 .comp ul{list-style:none;margin-top:14px;font-size:.9rem}
 .comp li{display:flex;gap:8px;padding:5px 0;color:var(--navy-60)}
 .comp li .x{color:var(--mint);font-weight:800}
 
-/* Potenzialanalyse */
-.pot{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center;max-width:900px;margin:0 auto}
-@media(max-width:720px){.pot{grid-template-columns:1fr;gap:14px}.pot .arrow{transform:rotate(90deg);margin:0 auto}}
-.pot .pc{padding:28px 30px;border-radius:20px}
-.pot .now{background:rgba(228,87,46,.06);border:1.5px solid rgba(228,87,46,.2)}
-.pot .fut{background:rgba(62,207,151,.08);border:1.5px solid rgba(62,207,151,.28)}
-.pot .pk{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
-.pot .now .pk{color:#C2410C}.pot .fut .pk{color:#1c8f63}
-.pot .prow{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-top:1px solid var(--navy-06);font-size:.86rem;color:var(--navy-60);font-weight:600}
-.pot .prow:first-of-type{border-top:none}
-.pot .prow b{font-size:1.15rem}
-.pot .now .prow b{color:#E4572E}.pot .fut .prow b{color:#1c8f63}
-.pot .arrow{width:46px;height:46px;border-radius:50%;background:var(--grad-cobalt-metallic);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;flex:none}
-
 /* Trust */
 .trustsec{text-align:center;padding:52px 0 0}
-.trust-count{font-weight:800;font-size:1.05rem;margin:12px 0 4px}
-.trust-sub{color:var(--navy-40);font-size:.88rem}
-.logos{display:grid;grid-template-columns:repeat(4,1fr);gap:26px 34px;align-items:center;max-width:820px;margin:30px auto 0}
-@media(max-width:640px){.logos{grid-template-columns:repeat(3,1fr)}}
-.logos img{max-height:34px;width:auto;margin:0 auto;filter:grayscale(1);opacity:.62;transition:.2s}
-.logos img:hover{filter:none;opacity:1}
-.badges{display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:34px}
-.badges img{height:60px;width:auto}
-.grating{display:inline-flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--navy-06);box-shadow:0 8px 24px rgba(20,22,58,.06);border-radius:14px;padding:12px 18px;font-weight:700}
-.grating .st{color:#E9A93B;font-weight:800}
-.grating .g{font-weight:800}
+.trust-count{font-weight:800;font-size:1.1rem;margin:12px 0 4px}
+.trust-sub{color:var(--navy-40);font-size:.9rem}
+.tbadges{display:flex;gap:18px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:26px}
+.tbadges img{height:62px;width:auto}
+.grating{display:inline-flex;align-items:center;gap:11px;background:#fff;border:1px solid var(--navy-06);box-shadow:0 10px 28px rgba(20,22,58,.08);border-radius:14px;padding:12px 18px;font-weight:700}
+.grating .st{color:#E9A93B;font-weight:800;letter-spacing:1px}
+.grating svg{width:22px;height:22px;flex:none}
 
-/* Roadmap (naechste Schritte) */
+/* Roadmap */
 .roadmap{padding:56px 0 0}
 .rm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
-@media(max-width:820px){.rm-grid{grid-template-columns:1fr}}
-.rm{padding:26px;position:relative}
-.rm.active{border:2px solid var(--cobalt);box-shadow:0 20px 50px rgba(30,79,186,.15)}
-.rm .top{height:4px;border-radius:100px;margin:-26px -26px 20px;border-top-left-radius:var(--radius-card);border-top-right-radius:var(--radius-card)}
-.rm.done .top{background:var(--mint)}.rm.active .top{background:var(--grad-cobalt-metallic)}.rm.next .top{background:var(--navy-12)}
+@media(max-width:860px){.rm-grid{grid-template-columns:1fr}}
+.rm{padding:26px;position:relative;box-shadow:0 14px 40px rgba(20,22,58,.06)}
+.rm.active{border:2px solid var(--cobalt);box-shadow:0 24px 55px rgba(30,79,186,.2)}
+.rm .top{height:4px;border-radius:100px;margin:-26px -26px 20px}
+.rm.done .top{background:var(--mint)}.rm.active .top{background:var(--cobalt)}.rm.next .top{background:var(--navy-12)}
 .rm .n{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.15rem}
-.rm.done .n{background:rgba(62,207,151,.15);color:#1c8f63}.rm.active .n{background:var(--grad-cobalt-metallic);color:#fff}.rm.next .n{background:var(--navy-06);color:var(--navy-40)}
+.rm.done .n{background:rgba(62,207,151,.15);color:#1c8f63}.rm.active .n{background:var(--cobalt);color:#fff}.rm.next .n{background:var(--navy-06);color:var(--navy-40)}
 .rm .k{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--navy-40);margin:16px 0 6px}
 .rm h3{font-size:1.15rem;margin-bottom:8px}
 .rm p{color:var(--navy-60);font-size:.94rem}
@@ -207,25 +224,30 @@ header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.88);backdro
 .rm .done-lbl{display:inline-flex;align-items:center;gap:7px;color:#1c8f63;font-weight:800;font-size:.88rem;margin-top:16px}
 .rm .microcopy{text-align:center;font-size:.78rem;color:var(--navy-40);margin-top:12px}
 
-.restart{display:block;margin:44px auto 0;color:var(--navy-40);font-size:.85rem;background:none;border:none;text-decoration:underline;cursor:pointer}
 .errbox{max-width:600px;margin:20px auto 0;padding:16px 20px;border-radius:12px;background:rgba(228,87,46,.1);color:#C2410C;font-weight:600;display:none}
-footer{padding:30px 0 40px;text-align:center;color:var(--navy-40);font-size:.82rem;border-top:1px solid var(--navy-06);margin-top:56px}
+footer{background:var(--navy);color:rgba(255,255,255,.7);margin-top:64px;padding:44px 0 34px}
+footer .fgrid{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer .flogo{height:26px}
+footer .flinks{display:flex;gap:26px;flex-wrap:wrap}
+footer a{color:rgba(255,255,255,.75);font-weight:600;font-size:.9rem}
+footer a:hover{color:var(--champagne)}
+footer .cpy{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);font-size:.82rem;color:rgba(255,255,255,.5)}
 </style>
 </head>
 <body>
 <header><div class="wrap hd">
   <img class="logo" src="assets/logo/lockup_horizontal_schwarz.webp" alt="ochsocial">
-  <div class="pill">Sichtbarkeits-Report f&#252;r SHK</div>
 </div></header>
 
 <!-- ================= SCREEN 1 ================= -->
 <section class="screen active" id="s1">
   <div class="wrap hero">
-    <div class="eyebrow">Kostenloser Konkurrenz-Check &#183; Sanit&#228;r &#183; Heizung &#183; Klima</div>
-    <h1 class="display-m" style="margin-top:16px">Wie sichtbar ist dein Betrieb<br>im Vergleich zur Konkurrenz?</h1>
+    <div class="eyebrow">Konkurrenz-Check &#183; Sanit&#228;r &#183; Heizung &#183; Klima-Betriebe</div>
+    <h1>Wie sichtbar ist dein Betrieb im <span class="gcob">Vergleich</span> zur Konkurrenz?</h1>
     <p class="lead">Finde in 30 Sekunden heraus, ob dein SHK-Betrieb online f&#252;r deine Kunden sichtbar ist oder nur deine Konkurrenz gefunden wird.</p>
 
-    <div class="card inputcard">
+    <div class="inputbox">
+      <div class="ib-h"><span class="b">&#10003;</span> Kostenloser Sichtbarkeits-Check in 30 Sekunden</div>
       <label>Deine Website</label>
       <input id="inpUrl" type="text" placeholder="z. B. mein-betrieb.de">
       <label style="margin-top:18px">Postleitzahl deines Standorts</label>
@@ -246,18 +268,22 @@ footer{padding:30px 0 40px;text-align:center;color:var(--navy-40);font-size:.82r
       <div class="pv-mock">
         <div class="pv-bar"><span></span><span></span><span></span></div>
         <div class="pv-body">
+          <div class="pv-eyebrow">&#9679; Dein Sichtbarkeits-Report</div>
           <div class="pv-head">
-            <div><div class="pv-eyebrow">Sichtbarkeits-Report</div><div class="pv-biz">Sanit&#228;r Berger GmbH &#183; Karlsruhe</div></div>
-            <div class="pv-score"><b>34</b><small>/100</small></div>
+            <div><div class="pv-biz">Sanit&#228;r Berger GmbH</div><div class="pv-loc">Sanit&#228;r &#183; Heizung &#183; Klima &#183; Karlsruhe</div></div>
+            <div class="pv-gauge">
+              <svg width="64" height="64" style="transform:rotate(-90deg)"><circle cx="32" cy="32" r="27" stroke="#eef0f5" stroke-width="7" fill="none"/><circle cx="32" cy="32" r="27" stroke="#E4572E" stroke-width="7" fill="none" stroke-linecap="round" stroke-dasharray="170" stroke-dashoffset="112"/></svg>
+              <b>34</b>
+            </div>
           </div>
-          <div class="pv-metric"><div class="pv-mrow"><span>Lokale Suchplatzierung</span><span class="pv-tag red">R&#252;ckstand</span></div><div class="pv-cmp"><div>Du<b class="red">Platz 41</b></div><div>Top 3<b class="blue">bekommen Anfragen</b></div></div></div>
-          <div class="pv-metric"><div class="pv-mrow"><span>Google-Bewertungen</span><span class="pv-tag red">R&#252;ckstand</span></div><div class="pv-cmp"><div>Du<b class="red">28</b></div><div>Top 3<b class="blue">210</b></div></div></div>
+          <div class="pv-metric"><div class="pv-mrow"><span>Lokale Suchplatzierung</span><span class="pv-tag red">R&#252;ckstand</span></div><div class="pv-cmp"><div>Du<b class="red">Platz 41</b></div><div>Top 3<b class="blue">Anfragen</b></div></div></div>
+          <div class="pv-metric"><div class="pv-mrow"><span>Google-Bewertungen</span><span class="pv-tag red">R&#252;ckstand</span></div><div class="pv-cmp"><div>Du<b class="red">28 Bew.</b></div><div>Top 3<b class="blue">210 Bew.</b></div></div></div>
           <div class="pv-metric"><div class="pv-mrow"><span>Online-Terminbuchung</span><span class="pv-tag red">Fehlt</span></div></div>
         </div>
       </div>
       <div class="pv-copy">
         <div class="eyebrow">Das zeigt dir dein Report</div>
-        <h2 class="display-s" style="margin:12px 0 4px">Schwarz auf wei&#223;, wo du Auftr&#228;ge an die Konkurrenz verlierst.</h2>
+        <h2>Schwarz auf wei&#223;, wo du Auftr&#228;ge an die Konkurrenz verlierst.</h2>
         <ul class="pv-list">
           <li><span class="b">&#10003;</span><div><b>Deine Platzierung in der lokalen Suche</b><span class="t">Wer in deiner Region ganz oben steht und die Anfragen abbekommt.</span></div></li>
           <li><span class="b">&#10003;</span><div><b>Google-Bewertungen im Direktvergleich</b><span class="t">Wie deine Sterne und Anzahl gegen die Top 3 deiner Region stehen.</span></div></li>
@@ -276,9 +302,7 @@ footer{padding:30px 0 40px;text-align:center;color:var(--navy-40);font-size:.82r
     <h2 class="display-s" style="margin-top:12px">Analysiere <span id="anaDomain" style="color:var(--cobalt)">deine Website</span></h2>
     <p style="color:var(--navy-60);margin-top:8px">Schau dir das kurze Video an, w&#228;hrend wir deinen Betrieb mit den st&#228;rksten Wettbewerbern in deiner Region abgleichen.</p>
 
-    <div class="videowrap" id="videowrap">
-      <div class="videoph" id="videoph">Video wird geladen&#8230;</div>
-    </div>
+    <div class="videowrap" id="videowrap"><div class="videoph">Video wird geladen&#8230;</div></div>
 
     <div class="counters">
       <div class="card counter"><div class="num" id="c1">0</div><div class="lbl">Konkurrenten gepr&#252;ft</div></div>
@@ -320,19 +344,16 @@ footer{padding:30px 0 40px;text-align:center;color:var(--navy-40);font-size:.82r
       </div>
     </div>
 
-    <!-- Pitch mit Verknappung, direkt unter dem Ergebnis -->
     <div class="offer">
       <div class="offer-l">
         <span class="scar">&#128293; Nur 3 Pl&#228;tze diese Woche</span>
-        <h2>Wir holen dir die <em>Sichtbarkeit</em> zur&#252;ck. Kostenloser Fahrplan.</h2>
+        <h2>Wir holen dir die <span class="gchamp">Sichtbarkeit</span> zur&#252;ck. Kostenloser Fahrplan.</h2>
         <ul class="ol">
           <li><span class="ck">&#10003;</span> Konkreter Plan, wie du an die Top 3 deiner Region rankommst</li>
           <li><span class="ck">&#10003;</span> Mehr Google-Bewertungen &amp; lokale Sichtbarkeit, systematisch aufgebaut</li>
           <li><span class="ck">&#10003;</span> Eine Website, die aus Besuchern echte Anfragen macht</li>
         </ul>
-        <div class="oact">
-          <a class="btn btn-champagne" href="#" id="ctaMain">Jetzt Strategiegespr&#228;ch sichern &#8594;</a>
-        </div>
+        <div class="oact"><a class="btn btn-champagne" href="#" id="ctaMain">Jetzt Strategiegespr&#228;ch sichern &#8594;</a></div>
       </div>
       <div class="offer-r">
         <div class="rk">Das bekommst du im Gespr&#228;ch</div>
@@ -345,53 +366,53 @@ footer{padding:30px 0 40px;text-align:center;color:var(--navy-40);font-size:.82r
       </div>
     </div>
 
+    <!-- Ranking-Liste -->
+    <div class="sec">
+      <h2 class="display-s sec-title">Wer in deiner Region die Anfragen bekommt</h2>
+      <p class="sec-sub">Deine Platzierung unter allen SHK-Betrieben im 30-km-Umkreis, live aus Google.</p>
+      <div class="rankbox card" id="rankBox"></div>
+    </div>
+
     <!-- Metriken -->
-    <div class="band"><div class="wrap">
+    <div class="metricsec"><div class="wrap">
       <h2 class="display-s sec-title">Wo deine Wettbewerber dir Kunden wegnehmen</h2>
       <p class="sec-sub">Dein Betrieb im direkten Vergleich zum Durchschnitt der Top 3 in deiner Region.</p>
       <div id="metricList"></div>
     </div></div>
 
-    <!-- Potenzialanalyse -->
-    <div class="band"><div class="wrap">
+    <!-- Potenzial -->
+    <div class="sec">
       <h2 class="display-s sec-title">So holst du dir den Markt zur&#252;ck</h2>
       <p class="sec-sub">Realistisch erreichbar in 3 bis 6 Monaten, wenn du die L&#252;cken schlie&#223;t.</p>
       <div class="pot" id="potBox"></div>
-    </div></div>
+    </div>
 
     <!-- Konkurrenten -->
-    <div class="wrap" style="margin-top:56px">
+    <div class="sec">
       <h2 class="display-s sec-title">Deine Top 3 Wettbewerber im Umkreis</h2>
       <p class="sec-sub">Automatisch nach Bewertung und Sichtbarkeit im 30-km-Umkreis ermittelt.</p>
       <div class="comp-grid" id="compGrid"></div>
     </div>
 
     <!-- Trust -->
-    <div class="wrap trustsec">
+    <div class="trustsec">
       <div class="trust-count">&#220;ber 420+ Betriebe erfolgreich sichtbarer gemacht</div>
       <div class="trust-sub">Betreut &amp; skaliert von ochsocial</div>
-      <div class="logos">
-        <img src="assets/logos/l_edeka.webp" alt="">
-        <img src="assets/logos/l_bondbeyond.png" alt="">
-        <img src="assets/logos/l_fachdienst.png" alt="">
-        <img src="assets/logos/l_jetzt_performance.webp" alt="">
-        <img src="assets/logos/l_profireha.png" alt="">
-        <img src="assets/logos/l_lilliancare.png" alt="">
-        <img src="assets/logos/n_coachingfellows.webp" alt="">
-        <img src="assets/logos/n_delviento.webp" alt="">
-      </div>
-      <div class="badges">
+      <div class="tbadges">
         <img src="assets/badges/badge_t_meta_business_partner_trim.webp" alt="Meta Business Partner">
         <img src="assets/badges/badge_t_meta_certified_trim.webp" alt="Meta Certified">
         <img src="assets/badges/badge_t_funnelcockpit_trim.webp" alt="FunnelCockpit">
-        <span class="grating"><span class="g" style="color:#4285F4">G</span><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 4,9 &#183; 41 Bewertungen</span>
+        <span class="grating">
+          <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.3 9.14 5.38 12 5.38z"/></svg>
+          <span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 4,9 &#183; Top bewertet
+        </span>
       </div>
     </div>
 
-    <!-- Roadmap: n&#228;chste Schritte -->
-    <div class="wrap roadmap">
-      <div class="eyebrow" style="justify-content:center">Deine Roadmap</div>
-      <h2 class="display-s sec-title" style="margin-top:10px">Deine n&#228;chsten Schritte zu mehr Sichtbarkeit.</h2>
+    <!-- Roadmap -->
+    <div class="roadmap">
+      <div class="eyecenter"><span class="eyebrow">Deine Roadmap</span></div>
+      <h2 class="display-s sec-title" style="margin-top:12px">Deine n&#228;chsten Schritte zu mehr Sichtbarkeit.</h2>
       <p class="sec-sub">Du hast Schritt 1 abgeschlossen. So geht es weiter, wir nehmen dir die Umsetzung komplett ab.</p>
       <div class="rm-grid">
         <div class="card rm done"><div class="top"></div>
@@ -418,38 +439,44 @@ footer{padding:30px 0 40px;text-align:center;color:var(--navy-40);font-size:.82r
         </div>
       </div>
     </div>
-
-    <button class="restart" onclick="reset()">&#8592; Andere Website pr&#252;fen</button>
   </div>
 
-  <footer><div class="wrap">&#169; ochsocial Ltd. &#183; Sichtbarkeits-Report f&#252;r SHK-Betriebe</div></footer>
+  <footer><div class="wrap">
+    <div class="fgrid">
+      <img class="flogo" src="assets/logo/lockup_horizontal_weiss.webp" alt="ochsocial">
+      <div class="flinks">
+        <a href="/impressum">Impressum</a>
+        <a href="/datenschutz">Datenschutz</a>
+        <a href="/kontakt">Kontakt</a>
+      </div>
+    </div>
+    <div class="cpy">&#169; ochsocial Ltd. &#183; Sichtbarkeits-Report f&#252;r SHK-Betriebe. Alle Analysen basieren auf &#246;ffentlich verf&#252;gbaren Daten (Google, Website).</div>
+  </div></footer>
 </section>
 
 <script src="https://player.vimeo.com/api/player.js"></script>
 <script>
 const ENDPOINT = "/.netlify/functions/shk-analyze";
-// Vimeo-ID des SHK-Videos hier eintragen (Video ~70s). Leer = Platzhalter + Timer.
-const VIMEO_ID = "";
-const VIDEO_SECONDS = 72;   // Analyse dauert exakt so lange wie das Video
+const VIMEO_ID = "";      // Vimeo-ID des SHK-Videos hier eintragen
+const VIDEO_SECONDS = 72;
 
 const $=id=>document.getElementById(id);
 function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));$(id).classList.add('active');window.scrollTo(0,0);}
 function focusInput(){$('inpUrl').scrollIntoView({behavior:'smooth',block:'center'});$('inpUrl').focus();}
-function animateCounter(el,to,dur){let t0=performance.now();(function tick(t){let p=Math.min((t-t0)/dur,1);el.textContent=Math.floor(p*to);if(p<1)requestAnimationFrame(tick);})(performance.now());}
+function animateCounter(el,to,dur){el.textContent=to;let t0=performance.now();(function tick(t){let p=Math.min((t-t0)/dur,1);el.textContent=Math.floor(p*to);if(p<1)requestAnimationFrame(tick);else el.textContent=to;})(performance.now());}
 function scoreColor(s){ if(s<=50)return '#E4572E'; if(s<=65)return '#F5811E'; if(s<=90)return '#E7B008'; return '#22B07D'; }
 function scoreLabel(s){ if(s<=50)return 'Kritisch'; if(s<=65)return 'Ausbauf\u00e4hig'; if(s<=90)return 'Gut'; return 'Stark'; }
 function lostRange(s){ if(s<=50)return '10-20'; if(s<=65)return '6-12'; if(s<=90)return '2-6'; return '0-2'; }
+function parseNum(s){const m=(s||'').replace(/\./g,'').match(/\d+/);return m?parseInt(m[0]):null;}
 
 let dataPromise=null, transitioned=false, player=null;
 
 function initVideo(){
   const wrap=$('videowrap');
   if(VIMEO_ID){
-    wrap.innerHTML='<iframe id="vplayer" src="https://player.vimeo.com/video/'+VIMEO_ID+'?autoplay=1&muted=1&title=0&byline=0&portrait=0&pip=0&transparent=0" allow="autoplay; fullscreen"></iframe>';
+    wrap.innerHTML='<iframe id="vplayer" src="https://player.vimeo.com/video/'+VIMEO_ID+'?autoplay=1&muted=1&title=0&byline=0&portrait=0&pip=0" allow="autoplay; fullscreen"></iframe>';
     try{ player=new Vimeo.Player('vplayer'); player.on('ended',finish); }catch(e){}
-  }else{
-    wrap.innerHTML='<div class="videoph">\u25b6 Video (Vimeo-ID wird eingesetzt)</div>';
-  }
+  }else{ wrap.innerHTML='<div class="videoph">\u25b6 Video (Vimeo-ID wird eingesetzt)</div>'; }
 }
 
 async function startAnalyse(){
@@ -471,7 +498,7 @@ async function startAnalyse(){
   dataPromise=fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url,plz})})
     .then(r=>{if(!r.ok)throw new Error('bad');return r.json();}).catch(()=>DEMO);
 
-  setTimeout(finish,ms);   // Fallback: nach Videol\u00e4nge auf jeden Fall zeigen
+  setTimeout(finish,ms);
 }
 function showErr(m){$('err').textContent=m;$('err').style.display='block';}
 
@@ -481,8 +508,6 @@ async function finish(){
   const d=await (dataPromise||Promise.resolve(DEMO));
   renderResults(d||DEMO);
 }
-
-function parseNum(s){const m=(s||'').replace(/\./g,'').match(/\d+/);return m?parseInt(m[0]):null;}
 
 function renderResults(d){
   const col=scoreColor(d.score);
@@ -494,7 +519,7 @@ function renderResults(d){
   $('lostVal').textContent=lostRange(d.score);
   if(d.cta){$('ctaMain').href=d.cta;$('ctaRoad').href=d.cta;}
 
-  // Metriken (getrennte Karten, farbcodiert)
+  // Metriken
   $('metricList').innerHTML=d.metrics.map(m=>`
     <div class="card metric ${m.status}">
       <div class="mname">${m.name}</div>
@@ -505,32 +530,42 @@ function renderResults(d){
       </div>
     </div>`).join('');
 
+  // Ranking-Liste (#1-#3 + DU an echter Position)
+  const mRank=d.metrics.find(m=>/Platzierung/i.test(m.name));
+  const rank=mRank?parseNum(mRank.you):null;
+  const total=mRank?parseNum((mRank.you.match(/von\s*\d+/)||[''])[0]):null;
+  let rows='';
+  d.competitors.slice(0,3).forEach((c,i)=>{
+    rows+=`<div class="rank-row ${i===0?'top1':''}"><div class="pos">#${i+1}</div><div class="nm">${c.name}</div><div class="rv">${c.rating} \u2605 \u00b7 ${c.reviews}</div></div>`;
+  });
+  if(rank&&rank>4) rows+=`<div class="rank-sep">\u00b7 \u00b7 \u00b7</div>`;
+  rows+=`<div class="rank-row you"><div class="pos">#${rank||'?'}</div><div class="nm">${d.business.name} <span class="youtag">DU</span></div><div class="rv" style="color:#E4572E">${total?('von '+total):''}</div></div>`;
+  $('rankBox').innerHTML=rows;
+
   // Konkurrenten
   $('compGrid').innerHTML=d.competitors.map((c,i)=>`
-    <div class="card comp"><span class="rank">Platz ${i+1}</span><h3>${c.name}</h3>
+    <div class="card comp r${i+1}"><span class="rank">Platz ${i+1}</span><h3>${c.name}</h3>
       <div class="stars">${c.rating} \u2605 \u00b7 ${c.reviews} Bewertungen</div>
       <ul>${c.points.map(p=>`<li><span class="x">\u2713</span> ${p}</li>`).join('')}</ul></div>`).join('');
 
-  // Potenzialanalyse aus den Metrikwerten ableiten
-  const mRank=d.metrics.find(m=>/Platzierung/i.test(m.name));
+  // Potenzial
   const mRev=d.metrics.find(m=>/Bewertung/i.test(m.name));
-  const rank=mRank?parseNum(mRank.you):null, total=mRank?parseNum((mRank.you.match(/von\s*\d+/)||[''])[0]):null;
   const revYou=mRev?parseNum(mRev.you):null, revThem=mRev?parseNum(mRev.them):null;
   const futRank=total?Math.max(1,Math.min(3,Math.round(total*0.05))):3;
   const futRev=revThem||((revYou||20)*4);
   $('potBox').innerHTML=`
     <div class="pc now">
       <div class="pk">Stand jetzt</div>
-      <div class="prow"><span>Lokale Platzierung</span><b>${rank?('Platz '+rank):'weit hinten'}</b></div>
+      <div class="prow"><span>Lokale Platzierung</span><b class="hl">${rank?('Platz '+rank):'weit hinten'}</b></div>
       <div class="prow"><span>Google-Bewertungen</span><b>${revYou!=null?revYou:'wenige'}</b></div>
-      <div class="prow"><span>Anfragen / Monat</span><b>-${lostRange(d.score)}</b></div>
+      <div class="prow"><span>Anfragen / Monat</span><b class="hl">-${lostRange(d.score)}</b></div>
     </div>
     <div class="arrow">\u2192</div>
     <div class="pc fut">
       <div class="pk">In 3-6 Monaten</div>
-      <div class="prow"><span>Lokale Platzierung</span><b>Top ${futRank}</b></div>
+      <div class="prow"><span>Lokale Platzierung</span><b class="hl">Top ${futRank}</b></div>
       <div class="prow"><span>Google-Bewertungen</span><b>${futRev}+</b></div>
-      <div class="prow"><span>Anfragen / Monat</span><b>+${lostRange(d.score)}</b></div>
+      <div class="prow"><span>Anfragen / Monat</span><b class="hl">+${lostRange(d.score)}</b></div>
     </div>`;
 
   show('s3');
@@ -541,9 +576,6 @@ function renderResults(d){
   setTimeout(()=>{arc.style.transition='stroke-dashoffset 1.4s ease';arc.style.strokeDashoffset=circ-(circ*d.score/100);},100);
 }
 
-function reset(){$('prog').style.width='0';document.querySelectorAll('.checkrow').forEach(r=>r.classList.remove('done'));const arc=$('gaugeArc');arc.style.transition='none';arc.style.strokeDashoffset=459;$('scoreNum').textContent='0';transitioned=false;show('s1');}
-
-// === Demo-Fallback (nur wenn Backend nicht antwortet) ===
 const DEMO={
   business:{name:"Sanit\u00e4r Berger GmbH",location:"Sanit\u00e4r \u00b7 Heizung \u00b7 Klima \u00b7 Karlsruhe"},
   score:34,
