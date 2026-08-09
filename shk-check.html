@@ -145,7 +145,9 @@ header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.9);backdrop
 /* Sektions-Baender (Hintergruende abwechseln) */
 .band{padding:52px 0}
 .band-soft{background:var(--offwhite)}
-.band-tint{background:#EEF3FF}
+.band-tint{background:var(--offwhite)}
+.eb-mob{display:none}
+@media(max-width:560px){.hero .eb-full{display:none}.hero .eb-mob{display:inline}}
 .band-white{background:#fff}
 .sec-title{margin:0 0 8px;text-align:center}
 .sec-sub{text-align:center;color:var(--navy-60);max-width:760px;margin:0 auto 30px}
@@ -256,7 +258,7 @@ footer .cpy{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,2
 <!-- ================= SCREEN 1 ================= -->
 <section class="screen active" id="s1">
   <div class="wrap hero">
-    <div class="eyebrow">Konkurrenz-Check &#183; Sanit&#228;r &#183; Heizung &#183; Klima-Betriebe</div>
+    <div class="eyebrow"><span class="eb-full">Konkurrenz-Check &#183; Sanit&#228;r &#183; Heizung &#183; Klima-Betriebe</span><span class="eb-mob">SHK-Betriebe</span></div>
     <h1>Wie sichtbar ist dein Betrieb im <span class="gcob">Vergleich</span> zur Konkurrenz?</h1>
     <p class="lead">Finde in 30 Sekunden heraus, ob dein SHK-Betrieb online f&#252;r deine Kunden sichtbar ist oder nur deine Konkurrenz gefunden wird.</p>
 
@@ -366,11 +368,11 @@ footer .cpy{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,2
         <span class="scar">&#128293; Nur 3 Pl&#228;tze diese Woche</span>
         <h2>Wir holen dir die <span class="gchamp">Sichtbarkeit</span> zur&#252;ck. Kostenloser Fahrplan.</h2>
         <ul class="ol">
+          <li><span class="ck">&#10003;</span> Werbeanzeigen-Setup f&#252;r Facebook &amp; Instagram, kostenlos</li>
+          <li><span class="ck">&#10003;</span> Konkrete Website-Verbesserungen, die du 1:1 einbaust</li>
           <li><span class="ck">&#10003;</span> Konkreter Plan zu den Top 3 deiner Region</li>
-          <li><span class="ck">&#10003;</span> Mehr Google-Bewertungen &amp; lokale Sichtbarkeit</li>
-          <li><span class="ck">&#10003;</span> Eine Website, die echte Anfragen bringt</li>
         </ul>
-        <div class="oact"><a class="btn btn-champagne" href="#" id="ctaMain">Jetzt sichern &#8594;</a></div>
+        <div class="oact"><a class="btn btn-champagne" href="#" id="ctaMain">Jetzt kostenfrei sichern &#8594;</a></div>
         <div class="ogr">
           <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.3 9.14 5.38 12 5.38z"/></svg>
           <span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 4,9 &#183; Top bewertet
@@ -481,13 +483,15 @@ footer .cpy{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,2
 .lm-benes li .c{color:#3ECF97;font-weight:800;flex:none}
 #shkLeadForm{display:flex;flex-direction:column;gap:12px}
 .lm-frow{display:flex;gap:12px}
-#shkLeadForm input{width:100%;font-family:inherit;font-size:1rem;padding:14px 16px;border-radius:12px;border:1.5px solid rgba(255,255,255,.28);background:rgba(255,255,255,.13);color:#fff}
+#shkLeadForm input:not([type=checkbox]){width:100%;font-family:inherit;font-size:1rem;padding:14px 16px;border-radius:12px;border:1.5px solid rgba(255,255,255,.28);background:rgba(255,255,255,.13);color:#fff}
 #shkLeadForm input::placeholder{color:rgba(255,255,255,.72)}
-#shkLeadForm input:focus{outline:none;border-color:#fff;background:rgba(255,255,255,.2)}
+#shkLeadForm input:not([type=checkbox]):focus{outline:none;border-color:#fff;background:rgba(255,255,255,.2)}
 .lm-phone{align-items:stretch}
 .lm-cc{display:flex;align-items:center;padding:0 14px;border-radius:12px;background:rgba(255,255,255,.13);border:1.5px solid rgba(255,255,255,.28);font-weight:700;font-size:.95rem;flex:none}
 .lm-consent{display:flex;gap:9px;align-items:flex-start;font-size:.8rem;color:rgba(255,255,255,.85);line-height:1.35;cursor:pointer}
-.lm-consent input{width:18px;height:18px;flex:none;margin-top:1px;accent-color:#3ECF97}
+#lmWerbung{-webkit-appearance:none;appearance:none;width:20px;height:20px;flex:none;margin-top:1px;border:2px solid rgba(255,255,255,.55);border-radius:6px;background:transparent;cursor:pointer;position:relative}
+#lmWerbung:checked{background:var(--champagne);border-color:var(--champagne)}
+#lmWerbung:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
 .lm-consent.err{color:#ffd5cf}
 #shkLeadForm .btn{width:100%;margin-top:4px;font-size:1.08rem;padding:16px}
 .lm-micro{text-align:center;font-size:.82rem;color:rgba(255,255,255,.75);font-weight:600}
@@ -516,10 +520,8 @@ footer .cpy{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,2
         <li><span class="c">&#10003;</span> Klarer Fahrplan f&#252;r die n&#228;chsten 3 Monate</li>
       </ul>
       <form id="shkLeadForm" novalidate>
-        <div class="lm-frow">
-          <input name="vorname" placeholder="Vorname" autocomplete="given-name" required>
-          <input name="nachname" placeholder="Nachname" autocomplete="family-name" required>
-        </div>
+        <input name="name" placeholder="Name" autocomplete="name" required>
+        <input name="betrieb" placeholder="Betrieb" autocomplete="organization" required>
         <input name="email" type="email" placeholder="E-Mail-Adresse" autocomplete="email" required>
         <div class="lm-frow lm-phone">
           <span class="lm-cc">&#127465;&#127466; +49</span>
@@ -660,8 +662,11 @@ function renderResults(d){
   $('lostVal').textContent=lostRange(d.score);
   window.__shkLead={domain:(($('inpUrl').value||'').replace(/^https?:\/\//,'').replace(/\/.*$/,'')),plz:($('inpPlz').value||''),score:d.score,sparten:d.business.sparten||'',betrieb:d.business.name||''};
 
-  // Metriken als 2-Spalten-Cards
-  $('metricList').innerHTML=d.metrics.map((m,i)=>`
+  // Metriken als 2-Spalten-Cards + fixe Meta-Ads-Karte (Werbeanzeigen der Konkurrenz)
+  const metaCard={name:"Meta-Werbeanzeigen (Facebook &amp; Instagram)",status:"gap",badge:"Gr\u00f6\u00dftes Potenzial",
+    you:"Ungenutzt",them:"Schaltet starke Anzeigen",themLabel:"Deine Konkurrenz"};
+  const allMetrics=[...d.metrics,metaCard];
+  $('metricList').innerHTML=allMetrics.map((m,i)=>`
     <div class="mcard ${m.status}">
       <div class="mk"><span class="idx">${String(i+1).padStart(2,'0')}</span><span class="badge ${m.status}">${m.status==='ok'?'\u2713 ':''}${m.badge}</span></div>
       <div class="mname2">${m.name}</div>
@@ -782,7 +787,7 @@ const DEMO={
 
   function initCalendly(){
     if(calInited)return;calInited=true;
-    const nm=((leadData.vorname||'')+' '+(leadData.nachname||'')).trim();
+    const nm=(leadData.name||'').trim();
     if(calFallback)calFallback.href=CALENDLY_URL+'?name='+encodeURIComponent(nm)+'&email='+encodeURIComponent(leadData.email||'');
     let tries=0;
     (function go(){tries++;
@@ -803,7 +808,7 @@ const DEMO={
     if(!form.checkValidity()){form.reportValidity();return;}
     const ctx=window.__shkLead||{};
     leadData={quelle:QUELLE,seite:'shk-check.html',zeitpunkt:new Date().toISOString(),tags:'shk-check',
-      domain:ctx.domain||'',plz:ctx.plz||'',score:ctx.score,sparten:ctx.sparten||'',betrieb:ctx.betrieb||'',utm:location.search||''};
+      domain:ctx.domain||'',plz:ctx.plz||'',score:ctx.score,sparten:ctx.sparten||'',betrieb_gefunden:ctx.betrieb||'',utm:location.search||''};
     form.querySelectorAll('input').forEach(el=>{if(el.name)leadData[el.name]=el.value;});
     sendLead('lead');
     track('Lead',{content_name:QUELLE});
