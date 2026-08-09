@@ -122,7 +122,10 @@ header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.9);backdrop
 .offer{margin-top:22px;background:var(--cobalt);border-radius:var(--radius-card);color:#fff;overflow:hidden;display:grid;grid-template-columns:1.1fr .9fr}
 @media(max-width:860px){.offer{grid-template-columns:1fr}}
 .offer-l{padding:40px 38px}
-.offer .scar{display:inline-flex;align-items:center;gap:8px;font-size:.74rem;font-weight:800;background:#D92D20;color:#fff;padding:7px 14px;border-radius:100px;text-transform:uppercase;letter-spacing:.04em}
+.offer .scar{display:inline-flex;align-items:center;gap:8px;font-size:.74rem;font-weight:800;background:#D92D20;color:#fff;padding:7px 14px;border-radius:100px;text-transform:uppercase;letter-spacing:.04em;animation:scarGlow 2s ease-in-out infinite}
+@keyframes scarGlow{0%,100%{box-shadow:0 0 0 0 rgba(217,45,32,.45)}50%{box-shadow:0 0 20px 3px rgba(217,45,32,.85)}}
+.live-dot{width:8px;height:8px;border-radius:50%;background:#fff;display:inline-block;flex:none;animation:liveDot 1.6s ease-out infinite}
+@keyframes liveDot{0%{box-shadow:0 0 0 0 rgba(255,255,255,.7)}70%{box-shadow:0 0 0 7px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
 .offer h2{color:#fff;margin:18px 0 6px;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.1;font-weight:800}
 .offer .ol{list-style:none;margin:20px 0 0;display:flex;flex-direction:column;gap:12px}
 .offer .ol li{display:flex;gap:12px;color:rgba(255,255,255,.92);font-size:1rem;white-space:nowrap}
@@ -365,7 +368,7 @@ footer .cpy{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,2
 
     <div class="offer">
       <div class="offer-l">
-        <span class="scar">&#128293; Nur 3 Pl&#228;tze diese Woche</span>
+        <span class="scar"><span class="live-dot"></span> Nur 3 Pl&#228;tze diese Woche</span>
         <h2>Wir holen dir die <span class="gchamp">Sichtbarkeit</span> zur&#252;ck. Kostenloser Fahrplan.</h2>
         <ul class="ol">
           <li><span class="ck">&#10003;</span> Werbeanzeigen-Setup f&#252;r Facebook &amp; Instagram, kostenlos</li>
@@ -381,12 +384,14 @@ footer .cpy{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,2
       </div>
       <div class="offer-r">
         <div class="rc">
-          <div class="rk">Das bekommst du im Gespr&#228;ch</div>
-          <h4>15 Minuten, 0 &#8364; &#8212; dein Sichtbarkeits-Fahrplan.</h4>
+          <div class="rk">Das bekommst du</div>
+          <h4>Dein Sichtbarkeits-Fahrplan, individuell f&#252;r deinen Betrieb.</h4>
           <ul>
             <li><span class="n">1</span> Deine 3 gr&#246;&#223;ten L&#252;cken, priorisiert nach Wirkung auf neue Anfragen.</li>
-            <li><span class="n">2</span> Was deine Top-3-Konkurrenten anders machen, konkret analysiert.</li>
-            <li><span class="n">3</span> Ein klarer Fahrplan f&#252;r die n&#228;chsten 3 Monate, umsetzbar ab Tag 1.</li>
+            <li><span class="n">2</span> Konkrete Analyse, was deine Top-3-Konkurrenten anders machen.</li>
+            <li><span class="n">3</span> Fertiger Setup-Plan f&#252;r Google- &amp; Meta-Werbeanzeigen.</li>
+            <li><span class="n">4</span> Website-Verbesserungen, die du 1:1 einbauen kannst.</li>
+            <li><span class="n">5</span> Klarer 3-Monats-Fahrplan, umsetzbar ab Tag 1.</li>
           </ul>
         </div>
       </div>
@@ -451,7 +456,7 @@ footer .cpy{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,2
         <div class="card rm active"><div class="top"></div>
           <div class="n">2</div><div class="k">Jetzt &#183; innerhalb 24 Stunden</div>
           <h3>Dein Sichtbarkeits-Fahrplan</h3>
-          <p>Im kostenlosen Gespr&#228;ch bekommst du den konkreten Plan, wie dein Betrieb an die Top 3 rankommt.</p>
+          <p>Du bekommst deinen konkreten Fahrplan, wie dein Betrieb an die Top 3 rankommt. 100 % kostenfrei.</p>
           <a class="btn btn-cobalt" href="#" id="ctaRoad">Schritt 2 jetzt starten &#8594;</a>
           <div class="microcopy">100 % kostenfrei &#183; kein Risiko &#183; unverbindlich</div>
         </div>
@@ -473,7 +478,7 @@ footer .cpy{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,2
 .lm-box.light{background:#fff;color:var(--navy);max-width:600px}
 .lm-x{position:absolute;top:15px;right:15px;width:34px;height:34px;border-radius:50%;border:none;background:rgba(255,255,255,.18);color:#fff;font-size:20px;cursor:pointer;line-height:1;display:flex;align-items:center;justify-content:center}
 .lm-box.light .lm-x{background:var(--offwhite);color:var(--navy)}
-.lm-scar{display:inline-flex;align-items:center;gap:7px;font-size:.72rem;font-weight:800;background:#D92D20;color:#fff;padding:6px 13px;border-radius:100px;text-transform:uppercase;letter-spacing:.04em}
+.lm-scar{display:inline-flex;align-items:center;gap:7px;font-size:.72rem;font-weight:800;background:#D92D20;color:#fff;padding:6px 13px;border-radius:100px;text-transform:uppercase;letter-spacing:.04em;animation:scarGlow 2s ease-in-out infinite}
 .lm-box h3{color:inherit;font-size:1.5rem;font-weight:800;line-height:1.15;margin:16px 0 6px}
 .lm-box h3 .hl{color:var(--champagne)}
 .lm-box p{color:rgba(255,255,255,.85);font-size:.94rem;margin:0}
@@ -511,7 +516,7 @@ footer .cpy{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,2
   <div class="lm-box" id="lmBox">
     <button class="lm-x" id="lmClose" aria-label="Schlie&#223;en">&#215;</button>
     <div id="lmStepForm">
-      <span class="lm-scar">&#128293; Nur 3 Pl&#228;tze diese Woche</span>
+      <span class="lm-scar"><span class="live-dot"></span> Nur 3 Pl&#228;tze diese Woche</span>
       <h3>Sichere dir deinen <span class="hl">Sichtbarkeits-Fahrplan</span>.</h3>
       <p>Trag dich kurz ein. Im kostenlosen 15-Minuten-Gespr&#228;ch bekommst du den konkreten Plan f&#252;r mehr Anfragen aus deiner Region.</p>
       <ul class="lm-benes">
@@ -663,9 +668,9 @@ function renderResults(d){
   window.__shkLead={domain:(($('inpUrl').value||'').replace(/^https?:\/\//,'').replace(/\/.*$/,'')),plz:($('inpPlz').value||''),score:d.score,sparten:d.business.sparten||'',betrieb:d.business.name||''};
 
   // Metriken als 2-Spalten-Cards + fixe Meta-Ads-Karte (Werbeanzeigen der Konkurrenz)
-  const metaCard={name:"Meta-Werbeanzeigen (Facebook &amp; Instagram)",status:"gap",badge:"Gr\u00f6\u00dftes Potenzial",
-    you:"Ungenutzt",them:"Schaltet starke Anzeigen",themLabel:"Deine Konkurrenz"};
-  const allMetrics=[...d.metrics,metaCard];
+  const metaCard={name:"Google und Meta Werbeanzeigen",status:"gap",badge:"Gr\u00f6\u00dftes Potenzial",
+    you:"Ungenutzt",them:"Schaltet gewinnbringende Anzeigen",themLabel:"Deine Konkurrenz"};
+  const allMetrics=[...d.metrics.filter(m=>!/Anfrageformular/i.test(m.name)),metaCard];
   $('metricList').innerHTML=allMetrics.map((m,i)=>`
     <div class="mcard ${m.status}">
       <div class="mk"><span class="idx">${String(i+1).padStart(2,'0')}</span><span class="badge ${m.status}">${m.status==='ok'?'\u2713 ':''}${m.badge}</span></div>
