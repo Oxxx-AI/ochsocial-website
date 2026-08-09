@@ -98,7 +98,9 @@ header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.9);backdrop
 /* ---------- Screen 3 ---------- */
 .results{padding:34px 24px 0}
 .r-eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#1c8f63;background:rgba(62,207,151,.12);padding:7px 14px;border-radius:100px}
-.r-eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--mint)}
+.r-eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--mint);flex:none}
+.ebreak{display:none}
+@media(max-width:560px){.ebreak{display:inline}.r-eyebrow{align-items:flex-start}.r-eyebrow .dot{margin-top:4px}}
 .scoretop{display:grid;grid-template-columns:auto 1fr auto;gap:34px;align-items:center;padding:32px 34px;margin-top:16px;box-shadow:0 20px 50px rgba(20,22,58,.08)}
 @media(max-width:860px){.scoretop{grid-template-columns:1fr;text-align:center;gap:22px}}
 .gauge{position:relative;width:168px;height:168px;flex:none;margin:0 auto}
@@ -133,6 +135,7 @@ header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.9);backdrop
 .offer .ol li .ck{width:24px;height:24px;border-radius:50%;background:var(--champagne);color:var(--navy);font-weight:800;display:flex;align-items:center;justify-content:center;flex:none;font-size:13px}
 .offer .oact{margin-top:26px}
 .offer .oact .btn{font-size:1.12rem;font-weight:800;padding:18px 36px}
+@media(max-width:560px){.offer .oact{margin-top:22px}.offer .oact .btn{display:block;width:100%;text-align:center;padding:16px 18px;font-size:1.05rem;white-space:nowrap}}
 .offer .ogr{display:inline-flex;align-items:center;gap:9px;background:#fff;border-radius:12px;padding:9px 15px;margin-top:16px;font-weight:800;color:var(--navy);font-size:.9rem}
 .offer .ogr svg{width:20px;height:20px}
 .offer .ogr .st{color:#E9A93B;letter-spacing:1px}
@@ -350,7 +353,7 @@ footer .cpy{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,2
 <!-- ================= SCREEN 3 ================= -->
 <section class="screen" id="s3">
   <div class="wrap results">
-    <span class="r-eyebrow"><span class="dot"></span>Schritt 1 von 3 &#183; Deine Diagnose ist fertig</span>
+    <span class="r-eyebrow"><span class="dot"></span><span>Schritt 1 von 3 &#183;<br class="ebreak"> Deine Diagnose ist fertig</span></span>
 
     <div class="card scoretop">
       <div class="gauge">
@@ -379,7 +382,7 @@ footer .cpy{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,2
           <li><span class="ck">&#10003;</span> Konkrete Website-Verbesserungen, die du 1:1 einbaust</li>
           <li><span class="ck">&#10003;</span> Konkreter Plan zu den Top 3 deiner Region</li>
         </ul>
-        <div class="oact"><a class="btn btn-champagne" href="#" id="ctaMain">Jetzt kostenfrei sichern &#8594;</a></div>
+        <div class="oact"><a class="btn btn-champagne" href="#" id="ctaMain">Jetzt kostenfrei sichern</a></div>
         <div class="ogr">
           <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.3 9.14 5.38 12 5.38z"/></svg>
           <span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 4,9 &#183; Top bewertet
@@ -504,7 +507,8 @@ footer .cpy{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,2
 .lm-consent.err{color:#ffd5cf}
 #shkLeadForm .btn{width:100%;margin-top:4px;font-size:1.08rem;padding:16px}
 .lm-micro{text-align:center;font-size:.82rem;color:rgba(255,255,255,.75);font-weight:600}
-#lmCalBox{min-height:660px;margin-top:14px}
+#lmCalBox{height:700px;min-width:320px;width:100%;margin-top:14px}
+#lmCalBox iframe{width:100%!important;height:100%!important}
 .lm-fallback{display:inline-block;margin-top:14px;font-weight:800;color:var(--cobalt)}
 .lm-check{width:60px;height:60px;border-radius:50%;background:rgba(62,207,151,.15);color:#1c8f63;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;margin:6px auto 14px}
 .lm-done{text-align:center}
@@ -800,8 +804,11 @@ const DEMO={
     if(calFallback)calFallback.href=CALENDLY_URL+'?name='+encodeURIComponent(nm)+'&email='+encodeURIComponent(leadData.email||'');
     let tries=0;
     (function go(){tries++;
-      if(window.Calendly&&Calendly.initInlineWidget){calBox.innerHTML='';
-        try{Calendly.initInlineWidget({url:CALENDLY_URL+'?hide_gdpr_banner=1&primary_color=1e4fba',parentElement:calBox,prefill:{name:nm,email:leadData.email||''}});}
+      if(window.Calendly&&Calendly.initInlineWidget&&calBox.offsetWidth>0){calBox.innerHTML='';
+        try{Calendly.initInlineWidget({url:CALENDLY_URL+'?hide_gdpr_banner=1&primary_color=1e4fba',parentElement:calBox,prefill:{name:nm,email:leadData.email||''}});
+          // Calendly rendert im Modal oft cramped -> Resize-Events erzwingen sauberes Neu-Layout
+          [200,600,1200].forEach(t=>setTimeout(()=>window.dispatchEvent(new Event('resize')),t));
+        }
         catch(err){if(calFallback)calFallback.style.display='inline-block';}
       }else if(tries<60){setTimeout(go,250);}
       else if(calFallback){calFallback.style.display='inline-block';}
