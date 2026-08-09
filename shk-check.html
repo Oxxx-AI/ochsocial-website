@@ -53,14 +53,14 @@ header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.9);backdrop
 .pv-biz{font-weight:800;font-size:1rem}
 .pv-loc{font-size:.72rem;color:var(--navy-40);font-weight:600}
 .pv-gauge{position:relative;width:64px;height:64px;flex:none}
-.pv-gauge b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.3rem;color:#E4572E}
+.pv-gauge b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.3rem;color:#D92D20}
 .pv-metric{padding:11px 0;border-top:1px solid var(--navy-06)}
 .pv-mrow{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:.86rem}
-.pv-tag{font-size:.6rem;font-weight:800;padding:3px 9px;border-radius:100px;background:rgba(228,87,46,.12);color:#C2410C}
+.pv-tag{font-size:.6rem;font-weight:800;padding:3px 9px;border-radius:100px;background:rgba(217,45,32,.12);color:#B42318}
 .pv-cmp{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:8px}
 .pv-cmp>div{background:var(--offwhite);border-radius:8px;padding:7px 10px;font-size:.66rem;color:var(--navy-60);font-weight:700;display:flex;justify-content:space-between;align-items:center}
 .pv-cmp b{font-size:.92rem;color:var(--navy)}
-.pv-cmp b.red{color:#C2410C}.pv-cmp b.blue{color:var(--cobalt)}
+.pv-cmp b.red{color:#B42318}.pv-cmp b.blue{color:var(--cobalt)}
 .pv-copy h2{font-size:clamp(1.55rem,2.5vw,2rem);font-weight:800;line-height:1.14;letter-spacing:-.02em;margin:12px 0 0}
 .pv-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:22px}
 .pv-list li{display:flex;gap:12px}
@@ -113,16 +113,16 @@ header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.9);backdrop
 .scoretop .loc{color:var(--navy-60);font-weight:600;font-size:.94rem;margin-top:2px}
 .scoretop .verdict{margin-top:12px;font-size:1.02rem;max-width:520px}
 @media(max-width:860px){.scoretop .verdict{margin-left:auto;margin-right:auto}}
-.scoretop .lost{flex:none;text-align:center;border:1.5px solid rgba(228,87,46,.3);background:rgba(228,87,46,.06);border-radius:16px;padding:16px 20px}
-.scoretop .lost .k{font-size:.64rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#C2410C}
-.scoretop .lost .v{font-size:1.7rem;font-weight:800;color:#E4572E;line-height:1.1;margin:4px 0}
+.scoretop .lost{flex:none;text-align:center;border:1.5px solid rgba(217,45,32,.3);background:rgba(217,45,32,.06);border-radius:16px;padding:16px 20px}
+.scoretop .lost .k{font-size:.64rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#B42318}
+.scoretop .lost .v{font-size:1.7rem;font-weight:800;color:#D92D20;line-height:1.1;margin:4px 0}
 .scoretop .lost .s{font-size:.74rem;color:var(--navy-60);font-weight:600}
 
 /* Offer (einheitlich kobaltblau) */
 .offer{margin-top:22px;background:var(--cobalt);border-radius:var(--radius-card);color:#fff;overflow:hidden;display:grid;grid-template-columns:1.1fr .9fr}
 @media(max-width:860px){.offer{grid-template-columns:1fr}}
 .offer-l{padding:40px 38px}
-.offer .scar{display:inline-flex;align-items:center;gap:8px;font-size:.74rem;font-weight:800;background:#E4572E;color:#fff;padding:7px 14px;border-radius:100px;text-transform:uppercase;letter-spacing:.04em}
+.offer .scar{display:inline-flex;align-items:center;gap:8px;font-size:.74rem;font-weight:800;background:#D92D20;color:#fff;padding:7px 14px;border-radius:100px;text-transform:uppercase;letter-spacing:.04em}
 .offer h2{color:#fff;margin:18px 0 6px;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.1;font-weight:800}
 .offer .ol{list-style:none;margin:20px 0 0;display:flex;flex-direction:column;gap:12px}
 .offer .ol li{display:flex;gap:12px;color:rgba(255,255,255,.92);font-size:1rem;white-space:nowrap}
@@ -148,7 +148,7 @@ header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.9);backdrop
 .band-tint{background:#EEF3FF}
 .band-white{background:#fff}
 .sec-title{margin:0 0 8px;text-align:center}
-.sec-sub{text-align:center;color:var(--navy-60);max-width:600px;margin:0 auto 30px}
+.sec-sub{text-align:center;color:var(--navy-60);max-width:760px;margin:0 auto 30px}
 
 /* Ranking (auffaellig, rot/gruen) */
 .rankbox{border-radius:var(--radius-card);overflow:hidden;box-shadow:0 20px 50px rgba(20,22,58,.12);border:1px solid var(--navy-06)}
@@ -160,26 +160,26 @@ header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.9);backdrop
 .rank-row.top1{background:rgba(62,207,151,.1);border-left:5px solid var(--mint)}
 .rank-row.top1 .pos{color:#1c8f63}
 .rank-row.top1 .gtag{background:#1c8f63;color:#fff;font-size:.64rem;font-weight:800;padding:3px 10px;border-radius:100px}
-.rank-row.you{background:rgba(228,87,46,.14);border-left:5px solid #E4572E}
-.rank-row.you .pos{color:#E4572E}
-.rank-row.you .nm,.rank-row.you .rv{color:#C2410C}
-.rank-row .youtag{background:#E4572E;color:#fff;font-size:.66rem;font-weight:800;padding:3px 10px;border-radius:100px}
+.rank-row.you{background:rgba(217,45,32,.14);border-left:5px solid #D92D20}
+.rank-row.you .pos{color:#D92D20}
+.rank-row.you .nm,.rank-row.you .rv{color:#B42318}
+.rank-row .youtag{background:#D92D20;color:#fff;font-size:.66rem;font-weight:800;padding:3px 10px;border-radius:100px}
 .rank-sep{text-align:center;color:var(--navy-40);font-weight:800;padding:8px;background:#fff;border-bottom:1px solid var(--navy-06)}
 
 /* Metriken als 2-Spalten-Cards (wie KI-Grid) */
 .mgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 @media(max-width:720px){.mgrid{grid-template-columns:1fr}}
 .mcard{padding:24px 26px;border-radius:20px;background:#fff;box-shadow:0 14px 40px rgba(20,22,58,.08);border-top:4px solid var(--navy-12)}
-.mcard.gap{border-top-color:#E4572E}
+.mcard.gap{border-top-color:#D92D20}
 .mcard.ok{border-top-color:var(--mint)}
 .mcard .mk{display:flex;align-items:center;gap:10px}
 .mcard .idx{font-size:.8rem;font-weight:800;color:var(--navy-40)}
 .mcard .badge{margin-left:auto;font-size:.72rem;font-weight:800;padding:5px 11px;border-radius:100px}
-.badge.gap{background:rgba(228,87,46,.14);color:#C2410C}
+.badge.gap{background:rgba(217,45,32,.14);color:#B42318}
 .badge.ok{background:rgba(62,207,151,.16);color:#1c8f63}
 .mcard .mname2{font-weight:800;font-size:1.08rem;margin:10px 0 8px}
 .mcard .mbig{font-size:1.65rem;font-weight:800;line-height:1.1}
-.mcard.gap .mbig{color:#E4572E}.mcard.ok .mbig{color:#1c8f63}
+.mcard.gap .mbig{color:#D92D20}.mcard.ok .mbig{color:#1c8f63}
 .mcard .mvs{color:var(--navy-60);font-size:.9rem;margin-top:8px}
 .mcard .mvs b{color:var(--cobalt)}
 
@@ -187,14 +187,14 @@ header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.9);backdrop
 .pot{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center;max-width:900px;margin:0 auto}
 @media(max-width:720px){.pot{grid-template-columns:1fr;gap:14px}.pot .arrow{transform:rotate(90deg);margin:0 auto}}
 .pot .pc{padding:28px 30px;border-radius:20px;background:#fff;box-shadow:0 14px 40px rgba(20,22,58,.09)}
-.pot .now{border-top:4px solid #E4572E}
+.pot .now{border-top:4px solid #D92D20}
 .pot .fut{border-top:4px solid var(--mint)}
 .pot .pk{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
-.pot .now .pk{color:#C2410C}.pot .fut .pk{color:#1c8f63}
+.pot .now .pk{color:#B42318}.pot .fut .pk{color:#1c8f63}
 .pot .prow{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-top:1px solid var(--navy-06);font-size:.9rem;color:var(--navy-60);font-weight:600}
 .pot .prow:nth-of-type(1){border-top:none}
 .pot .prow b{font-size:1.15rem;color:var(--navy)}
-.pot .now .prow b.hl{color:#E4572E}.pot .fut .prow b.hl{color:#1c8f63}
+.pot .now .prow b.hl{color:#D92D20}.pot .fut .prow b.hl{color:#1c8f63}
 .pot .arrow{width:46px;height:46px;border-radius:50%;background:var(--cobalt);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;flex:none}
 
 /* Konkurrenten (Gold/Silber/Bronze) */
@@ -238,7 +238,7 @@ header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.9);backdrop
 .rm .done-lbl{display:inline-flex;align-items:center;gap:7px;color:#1c8f63;font-weight:800;font-size:.88rem;margin-top:16px}
 .rm .microcopy{text-align:center;font-size:.78rem;color:var(--navy-40);margin-top:12px}
 
-.errbox{max-width:600px;margin:20px auto 0;padding:16px 20px;border-radius:12px;background:rgba(228,87,46,.1);color:#C2410C;font-weight:600;display:none}
+.errbox{max-width:600px;margin:20px auto 0;padding:16px 20px;border-radius:12px;background:rgba(217,45,32,.1);color:#B42318;font-weight:600;display:none}
 footer{background:var(--navy);color:rgba(255,255,255,.7);margin-top:0;padding:44px 0 34px}
 footer .fgrid{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
 footer .flogo{height:26px}
@@ -284,7 +284,7 @@ footer .cpy{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,2
           <div class="pv-head">
             <div><div class="pv-biz">Sanit&#228;r Berger GmbH</div><div class="pv-loc">Sanit&#228;r &#183; Heizung &#183; Klima &#183; Karlsruhe</div></div>
             <div class="pv-gauge">
-              <svg width="64" height="64" style="transform:rotate(-90deg)"><circle cx="32" cy="32" r="27" stroke="#eef0f5" stroke-width="7" fill="none"/><circle cx="32" cy="32" r="27" stroke="#E4572E" stroke-width="7" fill="none" stroke-linecap="round" stroke-dasharray="170" stroke-dashoffset="112"/></svg>
+              <svg width="64" height="64" style="transform:rotate(-90deg)"><circle cx="32" cy="32" r="27" stroke="#eef0f5" stroke-width="7" fill="none"/><circle cx="32" cy="32" r="27" stroke="#D92D20" stroke-width="7" fill="none" stroke-linecap="round" stroke-dasharray="170" stroke-dashoffset="112"/></svg>
               <b>34</b>
             </div>
           </div>
@@ -345,7 +345,7 @@ footer .cpy{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,2
 
     <div class="card scoretop">
       <div class="gauge">
-        <svg width="168" height="168"><circle cx="84" cy="84" r="73" stroke="var(--navy-06)" stroke-width="13" fill="none"/><circle id="gaugeArc" cx="84" cy="84" r="73" stroke="#E4572E" stroke-width="13" fill="none" stroke-linecap="round" stroke-dasharray="459" stroke-dashoffset="459"/></svg>
+        <svg width="168" height="168"><circle cx="84" cy="84" r="73" stroke="var(--navy-06)" stroke-width="13" fill="none"/><circle id="gaugeArc" cx="84" cy="84" r="73" stroke="#D92D20" stroke-width="13" fill="none" stroke-linecap="round" stroke-dasharray="459" stroke-dashoffset="459"/></svg>
         <div class="val"><b id="scoreNum">0</b><small>von 100</small></div>
       </div>
       <div>
@@ -394,14 +394,14 @@ footer .cpy{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,2
     <!-- Ranking -->
     <div class="band band-soft"><div class="wrap">
       <h2 class="display-s sec-title">Wer in deiner Region die Anfragen bekommt</h2>
-      <p class="sec-sub">Deine Platzierung unter allen SHK-Betrieben im 30-km-Umkreis, live aus Google.</p>
+      <p class="sec-sub">Deine Platzierung unter allen SHK-Betrieben im 30-km-Umkreis.</p>
       <div class="rankbox" id="rankBox"></div>
     </div></div>
 
     <!-- Metriken -->
     <div class="band band-white"><div class="wrap">
       <h2 class="display-s sec-title">Wo deine Wettbewerber dir Kunden wegnehmen</h2>
-      <p class="sec-sub">Dein Betrieb im direkten Vergleich zum Durchschnitt der Top 3 in deiner Region.</p>
+      <p class="sec-sub">Dein Betrieb im Vergleich zum Durchschnitt der Top 3 deiner Region.</p>
       <div class="mgrid" id="metricList"></div>
     </div></div>
 
@@ -463,6 +463,95 @@ footer .cpy{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,2
     </div></div>
 </section>
 
+<!-- ================= LEAD-MODAL ================= -->
+<style>
+.lm-overlay{position:fixed;inset:0;background:rgba(10,12,30,.72);backdrop-filter:blur(5px);z-index:100;display:none;align-items:flex-start;justify-content:center;padding:24px;overflow-y:auto}
+.lm-overlay.open{display:flex}
+.lm-box{position:relative;width:100%;max-width:460px;margin:auto;border-radius:24px;background:linear-gradient(160deg,#3B71E8,#1E4FBA 55%,#123273);color:#fff;padding:34px 30px;box-shadow:0 40px 100px rgba(10,12,30,.55)}
+.lm-box.light{background:#fff;color:var(--navy);max-width:600px}
+.lm-x{position:absolute;top:15px;right:15px;width:34px;height:34px;border-radius:50%;border:none;background:rgba(255,255,255,.18);color:#fff;font-size:20px;cursor:pointer;line-height:1;display:flex;align-items:center;justify-content:center}
+.lm-box.light .lm-x{background:var(--offwhite);color:var(--navy)}
+.lm-scar{display:inline-flex;align-items:center;gap:7px;font-size:.72rem;font-weight:800;background:#D92D20;color:#fff;padding:6px 13px;border-radius:100px;text-transform:uppercase;letter-spacing:.04em}
+.lm-box h3{color:inherit;font-size:1.5rem;font-weight:800;line-height:1.15;margin:16px 0 6px}
+.lm-box h3 .hl{color:var(--champagne)}
+.lm-box p{color:rgba(255,255,255,.85);font-size:.94rem;margin:0}
+.lm-box.light p{color:var(--navy-60)}
+.lm-benes{list-style:none;margin:16px 0 20px;display:flex;flex-direction:column;gap:10px;padding:0}
+.lm-benes li{display:flex;gap:10px;font-size:.92rem;color:rgba(255,255,255,.92)}
+.lm-benes li .c{color:#3ECF97;font-weight:800;flex:none}
+#shkLeadForm{display:flex;flex-direction:column;gap:12px}
+.lm-frow{display:flex;gap:12px}
+#shkLeadForm input{width:100%;font-family:inherit;font-size:1rem;padding:14px 16px;border-radius:12px;border:1.5px solid rgba(255,255,255,.28);background:rgba(255,255,255,.13);color:#fff}
+#shkLeadForm input::placeholder{color:rgba(255,255,255,.72)}
+#shkLeadForm input:focus{outline:none;border-color:#fff;background:rgba(255,255,255,.2)}
+.lm-phone{align-items:stretch}
+.lm-cc{display:flex;align-items:center;padding:0 14px;border-radius:12px;background:rgba(255,255,255,.13);border:1.5px solid rgba(255,255,255,.28);font-weight:700;font-size:.95rem;flex:none}
+.lm-consent{display:flex;gap:9px;align-items:flex-start;font-size:.8rem;color:rgba(255,255,255,.85);line-height:1.35;cursor:pointer}
+.lm-consent input{width:18px;height:18px;flex:none;margin-top:1px;accent-color:#3ECF97}
+.lm-consent.err{color:#ffd5cf}
+#shkLeadForm .btn{width:100%;margin-top:4px;font-size:1.08rem;padding:16px}
+.lm-micro{text-align:center;font-size:.82rem;color:rgba(255,255,255,.75);font-weight:600}
+#lmCalBox{min-height:660px;margin-top:14px}
+.lm-fallback{display:inline-block;margin-top:14px;font-weight:800;color:var(--cobalt)}
+.lm-check{width:60px;height:60px;border-radius:50%;background:rgba(62,207,151,.15);color:#1c8f63;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;margin:6px auto 14px}
+.lm-done{text-align:center}
+#consent{position:fixed;left:16px;right:16px;bottom:16px;max-width:520px;margin:0 auto;background:#14163A;color:#fff;border-radius:14px;padding:16px 18px;z-index:90;box-shadow:0 20px 50px rgba(10,12,30,.45);display:none;font-size:.88rem;line-height:1.4}
+#consent.show{display:block}
+#consent .crow{display:flex;gap:10px;margin-top:12px}
+#consent button{flex:1;padding:10px;border-radius:10px;border:none;font-weight:800;cursor:pointer;font-family:inherit;font-size:.86rem}
+#consent .cy{background:var(--cobalt);color:#fff}
+#consent .cn{background:rgba(255,255,255,.14);color:#fff}
+</style>
+
+<div class="lm-overlay" id="leadModal">
+  <div class="lm-box" id="lmBox">
+    <button class="lm-x" id="lmClose" aria-label="Schlie&#223;en">&#215;</button>
+    <div id="lmStepForm">
+      <span class="lm-scar">&#128293; Nur 3 Pl&#228;tze diese Woche</span>
+      <h3>Sichere dir deinen <span class="hl">Sichtbarkeits-Fahrplan</span>.</h3>
+      <p>Trag dich kurz ein. Im kostenlosen 15-Minuten-Gespr&#228;ch bekommst du den konkreten Plan f&#252;r mehr Anfragen aus deiner Region.</p>
+      <ul class="lm-benes">
+        <li><span class="c">&#10003;</span> Deine 3 gr&#246;&#223;ten L&#252;cken, priorisiert nach Wirkung</li>
+        <li><span class="c">&#10003;</span> Was deine Top-3-Konkurrenten anders machen</li>
+        <li><span class="c">&#10003;</span> Klarer Fahrplan f&#252;r die n&#228;chsten 3 Monate</li>
+      </ul>
+      <form id="shkLeadForm" novalidate>
+        <div class="lm-frow">
+          <input name="vorname" placeholder="Vorname" autocomplete="given-name" required>
+          <input name="nachname" placeholder="Nachname" autocomplete="family-name" required>
+        </div>
+        <input name="email" type="email" placeholder="E-Mail-Adresse" autocomplete="email" required>
+        <div class="lm-frow lm-phone">
+          <span class="lm-cc">&#127465;&#127466; +49</span>
+          <input name="telefon" type="tel" placeholder="Handynummer" autocomplete="tel" required>
+        </div>
+        <label class="lm-consent" id="lmConsent"><input type="checkbox" id="lmWerbung"> Ich bin einverstanden, dass ochsocial mich zu meiner Anfrage kontaktiert.</label>
+        <button class="btn btn-champagne" type="submit">Termin sichern &#8594;</button>
+        <div class="lm-micro">100 % kostenlos &amp; unverbindlich</div>
+      </form>
+    </div>
+    <div id="lmStepCal" style="display:none">
+      <h3>Fast geschafft. W&#228;hle jetzt deinen Termin.</h3>
+      <p>Such dir einen freien Slot bei Miriam aus, den Rest &#252;bernehmen wir.</p>
+      <div id="lmCalBox"></div>
+      <a id="lmCalFallback" class="lm-fallback" style="display:none" target="_blank" rel="noopener">Termin im Kalender &#246;ffnen &#8594;</a>
+    </div>
+    <div id="lmStepDone" class="lm-done" style="display:none">
+      <div class="lm-check">&#10003;</div>
+      <h3>Termin gebucht. Bis gleich!</h3>
+      <p>Miriam meldet sich zum vereinbarten Zeitpunkt. Du bekommst gleich eine Best&#228;tigung per E-Mail.</p>
+    </div>
+  </div>
+</div>
+
+<div id="consent">
+  <strong>Cookies &amp; Marketing:</strong> Wir nutzen den Meta-Pixel, um unsere Werbung zu verbessern. Ist das f&#252;r dich okay?
+  <div class="crow">
+    <button class="cy" id="cy">Einverstanden</button>
+    <button class="cn" id="cn">Nur notwendige</button>
+  </div>
+</div>
+
 <footer><div class="wrap">
   <div class="fgrid">
     <img class="flogo" src="assets/logo/lockup_horizontal_weiss.webp" alt="ochsocial">
@@ -485,7 +574,7 @@ const $=id=>document.getElementById(id);
 function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));$(id).classList.add('active');window.scrollTo(0,0);}
 function focusInput(){$('inpUrl').scrollIntoView({behavior:'smooth',block:'center'});$('inpUrl').focus();}
 function animateCounter(el,to,dur){el.textContent=to;let t0=performance.now();(function tick(t){let p=Math.min((t-t0)/dur,1);el.textContent=Math.floor(p*to);if(p<1)requestAnimationFrame(tick);else el.textContent=to;})(performance.now());}
-function scoreColor(s){ if(s<=50)return '#E4572E'; if(s<=65)return '#F5811E'; if(s<=90)return '#E7B008'; return '#22B07D'; }
+function scoreColor(s){ if(s<=50)return '#D92D20'; if(s<=65)return '#F5811E'; if(s<=90)return '#E7B008'; return '#22B07D'; }
 function scoreLabel(s){ if(s<=50)return 'Kritisch'; if(s<=65)return 'Ausbauf\u00e4hig'; if(s<=90)return 'Gut'; return 'Stark'; }
 function lostRange(s){ if(s<=35)return '18-32'; if(s<=50)return '12-22'; if(s<=65)return '7-14'; if(s<=80)return '4-8'; if(s<=90)return '2-5'; return '0-2'; }
 function parseNum(s){const m=(s||'').replace(/\./g,'').match(/\d+/);return m?parseInt(m[0]):null;}
@@ -569,7 +658,7 @@ function renderResults(d){
   $('pillCat').textContent=d.business.sparten||(d.business.location||'').split('\u00b7').slice(0,3).join('\u00b7').trim()||'Sanit\u00e4r \u00b7 Heizung \u00b7 Klima';
   const st=$('pillState');st.textContent=scoreLabel(d.score);st.style.color=col;st.style.borderColor=col;st.style.background=col+'14';
   $('lostVal').textContent=lostRange(d.score);
-  if(d.cta){$('ctaMain').href=d.cta;$('ctaRoad').href=d.cta;}
+  window.__shkLead={domain:(($('inpUrl').value||'').replace(/^https?:\/\//,'').replace(/\/.*$/,'')),plz:($('inpPlz').value||''),score:d.score,sparten:d.business.sparten||'',betrieb:d.business.name||''};
 
   // Metriken als 2-Spalten-Cards
   $('metricList').innerHTML=d.metrics.map((m,i)=>`
@@ -599,22 +688,21 @@ function renderResults(d){
       <ul>${c.points.map(p=>`<li><span class="x">\u2713</span> ${p}</li>`).join('')}</ul></div>`).join('');
 
   // Potenzial
-  const mRev=d.metrics.find(m=>/Bewertung/i.test(m.name));
-  const revYou=mRev?parseNum(mRev.you):null, revThem=mRev?parseNum(mRev.them):null;
+  const mBook=d.metrics.find(m=>/Termin/i.test(m.name));
+  const bookNow=mBook?(/nicht|fehlt|kein/i.test(mBook.you)?'Fehlt':'Aktiv'):'Fehlt';
   const futRank=total?Math.max(1,Math.min(3,Math.round(total*0.05))):3;
-  const futRev=revThem||((revYou||20)*4);
   $('potBox').innerHTML=`
     <div class="pc now">
       <div class="pk">Stand jetzt</div>
       <div class="prow"><span>Lokale Platzierung</span><b class="hl">${rank?('Platz '+rank):'weit hinten'}</b></div>
-      <div class="prow"><span>Google-Bewertungen</span><b>${revYou!=null?revYou:'wenige'}</b></div>
+      <div class="prow"><span>Online-Terminbuchung</span><b class="${bookNow==='Fehlt'?'hl':''}">${bookNow}</b></div>
       <div class="prow"><span>Anfragen / Monat</span><b class="hl">-${lostRange(d.score)}</b></div>
     </div>
     <div class="arrow">\u2192</div>
     <div class="pc fut">
       <div class="pk">In 3-6 Monaten</div>
       <div class="prow"><span>Lokale Platzierung</span><b class="hl">Top ${futRank}</b></div>
-      <div class="prow"><span>Google-Bewertungen</span><b>${futRev}+</b></div>
+      <div class="prow"><span>Online-Terminbuchung</span><b class="hl">Aktiv 24/7</b></div>
       <div class="prow"><span>Anfragen / Monat</span><b class="hl">+${lostRange(d.score)}</b></div>
     </div>`;
 
@@ -645,6 +733,93 @@ const DEMO={
     {name:"Roth K\u00e4lteanlagen GmbH",rating:"5,0",reviews:179,points:["179 Google-Bewertungen","Sichtbar im 30-km-Umkreis","Viele frische Bewertungen"]}
   ]
 };
+
+/* ================= Meta-Pixel + Lead-Modal + Calendly ================= */
+(function(){
+  const PIXEL_ID='760767924722009';
+  const CALENDLY_URL='https://calendly.com/miriam-ochs/erstgesprach-website';
+  const WEBHOOK_URL='https://hooks.zapier.com/hooks/catch/10002468/4u71cgp/';
+  const WEBHOOK_TERMIN='https://hooks.zapier.com/hooks/catch/10002468/4u7f5ey/';
+  const N8N_CRM='https://n8n.srv1286795.hstgr.cloud/webhook/crm-lead';
+  const QUELLE='SHK Check';
+
+  /* Meta-Pixel nur nach Consent laden */
+  function loadPixel(){
+    if(window.fbq)return;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init',PIXEL_ID);fbq('track','PageView');
+  }
+  function track(ev,data){try{if(window.fbq)fbq('track',ev,data||{});}catch(e){}}
+  let consent=null;try{consent=localStorage.getItem('os_consent');}catch(e){}
+  const cbar=$('consent');
+  if(consent==='yes'){loadPixel();}else if(consent!=='no'){cbar.classList.add('show');}
+  $('cy').onclick=function(){try{localStorage.setItem('os_consent','yes');}catch(e){}cbar.classList.remove('show');loadPixel();};
+  $('cn').onclick=function(){try{localStorage.setItem('os_consent','no');}catch(e){}cbar.classList.remove('show');};
+
+  /* Calendly-Widget laden */
+  (function(){const s=document.createElement('script');s.src='https://assets.calendly.com/assets/external/widget.js';s.async=true;document.head.appendChild(s);
+    const l=document.createElement('link');l.rel='stylesheet';l.href='https://assets.calendly.com/assets/external/widget.css';document.head.appendChild(l);})();
+
+  const modal=$('leadModal'),box=$('lmBox'),stepForm=$('lmStepForm'),stepCal=$('lmStepCal'),stepDone=$('lmStepDone');
+  const form=$('shkLeadForm'),calBox=$('lmCalBox'),calFallback=$('lmCalFallback');
+  let leadData=null,calInited=false;
+
+  function openModal(){modal.classList.add('open');document.body.style.overflow='hidden';track('InitiateCheckout',{content_name:QUELLE});}
+  function closeModal(){modal.classList.remove('open');document.body.style.overflow='';}
+  $('lmClose').onclick=closeModal;
+  modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
+
+  /* CTA-Buttons oeffnen das Modal */
+  ['ctaMain','ctaRoad'].forEach(id=>{const el=$(id);if(el)el.addEventListener('click',e=>{e.preventDefault();openModal();});});
+
+  function sendLead(name,extra){
+    if(!leadData)return;
+    const p=Object.assign({},leadData,extra||{},{event:name});
+    const url=(name==='termin_gebucht')?WEBHOOK_TERMIN:WEBHOOK_URL;
+    try{fetch(url,{method:'POST',mode:'no-cors',body:JSON.stringify(p),keepalive:true});}catch(e){}
+    if(name==='lead'){try{fetch(N8N_CRM,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(p),keepalive:true});}catch(e){}}
+  }
+
+  function initCalendly(){
+    if(calInited)return;calInited=true;
+    const nm=((leadData.vorname||'')+' '+(leadData.nachname||'')).trim();
+    if(calFallback)calFallback.href=CALENDLY_URL+'?name='+encodeURIComponent(nm)+'&email='+encodeURIComponent(leadData.email||'');
+    let tries=0;
+    (function go(){tries++;
+      if(window.Calendly&&Calendly.initInlineWidget){calBox.innerHTML='';
+        try{Calendly.initInlineWidget({url:CALENDLY_URL+'?hide_gdpr_banner=1&primary_color=1e4fba',parentElement:calBox,prefill:{name:nm,email:leadData.email||''}});}
+        catch(err){if(calFallback)calFallback.style.display='inline-block';}
+      }else if(tries<60){setTimeout(go,250);}
+      else if(calFallback){calFallback.style.display='inline-block';}
+    })();
+    setTimeout(()=>{if(calBox&&!calBox.querySelector('iframe')&&calFallback)calFallback.style.display='inline-block';},6000);
+  }
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    const chk=$('lmWerbung'),cwrap=$('lmConsent');
+    if(!chk.checked){cwrap.classList.add('err');chk.focus();return;}
+    cwrap.classList.remove('err');
+    if(!form.checkValidity()){form.reportValidity();return;}
+    const ctx=window.__shkLead||{};
+    leadData={quelle:QUELLE,seite:'shk-check.html',zeitpunkt:new Date().toISOString(),tags:'shk-check',
+      domain:ctx.domain||'',plz:ctx.plz||'',score:ctx.score,sparten:ctx.sparten||'',betrieb:ctx.betrieb||'',utm:location.search||''};
+    form.querySelectorAll('input').forEach(el=>{if(el.name)leadData[el.name]=el.value;});
+    sendLead('lead');
+    track('Lead',{content_name:QUELLE});
+    stepForm.style.display='none';box.classList.add('light');stepCal.style.display='block';
+    initCalendly();box.scrollIntoView({block:'start',behavior:'smooth'});
+  });
+  $('lmWerbung').addEventListener('change',function(){if(this.checked)$('lmConsent').classList.remove('err');});
+
+  window.addEventListener('message',function(ev){
+    if(!(ev.data&&ev.data.event==='calendly.event_scheduled'))return;
+    const pl=ev.data.payload||{};
+    sendLead('termin_gebucht',{calendly_event_uri:(pl.event&&pl.event.uri)||'',calendly_invitee_uri:(pl.invitee&&pl.invitee.uri)||''});
+    track('Schedule',{content_name:QUELLE});
+    stepCal.style.display='none';stepDone.style.display='block';
+  });
+})();
 </script>
 </body>
 </html>
