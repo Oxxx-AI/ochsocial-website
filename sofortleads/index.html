@@ -388,7 +388,7 @@ function submitForm(e){
     if(res.error){document.getElementById('card-err').textContent=res.error.message;go(3);return;}
     data.paymentMethodId=res.paymentMethod.id;
     try{fetch('https://n8n.srv1286795.hstgr.cloud/webhook/sofortleads-order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});}catch(err){}
-    go('done');
+    try{if(window.fbq&&localStorage.getItem('sl_consent')==='yes')fbq('track','Lead');}catch(e){}go('done');
   });
   return false;
 }
@@ -396,5 +396,16 @@ function tg(b){b.parentElement.classList.toggle('open')}
 </script>
 
 <!-- Tracking: Plausible (proxied ueber eigene Domain) + Meta-Pixel hier einbinden, IDs folgen -->
+
+<div id="sl-consent" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#14163A;color:#fff;padding:16px 20px;font-size:14px;box-shadow:0 -2px 12px rgba(0,0,0,.25)">
+<div style="max-width:1080px;margin:0 auto;display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:space-between">
+<div style="flex:1;min-width:240px">Wir verwenden Cookies und den Meta-Pixel, um unsere Werbung zu messen. Details in der <a href="datenschutz.html" style="color:#F0D9A0">Datenschutzerkl&#228;rung</a>.</div>
+<div style="display:flex;gap:10px"><button type="button" onclick="slConsent(false)" style="background:none;border:1px solid #6b7192;color:#fff;padding:9px 18px;border-radius:6px;cursor:pointer;font-weight:600">Ablehnen</button><button type="button" onclick="slConsent(true)" style="background:#1E4FBA;border:none;color:#fff;padding:9px 18px;border-radius:6px;cursor:pointer;font-weight:700">Akzeptieren</button></div>
+</div></div>
+<script>
+function slLoadPixel(){if(window.__slpx)return;window.__slpx=1;!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2301564033685877');fbq('track','PageView');}
+function slConsent(ok){try{localStorage.setItem('sl_consent',ok?'yes':'no');}catch(e){}document.getElementById('sl-consent').style.display='none';if(ok)slLoadPixel();}
+(function(){var c=null;try{c=localStorage.getItem('sl_consent');}catch(e){}if(c==='yes'){slLoadPixel();}else if(c!=='no'){var el=document.getElementById('sl-consent');if(el)el.style.display='block';}})();
+</script>
 </body>
 </html>
