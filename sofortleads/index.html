@@ -377,7 +377,7 @@ function submitForm(e){
     if(res.error){document.getElementById('card-err').textContent=res.error.message;go(3);return;}
     data.paymentMethodId=res.paymentMethod.id;
     try{fetch('https://n8n.srv1286795.hstgr.cloud/webhook/sofortleads-order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});}catch(err){}
-    try{if(window.fbq&&localStorage.getItem('sl_consent')==='yes')fbq('track','Lead');}catch(e){}go('done');
+    try{if(window.fbq&&localStorage.getItem('sl_consent')==='yes')fbq('track','Lead');}catch(e){}window.location.href='danke.html';
   });
   return false;
 }
