@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SHK Sichtbarkeits-Report | ochsocial</title>
+<script defer data-domain="ochsocial.de" src="https://plausible.io/js/script.js"></script>
+<script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)};function pv(n,p){try{plausible(n,p?{props:p}:undefined)}catch(e){}}</script>
 <link rel="icon" href="assets/favicon/favicon.ico">
 <link rel="stylesheet" href="css/main.css">
 <style>
@@ -616,6 +618,7 @@ async function startAnalyse(){
   loadSiteShot(full,clean);
   transitioned=false;
   show('s2');
+  pv('SHK Check gestartet',{plz:plz});
   initVideo();
 
   const ms=VIDEO_SECONDS*1000;
@@ -725,6 +728,7 @@ function renderResults(d){
     </div>`;
 
   show('s3');
+  pv('SHK Report gesehen',{score:String(d.score),sparten:d.business.sparten||''});
   const arc=$('gaugeArc'),circ=459;
   arc.setAttribute('stroke',col);
   $('scoreNum').style.color=col;
@@ -828,6 +832,7 @@ const DEMO={
     form.querySelectorAll('input').forEach(el=>{if(el.name)leadData[el.name]=el.value;});
     sendLead('lead');
     track('Lead',{content_name:QUELLE});
+    pv('SHK Lead',{betrieb:leadData.betrieb||'',score:String(ctx.score||'')});
     stepForm.style.display='none';box.classList.add('light');stepCal.style.display='block';
     initCalendly();box.scrollIntoView({block:'start',behavior:'smooth'});
   });
@@ -838,6 +843,7 @@ const DEMO={
     const pl=ev.data.payload||{};
     sendLead('termin_gebucht',{calendly_event_uri:(pl.event&&pl.event.uri)||'',calendly_invitee_uri:(pl.invitee&&pl.invitee.uri)||''});
     track('Schedule',{content_name:QUELLE});
+    pv('SHK Termin gebucht');
     stepCal.style.display='none';stepDone.style.display='block';
   });
 })();
