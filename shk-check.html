@@ -618,7 +618,7 @@ async function startAnalyse(){
   loadSiteShot(full,clean);
   transitioned=false;
   show('s2');
-  pv('SHK Check gestartet',{plz:plz});
+  pv('SHK Check gestartet',{plz:plz,website:clean});
   initVideo();
 
   const ms=VIDEO_SECONDS*1000;
@@ -786,7 +786,7 @@ const DEMO={
   const form=$('shkLeadForm'),calBox=$('lmCalBox'),calFallback=$('lmCalFallback');
   let leadData=null,calInited=false;
 
-  function openModal(){modal.classList.add('open');document.body.style.overflow='hidden';track('InitiateCheckout',{content_name:QUELLE});}
+  function openModal(){modal.classList.add('open');document.body.style.overflow='hidden';track('InitiateCheckout',{content_name:QUELLE});pv('SHK Formular geoeffnet');}
   function closeModal(){modal.classList.remove('open');document.body.style.overflow='';}
   $('lmClose').onclick=closeModal;
   modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
