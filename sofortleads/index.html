@@ -248,8 +248,8 @@ footer{background:var(--navy);color:#fff;padding:40px 0}
           </div>
           <label class="chk"><input type="checkbox" required> Ich handle als Gewerbetreibender und bin berechtigt, Vertr&#228;ge f&#252;r die genannte Firma abzuschlie&#223;en.</label>
           <label class="chk"><input type="checkbox" required> Ich stimme den <a href="agb.html" target="_blank" style="color:var(--blau)">AGB</a> und der <a href="datenschutz.html" target="_blank" style="color:var(--blau)">Datenschutzerkl&#228;rung</a> zu.</label>
-          <p class="mut" style="font-size:13px;margin-bottom:14px">Mit dem Klick geben Sie eine verbindliche Bestellung ab. Der Vertrag kommt erst mit unserer Auftragsbest&#228;tigung per E-Mail zustande.</p>
-          <div class="nav-btns"><button type="button" class="btn ghost" onclick="go(4)">Zur&#252;ck</button><button type="submit" class="btn btn-champ">Best&#228;tigen und anmelden</button></div>
+          <p class="mut" style="font-size:13px;margin-bottom:14px">Mit dem Klick bestellen Sie zahlungspflichtig. Der Vertrag kommt sofort zustande und das oben genannte Wochenpaket (<span id="s-total3">1.350 &#8364;</span>) wird umgehend &#252;ber Stripe abgebucht. Anschliessend erhalten Sie Ihre Auftragsbest&#228;tigung per E-Mail.</p>
+          <div class="nav-btns"><button type="button" class="btn ghost" onclick="go(4)">Zur&#252;ck</button><button type="submit" class="btn btn-champ">Jetzt zahlungspflichtig bestellen</button></div>
         </div>
       </form>
       <div class="startnote">Voraussichtliches Startdatum: 3 bis 5 Werktage nach Best&#228;tigung.</div>
@@ -336,6 +336,7 @@ function refreshSummary(){
   document.getElementById('s-pkg').textContent=pkg+' Leads / Woche';
   document.getElementById('s-geo').textContent=(f.plz.value||'-')+' \u00b7 '+f.radius.value;
   document.getElementById('s-total').textContent=(pkg*PRICE).toLocaleString('de-DE')+' \u20ac';
+  var st3=document.getElementById('s-total3');if(st3)st3.textContent=(pkg*PRICE).toLocaleString('de-DE')+' \u20ac';
   var d=new Date();d.setDate(d.getDate()+4);document.getElementById('s-start').textContent=d.toLocaleDateString('de-DE');
 }
 function submitForm(e){
