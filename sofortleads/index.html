@@ -296,7 +296,7 @@ footer{background:var(--navy);color:#fff;padding:40px 0}
 <script>
 var N8N='https://n8n.srv1286795.hstgr.cloud';
 var PRICE=270,pkg=5,reqId=null,verified=false;
-var stripe=Stripe('pk_test_51Rs0tqI961Pe4CVu1IVXJBfkZRooHz4YotMvYeFTVFf0hKu1HFRGruJMbyK5kr3Z7mZepx6c00xvjbeccjL6rl8800i54XNwhK');
+var stripe=Stripe('pk_live_51Rs0tqI961Pe4CVuIIOX3nbmjAahg8f0CTAGG9ziHsG4b2mYwlS5eHjIwkM8707tE2RmVEKPkqML2cJR1CFlSjm5007MgarywR');
 var elements=stripe.elements();
 var card=elements.create('card',{style:{base:{fontFamily:'Manrope, sans-serif',fontSize:'15px',color:'#14163A'}}});
 window.addEventListener('DOMContentLoaded',function(){card.mount('#stripe-card');card.on('change',function(ev){document.getElementById('card-err').textContent=ev.error?ev.error.message:'';});});
@@ -344,18 +344,13 @@ function submitForm(e){
   if(!verified){go(2);return false;}
   var f=e.target,data={};new FormData(f).forEach(function(v,k){data[k]=v});
   data.paket=pkg;data.preisJeLead=PRICE;data.wochenpaket=pkg*PRICE;data.verified=true;data.verifyRequestId=reqId;
-  var btn=f.querySelector('button[type=submit]');if(btn){btn.disabled=true;btn.textContent='Zahlung wird gepr\u00fcft...';}
-  function reset(){if(btn){btn.disabled=false;btn.textContent='Jetzt zahlungspflichtig bestellen';}}
-  fetch(N8N+'/webhook/sofortleads-order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).then(function(r){return r.json();}).then(function(res){
-    if(!res||!res.clientSecret){document.getElementById('card-err').textContent=(res&&res.error)||'Fehler bei der Zahlung. Bitte erneut versuchen.';go(4);reset();return;}
-    return stripe.confirmCardPayment(res.clientSecret,{payment_method:{card:card,billing_details:{name:f.cardname.value,email:f.email.value}}}).then(function(result){
-      if(result.error){document.getElementById('card-err').textContent=result.error.message;go(4);reset();return;}
-      if(result.paymentIntent&&result.paymentIntent.status==='succeeded'){
-        try{if(window.fbq&&localStorage.getItem('sl_consent')==='yes')fbq('track','Purchase',{value:pkg*PRICE,currency:'EUR'});}catch(e){}
-        window.location.href='danke.html';
-      }else{document.getElementById('card-err').textContent='Zahlung nicht abgeschlossen.';go(4);reset();}
-    });
-  }).catch(function(){document.getElementById('card-err').textContent='Verbindungsfehler, bitte erneut versuchen.';reset();});
+  stripe.createPaymentMethod({type:'card',card:card,billing_details:{name:f.cardname.value,email:f.email.value}}).then(function(res){
+    if(res.error){document.getElementById('card-err').textContent=res.error.message;go(4);return;}
+    data.paymentMethodId=res.paymentMethod.id;
+    try{fetch(N8N+'/webhook/sofortleads-order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});}catch(err){}
+    try{if(window.fbq&&localStorage.getItem('sl_consent')==='yes')fbq('track','Lead');}catch(e){}
+    window.location.href='danke.html';
+  });
   return false;
 }
 function tg(b){b.parentElement.classList.toggle('open')}
