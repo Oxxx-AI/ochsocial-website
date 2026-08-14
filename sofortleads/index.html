@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>sofortleads - Exklusive Kapitalanleger-Leads f&#252;r Immobilienmakler</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<meta name="description" content="Exklusive, vorqualifizierte Kapitalanleger-Leads f&#252;r Immobilienmakler. Jeder Lead nur an Sie, regional passend, kein geteilter Wettbewerb.">
+<meta name="description" content="Kaufe exklusive, vorqualifizierte Kapitalanleger-Leads f&#252;r Immobilienmakler. Jeder Lead nur an dich, regional passend, kein geteilter Wettbewerb.">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--blau:#1E4FBA;--blau-d:#173F96;--champ:#F0D9A0;--navy:#14163A;--offwhite:#F3F5F9;--eis:#6FA8F5;--mint:#3ECF97;--mut:#5B6079;--line:#E5E9F2;--white:#FFFFFF}
@@ -29,19 +29,29 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdro
 .nav-links a.nav-cta{color:#fff}
 .nav-cta{padding:10px 20px;font-size:15px}
 @media(max-width:760px){.nav-links a:not(.nav-cta){display:none}}
-.hero{text-align:center;padding:70px 0 56px}
-.hero h1{font-size:44px;max-width:820px;margin:0 auto}
-.hero p{font-size:19px;max-width:560px;margin:20px auto 0;color:var(--mut)}
-.hero .btn{margin-top:28px;font-size:17px;padding:16px 34px}
-.trustrow{margin-top:20px;font-size:13px;color:var(--mut);display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.hero{padding:64px 0 56px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+.hero h1{font-size:44px;max-width:560px}
+.hero-bullets{list-style:none;margin:26px 0 0;display:flex;flex-direction:column;gap:14px}
+.hero-bullets li{display:flex;gap:12px;align-items:flex-start;font-size:16px}
+.hero-bullets .ic{color:var(--blau);font-weight:800;flex:0 0 auto;font-size:18px;line-height:1.4}
+.hero-bullets b{font-weight:700}
+.hero .btn{margin-top:30px;font-size:17px;padding:16px 34px}
+.trustrow{margin-top:20px;font-size:13px;color:var(--mut);display:flex;gap:18px;flex-wrap:wrap}
 .trustrow b{color:var(--navy);font-weight:700}
-@media(max-width:640px){.hero h1{font-size:32px}.hero{padding:44px 0 36px}}
+.hero-img{position:relative}
+.hero-img img{width:100%;border-radius:18px;display:block;box-shadow:0 24px 60px rgba(20,22,58,.18)}
+.hero-badge{position:absolute;left:-14px;bottom:22px;background:#fff;border-radius:14px;padding:14px 18px;box-shadow:0 12px 34px rgba(20,22,58,.18);font-size:13px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:10px}
+.hero-badge .dotg{width:10px;height:10px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px rgba(62,207,151,.2)}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:30px}.hero h1{font-size:34px}.hero-img{order:-1}}
+@media(max-width:640px){.hero h1{font-size:29px}.hero{padding:36px 0 30px}}
 section{padding:60px 0}
 .sec-alt{background:var(--offwhite)}
 .eyebrow{color:var(--blau);font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
-.sec-h{font-size:32px;max-width:640px}
-.sec-sub{color:var(--mut);font-size:17px;max-width:620px;margin-top:12px}
-@media(max-width:640px){.sec-h{font-size:26px}}
+.sec-h{font-size:32px;max-width:760px}
+.sec-h.nowrap{max-width:none}
+.sec-sub{color:var(--mut);font-size:17px;max-width:660px;margin-top:12px}
+@media(max-width:640px){.sec-h{font-size:25px}}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:36px}
 @media(max-width:760px){.grid3,.grid2{grid-template-columns:1fr}}
@@ -49,33 +59,73 @@ section{padding:60px 0}
 .badge{width:46px;height:46px;border-radius:12px;background:var(--blau);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;margin-bottom:16px}
 .card h3{font-size:19px;margin-bottom:8px}
 .card p{color:var(--mut);font-size:15px}
-.cmp{border:1px solid var(--line);border-radius:12px;padding:26px;background:#fff}
-.cmp.win{border:2px solid var(--blau)}
+.cmp{border:1px solid var(--line);border-radius:14px;padding:28px;background:#fff}
+.cmp.win{background:var(--blau);border:none;box-shadow:0 22px 50px rgba(30,79,186,.32)}
 .cmp .lab{font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.5px;color:var(--mut)}
-.cmp.win .lab{color:var(--blau)}
-.cmp ul{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:10px}
+.cmp.win .lab{color:var(--champ)}
+.cmp.win h3{color:#fff;font-size:22px;margin:2px 0 4px}
+.cmp ul{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:12px}
 .cmp li{font-size:15px;display:flex;gap:10px;align-items:flex-start}
+.cmp.win li{color:#eaf0ff}
 .ic{color:var(--blau);font-weight:800;flex:0 0 auto}
 .ic.no{color:#c0392b}
+.cmp.win .ic{color:var(--champ)}
 .deflist{list-style:none;margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media(max-width:640px){.deflist{grid-template-columns:1fr}}
 .deflist li{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px;font-size:15px;display:flex;gap:12px;align-items:flex-start}
 .dot{width:22px;height:22px;border-radius:50%;background:var(--champ);color:var(--navy);flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}
-.checkout{max-width:640px;margin:36px auto 0;background:#fff;border:1px solid var(--line);border-radius:14px;padding:30px}
+.risk{list-style:none;margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:760px){.risk{grid-template-columns:1fr}}
+.risk li{background:#fff;border:1px solid var(--line);border-left:4px solid var(--mint);border-radius:10px;padding:18px 20px}
+.risk .no{color:var(--mut);font-size:14px;text-decoration:line-through;margin-bottom:4px;display:block}
+.risk .yes{font-weight:700;font-size:15px;display:flex;gap:8px;align-items:flex-start}
+.risk .yes .ic{color:var(--mint)}
+.benefits{list-style:none;margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:760px){.benefits{grid-template-columns:1fr}}
+.benefits li{display:flex;gap:12px;align-items:flex-start;font-size:16px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.benefits .ic{color:var(--blau);font-weight:800;flex:0 0 auto;font-size:18px}
+.mockrow{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:36px;align-items:center}
+@media(max-width:760px){.mockrow{grid-template-columns:1fr;gap:40px}}
+.phone{width:290px;max-width:100%;margin:0 auto;background:#0f2e1e;border-radius:30px;padding:12px;box-shadow:0 26px 60px rgba(20,22,58,.22)}
+.phone-scr{background:#f4f6f4;border-radius:20px;overflow:hidden;font-size:12px}
+.ph-top{background:#123b26;color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;font-weight:700}
+.ph-top .pill{background:#F2C94C;color:#123b26;font-size:10px;font-weight:800;padding:3px 8px;border-radius:20px}
+.ph-body{padding:12px 14px 18px}
+.ph-h{font-weight:800;font-size:15px;color:#14163A;margin-bottom:2px}
+.ph-sub{color:#8a8f9c;font-size:11px;margin-bottom:12px}
+.ph-item{background:#fff;border-radius:10px;padding:11px 12px;margin-bottom:10px;box-shadow:0 2px 8px rgba(20,22,58,.05)}
+.ph-item .r1{display:flex;justify-content:space-between;align-items:center}
+.ph-item .nm{font-weight:700;color:#14163A;font-size:13px}
+.ph-item .tag{font-size:9px;font-weight:800;padding:2px 7px;border-radius:20px}
+.tg-new{background:#FDECC8;color:#8a5a00}
+.tg-term{background:#D5F3E4;color:#0a7d33}
+.tg-excl{background:#E1E9FF;color:#1E4FBA}
+.ph-item .meta{color:#8a8f9c;font-size:11px;margin-top:3px}
+.ph-b{background:#fff;border-radius:20px;overflow:hidden}
+.ph-b .ph-top{background:#1E4FBA}
+.ph-b .pill{background:#F0D9A0;color:#14163A}
+.mock-txt h3{font-size:22px;margin-bottom:10px}
+.mock-txt p{color:var(--mut);font-size:16px;margin-bottom:10px}
+.mock-txt ul{list-style:none;margin-top:8px;display:flex;flex-direction:column;gap:8px}
+.mock-txt li{display:flex;gap:10px;font-size:15px}
+.mock-txt .ic{color:var(--blau);font-weight:800}
+.checkout{max-width:640px;margin:36px auto 0;background:#fff;border:1px solid var(--line);border-radius:14px;padding:30px;box-shadow:0 20px 50px rgba(20,22,58,.08)}
 .steps{display:flex;gap:6px;margin-bottom:24px}
 .steps .s{flex:1;text-align:center;font-size:11px;font-weight:700;color:var(--mut);padding-bottom:10px;border-bottom:3px solid var(--line)}
 .steps .s.active{color:var(--blau);border-color:var(--blau)}
 .steps .s.done{color:var(--mint);border-color:var(--mint)}
 .field{margin-bottom:16px}
 .field label{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
-.field input,.field select{width:100%;height:46px;border:1px solid var(--line);border-radius:8px;padding:0 14px;font-family:inherit;font-size:15px;color:var(--navy)}
+.field input,.field select{width:100%;height:46px;border:1px solid var(--line);border-radius:8px;padding:0 14px;font-family:inherit;font-size:15px;color:var(--navy);background:#fff}
 .field input:focus,.field select:focus{outline:none;border-color:var(--blau);box-shadow:0 0 0 3px rgba(30,79,186,.12)}
 .opt{font-weight:400;color:var(--mut)}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.pkgs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.pkg{border:1px solid var(--line);border-radius:10px;padding:14px;text-align:center;cursor:pointer}
-.pkg.sel{border:2px solid var(--blau);background:#f5f8fe}
-.pkg .n{font-weight:800;font-size:20px}
+.leadbox{background:var(--offwhite);border-radius:10px;padding:16px 18px;margin-bottom:8px}
+.leadbox .lr{display:flex;justify-content:space-between;align-items:center;font-size:14px;padding:3px 0}
+.leadbox .lr b{font-size:15px}
+.leadbox .big{font-weight:800;font-size:18px}
+.discount-note{font-size:13px;color:var(--mut);background:#fff8ec;border:1px solid #f2e2be;border-radius:8px;padding:10px 12px;margin-bottom:16px}
+.discount-note b{color:#8a5a00}
 .codebox{display:flex;gap:10px;justify-content:center;margin:8px 0 16px}
 .codebox input{width:100%;height:56px;text-align:center;font-size:24px;letter-spacing:8px;font-weight:700;border:1px solid var(--line);border-radius:8px}
 .summary{background:var(--offwhite);border-radius:10px;padding:18px;margin-bottom:16px;font-size:15px}
@@ -89,6 +139,8 @@ section{padding:60px 0}
 .hidden{display:none}
 .err{color:#c0392b;font-size:14px;margin:8px 0}
 .startnote{font-size:13px;color:var(--mut);text-align:center;margin-top:12px}
+.paylogos{display:flex;gap:8px;align-items:center;justify-content:center;margin-top:14px;flex-wrap:wrap;font-size:12px;color:var(--mut)}
+.paylogos span{background:#fff;border:1px solid var(--line);border-radius:6px;padding:4px 8px;font-weight:700;color:var(--navy)}
 .link{background:none;border:none;color:var(--blau);font-weight:600;cursor:pointer;font-size:14px;text-decoration:underline}
 .faq{max-width:760px;margin:32px auto 0}
 .q{border-bottom:1px solid var(--line)}
@@ -96,6 +148,7 @@ section{padding:60px 0}
 .q .a{padding:0 4px 20px;color:var(--mut);font-size:15px;display:none}
 .q.open .a{display:block}
 .q .plus{color:var(--blau);font-size:22px;font-weight:400}
+.ccwrap-help{font-size:12px;color:var(--mut);margin-top:6px}
 footer{background:var(--navy);color:#fff;padding:40px 0}
 .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
 .foot .logo{color:#fff}
@@ -117,26 +170,49 @@ footer{background:var(--navy);color:#fff;padding:40px 0}
   </div>
 </header>
 
-<section class="hero wrap" style="padding-top:70px">
-  <h1>Exklusive Kapitalanleger-Leads f&#252;r Immobilienmakler</h1>
-  <p>Vorqualifizierte Anleger, die eine Immobilie kaufen wollen. Regional passend, und jeder Lead geht nur an Sie. Kein geteilter Wettbewerb, kein Preiskampf.</p>
-  <a href="#start" class="btn">Jetzt exklusive Leads sichern</a>
-  <div class="trustrow">
-    <span>&#128274; <b>SSL-verschl&#252;sselt</b></span>
-    <span>Zahlung &#252;ber <b>Stripe</b></span>
-    <span><b>100% exklusiv</b> &ndash; 1 Lead, 1 Makler</span>
-    <span>Monatlich <b>k&#252;ndbar</b></span>
+<section class="hero wrap">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow">F&#252;r Immobilienmakler</div>
+      <h1>Kaufe jetzt exklusive Kapitalanleger-Leads</h1>
+      <ul class="hero-bullets">
+        <li><span class="ic">&#10003;</span><span><b>Einmalkauf statt Abo.</b> Du kaufst einen Monat, keine automatische Verl&#228;ngerung, keine K&#252;ndigung n&#246;tig. Du entscheidest jedes Mal neu.</span></li>
+        <li><span class="ic">&#10003;</span><span><b>Jeder Lead geh&#246;rt nur dir.</b> Exklusiv hei&#223;t: dieser Anleger wird ausschlie&#223;lich an dich vermittelt, niemals parallel an andere Makler.</span></li>
+        <li><span class="ic">&#10003;</span><span><b>Exakt deine Region.</b> Du bekommst nur Anleger aus deinem Postleitzahlen-Gebiet und Radius, kein Streuverlust.</span></li>
+      </ul>
+      <a href="#start" class="btn">Jetzt exklusive Leads kaufen</a>
+      <div class="trustrow">
+        <span>&#128274; <b>SSL-verschl&#252;sselt</b></span>
+        <span>Zahlung &#252;ber <b>Stripe</b></span>
+        <span><b>100% exklusiv</b> &ndash; 1 Lead, 1 Makler</span>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="hero.jpg" alt="Immobilienmakler &#252;bergibt einem Kapitalanleger die Schl&#252;ssel vor einer Immobilie" onerror="this.parentNode.style.display='none'">
+      <div class="hero-badge"><span class="dotg"></span> Exklusiv an einen Makler vergeben</div>
+    </div>
   </div>
 </section>
+
+<div style="border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff">
+  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:24px;justify-content:center;padding:18px 24px;font-size:13px;color:var(--mut);font-weight:600">
+    <span>&#128274; SSL/TLS-verschl&#252;sselt</span>
+    <span>&#128179; Sichere Zahlung &#252;ber Stripe</span>
+    <span>&#10003; DSGVO-konform, Server in der EU</span>
+    <span>&#10003; 100% exklusiv &ndash; 1 Lead, 1 Makler</span>
+    <span>&#8635; Kein Abo, kein Kleingedrucktes</span>
+    <span>Betrieben von der <b style="color:var(--navy)">ochsocial Ltd</b></span>
+  </div>
+</div>
 
 <section id="ablauf" class="sec-alt">
   <div class="wrap">
     <div class="eyebrow">In 3 Schritten</div>
-    <h2 class="sec-h">So kommen Sie an Ihre Leads</h2>
+    <h2 class="sec-h">So kommst du an deine Leads</h2>
     <div class="grid3">
-      <div class="card"><div class="badge">1</div><h3>Anmelden und verifizieren</h3><p>Kontaktdaten eingeben, Telefonnummer per SMS-Code best&#228;tigen. So bleiben nur echte Makler.</p></div>
-      <div class="card"><div class="badge">2</div><h3>Region und Paket w&#228;hlen</h3><p>Einzugsgebiet und Anzahl der Leads pro Woche festlegen, Zahlung sicher &#252;ber Stripe hinterlegen.</p></div>
-      <div class="card"><div class="badge">3</div><h3>Exklusive Leads erhalten</h3><p>Ab Ihrem Startdatum landen die Leads exklusiv bei Ihnen, in Echtzeit per E-Mail und im Sheet.</p></div>
+      <div class="card"><div class="badge">1</div><h3>Anmelden und verifizieren</h3><p>Kontaktdaten eingeben, Telefonnummer per SMS-Code best&#228;tigen. So kommen nur echte Makler durch.</p></div>
+      <div class="card"><div class="badge">2</div><h3>Region und Menge w&#228;hlen</h3><p>Einzugsgebiet und Anzahl der Leads pro Woche festlegen. Bezahlung sicher &#252;ber Stripe, mit Karte, Apple Pay oder Google Pay.</p></div>
+      <div class="card"><div class="badge">3</div><h3>Exklusive Leads erhalten</h3><p>Ab deinem Startdatum bekommst du deine Leads w&#246;chentlich, exklusiv, in Echtzeit per E-Mail.</p></div>
     </div>
   </div>
 </section>
@@ -145,7 +221,7 @@ footer{background:var(--navy);color:#fff;padding:40px 0}
   <div class="wrap">
     <div class="eyebrow">Der Unterschied</div>
     <h2 class="sec-h">Warum exklusiv gewinnt</h2>
-    <p class="sec-sub">Vergleichsportale verkaufen dieselbe Anfrage an mehrere Makler. Sie k&#228;mpfen dann mit vier anderen um denselben Kontakt. Bei uns nicht.</p>
+    <p class="sec-sub">Vergleichsportale verkaufen dieselbe Anfrage an mehrere Makler. Du k&#228;mpfst dann mit vier anderen um denselben Kontakt. Bei uns nicht.</p>
     <div class="grid2">
       <div class="cmp"><div class="lab">Geteilte Portale</div><ul>
         <li><span class="ic no">&times;</span> 1 Lead geht an 2 bis 5 Makler</li>
@@ -153,11 +229,11 @@ footer{background:var(--navy);color:#fff;padding:40px 0}
         <li><span class="ic no">&times;</span> Wer zuerst anruft, gewinnt</li>
         <li><span class="ic no">&times;</span> Niedrige Abschlussquote</li>
       </ul></div>
-      <div class="cmp win"><div class="lab">sofortleads</div><ul>
-        <li><span class="ic">&check;</span> 1 Lead, nur Sie. Garantiert exklusiv</li>
-        <li><span class="ic">&check;</span> Kein Wettbewerb, kein Preisdruck</li>
-        <li><span class="ic">&check;</span> Regional exakt auf Ihr Gebiet</li>
-        <li><span class="ic">&check;</span> Vorab verifiziert, h&#246;here Abschlussquote</li>
+      <div class="cmp win"><div class="lab">sofortleads</div><h3>Nur du. Sonst niemand.</h3><ul>
+        <li><span class="ic">&#10003;</span> 1 Lead, nur du. Garantiert exklusiv</li>
+        <li><span class="ic">&#10003;</span> Kein Wettbewerb, kein Preisdruck</li>
+        <li><span class="ic">&#10003;</span> Regional exakt auf dein Gebiet</li>
+        <li><span class="ic">&#10003;</span> Vorqualifiziert, h&#246;here Abschlussquote</li>
       </ul></div>
     </div>
   </div>
@@ -165,41 +241,129 @@ footer{background:var(--navy);color:#fff;padding:40px 0}
 
 <section class="sec-alt">
   <div class="wrap">
-    <div class="eyebrow">Qualit&#228;t</div>
-    <h2 class="sec-h">Was ein Kapitalanleger-Lead bei uns bedeutet</h2>
-    <p class="sec-sub">Jeder Lead durchl&#228;uft eine automatische Pr&#252;fung, bevor er zu Ihnen kommt. Kein Adress-Schrott, keine Dubletten.</p>
-    <ul class="deflist">
-      <li><span class="dot">&check;</span> Konkrete Kaufabsicht f&#252;r eine Anlageimmobilie</li>
-      <li><span class="dot">&check;</span> Passend zu Ihrer Region und Ihrem Radius</li>
-      <li><span class="dot">&check;</span> Kontaktdaten verifiziert (E-Mail und Telefon)</li>
-      <li><span class="dot">&check;</span> Ausdr&#252;ckliche Einwilligung zur Kontaktaufnahme</li>
-      <li><span class="dot">&check;</span> Keine Dubletten, keine Mehrfachvergabe</li>
-      <li><span class="dot">&check;</span> Budget-Indikation f&#252;r die Investition</li>
+    <div class="eyebrow">Dein Risiko &#252;bernehmen wir</div>
+    <h2 class="sec-h">Das, was Makler bei Leads f&#252;rchten, gibt es bei uns nicht</h2>
+    <p class="sec-sub">Wir pr&#252;fen jeden Lead automatisch, bevor er zu dir geht. Was du sonst &#228;rgerlich nachbearbeiten m&#252;sstest, filtern wir vorher raus.</p>
+    <ul class="risk">
+      <li><span class="no">Dieselbe Anfrage bei f&#252;nf Maklern</span><span class="yes"><span class="ic">&#10003;</span> Jeder Lead wird genau einmal vergeben, exklusiv an dich</span></li>
+      <li><span class="no">Telefonnummer falsch oder existiert nicht</span><span class="yes"><span class="ic">&#10003;</span> Nummern werden vor Auslieferung technisch gepr&#252;ft</span></li>
+      <li><span class="no">Lead aus der falschen Region</span><span class="yes"><span class="ic">&#10003;</span> Du bekommst nur Kontakte aus deinem Gebiet und Radius</span></li>
+      <li><span class="no">Ung&#252;ltige oder Fake-Adressdaten</span><span class="yes"><span class="ic">&#10003;</span> Unplausible und doppelte Datens&#228;tze fallen in der Pr&#252;fung raus</span></li>
+      <li><span class="no">Kein Einverst&#228;ndnis zur Kontaktaufnahme</span><span class="yes"><span class="ic">&#10003;</span> Jeder Lead hat der Kontaktaufnahme ausdr&#252;cklich zugestimmt</span></li>
+      <li><span class="no">Reklamierter Lead und Geld ist weg</span><span class="yes"><span class="ic">&#10003;</span> Nachweisbar defekte Leads ersetzen wir durch einen neuen Lead</span></li>
     </ul>
   </div>
 </section>
 
-<section id="start">
+<section>
   <div class="wrap">
-    <div class="eyebrow" style="text-align:center">Partner werden</div>
+    <div class="eyebrow">Qualit&#228;t</div>
+    <h2 class="sec-h nowrap">Was ein vorqualifizierter Kapitalanleger-Lead bei uns bedeutet</h2>
+    <p class="sec-sub">Jeder Lead durchl&#228;uft eine automatische Pr&#252;fung, bevor er bei dir landet. So bekommst du saubere Kontakte mit echter Kaufabsicht, statt Datens&#228;tze nachzubearbeiten.</p>
+    <ul class="deflist">
+      <li><span class="dot">&#10003;</span> Konkrete Kaufabsicht f&#252;r eine Anlageimmobilie</li>
+      <li><span class="dot">&#10003;</span> Passend zu deiner Region und deinem Radius</li>
+      <li><span class="dot">&#10003;</span> Kontaktdaten verifiziert (E-Mail und Telefon)</li>
+      <li><span class="dot">&#10003;</span> Ausdr&#252;ckliche Einwilligung zur Kontaktaufnahme</li>
+      <li><span class="dot">&#10003;</span> Jeder Lead exklusiv, keine Mehrfachvergabe</li>
+      <li><span class="dot">&#10003;</span> Budget-Indikation f&#252;r die Investition</li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec-alt">
+  <div class="wrap">
+    <div class="eyebrow">Deine Vorteile</div>
+    <h2 class="sec-h">Neukunden gewinnen, ohne selbst Marketing machen zu m&#252;ssen</h2>
+    <p class="sec-sub">Du bist Makler, kein Werbetreibender. Wir liefern kaufbereite Anleger direkt in dein Postfach, den Rest &#252;berl&#228;sst du uns.</p>
+    <ul class="benefits">
+      <li><span class="ic">&#10003;</span><span>Kein Social-Media-Experte n&#246;tig, du musst nichts posten und keine Reels drehen</span></li>
+      <li><span class="ic">&#10003;</span><span>Keine Kaltakquise, die Anleger kommen zu dir, nicht umgekehrt</span></li>
+      <li><span class="ic">&#10003;</span><span>Kein Werbebudget verbrennen und kein Kampagnen-Risiko tragen</span></li>
+      <li><span class="ic">&#10003;</span><span>Kein monatelanger Funnel-Aufbau, du bist sofort startklar</span></li>
+      <li><span class="ic">&#10003;</span><span>Planbar: du bestimmst Menge und Region selbst</span></li>
+      <li><span class="ic">&#10003;</span><span>Kein Abo-Zwang, du kaufst pro Monat und entscheidest jedes Mal neu</span></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">So sieht es bei dir aus</div>
+    <h2 class="sec-h">Deine Leads, &#252;bersichtlich und sofort einsatzbereit</h2>
+    <div class="mockrow">
+      <div class="phone"><div class="phone-scr">
+        <div class="ph-top"><span>Deine Leads</span><span class="pill">7 neu</span></div>
+        <div class="ph-body">
+          <div class="ph-h">Lead-&#220;bersicht</div>
+          <div class="ph-sub">Diese Woche &middot; exklusiv f&#252;r dich</div>
+          <div class="ph-item"><div class="r1"><span class="nm">M. Bergmann</span><span class="tag tg-new">NEU</span></div><div class="meta">90402 N&#252;rnberg &middot; Budget ca. 320.000 &#8364;</div></div>
+          <div class="ph-item"><div class="r1"><span class="nm">S. Kern</span><span class="tag tg-excl">EXKLUSIV</span></div><div class="meta">90403 N&#252;rnberg &middot; Anlagewohnung</div></div>
+          <div class="ph-item"><div class="r1"><span class="nm">T. Alt</span><span class="tag tg-term">TERMIN</span></div><div class="meta">91052 Erlangen &middot; R&#252;ckruf vereinbart</div></div>
+        </div>
+      </div></div>
+      <div class="mock-txt">
+        <h3>W&#246;chentliche Auslieferung, kein Chaos</h3>
+        <p>Deine gekauften Leads kommen Woche f&#252;r Woche exklusiv bei dir an, sauber gelistet mit Region und Budget-Indikation.</p>
+        <ul>
+          <li><span class="ic">&#10003;</span> Sofort sehen, welche Leads neu sind</li>
+          <li><span class="ic">&#10003;</span> Region und Budget auf einen Blick</li>
+          <li><span class="ic">&#10003;</span> Direkt anrufen, w&#228;hrend das Interesse frisch ist</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mockrow" style="margin-top:56px">
+      <div class="mock-txt">
+        <h3>Jeder Lead mit den Infos, die z&#228;hlen</h3>
+        <p>Kein R&#228;tselraten: du siehst Kaufabsicht, Region und Kontaktweg. Verifiziert, bevor der Lead bei dir ankommt.</p>
+        <ul>
+          <li><span class="ic">&#10003;</span> Telefon und E-Mail gepr&#252;ft</li>
+          <li><span class="ic">&#10003;</span> Budget-Indikation f&#252;r die Anlage</li>
+          <li><span class="ic">&#10003;</span> Einwilligung zur Kontaktaufnahme liegt vor</li>
+        </ul>
+      </div>
+      <div class="phone"><div class="phone-scr ph-b">
+        <div class="ph-top"><span>Neuer Lead</span><span class="pill">exklusiv</span></div>
+        <div class="ph-body">
+          <div class="ph-h">Sabine Kern</div>
+          <div class="ph-sub">Eingegangen heute, 09:14</div>
+          <div class="ph-item"><div class="meta"><b style="color:#14163A">Vorhaben</b><br>Anlagewohnung, Kapitalanlage</div></div>
+          <div class="ph-item"><div class="meta"><b style="color:#14163A">Region</b><br>90403 N&#252;rnberg &middot; 40 km</div></div>
+          <div class="ph-item"><div class="meta"><b style="color:#14163A">Budget-Indikation</b><br>250.000 bis 350.000 &#8364;</div></div>
+          <div class="ph-item"><div class="r1"><span class="nm">Telefon verifiziert</span><span class="tag tg-term">&#10003;</span></div></div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section id="start" class="sec-alt">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center">Jetzt kaufen</div>
     <h2 class="sec-h" style="margin:0 auto;text-align:center">In 2 Minuten startklar</h2>
 
     <div class="checkout">
       <div class="steps">
         <div class="s active" data-step="1">1 Kontakt</div>
         <div class="s" data-step="2">2 Verifizierung</div>
-        <div class="s" data-step="3">3 Region + Paket</div>
-        <div class="s" data-step="4">4 Zahlung</div>
-        <div class="s" data-step="5">5 Best&#228;tigen</div>
+        <div class="s" data-step="3">3 Region + Menge</div>
+        <div class="s" data-step="4">4 Kauf</div>
       </div>
 
       <form id="ckform" onsubmit="return submitForm(event)">
         <div class="pane" data-pane="1">
           <div class="field"><label>Ansprechpartner</label><input name="name" placeholder="Vor- und Nachname" required></div>
-          <div class="field"><label>Firmenname</label><input name="firma" placeholder="Ihr Maklerb&#252;ro" required></div>
-          <div class="row2">
-            <div class="field"><label>E-Mail</label><input name="email" type="email" placeholder="name@firma.de" required></div>
-            <div class="field"><label>Mobilnummer</label><div style="display:flex;gap:8px"><div id="ccwrap" style="position:relative;flex:0 0 auto"><input type="hidden" name="telcc" id="telcc" value="+49"><button type="button" id="cctoggle" style="display:flex;align-items:center;gap:6px;height:100%;min-height:48px;padding:0 12px;border:1px solid #dfe3ee;border-radius:10px;background:#fff;font-size:15px;cursor:pointer;white-space:nowrap"><img id="ccflag" src="https://flagcdn.com/20x15/de.png" width="20" height="15" style="display:inline-block"><span id="cccode">+49</span><span style="opacity:.5">&#9662;</span></button><div id="cclist" style="display:none;position:absolute;z-index:60;top:calc(100% + 4px);left:0;width:270px;max-height:280px;overflow:auto;background:#fff;border:1px solid #dfe3ee;border-radius:10px;box-shadow:0 10px 34px rgba(20,22,58,.14)"></div></div><script>(function(){var CC=[["Deutschland","de","+49"],["\u00d6sterreich","at","+43"],["Schweiz","ch","+41"],["Zypern","cy","+357"],["USA / Kanada","us","+1"],["Vereinigtes K\u00f6nigreich","gb","+44"],["Frankreich","fr","+33"],["Italien","it","+39"],["Spanien","es","+34"],["Niederlande","nl","+31"],["Belgien","be","+32"],["Luxemburg","lu","+352"],["Polen","pl","+48"],["Tschechien","cz","+420"],["D\u00e4nemark","dk","+45"],["Schweden","se","+46"],["Norwegen","no","+47"],["Finnland","fi","+358"],["Irland","ie","+353"],["Portugal","pt","+351"],["Griechenland","gr","+30"],["Ungarn","hu","+36"],["Rum\u00e4nien","ro","+40"],["Bulgarien","bg","+359"],["Kroatien","hr","+385"],["Slowenien","si","+386"],["Slowakei","sk","+421"],["Litauen","lt","+370"],["Lettland","lv","+371"],["Estland","ee","+372"],["T\u00fcrkei","tr","+90"],["Russland","ru","+7"],["Ukraine","ua","+380"],["Liechtenstein","li","+423"],["Malta","mt","+356"],["Island","is","+354"],["Australien","au","+61"],["Neuseeland","nz","+64"],["VAE","ae","+971"],["Saudi-Arabien","sa","+966"],["Israel","il","+972"],["S\u00fcdafrika","za","+27"],["Brasilien","br","+55"],["Mexiko","mx","+52"],["Argentinien","ar","+54"],["Japan","jp","+81"],["China","cn","+86"],["Indien","in","+91"],["Singapur","sg","+65"],["Hongkong","hk","+852"]];var F="https://flagcdn.com/20x15/";var list=document.getElementById("cclist"),tog=document.getElementById("cctoggle"),hid=document.getElementById("telcc"),fl=document.getElementById("ccflag"),cd=document.getElementById("cccode");CC.forEach(function(c){var it=document.createElement("div");it.style.cssText="display:flex;align-items:center;gap:8px;padding:9px 11px;cursor:pointer;font-size:14px;color:#14163A";it.innerHTML='<img src="'+F+c[1]+'.png" width="20" height="15"> <span style="flex:1">'+c[0]+'</span> <span style="opacity:.6">'+c[2]+'</span>';it.onmouseover=function(){it.style.background="#f4f6fb"};it.onmouseout=function(){it.style.background="#fff"};it.onclick=function(){hid.value=c[2];fl.src=F+c[1]+".png";cd.textContent=c[2];list.style.display="none"};list.appendChild(it)});tog.onclick=function(e){e.stopPropagation();list.style.display=list.style.display==="none"?"block":"none"};document.addEventListener("click",function(e){if(!document.getElementById("ccwrap").contains(e.target))list.style.display="none"});})();</script><input name="tel" id="tel" placeholder="176 1234567" required style="flex:1 1 auto"></div></div>
+          <div class="field"><label>Firmenname</label><input name="firma" placeholder="Dein Maklerb&#252;ro" required></div>
+          <div class="field"><label>E-Mail</label><input name="email" type="email" placeholder="name@firma.de" required></div>
+          <div class="field"><label>Mobilnummer</label>
+            <div style="display:flex;gap:8px">
+              <div id="ccwrap" style="position:relative;flex:0 0 auto">
+                <input type="hidden" name="telcc" id="telcc" value="+49">
+                <button type="button" id="cctoggle" style="display:flex;align-items:center;gap:6px;height:46px;padding:0 12px;border:1px solid #E5E9F2;border-radius:8px;background:#fff;font-size:15px;cursor:pointer;white-space:nowrap"><img id="ccflag" src="https://flagcdn.com/20x15/de.png" width="20" height="15"><span id="cccode">+49</span><span style="opacity:.5">&#9662;</span></button>
+                <div id="cclist" style="display:none;position:absolute;z-index:60;top:calc(100% + 4px);left:0;width:270px;max-height:280px;overflow:auto;background:#fff;border:1px solid #E5E9F2;border-radius:10px;box-shadow:0 10px 34px rgba(20,22,58,.14)"></div>
+              </div>
+              <input name="tel" id="tel" placeholder="176 1234567" required style="flex:1 1 auto">
+            </div>
           </div>
           <div class="field"><label>USt-IdNr. <span class="opt">(optional)</span></label><input name="ustid" placeholder="z.B. DE123456789"></div>
           <div class="err hidden" id="err1"></div>
@@ -216,43 +380,41 @@ footer{background:var(--navy);color:#fff;padding:40px 0}
 
         <div class="pane hidden" data-pane="3">
           <div class="row2">
-            <div class="field"><label>PLZ (Zentrum Ihres Gebiets)</label><input name="plz" placeholder="z.B. 90402" required></div>
+            <div class="field"><label>PLZ (Zentrum deines Gebiets)</label><input name="plz" placeholder="z.B. 90402" required></div>
             <div class="field"><label>Radius</label><select name="radius"><option>25 km</option><option selected>40 km</option><option>60 km</option><option>100 km</option></select></div>
           </div>
-          <label style="display:block;font-size:14px;font-weight:600;margin-bottom:8px">Leads pro Woche &ndash; 270 &#8364; je exklusivem Lead</label>
-          <div class="pkgs">
-            <div class="pkg" data-n="3" onclick="pickPkg(this)"><div class="n">3</div><div class="mut" style="font-size:13px">810 &#8364;/Woche</div></div>
-            <div class="pkg sel" data-n="5" onclick="pickPkg(this)"><div class="n">5</div><div class="mut" style="font-size:13px">1.350 &#8364;/Woche</div></div>
-            <div class="pkg" data-n="8" onclick="pickPkg(this)"><div class="n">8</div><div class="mut" style="font-size:13px">2.160 &#8364;/Woche</div></div>
+          <div class="field"><label>Leads pro Woche</label>
+            <input type="number" id="leads" name="leads" min="1" max="50" value="5" list="leadopts" oninput="recalc()">
+            <datalist id="leadopts"><option>3</option><option>5</option><option>8</option><option>10</option><option>15</option><option>20</option></datalist>
           </div>
+          <div class="discount-note">Mengenrabatt: <b>ab 5 Leads/Woche 10% Rabatt</b>, <b>ab 10 Leads/Woche 20% Rabatt</b> auf den Lead-Preis.</div>
+          <div class="leadbox">
+            <div class="lr"><span>Preis je Lead</span><b id="l-ppl">243 &#8364;</b></div>
+            <div class="lr"><span>Pro Woche (<span id="l-cnt">5</span> Leads)</span><b id="l-week">1.215 &#8364;</b></div>
+            <div class="lr" style="border-top:1px solid var(--line);margin-top:6px;padding-top:8px"><span class="big">Einmalzahlung (4 Wochen)</span><span class="big" id="l-month">4.860 &#8364;</span></div>
+          </div>
+          <p class="mut" style="font-size:13px;margin-bottom:14px">Einmalkauf f&#252;r einen Monat (4 Wochen). Die Leads werden w&#246;chentlich ausgeliefert. Keine automatische Verl&#228;ngerung, du bestellst danach neu, wenn du m&#246;chtest.</p>
           <div class="nav-btns"><button type="button" class="btn ghost" onclick="go(2)">Zur&#252;ck</button><button type="button" class="btn" onclick="go(4)">Weiter</button></div>
         </div>
 
         <div class="pane hidden" data-pane="4">
-          <div class="field"><label>Karteninhaber</label><input name="cardname" placeholder="Name auf der Karte"></div>
-          <div class="field"><label>Kartendaten</label>
-            <div id="stripe-card" style="border:1px solid var(--line);border-radius:8px;padding:13px 14px"></div>
-            <div id="card-err" style="color:#c0392b;font-size:13px;margin-top:6px"></div>
-          </div>
-          <p class="mut" style="font-size:13px">&#128274; Ihre Kartendaten gehen verschl&#252;sselt direkt an Stripe. Abgebucht wird erst nach unserer Auftragsbest&#228;tigung.</p>
-          <div class="nav-btns"><button type="button" class="btn ghost" onclick="go(3)">Zur&#252;ck</button><button type="button" class="btn" onclick="go(5)">Weiter</button></div>
-        </div>
-
-        <div class="pane hidden" data-pane="5">
           <div class="summary">
-            <div class="line"><span>Paket</span><span id="s-pkg">5 Leads / Woche</span></div>
-            <div class="line"><span>Preis je Lead</span><span>270 &#8364;</span></div>
+            <div class="line"><span>Menge</span><span id="s-cnt">5 Leads / Woche</span></div>
+            <div class="line"><span>Preis je Lead</span><span id="s-ppl">243 &#8364;</span></div>
             <div class="line"><span>Gebiet</span><span id="s-geo">-</span></div>
+            <div class="line"><span>Auslieferung</span><span>w&#246;chentlich, 4 Wochen</span></div>
             <div class="line"><span>Voraussichtliches Startdatum</span><span id="s-start">-</span></div>
-            <div class="line total"><span>Wochenpaket (Vorkasse)</span><span id="s-total">1.350 &#8364;</span></div>
+            <div class="line total"><span>Einmalzahlung</span><span id="s-total">4.860 &#8364;</span></div>
           </div>
-          <label class="chk"><input type="checkbox" required> Ich handle als Gewerbetreibender und bin berechtigt, Vertr&#228;ge f&#252;r die genannte Firma abzuschlie&#223;en.</label>
+          <label class="chk"><input type="checkbox" required> Ich handle als Gewerbetreibender und bin berechtigt, f&#252;r die genannte Firma zu handeln.</label>
           <label class="chk"><input type="checkbox" required> Ich stimme den <a href="agb.html" target="_blank" style="color:var(--blau)">AGB</a> und der <a href="datenschutz.html" target="_blank" style="color:var(--blau)">Datenschutzerkl&#228;rung</a> zu.</label>
-          <p class="mut" style="font-size:13px;margin-bottom:14px">Mit dem Klick bestellen Sie zahlungspflichtig. Der Vertrag kommt sofort zustande und das oben genannte Wochenpaket (<span id="s-total3">1.350 &#8364;</span>) wird umgehend &#252;ber Stripe abgebucht. Anschliessend erhalten Sie Ihre Auftragsbest&#228;tigung per E-Mail.</p>
-          <div class="nav-btns"><button type="button" class="btn ghost" onclick="go(4)">Zur&#252;ck</button><button type="submit" class="btn btn-champ">Jetzt zahlungspflichtig bestellen</button></div>
+          <p class="mut" style="font-size:13px;margin-bottom:14px">Mit dem Klick kaufst du zahlungspflichtig. Es handelt sich um einen Einmalkauf f&#252;r einen Monat (4 Wochen), ohne automatische Verl&#228;ngerung. Die Zahlung wird sicher &#252;ber Stripe abgewickelt.</p>
+          <div class="nav-btns"><button type="button" class="btn ghost" onclick="go(3)">Zur&#252;ck</button><button type="submit" class="btn btn-champ">Jetzt kaufen und weiter zur Zahlung</button></div>
+          <div class="paylogos">Bezahlung mit <span>Visa</span><span>Mastercard</span><span>Amex</span><span>Apple&nbsp;Pay</span><span>Google&nbsp;Pay</span><span>Link</span></div>
+          <div id="card-err" class="err" style="text-align:center"></div>
         </div>
       </form>
-      <div class="startnote">Voraussichtliches Startdatum: 3 bis 5 Werktage nach Best&#228;tigung.</div>
+      <div class="startnote">Voraussichtliches Startdatum: 3 bis 5 Werktage nach der Auftragsbest&#228;tigung.</div>
     </div>
   </div>
 </section>
@@ -262,11 +424,11 @@ footer{background:var(--navy);color:#fff;padding:40px 0}
     <div class="eyebrow" style="text-align:center">Fragen und Antworten</div>
     <h2 class="sec-h" style="margin:0 auto;text-align:center">H&#228;ufige Fragen</h2>
     <div class="faq">
-      <div class="q"><button onclick="tg(this)">Sind die Leads wirklich exklusiv? <span class="plus">+</span></button><div class="a">Ja. Jeder Lead wird genau einmal vergeben, ausschlie&#223;lich an Sie.</div></div>
-      <div class="q"><button onclick="tg(this)">Was ist, wenn ein Lead nicht erreichbar ist? <span class="plus">+</span></button><div class="a">Melden Sie sich innerhalb von 7 Tagen mit mindestens 6 dokumentierten Kontaktversuchen &#252;ber mehrere Tage und Uhrzeiten. Dann ersetzen wir den Lead. F&#252;r nachweisbare Defekte (falsche Nummer, Dublette, falsche Region) gibt es ebenfalls Ersatz.</div></div>
-      <div class="q"><button onclick="tg(this)">Wann erhalte ich die ersten Leads? <span class="plus">+</span></button><div class="a">Zu Ihrem voraussichtlichen Startdatum, in der Regel 3 bis 5 Werktage nach der Auftragsbest&#228;tigung.</div></div>
-      <div class="q"><button onclick="tg(this)">Wie kann ich k&#252;ndigen? <span class="plus">+</span></button><div class="a">Monatlich, ohne lange Bindung. Eine kurze schriftliche Mitteilung gen&#252;gt.</div></div>
-      <div class="q"><button onclick="tg(this)">Wie funktioniert die Bezahlung? <span class="plus">+</span></button><div class="a">Sie hinterlegen eine Karte &#252;ber Stripe. Das Wochenpaket wird im Voraus als Guthaben abgebucht, verbraucht wird pro tats&#228;chlich geliefertem Lead.</div></div>
+      <div class="q"><button onclick="tg(this)">Sind die Leads wirklich exklusiv? <span class="plus">+</span></button><div class="a">Ja. Jeder Lead wird genau einmal vergeben, ausschlie&#223;lich an dich. Niemals parallel an andere Makler.</div></div>
+      <div class="q"><button onclick="tg(this)">Ist das ein Abo? <span class="plus">+</span></button><div class="a">Nein. Du kaufst einmalig f&#252;r einen Monat (4 Wochen). Es verl&#228;ngert sich nichts automatisch. Wenn du weitermachen willst, bestellst du danach einfach erneut.</div></div>
+      <div class="q"><button onclick="tg(this)">Was ist, wenn ein Lead defekt ist? <span class="plus">+</span></button><div class="a">F&#252;r nachweisbare Defekte (z.B. falsche Nummer, Dublette, falsche Region) bekommst du einen Ersatz-Lead. Erstattet wird nicht in Geld, sondern durch einen neuen Lead. Reklamation innerhalb von 7 Tagen mit Nachweis.</div></div>
+      <div class="q"><button onclick="tg(this)">Wann erhalte ich die ersten Leads? <span class="plus">+</span></button><div class="a">In der Regel 3 bis 5 Werktage nach der Auftragsbest&#228;tigung.</div></div>
+      <div class="q"><button onclick="tg(this)">Wie funktioniert die Bezahlung? <span class="plus">+</span></button><div class="a">Du zahlst beim Checkout einmalig die Gesamtsumme f&#252;r den Monat, sicher &#252;ber Stripe mit Karte, Apple Pay, Google Pay oder Link. Die Leads werden w&#246;chentlich ausgeliefert.</div></div>
     </div>
   </div>
 </section>
@@ -292,33 +454,37 @@ footer{background:var(--navy);color:#fff;padding:40px 0}
 <div style="display:flex;gap:10px"><button type="button" onclick="slConsent(false)" style="background:none;border:1px solid #6b7192;color:#fff;padding:9px 18px;border-radius:6px;cursor:pointer;font-weight:600">Ablehnen</button><button type="button" onclick="slConsent(true)" style="background:#1E4FBA;border:none;color:#fff;padding:9px 18px;border-radius:6px;cursor:pointer;font-weight:700">Akzeptieren</button></div>
 </div></div>
 
-<script src="https://js.stripe.com/v3/"></script>
-<script src="pk.js"></script>
 <script>
 var N8N='https://n8n.srv1286795.hstgr.cloud';
-var PRICE=270,pkg=5,reqId=null,verified=false;
-var stripe=Stripe(window.SL_PK||'');
-var elements=stripe.elements();
-var card=elements.create('card',{style:{base:{fontFamily:'Manrope, sans-serif',fontSize:'15px',color:'#14163A'}}});
-window.addEventListener('DOMContentLoaded',function(){card.mount('#stripe-card');card.on('change',function(ev){document.getElementById('card-err').textContent=ev.error?ev.error.message:'';});});
+var BASE=270,leads=5,reqId=null,verified=false;
+function ppl(n){return n>=10?Math.round(BASE*0.8):n>=5?Math.round(BASE*0.9):BASE;}
+function eur(v){return v.toLocaleString('de-DE')+' \u20ac';}
+function fullTel(){return (((document.getElementById('telcc')||{}).value)||'+49')+document.getElementById('tel').value.replace(/\D/g,'').replace(/^0+/,'');}
 function go(step){
   document.querySelectorAll('.pane').forEach(function(p){p.classList.add('hidden')});
   var el=document.querySelector('[data-pane="'+step+'"]');if(el)el.classList.remove('hidden');
   document.querySelectorAll('.steps .s').forEach(function(s){var n=+s.dataset.step;s.classList.remove('active','done');if(n<step)s.classList.add('done');if(n===step)s.classList.add('active');});
-  if(step===5)refreshSummary();
+  if(step===4)refreshSummary();
   window.scrollTo({top:document.getElementById('start').offsetTop-40,behavior:'smooth'});
 }
 function err(id,msg){var e=document.getElementById(id);e.textContent=msg;e.classList.remove('hidden');}
 function clr(id){var e=document.getElementById(id);e.textContent='';e.classList.add('hidden');}
+function recalc(){
+  var n=parseInt(document.getElementById('leads').value,10);if(!n||n<1)n=1;leads=n;
+  var p=ppl(n),wk=n*p,mo=wk*4;
+  document.getElementById('l-ppl').textContent=eur(p);
+  document.getElementById('l-cnt').textContent=n;
+  document.getElementById('l-week').textContent=eur(wk);
+  document.getElementById('l-month').textContent=eur(mo);
+}
 function startVerify(resend){
   var f=document.getElementById('ckform');
-  
   if(!resend){if(!f.name.value||!f.firma.value||!f.email.value||!f.tel.value){err('err1','Bitte alle Pflichtfelder ausf\u00fcllen.');return;}}
   clr('err1');var b=document.getElementById('btn1');b.disabled=true;b.textContent='Sende...';
-  fetch(N8N+'/webhook/sl-send-code',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tel:(((document.getElementById('telcc')||{}).value)||'+49')+document.getElementById('tel').value.replace(/\D/g,'').replace(/^0+/,'')})})
+  fetch(N8N+'/webhook/sl-send-code',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tel:fullTel()})})
    .then(function(r){return r.json()}).then(function(d){
      b.disabled=false;b.textContent='Code anfordern';
-     if(d&&d.request_id&&d.status==='0'){reqId=d.request_id;document.getElementById('telShow').textContent=(((document.getElementById('telcc')||{}).value)||'+49')+document.getElementById('tel').value.replace(/\D/g,'').replace(/^0+/,'');if(!resend)go(2);}
+     if(d&&d.request_id&&d.status==='0'){reqId=d.request_id;document.getElementById('telShow').textContent=fullTel();if(!resend)go(2);}
      else{err('err1','Code konnte nicht gesendet werden. Nummer pr\u00fcfen.');}
    }).catch(function(){b.disabled=false;b.textContent='Code anfordern';err('err1','Verbindungsfehler, bitte erneut versuchen.');});
 }
@@ -332,35 +498,39 @@ function checkCode(){
      if(d&&d.approved){verified=true;go(3);}else{err('err2','Falscher Code. Bitte erneut versuchen.');}
    }).catch(function(){b.disabled=false;b.textContent='Code pr\u00fcfen';err('err2','Verbindungsfehler, bitte erneut versuchen.');});
 }
-function pickPkg(el){document.querySelectorAll('.pkg').forEach(function(p){p.classList.remove('sel')});el.classList.add('sel');pkg=+el.dataset.n;}
 function refreshSummary(){
-  var f=document.getElementById('ckform');
-  document.getElementById('s-pkg').textContent=pkg+' Leads / Woche';
+  var f=document.getElementById('ckform');var n=leads,p=ppl(n),mo=n*p*4;
+  document.getElementById('s-cnt').textContent=n+' Leads / Woche';
+  document.getElementById('s-ppl').textContent=eur(p);
   document.getElementById('s-geo').textContent=(f.plz.value||'-')+' \u00b7 '+f.radius.value;
-  document.getElementById('s-total').textContent=(pkg*PRICE).toLocaleString('de-DE')+' \u20ac';
-  var st3=document.getElementById('s-total3');if(st3)st3.textContent=(pkg*PRICE).toLocaleString('de-DE')+' \u20ac';
+  document.getElementById('s-total').textContent=eur(mo);
   var d=new Date();d.setDate(d.getDate()+4);document.getElementById('s-start').textContent=d.toLocaleDateString('de-DE');
 }
 function submitForm(e){
   e.preventDefault();
   if(!verified){go(2);return false;}
-  var f=e.target,data={};new FormData(f).forEach(function(v,k){data[k]=v});data.tel=(((document.getElementById('telcc')||{}).value)||'+49')+document.getElementById('tel').value.replace(/\D/g,'').replace(/^0+/,'');
-  data.paket=pkg;data.preisJeLead=PRICE;data.wochenpaket=pkg*PRICE;data.verified=true;data.verifyRequestId=reqId;
-  var btn=f.querySelector('button[type=submit]');if(btn){btn.disabled=true;btn.textContent='Zahlung wird gepr\u00fcft...';}
-  function reset(){if(btn){btn.disabled=false;btn.textContent='Jetzt zahlungspflichtig bestellen';}}
+  var f=e.target,data={};new FormData(f).forEach(function(v,k){data[k]=v});
+  data.tel=fullTel();data.leads=leads;data.verified=true;data.verifyRequestId=reqId;
+  var btn=f.querySelector('button[type=submit]');if(btn){btn.disabled=true;btn.textContent='Weiter zur Zahlung...';}
+  function reset(){if(btn){btn.disabled=false;btn.textContent='Jetzt kaufen und weiter zur Zahlung';}}
   fetch(N8N+'/webhook/sofortleads-order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).then(function(r){return r.json();}).then(function(res){
-    if(!res||!res.clientSecret){document.getElementById('card-err').textContent=(res&&res.error)||'Fehler bei der Zahlung. Bitte erneut versuchen.';go(4);reset();return;}
-    return stripe.confirmCardPayment(res.clientSecret,{payment_method:{card:card,billing_details:{name:f.cardname.value,email:f.email.value}}}).then(function(result){
-      if(result.error){document.getElementById('card-err').textContent=result.error.message;go(4);reset();return;}
-      if(result.paymentIntent&&result.paymentIntent.status==='succeeded'){
-        try{if(window.fbq&&localStorage.getItem('sl_consent')==='yes')fbq('track','Purchase',{value:pkg*PRICE,currency:'EUR'});}catch(e){}
-        window.location.href='danke.html';
-      }else{document.getElementById('card-err').textContent='Zahlung nicht abgeschlossen.';go(4);reset();}
-    });
+    if(res&&res.url){
+      try{if(window.fbq&&localStorage.getItem('sl_consent')==='yes')fbq('track','InitiateCheckout',{value:leads*ppl(leads)*4,currency:'EUR'});}catch(e){}
+      window.location.href=res.url;
+    }else{document.getElementById('card-err').textContent=(res&&res.error)||'Checkout konnte nicht gestartet werden. Bitte erneut versuchen.';reset();}
   }).catch(function(){document.getElementById('card-err').textContent='Verbindungsfehler, bitte erneut versuchen.';reset();});
   return false;
 }
 function tg(b){b.parentElement.classList.toggle('open')}
+(function(){
+  var CC=[["Deutschland","de","+49"],["\u00d6sterreich","at","+43"],["Schweiz","ch","+41"],["Zypern","cy","+357"],["USA / Kanada","us","+1"],["Vereinigtes K\u00f6nigreich","gb","+44"],["Frankreich","fr","+33"],["Italien","it","+39"],["Spanien","es","+34"],["Niederlande","nl","+31"],["Belgien","be","+32"],["Luxemburg","lu","+352"],["Polen","pl","+48"],["Tschechien","cz","+420"],["D\u00e4nemark","dk","+45"],["Schweden","se","+46"],["Norwegen","no","+47"],["Finnland","fi","+358"],["Irland","ie","+353"],["Portugal","pt","+351"],["Griechenland","gr","+30"],["Ungarn","hu","+36"],["Rum\u00e4nien","ro","+40"],["Bulgarien","bg","+359"],["Kroatien","hr","+385"],["Slowenien","si","+386"],["Slowakei","sk","+421"],["Litauen","lt","+370"],["Lettland","lv","+371"],["Estland","ee","+372"],["T\u00fcrkei","tr","+90"],["Russland","ru","+7"],["Ukraine","ua","+380"],["Liechtenstein","li","+423"],["Malta","mt","+356"],["Island","is","+354"],["Australien","au","+61"],["Neuseeland","nz","+64"],["VAE","ae","+971"],["Saudi-Arabien","sa","+966"],["Israel","il","+972"],["S\u00fcdafrika","za","+27"],["Brasilien","br","+55"],["Mexiko","mx","+52"],["Argentinien","ar","+54"],["Japan","jp","+81"],["China","cn","+86"],["Indien","in","+91"],["Singapur","sg","+65"],["Hongkong","hk","+852"]];
+  var F="https://flagcdn.com/20x15/";
+  var list=document.getElementById("cclist"),tog=document.getElementById("cctoggle"),hid=document.getElementById("telcc"),fl=document.getElementById("ccflag"),cd=document.getElementById("cccode");
+  CC.forEach(function(c){var it=document.createElement("div");it.style.cssText="display:flex;align-items:center;gap:8px;padding:9px 11px;cursor:pointer;font-size:14px;color:#14163A";it.innerHTML='<img src="'+F+c[1]+'.png" width="20" height="15"> <span style="flex:1">'+c[0]+'</span> <span style="opacity:.6">'+c[2]+'</span>';it.onmouseover=function(){it.style.background="#f4f6fb"};it.onmouseout=function(){it.style.background="#fff"};it.onclick=function(){hid.value=c[2];fl.src=F+c[1]+".png";cd.textContent=c[2];list.style.display="none"};list.appendChild(it)});
+  tog.onclick=function(e){e.stopPropagation();list.style.display=list.style.display==="none"?"block":"none"};
+  document.addEventListener("click",function(e){if(!document.getElementById("ccwrap").contains(e.target))list.style.display="none"});
+})();
+recalc();
 function slLoadPixel(){if(window.__slpx)return;window.__slpx=1;!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2301564033685877');fbq('track','PageView');}
 function slConsent(ok){try{localStorage.setItem('sl_consent',ok?'yes':'no');}catch(e){}document.getElementById('sl-consent').style.display='none';if(ok)slLoadPixel();}
 (function(){var c=null;try{c=localStorage.getItem('sl_consent');}catch(e){}if(c==='yes'){slLoadPixel();}else if(c!=='no'){var el=document.getElementById('sl-consent');if(el)el.style.display='block';}})();
