@@ -199,7 +199,7 @@ footer{background:var(--navy);color:#fff;padding:40px 0}
           <div class="field"><label>Firmenname</label><input name="firma" placeholder="Ihr Maklerb&#252;ro" required></div>
           <div class="row2">
             <div class="field"><label>E-Mail</label><input name="email" type="email" placeholder="name@firma.de" required></div>
-            <div class="field"><label>Mobilnummer</label><input name="tel" id="tel" placeholder="+49 ..." required></div>
+            <div class="field"><label>Mobilnummer</label><input name="tel" id="tel" placeholder="+49 176 12345678" value="+49 " required></div>
           </div>
           <div class="field"><label>USt-IdNr. <span class="opt">(optional)</span></label><input name="ustid" placeholder="z.B. DE123456789"></div>
           <div class="err hidden" id="err1"></div>
@@ -312,7 +312,7 @@ function err(id,msg){var e=document.getElementById(id);e.textContent=msg;e.class
 function clr(id){var e=document.getElementById(id);e.textContent='';e.classList.add('hidden');}
 function startVerify(resend){
   var f=document.getElementById('ckform');
-  if(f.tel.value){f.tel.value=(function(v){v=v.replace(/[\s\-()\/.]/g,'');if(v.charAt(0)==='+')return v;if(v.indexOf('00')===0)return '+'+v.slice(2);if(v.charAt(0)==='0')return '+49'+v.slice(1);return '+49'+v;})(f.tel.value);}
+  if(f.tel.value){f.tel.value=(function(v){v=v.replace(/[\s\-()\/.]/g,'');if(v.indexOf('+49')===0)return '+49'+v.slice(3).replace(/^0+/,'');if(v.charAt(0)==='+')return v;if(v.indexOf('00')===0)return '+'+v.slice(2);if(v.charAt(0)==='0')return '+49'+v.slice(1);return '+49'+v;})(f.tel.value);}
   if(!resend){if(!f.name.value||!f.firma.value||!f.email.value||!f.tel.value){err('err1','Bitte alle Pflichtfelder ausf\u00fcllen.');return;}}
   clr('err1');var b=document.getElementById('btn1');b.disabled=true;b.textContent='Sende...';
   fetch(N8N+'/webhook/sl-send-code',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tel:f.tel.value})})
