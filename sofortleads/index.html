@@ -312,6 +312,7 @@ function err(id,msg){var e=document.getElementById(id);e.textContent=msg;e.class
 function clr(id){var e=document.getElementById(id);e.textContent='';e.classList.add('hidden');}
 function startVerify(resend){
   var f=document.getElementById('ckform');
+  if(f.tel.value){f.tel.value=(function(v){v=v.replace(/[\s\-()\/.]/g,'');if(v.charAt(0)==='+')return v;if(v.indexOf('00')===0)return '+'+v.slice(2);if(v.charAt(0)==='0')return '+49'+v.slice(1);return '+49'+v;})(f.tel.value);}
   if(!resend){if(!f.name.value||!f.firma.value||!f.email.value||!f.tel.value){err('err1','Bitte alle Pflichtfelder ausf\u00fcllen.');return;}}
   clr('err1');var b=document.getElementById('btn1');b.disabled=true;b.textContent='Sende...';
   fetch(N8N+'/webhook/sl-send-code',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tel:f.tel.value})})
