@@ -3,36 +3,126 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Danke - sofortleads</title>
+<title>Bestellung best&#228;tigt - sofortleads</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<meta name="robots" content="noindex">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<meta name="robots" content="noindex,nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script async src="https://plausible.io/js/pa-ED0wEAfNvAGUBscNWiy8T.js"></script>
+<script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
 <style>
-body{font-family:'Manrope',system-ui,sans-serif;color:#14163A;background:#fff;line-height:1.7;margin:0}
-.wrap{max-width:640px;margin:0 auto;padding:56px 24px 80px;text-align:center}
-.logo{font-weight:800;font-size:24px;color:#1E4FBA;text-decoration:none;letter-spacing:-1px}
-.logo span{color:#F0D9A0}
-.ok{width:70px;height:70px;border-radius:50%;background:#3ECF97;color:#fff;display:flex;align-items:center;justify-content:center;font-size:38px;margin:34px auto 20px}
-h1{font-size:30px;margin:0 0 14px}
-p{color:#5B6079;font-size:16px;margin:0 0 14px}
-.box{background:#F3F5F9;border-radius:12px;padding:22px;text-align:left;margin:26px 0}
-.box h3{font-size:16px;margin:0 0 8px;color:#14163A}
-.box p{margin:0 0 8px;font-size:15px}
-.warn{border-left:4px solid #F0D9A0;background:#fffbf0;padding:16px 18px;border-radius:0 8px 8px 0;text-align:left;margin:20px 0}
-.warn b{color:#14163A}
-a.btn{display:inline-block;background:#1E4FBA;color:#fff;font-weight:700;padding:13px 26px;border-radius:6px;text-decoration:none;margin-top:10px}
+:root{--blau:#1E4FBA;--champ:#F0D9A0;--navy:#14163A;--offwhite:#F3F5F9;--mut:#5B6079;--line:#E5E9F2;--mint:#3ECF97}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Manrope',system-ui,sans-serif;color:var(--navy);background:var(--offwhite);line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:660px;margin:0 auto;padding:44px 24px 72px}
+.logo{font-weight:800;font-size:25px;color:var(--blau);letter-spacing:-1px;display:block;text-align:center;text-decoration:none}
+.logo{line-height:1.05}
+.logo .slogan{display:block;font-size:7.7px;font-weight:700;letter-spacing:.05px;color:var(--blau);margin-top:-1px;text-align:right}
+@media(max-width:700px){.logo .slogan{display:none}}
+
+.logo span{color:var(--champ)}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:40px 36px;margin-top:30px;box-shadow:0 22px 60px rgba(20,22,58,.09)}
+.ok{width:66px;height:66px;border-radius:50%;background:rgba(62,207,151,.14);color:var(--mint);display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;margin:0 auto 20px}
+h1{font-size:28px;font-weight:800;letter-spacing:-.6px;text-align:center;line-height:1.2}
+.lead{color:var(--mut);font-size:16px;text-align:center;margin-top:12px}
+.conf{background:var(--offwhite);border-radius:12px;padding:16px 20px;margin-top:24px;font-size:14px;color:var(--mut);text-align:center}
+.conf b{color:var(--navy)}
+h2{font-size:17px;font-weight:800;margin:34px 0 14px;letter-spacing:-.2px}
+.steps{list-style:none;counter-reset:s}
+.steps li{counter-increment:s;display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
+.steps li:last-child{border-bottom:none}
+.steps li::before{content:counter(s);flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--blau);color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+.steps b{display:block;margin-bottom:2px}
+.steps span.d{color:var(--mut);font-size:14px}
+.info{border:1px solid var(--line);border-left:4px solid var(--champ);border-radius:0 10px 10px 0;padding:16px 20px;margin-top:26px;font-size:14px;color:var(--mut)}
+.info b{color:var(--navy)}
+.btn{display:block;text-align:center;background:var(--blau);color:#fff;font-weight:700;font-size:15px;padding:14px;border-radius:9px;text-decoration:none;margin-top:30px}
+.foot{text-align:center;font-size:13px;color:var(--mut);margin-top:26px}
+.foot a{color:var(--mut)}
+@media(max-width:560px){.card{padding:30px 22px}h1{font-size:23px}}
 </style>
 </head>
 <body>
 <div class="wrap">
-<a href="index.html" class="logo">sofortleads<span>.</span></a>
-<div class="ok">&#10003;</div>
-<h1>Bestellung eingegangen</h1>
-<p>Vielen Dank. Wir haben deine Anfrage erhalten.</p>
-<div class="warn"><b>Wichtig:</b> Der Vertrag l&#228;uft noch nicht. Wir pr&#252;fen zuerst kurz deine Angaben. Erst wenn du von uns die Auftragsbest&#228;tigung per E-Mail bekommst, kommt der Vertrag zustande und deine Leads starten zum genannten Startdatum.</div>
-<div class="box"><h3>Wie es weitergeht</h3><p>1. Wir pr&#252;fen deine Angaben, in der Regel am selben Tag.</p><p>2. Du erh&#228;ltst die Auftragsbest&#228;tigung per E-Mail. Ab dann l&#228;uft alles.</p><p>3. Deine exklusiven Leads starten zum Startdatum.</p></div>
-<div class="box"><h3>So bekommst du deine Leads</h3><p>Jeder Lead landet in Echtzeit in deinem pers&#246;nlichen Google Sheet, und du bekommst zu jedem Lead zus&#228;tzlich eine E-Mail mit den Kontaktdaten.</p></div>
-<a href="index.html" class="btn">Zur&#252;ck zur Startseite</a>
+<a class="logo" href="/">sofortleads<span>.</span><span class="slogan">Qualifizierte Anfragen auf Knopfdruck</span></a>
+<div class="card">
+  <div class="ok">&#10003;</div>
+  <h1>Ihre Bestellung ist eingegangen</h1>
+  <p class="lead">Vielen Dank. Der Kauf ist abgeschlossen und Ihr Gebiet ist f&#252;r Sie reserviert.</p>
+  <div class="conf">Eine <b>Auftragsbest&#228;tigung mit allen Details</b> geht in wenigen Minuten an Ihre E-Mail-Adresse. Bitte pr&#252;fen Sie auch den Spam-Ordner.</div>
+
+  <h2>Wie es jetzt weitergeht</h2>
+  <ol class="steps">
+    <li><span><b>Auftragsbest&#228;tigung per E-Mail</b><span class="d">Sie erhalten Menge, Gebiet, Startdatum und Ihre Rechnung schriftlich.</span></span></li>
+    <li><span><b>Wir richten Ihr Gebiet ein</b><span class="d">Ihre Postleitzahl und Ihr Radius werden in der Auslieferung hinterlegt, Ihr pers&#246;nliches Google Sheet wird f&#252;r Sie freigegeben.</span></span></li>
+    <li><span><b>Ihre Leads starten</b><span class="d">Ab dem genannten Startdatum, in der Regel innerhalb von 3 Werktagen nach Ihrer Bestellung.</span></span></li>
+  </ol>
+
+  <h2>So erreichen Sie Ihre Leads</h2>
+  <ol class="steps">
+    <li><span><b>Sofort per E-Mail</b><span class="d">Jeder Lead geht in dem Moment an Sie raus, in dem er entsteht, mit Kontaktdaten, Vorhaben, Region und Budget-Indikation.</span></span></li>
+    <li><span><b>Parallel im Google Sheet</b><span class="d">Alle Leads laufen zus&#228;tzlich in Ihr pers&#246;nliches Sheet, sortier- und filterbar, jederzeit exportierbar.</span></span></li>
+  </ol>
+
+  <div class="info"><b>Hinweis:</b> Wir pr&#252;fen jede Bestellung auf Unternehmereigenschaft und Verf&#252;gbarkeit Ihres Gebiets. Sollte eine Pr&#252;fung fehlschlagen, treten wir gem&#228;&#223; unseren <a href="/agb" style="color:var(--blau)">AGB &#167; 3 Abs. 3</a> innerhalb von f&#252;nf Werktagen zur&#252;ck und erstatten den vollen Betrag.</div>
+
+  <a class="btn" href="/">Zur&#252;ck zur Startseite</a>
 </div>
+<p class="foot">Fragen? <a href="mailto:info@sofortleads.de">info@sofortleads.de</a> &middot; <a href="/impressum">Impressum</a> &middot; <a href="/datenschutz">Datenschutz</a> &middot; <a href="/agb">AGB</a></p>
+</div>
+
+<script>
+function slQuelle(){
+  // Stand 25.08.2026: URL zuerst auswerten, damit ein Anzeigenklick immer gewinnt.
+  // localStorage ist nur Gedaechtnis fuer Folgeseiten und darf nie die ganze Funktion kippen.
+  var q='';
+  try{
+    var p=new URLSearchParams(location.search);
+    var s=p.get('utm_source')||'', m=p.get('utm_medium')||'', c=p.get('utm_campaign')||'';
+    var ad=p.get('utm_content')||p.get('ad_id')||p.get('adset_id')||'';
+    var t=p.get('utm_term')||'';
+    if(s||m||c||ad||t) q=[s,m,c,ad,t].filter(Boolean).join(' / ');
+    else if(p.get('fbclid')) q='meta / klick';
+    else if(p.get('gclid')) q='google / klick';
+    else if(p.get('ttclid')) q='tiktok / klick';
+    else if(p.get('li_fat_id')) q='linkedin / klick';
+  }catch(e){}
+  if(q){ try{localStorage.setItem('sl_quelle',q);}catch(e){} return q; }
+  try{ var alt=localStorage.getItem('sl_quelle'); if(alt) return alt; }catch(e){}
+  try{
+    var r=document.referrer||'';
+    var host=r.replace(/^https?:\/\//,'').split('/')[0].toLowerCase();
+    if(r && host.indexOf(location.hostname)<0){
+      if(host.indexOf('facebook')!==-1||host.indexOf('instagram')!==-1||host.indexOf('fb.com')!==-1) q='meta / verweis';
+      else if(host.indexOf('google')!==-1) q='google / organisch';
+      else q='verweis / '+host;
+    } else q='direkt';
+  }catch(e){ q='direkt'; }
+  try{localStorage.setItem('sl_quelle',q);}catch(e){}
+  return q;
+}
+function slLoadPixel(){if(window.__slpx)return;window.__slpx=1;!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2301564033685877');fbq('track','PageView');}
+(function(){
+  // Funnel-Schritt melden, unabhaengig von der Cookie-Einwilligung, da anonym
+  try{
+    var sid=null;try{sid=localStorage.getItem('sl_sid');}catch(e){}
+    if(sid){
+      var b=new Blob([JSON.stringify({sid:sid,schritt:'danke',quelle:slQuelle()})],{type:'text/plain;charset=UTF-8'});
+      if(navigator.sendBeacon)navigator.sendBeacon('https://n8n.srv1286795.hstgr.cloud/webhook/sl-schritt',b);
+    }
+    if(window.plausible)plausible('Funnel: danke');
+  }catch(e){}
+})();
+(function(){
+  var c=null;try{c=localStorage.getItem('sl_consent');}catch(e){}
+  if(c!=='yes')return;
+  slLoadPixel();
+  var o=null;try{o=JSON.parse(localStorage.getItem('sl_order')||'null');}catch(e){}
+  var done=null;try{done=localStorage.getItem('sl_purchase_sent');}catch(e){}
+  if(o&&o.id&&done!==o.id){
+    fbq('track','Purchase',{value:o.value,currency:o.currency||'EUR',content_type:'product',content_name:'Kapitalanleger-Leads',num_items:o.leads},{eventID:o.id});
+    try{localStorage.setItem('sl_purchase_sent',o.id);}catch(e){}
+  }
+})();
+</script>
 </body>
 </html>
