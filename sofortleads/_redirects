@@ -1,0 +1,3 @@
+# Kurze, merkbare Adresse fuer die Funnel-Statistik
+/stat  https://n8n.srv1286795.hstgr.cloud/webhook/sl-statistik  200
+/statistik  https://n8n.srv1286795.hstgr.cloud/webhook/sl-statistik  200
