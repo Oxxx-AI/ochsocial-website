@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /danke
+Disallow: /stat
+Disallow: /statistik
+
+Sitemap: https://sofortleads.de/sitemap.xml
