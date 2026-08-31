@@ -1,3 +1,7 @@
 # Kurze, merkbare Adresse fuer die Funnel-Statistik
 /stat  https://n8n.srv1286795.hstgr.cloud/webhook/sl-statistik  200
 /statistik  https://n8n.srv1286795.hstgr.cloud/webhook/sl-statistik  200
+
+# Portal, alte Immobilien-Landingpage bleibt auf der Root
+/portal/immobilienmakler/kapitalanleger  /portal/leads/kapitalanleger-leads-kaufen.html  301
+/portal/kapitalanleger  /portal/leads/kapitalanleger-leads-kaufen.html  301
