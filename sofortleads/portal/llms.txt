@@ -1,0 +1,48 @@
+# sofortleads
+
+> Portal fuer den Kauf exklusiver, vorqualifizierter Leads in Deutschland, Oesterreich und der Schweiz. Jede Anfrage wird an genau einen Kaeufer verkauft.
+
+Betreiber: ochsocial Ltd., Larnaca, Zypern, HE 468243. Telefon +49 15679 359800.
+
+## Was das Angebot ist
+- Exklusive Leads: eine Anfrage wird genau einmal verkauft, dazu Regionalsperre je Thema und Gebiet.
+- Sechs Pruefstufen je Anfrage: SMS-Verifizierung der Mobilnummer, E-Mail-Pruefung, Dublettenabgleich, Regionsabgleich, themenspezifische Qualifizierungsfragen, dokumentierte Einwilligung.
+- Lieferung in Echtzeit per E-Mail und SMS, optional per Webhook ins CRM.
+- Keine Vertragsbindung, kein Setup, keine Grundgebuehr. Bezahlung im Voraus je Kontingent.
+- Mengenstaffel: ab 20 Leads 10 Prozent, ab 40 Leads 20 Prozent, ab 100 Leads 30 Prozent Rabatt.
+- Ersatz bei objektiv defekten Anfragen innerhalb von fuenf Werktagen, bei Nichterreichbarkeit nach sechs dokumentierten Kontaktversuchen an drei verschiedenen Tagen.
+
+## Branchen und Lead-Themen mit Startpreis netto je Lead
+### Immobilienmakler und Bauträger
+- Kapitalanleger: ab 270 Euro. Kapitalanlage-Immobilie, Eigenkapital und Haushaltsnetto abgefragt. Seite: https://sofortleads.de/portal/leads/kapitalanleger-leads-kaufen.html
+- Immobilienfinanzierung: ab 60 Euro. Finanzierung fuer den Immobilienkauf, Kaufpreis, Eigenkapital und Einkommen abgefragt. Seite: https://sofortleads.de/portal/leads/immobilienfinanzierung-leads-kaufen.html
+- Verkäufer und Eigentümer: ab 350 Euro. Verkauf der eigenen Immobilie, Objektart und Zeitrahmen abgefragt. Seite: https://sofortleads.de/portal/leads/immobilien-verkaeufer-leads-kaufen.html
+### Versicherungsmakler
+- Sterbegeldversicherung: ab 45 Euro. Absicherung der Bestattungskosten, Alter und Wunschbeitrag abgefragt. Seite: https://sofortleads.de/portal/leads/sterbegeld-leads-kaufen.html
+- Motorrad-Unfallversicherung: ab 60 Euro. Unfallschutz für Motorradfahrer, Maschine und Fahrleistung abgefragt. Seite: https://sofortleads.de/portal/leads/motorrad-unfallversicherung-leads-kaufen.html
+- Gesundheitsvorsorge für Kinder: ab 60 Euro. Vorsorge für das eigene Kind, Alter des Kindes und Bedarf abgefragt. Seite: https://sofortleads.de/portal/leads/kinder-gesundheitsvorsorge-leads-kaufen.html
+- Kfz-Versicherung: ab 40 Euro. Wechsel der Kfz-Versicherung, Fahrzeug und Ablaufdatum abgefragt. Seite: https://sofortleads.de/portal/leads/kfz-versicherung-leads-kaufen.html
+- Zahnzusatzversicherung: ab 50 Euro. Zahnzusatzschutz, geplante Behandlung und Zeitrahmen abgefragt. Seite: https://sofortleads.de/portal/leads/zahnzusatzversicherung-leads-kaufen.html
+### Finanzberater
+- Edelmetalle und Sachwerte: ab 80 Euro. Kauf von Gold oder Silber, Anlagesumme und Anlagehorizont abgefragt. Seite: https://sofortleads.de/portal/leads/edelmetall-leads-kaufen.html
+- Kindersparplan: ab 60 Euro. Sparplan für das Kind, Sparrate und Laufzeit abgefragt. Seite: https://sofortleads.de/portal/leads/kindersparplan-leads-kaufen.html
+- Kreditvermittlung: ab 60 Euro. Konkreter Finanzierungsbedarf, Summe, Zweck und Beschäftigung abgefragt. Seite: https://sofortleads.de/portal/leads/kredit-leads-kaufen.html
+### Direktvertrieb und Network
+- Vertriebspartner und Nebeneinkommen: ab 45 Euro. Nebentätigkeit oder Vertriebspartnerschaft, Zeitbudget und Motivation abgefragt. Seite: https://sofortleads.de/portal/leads/vertriebspartner-leads-kaufen.html
+- Gewichtsreduktion: ab 35 Euro. Gewichtsreduktion, Zielgewicht und bisherige Versuche abgefragt. Seite: https://sofortleads.de/portal/leads/abnehmen-leads-kaufen.html
+- Gesundheit und Nahrungsergänzung: ab 35 Euro. Interesse an Nahrungsergänzung, Anliegen und Budget abgefragt. Seite: https://sofortleads.de/portal/leads/nahrungsergaenzung-leads-kaufen.html
+- Anti-Aging und Kosmetik: ab 35 Euro. Hautpflege und Anti-Aging, Anliegen und Budget abgefragt. Seite: https://sofortleads.de/portal/leads/kosmetik-leads-kaufen.html
+### Energie und Gebäudetechnik
+- Photovoltaik und Speicher: ab 110 Euro. Photovoltaik auf dem eigenen Dach, Objekt und Stromverbrauch abgefragt. Seite: https://sofortleads.de/portal/leads/photovoltaik-leads-kaufen.html
+- Wärmepumpe und Heizung: ab 130 Euro. Heizungstausch, Baujahr und aktuelle Heizung abgefragt. Seite: https://sofortleads.de/portal/leads/waermepumpe-leads-kaufen.html
+- Klimaanlage: ab 120 Euro. Klimaanlage für Wohnung oder Gewerbe, Räume und Eigentum abgefragt. Seite: https://sofortleads.de/portal/leads/klimaanlage-leads-kaufen.html
+
+## Wichtige Seiten
+- Startseite: https://sofortleads.de/portal/
+- So funktioniert es: https://sofortleads.de/portal/so-funktioniert-es.html
+- Preise: https://sofortleads.de/portal/preise.html
+- Erfolgsrechner: https://sofortleads.de/portal/erfolgsrechner.html
+- Leadqualitaet: https://sofortleads.de/portal/leadqualitaet.html
+- Blog: https://sofortleads.de/portal/blog.html
+- FAQ: https://sofortleads.de/portal/faq.html
+- Kontakt: https://sofortleads.de/portal/kontakt.html
