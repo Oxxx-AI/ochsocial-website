@@ -5,3 +5,4 @@ Disallow: /stat
 Disallow: /statistik
 
 Sitemap: https://sofortleads.de/sitemap.xml
+Sitemap: https://sofortleads.de/portal/sitemap.xml
