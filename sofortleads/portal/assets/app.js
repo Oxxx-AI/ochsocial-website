@@ -64,7 +64,7 @@ function kWeiter3(){
     kZeile('Gebiet',plz+', '+(el('f-radius').value==='0'?'bundesweit':el('f-radius').value+' km'))+
     kZeile('Lieferzeitraum',kZeitText())+
     kZeile('Preis je Lead',eur(p))+
-    kZeile('Gesamt netto',eur(n*p),true);
+    kZeile('Gesamt',eur(n*p),true);
   kGo(4);
 }
 function kZeile(a,b,stark){return '<div class="kz'+(stark?' stark':'')+'"><span>'+a+'</span><b>'+b+'</b></div>';}
