@@ -1,0 +1,5 @@
+# Massgeblich ist https://sofortleads.de/robots.txt
+# Diese Datei liegt nur historisch hier und wird von Suchmaschinen ignoriert.
+User-agent: *
+Allow: /
+Disallow: /immobilienmakler-angebot/danke
