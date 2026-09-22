@@ -2,6 +2,17 @@
 /stat  https://n8n.srv1286795.hstgr.cloud/webhook/sl-statistik  200
 /statistik  https://n8n.srv1286795.hstgr.cloud/webhook/sl-statistik  200
 
-# Portal, alte Immobilien-Landingpage bleibt auf der Root
-/portal/immobilienmakler/kapitalanleger  /portal/leads/kapitalanleger-leads-kaufen.html  301
-/portal/kapitalanleger  /portal/leads/kapitalanleger-leads-kaufen.html  301
+# Immobilienmakler-Funnel, alte Wurzel-Adressen (Mails, Meta Ads, n8n)
+/checkout  /branche-immobilienmakler/checkout  301!
+/danke  /branche-immobilienmakler/danke  301!
+/profil  /branche-immobilienmakler/profil  301!
+
+# Kurzadressen Kapitalanleger-Leadseite, alt und neu
+/portal/immobilienmakler/kapitalanleger  /leads/kapitalanleger-leads-kaufen.html  301
+/portal/kapitalanleger  /leads/kapitalanleger-leads-kaufen.html  301
+/immobilienmakler/kapitalanleger  /leads/kapitalanleger-leads-kaufen.html  301
+/kapitalanleger  /leads/kapitalanleger-leads-kaufen.html  301
+
+# Portal ist seit 01.09.2026 die Startseite
+/portal  /  301!
+/portal/*  /:splat  301!
