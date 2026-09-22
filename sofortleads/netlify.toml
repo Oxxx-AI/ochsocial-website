@@ -1,8 +1,6 @@
 # sofortleads.de - dieser Ordner ist der vollstaendige Deploy-Stand, kein Build noetig
 [build]
   publish = "."
-  # Repo-Commits bauen sofortleads.de NICHT neu. Live-Stand kommt nur per Upload-Deploy.
-  ignore = "exit 0"
 
 [[headers]]
   for = "/*"
