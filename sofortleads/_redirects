@@ -16,3 +16,13 @@
 # Portal ist seit 01.09.2026 die Startseite
 /portal  /  301!
 /portal/*  /:splat  301!
+
+# Starterpaket-Seite abgeloest durch den Exklusivplatz (Bernd, 23.09.2026)
+# Verkaufsseite und Checkout leiten um. AGB, Reklamation und Danke bleiben
+# erreichbar, damit Bestandskunden ihre Vertragsunterlagen und das
+# Reklamationsformular nach ihren AGB weiter aufrufen koennen.
+/immobilienmakler-angebot            /kapitalanleger-leads/  301!
+/immobilienmakler-angebot/           /kapitalanleger-leads/  301!
+/immobilienmakler-angebot/index.html /kapitalanleger-leads/  301!
+/immobilienmakler-angebot/checkout   /kapitalanleger-leads/  301!
+/immobilienmakler-angebot/checkout.html /kapitalanleger-leads/  301!
