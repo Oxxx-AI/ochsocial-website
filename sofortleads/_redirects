@@ -17,9 +17,6 @@
 /portal  /  301!
 /portal/*  /:splat  301!
 
-# AGB-PDF vorlaeufig aus der Bridge, weil commit-image vorhandene Dateien nicht ueberschreibt (24.09.2026)
-/kapitalanleger-leads/agb-2026-09-24.pdf  /.netlify/functions/tmppdf  200!
-
 # Starterpaket-Seite abgeloest durch das Neukunden-Angebot (Bernd, 23.09.2026)
 # Verkaufsseite und Checkout leiten um. AGB, Reklamation und Danke bleiben
 # erreichbar, damit Bestandskunden ihre Vertragsunterlagen und das
