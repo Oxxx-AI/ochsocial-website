@@ -14,7 +14,7 @@
 <meta property="og:locale" content="de_DE">
 <meta property="og:url" content="https://sofortleads.de/kapitalanleger-leads/">
 <meta property="og:title" content="Ist Ihre Region f&#252;r exklusive Kapitalanleger-Leads noch frei?">
-<meta property="og:description" content="Vorqualifizierte Kapitalanleger mit echter Kaufabsicht. Jeder Lead geht nur an Sie. Jetzt kostenlos pr&#252;fen.">
+<meta property="og:description" content="Vorqualifizierte Kapitalanleger aus Ihrer Region. Jede Anfrage geht nur an Sie. Jetzt kostenlos pr&#252;fen.">
 <meta property="og:image" content="https://sofortleads.de/kapitalanleger-leads/og-sofortleads.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -40,7 +40,7 @@ body{margin:0;font-family:var(--schrift);font-size:15px;line-height:1.55;-webkit
 button{font-family:inherit;color:inherit}
 :focus-visible{outline:3px solid var(--eis);outline-offset:2px}
 
-/* Entwurfsleiste, geh\0000f6rt nicht zum Funnel */
+/* Entwurfsleiste, geh&#246;rt nicht zum Funnel */
 .leiste{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--navy);color:#fff;font-size:12px;
   display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:8px 16px;justify-content:center}
 .leiste .tag{background:var(--champ);color:var(--navy);font-weight:800;letter-spacing:.8px;text-transform:uppercase;font-size:10.5px;padding:3px 8px;border-radius:20px}
@@ -176,7 +176,7 @@ button{font-family:inherit;color:inherit}
 .fuss svg{width:15px;height:15px;flex:none;margin-top:2px}
 .fuss a{color:var(--mut)}
 
-/* Pr\0000fcfung */
+/* Pr&#252;fung */
 .lupe{width:104px;height:104px;border-radius:50%;background:var(--eis-hauch);display:grid;place-items:center;margin:26px auto 0;position:relative}
 .lupe svg{width:48px;height:48px;color:var(--kobalt);animation:suchen 1.6s ease-in-out infinite}
 @keyframes suchen{0%,100%{transform:translate(0,0)}25%{transform:translate(5px,-4px)}50%{transform:translate(0,4px)}75%{transform:translate(-5px,-2px)}}
@@ -206,7 +206,7 @@ button{font-family:inherit;color:inherit}
   padding:12px 16px;border-radius:12px;max-width:min(380px,calc(100% - 32px));box-shadow:0 12px 30px rgba(20,22,58,.3);z-index:60}
 
 
-/* Kopf mit Men\0000fc */
+/* Kopf mit Men&#252; */
 .kopf.menue{flex-direction:row;align-items:center;justify-content:space-between}
 .kopf.menue.mitte{justify-content:center;position:relative}
 .kopf.menue.mitte .burger{position:absolute;right:22px;top:50%;transform:translateY(-50%)}
@@ -341,7 +341,7 @@ html,body{background:#fff}
 .unten.neu::after{content:"";position:absolute;left:0;right:0;bottom:0;height:36%;background:linear-gradient(0deg,#fff 0%,rgba(255,255,255,.85) 35%,rgba(255,255,255,0) 100%);pointer-events:none}
 .schrift.neu{position:absolute;left:18px;right:18px;top:26px;transform:rotate(-3deg);text-align:center;font-family:'Caveat','Segoe Print','Bradley Hand',cursive;font-weight:700;font-size:33px;line-height:1.05;color:var(--navy)}
 .schrift.neu::after{margin:6px auto 0;width:62%;transform:none}
-/* Fragen: Kn\0000f6pfe in Kobaltblau */
+/* Fragen: Kn&#246;pfe in Kobaltblau */
 .opt{background:linear-gradient(135deg,#2F66DA,#1E4FBA 75%);border:0;color:#fff;box-shadow:0 8px 20px rgba(30,79,186,.22);transition:transform .12s}
 .opt:hover{transform:translateY(-1px)}
 .opt small{color:rgba(255,255,255,.85)}
@@ -505,6 +505,31 @@ html,body{background:#fff}
 .versprechen svg.karte use path,.versprechen svg.karte{opacity:1}
 
 @media (prefers-reduced-motion:reduce){.faq summary::after{transition:none}}
+
+.v5 .mikro3{margin-top:26px;gap:10px 16px}
+.v5 .mikro3+.objekt{margin-top:34px}
+
+/* Runde 9: Vorteilskarten */
+.vsek-pille{display:inline-block;margin:0 auto 12px;padding:6px 14px;border-radius:20px;background:linear-gradient(135deg,#F8E9C3 0%,#F0D9A0 50%,#E4C47A 100%);border:1px solid #D6B25E;color:var(--navy);font-size:10.5px;font-weight:800;letter-spacing:.9px;text-transform:uppercase}
+.vsek{text-align:center}
+.vsek .gegen,.vsek .vkarten,.vsek .leadkarte,.vsek .ablauf,.vsek .faq,.vsek .bildblock{text-align:left}
+.vkarten{display:grid;gap:16px;margin-top:26px}
+.vk{border:1.5px solid var(--linie);border-radius:18px;background:#fff;padding:16px 16px 14px;box-shadow:0 10px 26px rgba(20,22,58,.06)}
+.vk-gut{display:flex;align-items:center;gap:11px}
+.vk-ok{flex:none;width:26px;height:26px;border-radius:50%;background:var(--kobalt);display:grid;place-items:center}
+.vk-ok svg{width:14px;height:14px;color:#fff}
+.vk-txt{flex:1;min-width:0}
+.vk-txt small{display:block;font-size:11px;font-weight:700;color:var(--kobalt);margin-bottom:2px}
+.vk-txt b{display:block;font-size:14.5px;line-height:1.35;color:var(--navy)}
+.vk-bild{flex:none;width:52px;height:52px;border-radius:14px;background:var(--eis-hauch);display:grid;place-items:center}
+.vk-bild svg{width:26px;height:26px;color:var(--kobalt)}
+.vk-statt{display:flex;align-items:center;gap:10px;margin:12px 0}
+.vk-statt::before,.vk-statt::after{content:"";flex:1;height:1px;background:var(--linie)}
+.vk-statt span{font-size:11px;font-weight:700;color:var(--hell,#8A90A6);letter-spacing:.5px}
+.vk-schlecht{display:flex;align-items:center;gap:11px;opacity:.85}
+.vk-x{flex:none;width:22px;height:22px;border-radius:50%;background:#FBE9E9;color:#C0392B;display:grid;place-items:center;font-size:11px;font-weight:800}
+.vk-schlecht .vk-txt small{color:#C0392B}
+.vk-schlecht .vk-txt b{font-size:13px;font-weight:600;color:var(--mut)}
 </style>
 </head>
 <body>
@@ -542,7 +567,7 @@ html,body{background:#fff}
     <header class="kopf mitte"><div class="logo">sofortleads<i>.</i></div><div class="claim">Qualifizierte Anfragen auf Knopfdruck</div></header>
     <div class="start v3 mitte-txt">
       <div class="eyebrow">F&#252;r Immobilienmakler</div>
-      <h1 class="h1">Sind in Ihrer Region aktuell exklusive Kapitalanleger&#8209;Leads noch&nbsp;verf&#252;gbar?</h1>
+      <h1 class="h1">Sind in Ihrer Region aktuell exklusive Kapitalanleger&#8209;Leads noch&#160;verf&#252;gbar?</h1>
       <p class="sub">Pr&#252;fen Sie in 60 Sekunden, ob in Ihrer Region noch vorqualifizierte Kapitalanleger&#8209;Leads verf&#252;gbar sind.</p>
       <div class="karten">
         <button type="button" class="k3 l" data-weg="region" id="a-region">
@@ -554,12 +579,12 @@ html,body{background:#fff}
           <svg class="ic" viewBox="0 0 200 270"><use href="#i-de"/></svg><strong>Deutschlandweit</strong>
         </button>
       </div>
-      <p class="pruefen luft"><b>Jetzt kostenlos &amp; unverbindlich pr&#252;fen.</b></p>
+      <p class="pruefen luft"><b>Jetzt kostenlos & unverbindlich pr&#252;fen.</b></p>
       <div class="vertrauen kreis voll">
         <div><span class="ik"><svg><use href="#i-schild"/></svg></span>DSGVO-konforme Anfrage</div>
         <div><span class="ik"><svg><use href="#i-leute"/></svg></span>100 % exklusive Leads</div>
-        <div><span class="ik"><svg><use href="#i-dok"/></svg></span>Keine Vertrags&shy;laufzeit</div>
-        <div><span class="ik"><svg><use href="#i-kreis"/></svg></span>Ersatz&shy;lead&shy;garantie</div>
+        <div><span class="ik"><svg><use href="#i-dok"/></svg></span>Keine Vertrags&#173;laufzeit</div>
+        <div><span class="ik"><svg><use href="#i-kreis"/></svg></span>Ersatz&#173;lead&#173;garantie</div>
       </div>
       <div class="unten neu" style="background-image:url(/kapitalanleger-leads/img/strasse-a.jpg)"><div class="schrift neu">Exklusive Anfragen<br>f&#252;r Ihre Region.</div></div>
     </div>
@@ -569,9 +594,9 @@ html,body{background:#fff}
   <section class="ansicht" data-ansicht="startB" hidden>
     <header class="kopf mitte"><div class="logo">sofortleads<i>.</i></div><div class="claim">Qualifizierte Anfragen auf Knopfdruck</div></header>
     <div class="start v5 mitte-txt">
-      <div class="pillen"><span class="eyebrow pille3"><svg><use href="#i-leute"/></svg>Nur wenige Makler pro Region</span></div>
+      <div class="pillen"><span class="eyebrow pille3"><svg><use href="#i-leute"/></svg>Begrenzte Verf&#252;gbarkeit je Region</span></div>
       <h1 class="h1">Ist Ihre Region f&#252;r exklusive Kapitalanleger&#8209;Leads noch frei?</h1>
-      <p class="sub">Vorqualifizierte Kapitalanleger mit echter Kaufabsicht. <b>Jeder Lead geht nur an Sie</b>, nie an mehrere Makler gleichzeitig.</p>
+      <p class="sub">Vorqualifizierte Kapitalanleger aus Ihrer Region, und <b>jede Anfrage geht nur an Sie</b>.</p>
       <div class="wahl">
         <button type="button" data-weg="region" id="b-region"><span class="ic"><svg><use href="#i-pin"/></svg></span><span class="w-txt"><b>Meine Region pr&#252;fen</b><small>Freie Pl&#228;tze in Ihrem PLZ-Gebiet</small></span><svg class="w-pf"><use href="#i-pfeil"/></svg></button>
         <button type="button" data-weg="de" id="b-de"><span class="ic"><svg viewBox="0 0 200 270"><use href="#i-de"/></svg></span><span class="w-txt"><b>Deutschlandweit pr&#252;fen</b><small>Wenn Sie deutschlandweit t&#228;tig sind</small></span><svg class="w-pf"><use href="#i-pfeil"/></svg></button>
@@ -583,8 +608,8 @@ html,body{background:#fff}
         <div>
           <h3>Was Sie bei uns bekommen</h3>
           <ul>
-            <li><svg><use href="#i-haken"/></svg>Jeder Lead nur f&#252;r Sie</li>
-            <li><svg><use href="#i-haken"/></svg>Echte Kaufabsicht</li>
+            <li><svg><use href="#i-haken"/></svg>Ihre Anfragen geh&#246;ren nur Ihnen</li>
+            <li><svg><use href="#i-haken"/></svg>100 % DSGVO-konform</li>
             <li><svg><use href="#i-haken"/></svg>Kein Abo, keine Laufzeit</li>
             <li><svg><use href="#i-haken"/></svg>Ersatz f&#252;r unbrauchbare Leads</li>
           </ul>
@@ -601,7 +626,7 @@ html,body{background:#fff}
     <div class="schritt">
       <div class="symbol"><svg><use href="#i-pin"/></svg></div>
       <h2 class="h2">F&#252;r welche Region w&#252;nschen Sie Kapitalanleger&#8209;Leads?</h2>
-      <p class="lead">Geben Sie die Postleitzahl ein, f&#252;r die wir die Verf&#252;gbarkeit pr&#252;fen sollen.</p>
+      <p class="lead">Geben Sie die Postleitzahl ein, um die Verf&#252;gbarkeit zu pr&#252;fen.</p>
       <div class="feld" id="f-plz"><svg><use href="#i-pin"/></svg><input id="plz" inputmode="numeric" maxlength="5" autocomplete="postal-code" placeholder="PLZ eingeben" aria-label="Postleitzahl"></div>
       <div class="meldung">Bitte geben Sie eine g&#252;ltige f&#252;nfstellige Postleitzahl ein.</div>
       <p class="label">Optional: Umkreis ausw&#228;hlen (ohne Auswahl rechnen wir mit 25 km)</p>
@@ -624,7 +649,6 @@ html,body{background:#fff}
     <div class="schritt">
       <div class="symbol"><svg><use href="#i-leute"/></svg></div>
       <h2 class="h2">Wie viele Anfragen pro Monat wollen Sie aus dieser Region?</h2>
-      <p class="lead">So sehen wir, welcher Bedarf in Ihrer Region besteht. Unser Angebot ist ein einmaliges Paket mit 10 Anfragen, kein monatliches Abo.</p>
       <div class="optionen" role="radiogroup" data-feld="menge">
         <button type="button" class="opt" role="radio" aria-checked="false" id="men1" data-wert="5 bis 9 Anfragen"><span class="radio"></span><span><b>5 bis 9</b></span></button>
         <button type="button" class="opt" role="radio" aria-checked="false" id="men2" data-wert="10 bis 15 Anfragen"><span class="radio"></span><span><b>10 bis 15</b></span></button>
@@ -644,9 +668,8 @@ html,body{background:#fff}
       <p class="lead">Damit Sie nur Anfragen bekommen, die zu Ihren Objekten passen.</p>
       <div class="optionen" role="radiogroup" data-feld="eigenkapital">
         <button type="button" class="opt" role="radio" aria-checked="false" id="eig1" data-wert="kein Eigenkapital n&#246;tig"><span class="radio"></span><span><b>Kein Eigenkapital n&#246;tig</b></span></button>
-        <button type="button" class="opt" role="radio" aria-checked="false" id="eig2" data-wert="ab 30.000 Euro"><span class="radio"></span><span><b>Ab 30.000 &#8364;</b></span></button>
-        <button type="button" class="opt" role="radio" aria-checked="false" id="eig3" data-wert="ab 60.000 Euro"><span class="radio"></span><span><b>Ab 60.000 &#8364;</b></span></button>
-        <button type="button" class="opt" role="radio" aria-checked="false" id="eig4" data-wert="ab 100.000 Euro"><span class="radio"></span><span><b>Ab 100.000 &#8364;</b></span></button>
+        <button type="button" class="opt" role="radio" aria-checked="false" id="eig2" data-wert="bis 10.000 Euro"><span class="radio"></span><span><b>Bis 10.000 &#8364;</b></span></button>
+        <button type="button" class="opt" role="radio" aria-checked="false" id="eig3" data-wert="mehr als 10.000 Euro"><span class="radio"></span><span><b>Mehr als 10.000 &#8364;</b></span></button>
       </div>
       <p class="fuss"><svg><use href="#i-schild"/></svg>Wir fragen das beim Interessenten als Selbstauskunft ab.</p>
     </div>
@@ -659,7 +682,6 @@ html,body{background:#fff}
     <div class="schritt">
       <div class="symbol"><svg><use href="#i-dok"/></svg></div>
       <h2 class="h2">Welches monatliche Nettoeinkommen soll der Interessent haben?</h2>
-      <p class="lead">Das entscheidet mit, welche Finanzierung realistisch ist.</p>
       <div class="optionen" role="radiogroup" data-feld="einkommen">
         <button type="button" class="opt" role="radio" aria-checked="false" id="ein1" data-wert="unter 3.000 Euro"><span class="radio"></span><span><b>Unter 3.000 &#8364;</b></span></button>
         <button type="button" class="opt" role="radio" aria-checked="false" id="ein2" data-wert="3.000 bis 5.000 Euro"><span class="radio"></span><span><b>3.000 bis 5.000 &#8364;</b></span></button>
@@ -695,7 +717,7 @@ html,body{background:#fff}
     <div class="schritt">
       <div class="symbol gruen"><svg><use href="#i-haken-kreis"/></svg></div>
       <h2 class="h2">Fast geschafft:<br>Jetzt Ihre Preise ansehen</h2>
-      <p class="lead" id="kontakt-lead">Tragen Sie sich ein und sehen Sie sofort Ihre Pakete und Preise f&#252;r Ihre Region.</p>
+      <p class="lead" id="kontakt-lead">Wir haben passende Anfragen f&#252;r Ihre Region. Tragen Sie sich ein und sehen Sie sofort Ihre Preise.</p>
       <div class="feld" id="f-vorname"><svg><use href="#i-person"/></svg><input id="vorname" autocomplete="name" placeholder="Name" aria-label="Name"></div>
       <div class="meldung">Bitte geben Sie Ihren Namen ein.</div>
       <div class="feld" id="f-email"><svg><use href="#i-mail"/></svg><input id="email" type="email" autocomplete="email" placeholder="E-Mail-Adresse" aria-label="E-Mail-Adresse"></div>
@@ -705,7 +727,7 @@ html,body{background:#fff}
       <div class="feld haken" id="f-einwilligung"><label for="einwilligung"><input type="checkbox" id="einwilligung"><span>Ich bin damit einverstanden, dass ochsocial Ltd. (sofortleads) mich zu meiner Anfrage per E-Mail, Telefon oder WhatsApp kontaktiert. Diese Einwilligung kann ich jederzeit mit Wirkung f&#252;r die Zukunft widerrufen. Die <a href="/kapitalanleger-leads/datenschutz" target="_blank">Datenschutzerkl&#228;rung</a> habe ich gelesen.</span></label></div>
       <div class="meldung">Bitte best&#228;tigen Sie, dass wir Sie zu Ihrer Anfrage kontaktieren d&#252;rfen.</div>
       <button type="button" class="knopf" data-weiter="kontakt">Preise jetzt ansehen <svg><use href="#i-pfeil"/></svg></button>
-      <p class="fuss stark"><svg><use href="#i-haken-kreis"/></svg><span class="fuss-txt">100 % kostenfrei &amp; unverbindlich ansehen</span></p>
+      <p class="fuss stark"><svg><use href="#i-haken-kreis"/></svg><span class="fuss-txt">100 % kostenfrei & unverbindlich ansehen</span></p>
       <p class="fuss eng"><svg><use href="#i-schloss"/></svg><span class="fuss-txt eine">Ihre Daten sind sicher und bleiben bei uns.</span></p>
       <p class="dshinweis">Mit Klick auf &#8222;Preise jetzt ansehen&#8220; verarbeiten wir Ihre Angaben, um Ihnen Ihr Ergebnis zu zeigen und Sie zu Ihrer Anfrage zu kontaktieren. Mehr in der <a href="/kapitalanleger-leads/datenschutz" target="_blank">Datenschutzerkl&#228;rung</a>.</p>
     </div>
@@ -755,7 +777,7 @@ html,body{background:#fff}
       </section>
 
       <div class="pakete">
-        <div class="pk top"><span class="band">Ihr Exklusivplatz</span>
+        <div class="pk top"><span class="band">Neukunden-Angebot</span>
           <div class="kopfzeile"><span class="menge">10 exklusive Leads</span><span class="preis-block"><span class="alt-preis">Listenpreis 2.700 &#8364;</span><span class="betrag">1.490 &#8364;</span></span></div>
           <p class="je-lead">149 &#8364; netto je Anfrage statt 270 &#8364; Listenpreis</p>
           <ul>
@@ -771,28 +793,34 @@ html,body{background:#fff}
         </div>
       </div>
       <section class="vsek">
-        <h3 class="vsek-h">Warum 149 &#8364; je Anfrage g&#252;nstig sind</h3>
-        <p class="vsek-s">F&#252;r 1.490 &#8364; bekommen Sie anderswo mehr Adressen. Aber Adressen, die Ihre Mitbewerber genauso bekommen.</p>
-        <div class="gegen">
-          <div class="gz">
-            <div class="gz-a"><span class="gx">&#10005;</span>Derselbe Lead geht an mehrere Makler</div>
-            <div class="gz-b"><span class="gh"><svg><use href="#i-haken"/></svg></span>Jeder Lead geht nur an Sie</div>
+        <div class="vsek-pille">Ihre Vorteile</div>
+        <h3 class="vsek-h">Darum entscheiden sich Makler f&#252;r uns</h3>
+        <p class="vsek-s">Sehen Sie auf einen Blick, welche Vorteile Sie bei uns haben.</p>
+        <div class="vkarten">
+          <div class="vk">
+            <div class="vk-gut"><span class="vk-ok"><svg><use href="#i-haken"/></svg></span><span class="vk-txt"><small>Bei uns</small><b>Jeder Lead exklusiv f&#252;r Sie</b></span><span class="vk-bild"><svg><use href="#i-schild"/></svg></span></div>
+            <div class="vk-statt"><span>statt</span></div>
+            <div class="vk-schlecht"><span class="vk-x">&#10005;</span><span class="vk-txt"><small>Bei anderen oft</small><b>Derselbe Lead geht an mehrere Makler</b></span></div>
           </div>
-          <div class="gz">
-            <div class="gz-a"><span class="gx">&#10005;</span>Adresse aus einem Formular, ungepr&#252;ft</div>
-            <div class="gz-b"><span class="gh"><svg><use href="#i-haken"/></svg></span>Eigenkapital und Nettoeinkommen abgefragt</div>
+          <div class="vk">
+            <div class="vk-gut"><span class="vk-ok"><svg><use href="#i-haken"/></svg></span><span class="vk-txt"><small>Bei uns</small><b>Eigenkapital und Netto&#8209;Einkommen abgefragt</b></span><span class="vk-bild"><svg><use href="#i-dok"/></svg></span></div>
+            <div class="vk-statt"><span>statt</span></div>
+            <div class="vk-schlecht"><span class="vk-x">&#10005;</span><span class="vk-txt"><small>Bei anderen oft</small><b>Ungepr&#252;fte Formular-Adressen</b></span></div>
           </div>
-          <div class="gz">
-            <div class="gz-a"><span class="gx">&#10005;</span>Streuung quer durch Deutschland</div>
-            <div class="gz-b"><span class="gh"><svg><use href="#i-haken"/></svg></span>Aus Ihrer PLZ und Ihrem Umkreis</div>
+          <div class="vk">
+            <div class="vk-gut"><span class="vk-ok"><svg><use href="#i-haken"/></svg></span><span class="vk-txt"><small>Bei uns</small><b>Aus Ihrer PLZ und Ihrem Umkreis</b></span><span class="vk-bild"><svg><use href="#i-de-flach"/></svg></span></div>
+            <div class="vk-statt"><span>statt</span></div>
+            <div class="vk-schlecht"><span class="vk-x">&#10005;</span><span class="vk-txt"><small>Bei anderen oft</small><b>Streuung quer durch Deutschland</b></span></div>
           </div>
-          <div class="gz">
-            <div class="gz-a"><span class="gx">&#10005;</span>Vertragsbindung und Mindestabnahme</div>
-            <div class="gz-b"><span class="gh"><svg><use href="#i-haken"/></svg></span>Einmalkauf, jederzeit beenden</div>
+          <div class="vk">
+            <div class="vk-gut"><span class="vk-ok"><svg><use href="#i-haken"/></svg></span><span class="vk-txt"><small>Bei uns</small><b>Einmalkauf, jederzeit beenden</b></span><span class="vk-bild"><svg><use href="#i-kreis"/></svg></span></div>
+            <div class="vk-statt"><span>statt</span></div>
+            <div class="vk-schlecht"><span class="vk-x">&#10005;</span><span class="vk-txt"><small>Bei anderen oft</small><b>Vertragsbindung und Mindestabnahme</b></span></div>
           </div>
-          <div class="gz">
-            <div class="gz-a"><span class="gx">&#10005;</span>Reklamation meist aussichtslos</div>
-            <div class="gz-b"><span class="gh"><svg><use href="#i-haken"/></svg></span>Ersatzleadgarantie nach &#167; 6 AGB</div>
+          <div class="vk">
+            <div class="vk-gut"><span class="vk-ok"><svg><use href="#i-haken"/></svg></span><span class="vk-txt"><small>Bei uns</small><b>Ersatzleadgarantie nach &#167; 6 AGB</b></span><span class="vk-bild"><svg><use href="#i-haken-kreis"/></svg></span></div>
+            <div class="vk-statt"><span>statt</span></div>
+            <div class="vk-schlecht"><span class="vk-x">&#10005;</span><span class="vk-txt"><small>Bei anderen oft</small><b>Reklamation meist aussichtslos</b></span></div>
           </div>
         </div>
         <p class="vsek-r">Rechnen Sie nach: Wird derselbe Lead an f&#252;nf Makler verkauft, bekommt der Interessent f&#252;nf Anrufe und Sie sind einer von f&#252;nf. Zehn Anfragen, die nur Sie haben, sind mehr wert als f&#252;nfzig, die alle haben.</p>
@@ -807,9 +835,9 @@ html,body{background:#fff}
       <section class="vsek">
         <h3 class="vsek-h">So l&#228;uft es ab</h3>
         <ol class="ablauf">
-          <li><span class="ab-n">1</span><div><b>Sie sichern Ihren Exklusivplatz</b><small>Bezahlung einmalig &#252;ber Stripe, Rechnung sofort per E-Mail.</small></div></li>
-          <li><span class="ab-n">2</span><div><b>Wir starten Ihre Kampagne</b><small>In der Regel innerhalb von drei Werktagen f&#252;r Ihre PLZ und Ihren Umkreis.</small></div></li>
-          <li><span class="ab-n">3</span><div><b>Anfragen kommen direkt zu Ihnen</b><small>Per E-Mail, mit allen Angaben. In der Regel alle zehn binnen zwei Wochen.</small></div></li>
+          <li><span class="ab-n">1</span><div><b>Sie sichern sich Ihre Leads</b><small>Einmalig bezahlen, bequem per Stripe oder Rechnung.</small></div></li>
+          <li><span class="ab-n">2</span><div><b>Wir richten Ihre Region ein</b><small>In der Regel innerhalb von drei Werktagen f&#252;r Ihre PLZ und Ihren Umkreis.</small></div></li>
+          <li><span class="ab-n">3</span><div><b>Ihre Anfragen kommen direkt zu Ihnen</b><small>Per E-Mail, sobald ein passender Kontakt f&#252;r Sie verf&#252;gbar ist.</small></div></li>
         </ol>
       </section>
 
@@ -845,14 +873,14 @@ html,body{background:#fff}
           <details><summary>Gibt es eine Vertragsbindung?</summary><p>Nein. Es ist ein Einmalkauf ohne Abo, ohne Laufzeit und ohne K&#252;ndigung. Nach der Lieferung endet der Vertrag automatisch.</p></details>
           <details><summary>Was passiert, wenn nicht alle zehn Anfragen kommen?</summary><p>Sie entscheiden: Wir erstatten 149 &#8364; netto je fehlender Anfrage, oder wir verl&#228;ngern den Lieferzeitraum um vier weitere Wochen. Geregelt in &#167; 5 Abs. 4 der AGB.</p></details>
           <details><summary>Was passiert mit meiner Region, wenn die zehn Anfragen geliefert sind?</summary><p>Solange Ihr Auftrag l&#228;uft, beliefern wir in Ihrem Liefergebiet keinen zweiten Makler aus diesem Angebot (&#167; 2 Abs. 1b AGB). Nach Ablauf endet dieser Gebietsschutz, die Exklusivit&#228;t Ihrer zehn Anfragen bleibt dauerhaft bestehen: keine davon wird jemals an einen anderen Makler vergeben.</p></details>
-          <details><summary>F&#252;r wen gilt das Angebot?</summary><p>Ausschlie&#223;lich f&#252;r Unternehmer. Der Exklusivplatz zum Einstiegspreis kann je Unternehmen einmal erworben werden, danach gilt unser Listenpreis von 270 &#8364; netto je Lead.</p></details>
+          <details><summary>F&#252;r wen gilt das Angebot?</summary><p>Ausschlie&#223;lich f&#252;r Unternehmer. Das Neukunden-Angebot kann je Unternehmen einmal erworben werden, danach gilt unser Listenpreis von 270 &#8364; netto je Lead.</p></details>
         </div>
       </section>
 
       <div class="schluss">
-        <p class="sch-h">Sichern Sie Ihren Exklusivplatz.</p>
+        <p class="sch-h">Sichern Sie sich Ihr Neukunden-Angebot.</p>
         <p class="sch-s">10 exklusive Anfragen f&#252;r 1.490 &#8364; netto statt 2.700 &#8364; Listenpreis (10 x 270 &#8364;). Einmal je Unternehmen.</p>
-        <button type="button" class="knopf sichern" id="p10b" data-paket="kl10">Exklusivplatz jetzt sichern <svg><use href="#i-pfeil"/></svg></button>
+        <button type="button" class="knopf sichern" id="p10b" data-paket="kl10">Neukunden-Angebot sichern <svg><use href="#i-pfeil"/></svg></button>
         <p class="sch-f"><svg><use href="#i-schloss"/></svg>Sichere Zahlung &#252;ber Stripe. Rechnung sofort per E-Mail.</p>
       </div>
 
@@ -870,7 +898,7 @@ html,body{background:#fff}
         <div><svg><use href="#i-schild"/></svg>100 % exklusiv (nur f&#252;r Sie)</div>
         <div><svg><use href="#i-leute"/></svg>Vorqualifizierte Kapitalanleger</div>
         <div><svg><use href="#i-pin"/></svg><span id="vertrauen-gebiet">Regionale Anfragen aus Ihrer PLZ</span></div>
-        <div><svg><use href="#i-dok"/></svg>Ohne Laufzeit &amp; volle Kontrolle</div>
+        <div><svg><use href="#i-dok"/></svg>Ohne Laufzeit & volle Kontrolle</div>
       </div>
       <p class="netto">Preis netto zzgl. USt. Ersatzleadgarantie nach &#167; 6 AGB: Nachweisbar unbrauchbare Leads ersetzen wir. Bei falschen Daten, Dubletten, falscher Region, fehlender Einwilligung oder verletzter Exklusivit&#228;t ohne Mengengrenze. Ist ein Interessent nicht erreichbar, ersetzen wir bis zu zwei Leads, daf&#252;r sind sechs dokumentierte Kontaktversuche n&#246;tig.</p>
     </div>
@@ -897,7 +925,7 @@ html,body{background:#fff}
   var FRAGEN=['menge','eigenkapital','einkommen','rendite'];
   var zustand={variante:'a',weg:null,plz:'',radius:'25 km',menge:'',eigenkapital:'',einkommen:'',rendite:'',verlauf:[],gemeldet:{}};
 
-  // ---------- Einwilligung: Speichern im Browser und Server-Tracking nur mit Zustimmung (\u00a7 25 TDDDG) ----------
+  // ---------- Einwilligung: Speichern im Browser und Server-Tracking nur mit Zustimmung (&#167; 25 TDDDG) ----------
   function einw(){try{return localStorage.getItem('sl_consent')==='yes';}catch(e){return false;}}
   // ---------- A/B-Test: URL ?v=a oder ?v=b gewinnt; gespeichert wird die Variante nur mit Einwilligung ----------
   function variante(){
@@ -933,7 +961,7 @@ html,body{background:#fff}
     if(!ohneSpeicher){try{localStorage.setItem('sl_quelle',q);}catch(e){}}
     return q;
   }
-  // Schritte gehen einzeln raus, mit mindestens 1,2 s Abstand, damit sich in der Statistik nichts \u00fcberschreibt
+  // Schritte gehen einzeln raus, mit mindestens 1,2 s Abstand, damit sich in der Statistik nichts &#252;berschreibt
   var warteschlange=[],letzter=0,uhr=null,ABSTAND=1200;
   function senden(d){
     try{
@@ -1047,9 +1075,9 @@ html,body{background:#fff}
     var mail=document.getElementById('email').value.trim();
     var tel=telNorm(document.getElementById('tel').value);
     var mOk=/^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/.test(mail);
-    document.getElementById('m-email').textContent=mail?'Bitte pr\u00fcfen Sie die E-Mail-Adresse.':'Bitte geben Sie Ihre E-Mail-Adresse ein.';
-    document.getElementById('m-tel').textContent=document.getElementById('tel').value.trim()?'Bitte pr\u00fcfen Sie die Telefonnummer (Deutschland, \u00d6sterreich, Schweiz, Zypern, Spanien oder VAE).':'Bitte geben Sie Ihre Telefonnummer ein.';
-    var a=feldPruefen('vorname',name.length>=2&&/[A-Za-z\u00c4\u00d6\u00dc\u00e4\u00f6\u00fc\u00df]/.test(name)),bb=feldPruefen('email',mOk),c=feldPruefen('tel',SL_ERLAUBT.test(tel));
+    document.getElementById('m-email').textContent=mail?'Bitte pr&#252;fen Sie die E-Mail-Adresse.':'Bitte geben Sie Ihre E-Mail-Adresse ein.';
+    document.getElementById('m-tel').textContent=document.getElementById('tel').value.trim()?'Bitte pr&#252;fen Sie die Telefonnummer (Deutschland, &#214;sterreich, Schweiz, Zypern, Spanien oder VAE).':'Bitte geben Sie Ihre Telefonnummer ein.';
+    var a=feldPruefen('vorname',name.length>=2&&/[A-Za-z&#196;&#214;&#220;&#228;&#246;&#252;&#223;]/.test(name)),bb=feldPruefen('email',mOk),c=feldPruefen('tel',SL_ERLAUBT.test(tel));
     var box=document.getElementById('einwilligung'),d=box?box.checked:true;
     if(box)document.getElementById('f-einwilligung').classList.toggle('fehler',!d);
     if(!(a&&bb&&c&&d))return;
@@ -1057,10 +1085,10 @@ html,body{background:#fff}
     var teile=name.split(' ');
     var kontakt={name:name,vorname:teile[0]||'',nachname:teile.slice(1).join(' '),firma:'',email:mail,tel:tel,mailok:false};
     var quiz={variante:zustand.variante,weg:zustand.weg,plz:zustand.plz,radius:zustand.weg==='de'?'deutschlandweit':zustand.radius,menge:zustand.menge,eigenkapital:zustand.eigenkapital,einkommen:zustand.einkommen,rendite:zustand.rendite};
-    // Sitzungsspeicher ist f\u00fcr den Wechsel zur Bestellseite technisch n\u00f6tig, dauerhafter Speicher nur mit Einwilligung
+    // Sitzungsspeicher ist f&#252;r den Wechsel zur Bestellseite technisch n&#246;tig, dauerhafter Speicher nur mit Einwilligung
     try{sessionStorage.setItem('sl_kontakt',JSON.stringify(kontakt));sessionStorage.setItem('sl_kl_quiz',JSON.stringify(quiz));if(einw()){localStorage.setItem('sl_kontakt',JSON.stringify(kontakt));localStorage.setItem('sl_kl_quiz',JSON.stringify(quiz));}}catch(e){}
     // Kontaktdaten an unseren Server: mit Einwilligung als normaler Schritt, ohne Einwilligung nur diese eine Formularabsendung
-    // mit fl\u00fcchtiger Sitzungskennung, ohne etwas im Browser zu speichern
+    // mit fl&#252;chtiger Sitzungskennung, ohne etwas im Browser zu speichern
     var kd={name:name,email:mail,tel:tel,weg:quiz.weg,plz:quiz.plz,radius:quiz.radius,menge:quiz.menge,eigenkapital:quiz.eigenkapital,einkommen:quiz.einkommen,rendite:quiz.rendite,
       kontaktEinwilligung:!!d,kontaktEinwilligungZeit:new Date().toISOString(),
       kontaktEinwilligungText:box?box.parentNode.textContent.trim().replace(/\s+/g,' '):''};
@@ -1089,18 +1117,18 @@ html,body{background:#fff}
   function texte(){
     var de=zustand.weg==='de';
     var gebiet=de?'':(zustand.plz?'<span style="white-space:nowrap">(PLZ '+zustand.plz+', Umkreis '+zustand.radius+')</span>':'');
-    var kl='Kapitalanleger\u2011Leads';
-    document.getElementById('kontakt-lead').textContent=de?'Tragen Sie sich ein und sehen Sie sofort Ihre Pakete und Preise f\u00fcr ganz Deutschland.':'Tragen Sie sich ein und sehen Sie sofort Ihre Pakete und Preise f\u00fcr Ihre Region.';
-    document.getElementById('pruef-lead').innerHTML=de?'Wir pr\u00fcfen gerade, ob deutschlandweit aktuell passende '+kl+' verf\u00fcgbar sind.':'Wir pr\u00fcfen gerade, ob in Ihrer Region '+gebiet+' aktuell passende '+kl+' verf\u00fcgbar sind.';
+    var kl='Kapitalanleger&#8209;Leads';
+    document.getElementById('kontakt-lead').textContent=de?'Tragen Sie sich ein und sehen Sie sofort Ihre Pakete und Preise f&#252;r ganz Deutschland.':'Tragen Sie sich ein und sehen Sie sofort Ihre Pakete und Preise f&#252;r Ihre Region.';
+    document.getElementById('pruef-lead').innerHTML=de?'Wir pr&#252;fen gerade, ob deutschlandweit aktuell passende '+kl+' verf&#252;gbar sind.':'Wir pr&#252;fen gerade, ob in Ihrer Region '+gebiet+' aktuell passende '+kl+' verf&#252;gbar sind.';
     document.getElementById('li-region').textContent=de?'Liefergebiet wird analysiert':'Region wird analysiert';
-    document.getElementById('ergebnis-h').innerHTML=de?'Sie haben Gl\u00fcck:<br>Es sind noch freie Pl\u00e4tze verf\u00fcgbar.':'Sie haben Gl\u00fcck:<br>In Ihrer Region sind noch Pl\u00e4tze frei.';
-    document.getElementById('erfolg-txt').textContent='Verf\u00fcgbarkeit gepr\u00fcft';
+    document.getElementById('ergebnis-h').innerHTML=de?'Sie haben Gl&#252;ck:<br>Es sind noch freie Pl&#228;tze verf&#252;gbar.':'Sie haben Gl&#252;ck:<br>In Ihrer Region sind noch Pl&#228;tze frei.';
+    document.getElementById('erfolg-txt').textContent='Verf&#252;gbarkeit gepr&#252;ft';
     document.getElementById('ergebnis-lead').innerHTML=de?'Sie bekommen 10 vorqualifizierte '+kl+' aus ganz Deutschland. Jede einzelne Anfrage geht nur an Sie und an keinen zweiten Makler.':'Ihre Region '+gebiet+' ist aktuell noch frei. Sie bekommen 10 vorqualifizierte '+kl+' von dort, und jede einzelne Anfrage geht nur an Sie und an keinen zweiten Makler.';
     document.querySelectorAll('.gebiet-txt').forEach(function(e){e.textContent=de?'Aus ganz Deutschland':'Aus Ihrer Region';});
     document.getElementById('vertrauen-gebiet').textContent=de?'Anfragen aus ganz Deutschland':'Regionale Anfragen aus Ihrer PLZ';
   }
 
-  // ---------- Pr\u00fcfung ----------
+  // ---------- Pr&#252;fung ----------
   var laeuft=null;
   function pruefen(){
     var li=document.querySelectorAll('#liste li');li.forEach(function(x){x.classList.remove('fertig');});
