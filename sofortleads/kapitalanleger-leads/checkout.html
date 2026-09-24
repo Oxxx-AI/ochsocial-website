@@ -490,7 +490,7 @@ input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus
 <main class="cowrap">
   <div class="steps">
     <div class="s done" data-step="1">1 Kontakt</div>
-    <div class="s active" data-step="4">2 Firma &amp; Gebiet</div>
+    <div class="s active" data-step="4">2 Firma & Gebiet</div>
     <div class="s" data-step="5">3 Kauf</div>
   </div>
 
@@ -503,7 +503,7 @@ input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus
         <div class="pb-preis" id="pb-preis">-</div>
         <div class="pb-liefer">Lieferung in der Regel innerhalb von 2 Wochen, sp&#228;testens 4 Wochen nach Zahlungseingang vollst&#228;ndig</div>
       </div>
-      <h1 class="cotitle">Ihre Firma und Ihr&nbsp;Liefergebiet</h1>
+      <h1 class="cotitle">Ihre Firma und Ihr&#160;Liefergebiet</h1>
       <p class="cosub">Die Firma steht auf Ihrer Rechnung und im Vertrag. Ein gr&#246;&#223;eres Gebiet erh&#246;ht die Chance, dass wir Ihre 10 Anfragen schnell liefern k&#246;nnen.</p>
 
       <div class="stack">
@@ -557,7 +557,7 @@ input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus
         <dl class="vlist">
           <dt>Leistung</dt><dd>Exklusive, vorqualifizierte Kapitalanleger-Leads in Ihrem Gebiet. Jeder Lead geht nur an Sie.</dd>
           <dt>Laufzeit</dt><dd>Einmalkauf von <span class="v-n">-</span> exklusiven Leads mit einem Lieferzeitraum von bis zu vier Wochen. Kein Abo, keine Verl&#228;ngerung, keine K&#252;ndigung n&#246;tig.</dd>
-          <dt>Einmalerwerb</dt><dd>Der Exklusivplatz kann je Unternehmen nur einmal erworben werden. Weitere Leads bestellen Sie danach zu unserem Listenpreis von 270 &#8364; netto je Lead (&#167; 3 Abs. 1 und &#167; 5 Abs. 1a AGB).</dd>
+          <dt>Einmalerwerb</dt><dd>Das Neukunden-Angebot kann je Unternehmen nur einmal erworben werden. Weitere Leads bestellen Sie danach zu unserem Listenpreis von 270 &#8364; netto je Lead (&#167; 3 Abs. 1 und &#167; 5 Abs. 1a AGB).</dd>
           <dt>Vertrag</dt><dd>Kommt mit dem Abschluss des Zahlungsvorgangs bei Stripe zustande. Brechen Sie dort ab, entsteht kein Vertrag. Die Auftragsbest&#228;tigung folgt per E-Mail.</dd>
           <dt>Zahlung</dt><dd>Gesamtbetrag sofort f&#228;llig, einmalig &#252;ber Stripe. Rechnung automatisch per E-Mail.</dd>
           <dt>Lieferung</dt><dd>Start in der Regel innerhalb von drei Werktagen, danach laufend, bis alle <span class="v-n">-</span> Leads geliefert sind, in der Regel innerhalb von zwei Wochen, sp&#228;testens vier Wochen nach Zahlungseingang.</dd>
@@ -720,7 +720,7 @@ function zielText(){
 
 function paketAnzeigen(){
   document.getElementById('pb-gross').textContent=PAKET_LEADS+' exklusive Kapitalanleger-Leads';
-  document.getElementById('pb-preis').innerHTML=eur(PAKET_PREIS)+' netto <span>einmalig, das sind '+eur(PAKET_PPL)+' netto je Lead. Der Exklusivplatz kann je Unternehmen nur einmal erworben werden.</span>';
+  document.getElementById('pb-preis').innerHTML=eur(PAKET_PREIS)+' netto <span>einmalig, das sind '+eur(PAKET_PPL)+' netto je Lead. Das Neukunden-Angebot kann je Unternehmen nur einmal erworben werden.</span>';
   document.querySelectorAll('.v-n').forEach(function(e){e.textContent=PAKET_LEADS;});
   document.querySelectorAll('.v-ppl').forEach(function(e){e.textContent=eur(PAKET_PPL);});
   document.querySelectorAll('.v-cap').forEach(function(e){e.textContent=P.cap;});
