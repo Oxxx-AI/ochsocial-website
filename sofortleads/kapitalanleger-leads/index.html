@@ -925,7 +925,7 @@ html,body{background:#fff}
   var FRAGEN=['menge','eigenkapital','einkommen','rendite'];
   var zustand={variante:'a',weg:null,plz:'',radius:'25 km',menge:'',eigenkapital:'',einkommen:'',rendite:'',verlauf:[],gemeldet:{}};
 
-  // ---------- Einwilligung: Speichern im Browser und Server-Tracking nur mit Zustimmung (&#167; 25 TDDDG) ----------
+  // ---------- Einwilligung: Speichern im Browser und Server-Tracking nur mit Zustimmung (\u00a7 25 TDDDG) ----------
   function einw(){try{return localStorage.getItem('sl_consent')==='yes';}catch(e){return false;}}
   // ---------- A/B-Test: URL ?v=a oder ?v=b gewinnt; gespeichert wird die Variante nur mit Einwilligung ----------
   function variante(){
@@ -961,7 +961,7 @@ html,body{background:#fff}
     if(!ohneSpeicher){try{localStorage.setItem('sl_quelle',q);}catch(e){}}
     return q;
   }
-  // Schritte gehen einzeln raus, mit mindestens 1,2 s Abstand, damit sich in der Statistik nichts &#252;berschreibt
+  // Schritte gehen einzeln raus, mit mindestens 1,2 s Abstand, damit sich in der Statistik nichts \u00fcberschreibt
   var warteschlange=[],letzter=0,uhr=null,ABSTAND=1200;
   function senden(d){
     try{
@@ -1075,9 +1075,9 @@ html,body{background:#fff}
     var mail=document.getElementById('email').value.trim();
     var tel=telNorm(document.getElementById('tel').value);
     var mOk=/^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/.test(mail);
-    document.getElementById('m-email').textContent=mail?'Bitte pr&#252;fen Sie die E-Mail-Adresse.':'Bitte geben Sie Ihre E-Mail-Adresse ein.';
-    document.getElementById('m-tel').textContent=document.getElementById('tel').value.trim()?'Bitte pr&#252;fen Sie die Telefonnummer (Deutschland, &#214;sterreich, Schweiz, Zypern, Spanien oder VAE).':'Bitte geben Sie Ihre Telefonnummer ein.';
-    var a=feldPruefen('vorname',name.length>=2&&/[A-Za-z&#196;&#214;&#220;&#228;&#246;&#252;&#223;]/.test(name)),bb=feldPruefen('email',mOk),c=feldPruefen('tel',SL_ERLAUBT.test(tel));
+    document.getElementById('m-email').textContent=mail?'Bitte pr\u00fcfen Sie die E-Mail-Adresse.':'Bitte geben Sie Ihre E-Mail-Adresse ein.';
+    document.getElementById('m-tel').textContent=document.getElementById('tel').value.trim()?'Bitte pr\u00fcfen Sie die Telefonnummer (Deutschland, \u00d6sterreich, Schweiz, Zypern, Spanien oder VAE).':'Bitte geben Sie Ihre Telefonnummer ein.';
+    var a=feldPruefen('vorname',name.length>=2&&/[A-Za-z\u00c4\u00d6\u00dc\u00e4\u00f6\u00fc\u00df]/.test(name)),bb=feldPruefen('email',mOk),c=feldPruefen('tel',SL_ERLAUBT.test(tel));
     var box=document.getElementById('einwilligung'),d=box?box.checked:true;
     if(box)document.getElementById('f-einwilligung').classList.toggle('fehler',!d);
     if(!(a&&bb&&c&&d))return;
@@ -1085,10 +1085,10 @@ html,body{background:#fff}
     var teile=name.split(' ');
     var kontakt={name:name,vorname:teile[0]||'',nachname:teile.slice(1).join(' '),firma:'',email:mail,tel:tel,mailok:false};
     var quiz={variante:zustand.variante,weg:zustand.weg,plz:zustand.plz,radius:zustand.weg==='de'?'deutschlandweit':zustand.radius,menge:zustand.menge,eigenkapital:zustand.eigenkapital,einkommen:zustand.einkommen,rendite:zustand.rendite};
-    // Sitzungsspeicher ist f&#252;r den Wechsel zur Bestellseite technisch n&#246;tig, dauerhafter Speicher nur mit Einwilligung
+    // Sitzungsspeicher ist f\u00fcr den Wechsel zur Bestellseite technisch n\u00f6tig, dauerhafter Speicher nur mit Einwilligung
     try{sessionStorage.setItem('sl_kontakt',JSON.stringify(kontakt));sessionStorage.setItem('sl_kl_quiz',JSON.stringify(quiz));if(einw()){localStorage.setItem('sl_kontakt',JSON.stringify(kontakt));localStorage.setItem('sl_kl_quiz',JSON.stringify(quiz));}}catch(e){}
     // Kontaktdaten an unseren Server: mit Einwilligung als normaler Schritt, ohne Einwilligung nur diese eine Formularabsendung
-    // mit fl&#252;chtiger Sitzungskennung, ohne etwas im Browser zu speichern
+    // mit fl\u00fcchtiger Sitzungskennung, ohne etwas im Browser zu speichern
     var kd={name:name,email:mail,tel:tel,weg:quiz.weg,plz:quiz.plz,radius:quiz.radius,menge:quiz.menge,eigenkapital:quiz.eigenkapital,einkommen:quiz.einkommen,rendite:quiz.rendite,
       kontaktEinwilligung:!!d,kontaktEinwilligungZeit:new Date().toISOString(),
       kontaktEinwilligungText:box?box.parentNode.textContent.trim().replace(/\s+/g,' '):''};
@@ -1117,18 +1117,18 @@ html,body{background:#fff}
   function texte(){
     var de=zustand.weg==='de';
     var gebiet=de?'':(zustand.plz?'<span style="white-space:nowrap">(PLZ '+zustand.plz+', Umkreis '+zustand.radius+')</span>':'');
-    var kl='Kapitalanleger&#8209;Leads';
-    document.getElementById('kontakt-lead').textContent=de?'Tragen Sie sich ein und sehen Sie sofort Ihre Pakete und Preise f&#252;r ganz Deutschland.':'Tragen Sie sich ein und sehen Sie sofort Ihre Pakete und Preise f&#252;r Ihre Region.';
-    document.getElementById('pruef-lead').innerHTML=de?'Wir pr&#252;fen gerade, ob deutschlandweit aktuell passende '+kl+' verf&#252;gbar sind.':'Wir pr&#252;fen gerade, ob in Ihrer Region '+gebiet+' aktuell passende '+kl+' verf&#252;gbar sind.';
+    var kl='Kapitalanleger\u2011Leads';
+    document.getElementById('kontakt-lead').textContent=de?'Tragen Sie sich ein und sehen Sie sofort Ihre Pakete und Preise f\u00fcr ganz Deutschland.':'Tragen Sie sich ein und sehen Sie sofort Ihre Pakete und Preise f\u00fcr Ihre Region.';
+    document.getElementById('pruef-lead').innerHTML=de?'Wir pr\u00fcfen gerade, ob deutschlandweit aktuell passende '+kl+' verf\u00fcgbar sind.':'Wir pr\u00fcfen gerade, ob in Ihrer Region '+gebiet+' aktuell passende '+kl+' verf\u00fcgbar sind.';
     document.getElementById('li-region').textContent=de?'Liefergebiet wird analysiert':'Region wird analysiert';
-    document.getElementById('ergebnis-h').innerHTML=de?'Sie haben Gl&#252;ck:<br>Es sind noch freie Pl&#228;tze verf&#252;gbar.':'Sie haben Gl&#252;ck:<br>In Ihrer Region sind noch Pl&#228;tze frei.';
-    document.getElementById('erfolg-txt').textContent='Verf&#252;gbarkeit gepr&#252;ft';
+    document.getElementById('ergebnis-h').innerHTML=de?'Sie haben Gl\u00fcck:<br>Es sind noch freie Pl\u00e4tze verf\u00fcgbar.':'Sie haben Gl\u00fcck:<br>In Ihrer Region sind noch Pl\u00e4tze frei.';
+    document.getElementById('erfolg-txt').textContent='Verf\u00fcgbarkeit gepr\u00fcft';
     document.getElementById('ergebnis-lead').innerHTML=de?'Sie bekommen 10 vorqualifizierte '+kl+' aus ganz Deutschland. Jede einzelne Anfrage geht nur an Sie und an keinen zweiten Makler.':'Ihre Region '+gebiet+' ist aktuell noch frei. Sie bekommen 10 vorqualifizierte '+kl+' von dort, und jede einzelne Anfrage geht nur an Sie und an keinen zweiten Makler.';
     document.querySelectorAll('.gebiet-txt').forEach(function(e){e.textContent=de?'Aus ganz Deutschland':'Aus Ihrer Region';});
     document.getElementById('vertrauen-gebiet').textContent=de?'Anfragen aus ganz Deutschland':'Regionale Anfragen aus Ihrer PLZ';
   }
 
-  // ---------- Pr&#252;fung ----------
+  // ---------- Pr\u00fcfung ----------
   var laeuft=null;
   function pruefen(){
     var li=document.querySelectorAll('#liste li');li.forEach(function(x){x.classList.remove('fertig');});
