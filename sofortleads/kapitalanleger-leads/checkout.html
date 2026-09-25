@@ -421,6 +421,14 @@ body{background:var(--offwhite)}
 .kbgrid b{font-size:14.5px;font-weight:700;word-break:break-word}
 
 /* Vertragsdetails */
+.opt-mark{margin-left:6px;font-weight:500;font-size:12px;color:#8A90A6}
+.klein-note{font-size:11.5px;line-height:1.55;margin-bottom:26px}
+details.vertrag>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px}
+details.vertrag>summary::-webkit-details-marker{display:none}
+details.vertrag>summary::after{content:"";margin-left:auto;width:9px;height:9px;border-right:2px solid #8A90A6;border-bottom:2px solid #8A90A6;transform:rotate(45deg);transition:transform .2s}
+details.vertrag[open]>summary::after{transform:rotate(-135deg)}
+.v-mehr{font-size:12.5px;font-weight:600;color:var(--kobalt)}
+
 .vertrag{margin-top:28px;border-top:1px solid var(--line);padding-top:18px}
 .vtitle{font-size:14px;font-weight:800;margin-bottom:3px}
 .vsub{font-size:11.5px;color:var(--mut);margin-bottom:10px}
@@ -497,22 +505,16 @@ input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus
   <form id="ckform" onsubmit="return submitForm(event)">
 
     <div class="pane" data-pane="4">
-      <div class="paketbox">
-        <div class="pb-name">Ihr gew&#228;hltes Paket</div>
-        <div class="pb-gross" id="pb-gross">-</div>
-        <div class="pb-preis" id="pb-preis">-</div>
-        <div class="pb-liefer">Lieferung in der Regel innerhalb von 2 Wochen, sp&#228;testens 4 Wochen nach Zahlungseingang vollst&#228;ndig</div>
-      </div>
-      <h1 class="cotitle">Ihre Firma und Ihr&#160;Liefergebiet</h1>
-      <p class="cosub">Die Firma steht auf Ihrer Rechnung und im Vertrag. Ein gr&#246;&#223;eres Gebiet erh&#246;ht die Chance, dass wir Ihre 10 Anfragen schnell liefern k&#246;nnen.</p>
+      <h1 class="cotitle">Ihre Rechnungsdaten und Ihr&#160;Gebiet</h1>
+      <p class="cosub">Diese Angaben stehen auf Ihrer Rechnung und im Vertrag. Ihre Postleitzahl legt fest, wo wir f&#252;r Sie werben.</p>
 
       <div class="stack">
-        <div class="field"><label for="firma">Firma</label><input id="firma" name="firma" autocomplete="organization" placeholder="z.B. Mustermann Immobilien GmbH" required></div>
+        <div class="field"><label for="firma">Firma <span class="opt-mark">optional</span></label><input id="firma" name="firma" autocomplete="organization" placeholder="z.B. Mustermann Immobilien GmbH"></div>
         <div class="field"><label for="ustid">Umsatzsteuer-Identifikationsnummer</label><input id="ustid" name="ustid" placeholder="z.B. DE123456789" autocomplete="off" required pattern="[A-Za-z]{2}[0-9A-Za-z+*.]{2,12}"><div class="netnote">Pflichtangabe f&#252;r die Rechnung. Die Nummer erhalten Sie kostenlos beim Bundeszentralamt f&#252;r Steuern.</div></div>
       </div>
-      <div class="row2" style="margin-top:14px">
+      <div class="stack" style="margin-top:14px">
         <div class="field" id="plz-feld"><label for="plz">Postleitzahl</label><input id="plz" name="plz" inputmode="numeric" placeholder="z.B. 70173" pattern="[0-9]{5}" maxlength="5" required></div>
-        <div class="field"><label for="radius">Umkreis</label><select id="radius" name="radius"><option>10 km</option><option selected>25 km</option><option>50 km</option><option>75 km</option><option>150 km</option><option value="deutschlandweit">deutschlandweit</option></select></div>
+        <input type="hidden" id="radius" name="radius" value="25 km">
       </div>
 
       
@@ -533,7 +535,7 @@ input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus
         <div class="line" id="s-ppl-line"><span>Preis je Lead</span><span id="s-ppl">-</span></div>
         <div class="line"><span>Gebiet</span><span id="s-geo">-</span></div>
         <div class="line"><span>Zielgruppe</span><span id="s-ziel">Kapitalanleger</span></div>
-        <p class="netnote" style="margin-top:8px">Die Zielgruppenangaben steuern Ausrichtung und Ansprache der Kampagne. Die Angaben der Interessenten beruhen auf deren Selbstauskunft und sind keine zugesicherte Eigenschaft der einzelnen Anfrage (&#167; 2 Abs. 4 AGB).</p>
+        <p class="netnote klein-note" style="margin-top:8px">Die Zielgruppenangaben steuern Ausrichtung und Ansprache der Kampagne. Die Angaben der Interessenten beruhen auf deren Selbstauskunft und sind keine zugesicherte Eigenschaft der einzelnen Anfrage (&#167; 2 Abs. 4 AGB).</p>
         <div class="line"><span>Auslieferung</span><span id="s-liefer">in der Regel in 2 Wochen, sp&#228;testens in 4 Wochen</span></div>
         <div class="line"><span>Voraussichtliches Startdatum</span><span id="s-start">-</span></div>
         <div class="line total"><span>Einmalzahlung</span><span id="s-total">-</span></div>
@@ -551,8 +553,8 @@ input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus
         <a href="/kapitalanleger-leads/" class="link">Angaben &#228;ndern</a>
       </div>
 
-      <div class="vertrag">
-        <h2 class="vtitle">Vertragsdetails</h2>
+      <details class="vertrag">
+        <summary class="vtitle">Vertragsdetails <span class="v-mehr">hier mehr erfahren</span></summary>
         <p class="vsub">Das Wichtigste auf einen Blick. Vollst&#228;ndig in den <a href="/kapitalanleger-leads/agb" target="_blank">AGB</a>.</p>
         <dl class="vlist">
           <dt>Leistung</dt><dd>Exklusive, vorqualifizierte Kapitalanleger-Leads in Ihrem Gebiet. Jeder Lead geht nur an Sie.</dd>
@@ -566,7 +568,7 @@ input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus
           <dt>R&#252;cktritt</dt><dd>Bei Zweifeln an Identit&#228;t oder Unternehmereigenschaft, fehlgeschlagener Verifizierung oder Missbrauchsverdacht k&#246;nnen wir binnen f&#252;nf Werktagen nach Vertragsschluss zur&#252;cktreten. K&#246;nnen wir die 10 Leads in Ihrem Gebiet nicht liefern und haben wir das nicht zu vertreten, k&#246;nnen wir bis zum Beginn der Auslieferung zur&#252;cktreten. In allen F&#228;llen erstatten wir den vollen Betrag, bei Nichtlieferbarkeit binnen 14 Tagen (&#167; 3 Abs. 3 AGB).</dd>
           <dt>Rechtliches</dt><dd>Nur f&#252;r Unternehmer nach &#167; 14 BGB. Kein Verbraucher-Widerrufsrecht. Es gelten die <a href="/kapitalanleger-leads/agb" target="_blank">AGB</a>.</dd>
         </dl>
-      </div>
+      </details>
 
       <label class="chk"><input type="checkbox" id="unternehmer" name="unternehmerBestaetigt" value="ja" required><span>Ich best&#228;tige, dass ich als Unternehmer handle und berechtigt bin, f&#252;r die genannte Firma zu bestellen.</span></label>
       <label class="chk"><input type="checkbox" id="agbok" name="agbAkzeptiert" value="ja" required><span>Ich stimme den <a href="/kapitalanleger-leads/agb" target="_blank">AGB</a> zu und habe die <a href="/kapitalanleger-leads/datenschutz" target="_blank">Datenschutzerkl&#228;rung</a> zur Kenntnis genommen.</span></label>
@@ -719,8 +721,6 @@ function zielText(){
 }
 
 function paketAnzeigen(){
-  document.getElementById('pb-gross').textContent=PAKET_LEADS+' exklusive Kapitalanleger-Leads';
-  document.getElementById('pb-preis').innerHTML=eur(PAKET_PREIS)+' netto <span>einmalig, das sind '+eur(PAKET_PPL)+' netto je Lead. Das Neukunden-Angebot kann je Unternehmen nur einmal erworben werden.</span>';
   document.querySelectorAll('.v-n').forEach(function(e){e.textContent=PAKET_LEADS;});
   document.querySelectorAll('.v-ppl').forEach(function(e){e.textContent=eur(PAKET_PPL);});
   document.querySelectorAll('.v-cap').forEach(function(e){e.textContent=P.cap;});
@@ -734,9 +734,8 @@ function gebietUmschalten(){
 (function(){
   var f=document.getElementById('ckform');if(!f)return;
   if(quiz&&quiz.plz)f.plz.value=quiz.plz;
-  if(quiz&&quiz.radius){for(var i=0;i<f.radius.options.length;i++){if(f.radius.options[i].value===quiz.radius||f.radius.options[i].text===quiz.radius)f.radius.selectedIndex=i;}}
+  if(quiz&&quiz.radius)f.radius.value=quiz.radius;
   if(daten&&daten.firma)f.firma.value=daten.firma;
-  f.radius.addEventListener('change',gebietUmschalten);
   gebietUmschalten();paketAnzeigen();
 })();
 function refreshSummary(){
@@ -751,9 +750,10 @@ function refreshSummary(){
   document.getElementById('s-total').innerHTML=eur(mo);
   document.getElementById('s-start').textContent=werktageAb(3).toLocaleDateString('de-DE');
   document.getElementById('k-firma').textContent=(f.firma.value||'').trim()||'-';
-  document.getElementById('k-name').textContent=daten.name||'-';
-  document.getElementById('k-email').textContent=daten.email||'-';
-  document.getElementById('k-tel').textContent=daten.tel||'-';
+  var kd=daten||{};
+  document.getElementById('k-name').textContent=kd.name||'-';
+  document.getElementById('k-email').textContent=kd.email||'-';
+  document.getElementById('k-tel').textContent=kd.tel||'-';
 }
 
 
