@@ -428,6 +428,8 @@ details.vertrag>summary::-webkit-details-marker{display:none}
 details.vertrag>summary::after{content:"";margin-left:auto;width:9px;height:9px;border-right:2px solid #8A90A6;border-bottom:2px solid #8A90A6;transform:rotate(45deg);transition:transform .2s}
 details.vertrag[open]>summary::after{transform:rotate(-135deg)}
 .v-mehr{font-size:12.5px;font-weight:600;color:var(--kobalt)}
+.vertrag .vlist{grid-template-columns:132px 1fr!important;gap:10px 16px!important}
+.vertrag .vlist dt{white-space:normal!important;overflow-wrap:anywhere;line-height:1.4}
 
 .vertrag{margin-top:28px;border-top:1px solid var(--line);padding-top:18px}
 .vtitle{font-size:14px;font-weight:800;margin-bottom:3px}
@@ -505,15 +507,15 @@ input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus
   <form id="ckform" onsubmit="return submitForm(event)">
 
     <div class="pane" data-pane="4">
-      <h1 class="cotitle">Ihre Rechnungsdaten und Ihr&#160;Gebiet</h1>
-      <p class="cosub">Diese Angaben stehen auf Ihrer Rechnung und im Vertrag. Ihre Postleitzahl legt fest, wo wir f&#252;r Sie werben.</p>
+      <h1 class="cotitle">Ihre Rechnungsdaten</h1>
+      <p class="cosub">Diese Angaben stehen auf Ihrer Rechnung und im Vertrag. Ihr Gebiet haben Sie im vorherigen Schritt festgelegt.</p>
 
       <div class="stack">
         <div class="field"><label for="firma">Firma <span class="opt-mark">optional</span></label><input id="firma" name="firma" autocomplete="organization" placeholder="z.B. Mustermann Immobilien GmbH"></div>
         <div class="field"><label for="ustid">Umsatzsteuer-Identifikationsnummer</label><input id="ustid" name="ustid" placeholder="z.B. DE123456789" autocomplete="off" required pattern="[A-Za-z]{2}[0-9A-Za-z+*.]{2,12}"><div class="netnote">Pflichtangabe f&#252;r die Rechnung. Die Nummer erhalten Sie kostenlos beim Bundeszentralamt f&#252;r Steuern.</div></div>
       </div>
-      <div class="stack" style="margin-top:14px">
-        <div class="field" id="plz-feld"><label for="plz">Postleitzahl</label><input id="plz" name="plz" inputmode="numeric" placeholder="z.B. 70173" pattern="[0-9]{5}" maxlength="5" required></div>
+      <div style="display:none">
+        <input type="hidden" id="plz" name="plz" value="">
         <input type="hidden" id="radius" name="radius" value="25 km">
       </div>
 
@@ -726,10 +728,8 @@ function paketAnzeigen(){
   document.querySelectorAll('.v-cap').forEach(function(e){e.textContent=P.cap;});
 }
 function gebietUmschalten(){
-  var r=document.getElementById('radius'),plz=document.getElementById('plz'),feld=document.getElementById('plz-feld');
-  var de=r.value==='deutschlandweit';
-  feld.style.display=de?'none':'';
-  if(de){plz.removeAttribute('required');plz.classList.remove('invalid');}else plz.setAttribute('required','');
+  var r=document.getElementById('radius'),plz=document.getElementById('plz');
+  if(r.value==='deutschlandweit')plz.value='';
 }
 (function(){
   var f=document.getElementById('ckform');if(!f)return;
