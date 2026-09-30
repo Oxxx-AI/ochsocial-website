@@ -221,6 +221,12 @@ html, body { overflow-x: clip !important; overflow-y: visible !important; }
 .cards-grid .glow-card .mst-hebel-img { margin-top: auto; }
 .cards-grid .glow-card p { margin-bottom: 26px; }
 .mst-tasks { align-items: start; }
+
+/* Headline-Akzente einfarbig Kobaltblau statt Verlauf (Bernd 30.09.2026) */
+h1 .accent-cobalt, h2 .accent-cobalt, h3 .accent-cobalt, .display-xl .accent-cobalt, .display-l .accent-cobalt, .display-m .accent-cobalt, h2 .l1.accent-cobalt {
+  background: none; -webkit-background-clip: border-box; background-clip: border-box;
+  color: var(--cobalt); -webkit-text-fill-color: var(--cobalt);
+}
 </style>
 </head>
 <body>
