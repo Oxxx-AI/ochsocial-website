@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ochsocial.de — Design System nach Markenhandbuch v5
+   ochsocial.de \002014 Design System nach Markenhandbuch v5
    6 Markenfarben, Manrope, CTA-Radius 6px
    ========================================================================== */
 
@@ -10,7 +10,7 @@
 @font-face { font-family: 'Manrope'; src: url('../assets/fonts/manrope-800.woff2') format('woff2'); font-weight: 800; font-display: swap; }
 
 :root {
-  /* Die 6 Markenfarben — ausschließlich diese */
+  /* Die 6 Markenfarben \002014 ausschlie\0000dflich diese */
   --cobalt: #1E4FBA;
   --champagne: #F0D9A0;
   --offwhite: #F3F5F9;
@@ -18,7 +18,7 @@
   --ice: #6FA8F5;
   --mint: #3ECF97;
 
-  /* Abgeleitete Töne (rechnerisch aus den 6 Farben) */
+  /* Abgeleitete T\0000f6ne (rechnerisch aus den 6 Farben) */
   --navy-60: rgba(20, 22, 58, 0.6);
   --navy-40: rgba(20, 22, 58, 0.4);
   --navy-12: rgba(20, 22, 58, 0.12);
@@ -30,7 +30,7 @@
   --champagne-glow: rgba(240, 217, 160, 0.35);
   --cobalt-glow: rgba(30, 79, 186, 0.45);
 
-  /* Verläufe nach Markenhandbuch */
+  /* Verl\0000e4ufe nach Markenhandbuch */
   --grad-cobalt-metallic: linear-gradient(135deg, #3B71E8 0%, #1E4FBA 42%, #123273 78%, #2E63D6 100%);
   --grad-champagne: linear-gradient(135deg, #F0D9A0 0%, #FAF0D8 100%);
   --grad-ice: linear-gradient(135deg, #6FA8F5 0%, #CFE3FC 100%);
@@ -102,7 +102,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .btn:hover { transform: translateY(-2px); }
 .btn svg { width: 20px; height: 20px; flex: none; }
 
-/* Kobaltblau: Text nur Weiß */
+/* Kobaltblau: Text nur Wei\0000df */
 .btn-cobalt { background: var(--grad-cobalt-metallic); color: #fff; box-shadow: 0 10px 30px -10px var(--cobalt-glow); }
 .btn-cobalt:hover { box-shadow: 0 16px 40px -10px var(--cobalt-glow); }
 
@@ -208,7 +208,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* ---------- Sektionen ---------- */
 section { position: relative; }
 .section { padding: clamp(90px, 12vw, 160px) 0; }
-/* Dunkle Sektionen: Navy für klare Trennung (Feedback 02) */
+/* Dunkle Sektionen: Navy f\0000fcr klare Trennung (Feedback 02) */
 .section-dark { background: linear-gradient(180deg, var(--navy) 0%, #101230 100%); color: #fff; }
 .section-cobalt { background: var(--grad-cobalt-metallic); color: #fff; }
 
@@ -299,7 +299,7 @@ section { position: relative; }
 .stat .num { font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 800; letter-spacing: -0.02em; color: var(--champagne); }
 .stat .lbl { font-size: 0.9rem; font-weight: 600; color: var(--white-60); margin-top: 6px; }
 
-/* ---------- Logo Marquee: weiße Sektion, Original-Logos via multiply (weiße Ränder unsichtbar) ---------- */
+/* ---------- Logo Marquee: wei\0000dfe Sektion, Original-Logos via multiply (wei\0000dfe R\0000e4nder unsichtbar) ---------- */
 .marquee { overflow: hidden; padding: 44px 0; position: relative; background: #FFFFFF; }
 .marquee-track img { mix-blend-mode: multiply; }
 .marquee-label { text-align: center; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy-40); margin-bottom: 30px; }
@@ -473,7 +473,7 @@ section { position: relative; }
 .testi-person .name { font-weight: 800; font-size: 0.95rem; }
 .testi-person .role { font-size: 0.82rem; color: var(--navy-40); }
 
-/* Startseite: große eckige Kundenfotos, Gesicht nicht angeschnitten (Feedback 02) */
+/* Startseite: gro\0000dfe eckige Kundenfotos, Gesicht nicht angeschnitten (Feedback 02) */
 .testi-card.big-photo { text-align: center; align-items: center; padding: 0 0 30px; overflow: hidden; }
 .testi-card.big-photo .photo-xl {
   width: 100%; aspect-ratio: 1 / 1; border-radius: 0; object-fit: cover; object-position: center top;
@@ -635,12 +635,12 @@ section { position: relative; }
 
 /* ---------- Unterseiten Hero ---------- */
 .page-hero { padding: calc(var(--header-h) + clamp(70px, 10vw, 130px)) 0 clamp(60px, 8vw, 100px); position: relative; overflow: hidden; }
-/* Variante ohne gelben Schein (Über uns) */
+/* Variante ohne gelben Schein (\0000dcber uns) */
 .hero-bg.no-gold::after { display: none; }
 .page-hero h1 { max-width: 950px; }
 .page-hero .lead { margin-top: 26px; }
 
-/* ---------- Über uns ---------- */
+/* ---------- \0000dcber uns ---------- */
 .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
 .team-card { border-radius: var(--radius-card); overflow: hidden; background: #fff; border: 1px solid var(--navy-06); }
 .team-card .photo { aspect-ratio: 1; background: var(--grad-ice); display: flex; align-items: center; justify-content: center; overflow: hidden; }
@@ -851,7 +851,7 @@ section { position: relative; }
 .job-card h4 { font-size: 0.85rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy-40); margin-top: 8px; }
 .job-card ul { display: grid; gap: 6px; }
 .job-card li { display: flex; gap: 10px; font-size: 0.92rem; color: var(--navy-60); }
-.job-card li::before { content: '✓'; color: var(--cobalt); font-weight: 800; flex: none; }
+.job-card li::before { content: '\002713'; color: var(--cobalt); font-weight: 800; flex: none; }
 .job-card .btn { margin-top: auto; }
 @media (max-width: 1080px) { .job-grid { grid-template-columns: 1fr; } }
 
@@ -1499,7 +1499,7 @@ figcaption, .cal-head span:first-child, .g-summary { text-wrap: balance; }
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 0.95rem; font-weight: 700; color: var(--navy-60);
 }
-.hero-ohne span::before { content: '✕'; color: #D64545; font-weight: 800; font-size: 0.8rem; }
+.hero-ohne span::before { content: '\002715'; color: #D64545; font-weight: 800; font-size: 0.8rem; }
 .lead strong { color: var(--navy); font-weight: 800; }
 .on-dark .lead strong { color: #fff; }
 .ms-sub { font-size: 1.15rem; font-weight: 800; color: var(--navy); margin-top: 30px; }
@@ -1688,7 +1688,7 @@ h1 .accent-champagne, h2 .accent-champagne, h3 .accent-champagne, .display-xl .a
 .cr-zoom.show img { transform: scale(1); }
 @media (hover: none) { .cr-zoom { display: none; } }
 
-/* ===== Mobil-Feedback v52 (17.07.2026) — Fixes nur mobil ===== */
+/* ===== Mobil-Feedback v52 (17.07.2026) \002014 Fixes nur mobil ===== */
 .nowrap-desktop { white-space: nowrap; }
 @media (max-width: 860px) {
   /* P7/P9/P11/P13: Headline-Umbrueche mobil natuerlich statt harter <br> */
@@ -1774,7 +1774,7 @@ h1 .accent-champagne, h2 .accent-champagne, h3 .accent-champagne, .display-xl .a
 }
 
 /* ===== Mobil-Feedback v54 (17.07.2026) ===== */
-/* Reach: Skalierung auf innerem Wrapper — GSAP animiert nur .reach-viz, der Wrapper bleibt unangetastet */
+/* Reach: Skalierung auf innerem Wrapper \002014 GSAP animiert nur .reach-viz, der Wrapper bleibt unangetastet */
 .reach-scale { position: absolute; inset: 0; }
 
 @media (max-width: 860px) {
@@ -1794,7 +1794,7 @@ h1 .accent-champagne, h2 .accent-champagne, h3 .accent-champagne, .display-xl .a
   /* R7: display-l minimal kleiner, damit "Systeme, die verkaufen." u.ae. einzeilig passen */
   .display-l { font-size: clamp(1.8rem, 7vw, 2.3rem); }
 
-  /* R2: Formular-Modal kompakt — Absenden ohne Scrollen sichtbar */
+  /* R2: Formular-Modal kompakt \002014 Absenden ohne Scrollen sichtbar */
   .modal { padding: 20px 16px; max-height: 94vh; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
   .modal h3 { font-size: 1.15rem; }
   .modal .sub { font-size: 0.78rem; margin-bottom: 10px; }
@@ -1808,7 +1808,7 @@ h1 .accent-champagne, h2 .accent-champagne, h3 .accent-champagne, .display-xl .a
   .bt-content h4 { font-size: 1rem; }
   .branche-tile.cta-tile .bt-content h4 { font-size: 1.08rem; }
 
-  /* R11: Ueber-uns — Bild direkt nach dem Text */
+  /* R11: Ueber-uns \002014 Bild direkt nach dem Text */
   .hero { padding-bottom: 40px; }
   .tl-section { padding-top: 10px; }
 
@@ -1829,3 +1829,8 @@ h1 .accent-champagne, h2 .accent-champagne, h3 .accent-champagne, .display-xl .a
   .marquee-track { gap: 44px; }
   .marquee-track img { width: 104px; height: 34px; object-fit: contain; }
 }
+
+/* ---------- Header-Navigation mit 7 Punkten (Menuepunkt Mittelstand, 30.09.2026) ---------- */
+@media (max-width: 1240px) { .site-header nav { gap: 24px; } }
+@media (max-width: 1080px) and (min-width: 961px) { .site-header nav { gap: 16px; } .site-header nav a { font-size: 0.88rem; } }
+@media (max-width: 960px) { .site-header nav { display: none; } .nav-toggle { display: flex; } }
