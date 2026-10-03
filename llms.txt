@@ -1,0 +1,37 @@
+# ochsocial
+
+> ochsocial Ltd. (Larnaca, Zypern) ist eine Agentur für produktisierte Leadgenerierung über Meta Ads (Facebook und Instagram) mit Funnel- und Qualifizierungssystemen für High-Ticket-Anbieter im DACH-Raum: Coaches, Berater, Immobilienmakler, Finanzdienstleister, Handwerk und Mittelstand.
+
+Gründung 2021. Geschäftsführerin Miriam Ochs, Co-Founder Bernd Ochs. Kontakt: https://ochsocial.de/kontakt.html
+
+## Kernseiten
+
+- [Leistungen](https://ochsocial.de/leistungen.html): Meta-Ads-Kampagnen, Funnels, Lead-Qualifizierung
+- [Ergebnisse](https://ochsocial.de/ergebnisse.html): Fallstudien und Kundenergebnisse
+- [Mittelstand](https://ochsocial.de/mittelstand.html): Leadgenerierung für mittelständische Unternehmen
+- [Über uns](https://ochsocial.de/ueber-uns.html): Team und Arbeitsweise
+- [News](https://ochsocial.de/news.html): Fachartikel, zweimal pro Woche (Montag und Donnerstag)
+
+## Fachartikel
+
+- [Saisonalität bei Meta Ads: Warum deine Leadkosten im Jahresverlauf schwanken](https://ochsocial.de/news-saisonalitaet-leadkosten.html): 2026-09-28, Budget. Saisonalität bei Meta Ads verstehen: warum Leadkosten im Jahresverlauf steigen und fallen, welche Phasen du kennen musst und wie du Budget und Creatives rechtzeitig planst, statt in teuren Wochen hektisch zu reagieren.
+- [Angebot positionieren: Warum gute Werbung an schwachen Angeboten scheitert](https://ochsocial.de/news-angebot-positionierung.html): 2026-09-21, Positionierung. Angebot positionieren statt Budget erhöhen: warum Meta Ads ein unscharfes Angebot nur teurer machen, welche vier Fragen deine Positionierung beantworten muss und fünf Schritte zum scharfen Angebot.
+- [Conversion Tracking bei Meta Ads: Warum dein Algorithmus blind läuft](https://ochsocial.de/news-conversion-tracking.html): 2026-09-14, Tracking. Conversion Tracking bei Meta Ads richtig aufsetzen: warum der Pixel allein nicht mehr reicht, was die Conversions API leistet und 6 Schritte zu sauberen Daten.
+- [WhatsApp im Vertrieb: Warum Leads dort antworten, wo sie ohnehin sind](https://ochsocial.de/news-whatsapp-vertrieb.html): 2026-09-07, Vertrieb. WhatsApp im Vertrieb nutzen: warum Interessenten auf Nachrichten schneller reagieren als auf Anrufe, was rechtlich gilt und 6 Schritte für einen sauberen WhatsApp-Prozess.
+- [Recruiting mit Meta Ads: Warum Stellenanzeigen anders funktionieren](https://ochsocial.de/news-recruiting-meta.html): 2026-08-31, Recruiting. Recruiting mit Meta Ads: warum klassische Stellenanzeigen kaum noch Bewerber bringen, wie du passiv Suchende erreichst und mit welchen Schritten aus Klicks echte Bewerbungen werden.
+- [Funnel-Aufbau für Meta Ads: Die vier Stufen, die aus Klicks Kunden machen](https://ochsocial.de/news-funnel-aufbau.html): 2026-08-24, Funnel. Funnel-Aufbau für Meta Ads: die vier Stufen von der Anzeige bis zum Abschluss, die typischen Bruchstellen und wie du deinen Funnel so baust, dass aus Klicks echte Kunden werden.
+- [Zielgruppen-Targeting bei Meta Ads: Warum enge Zielgruppen oft scheitern](https://ochsocial.de/news-zielgruppen-targeting.html): 2026-08-17, Targeting. Zielgruppen-Targeting bei Meta Ads: warum enge Interessen-Zielgruppen heute meist teurer sind als breite, und wie du den Algorithmus mit den richtigen Signalen steuerst.
+- [Werbebudget skalieren bei Meta Ads, ohne den Leadpreis zu sprengen](https://ochsocial.de/news-werbebudget-skalieren.html): 2026-08-10, Skalierung. Werbebudget skalieren bei Meta Ads: warum mehr Budget den Leadpreis oft explodieren lässt und wie du Kampagnen sauber hochfährst, ohne die Performance zu killen.
+- [Retargeting bei Meta Ads: Warum die zweite Berührung verkauft](https://ochsocial.de/news-retargeting.html): 2026-08-03, Strategie. Retargeting bei Meta Ads richtig aufsetzen: warum die meisten Interessenten beim ersten Kontakt nicht kaufen und wie du sie mit sauberen Retargeting-Zielgruppen günstiger zurückholst.
+- [Werbemüdigkeit bei Meta Ads: Anzeichen erkennen und beheben](https://ochsocial.de/news-werbemuedigkeit.html): 2026-07-27, Optimierung. Werbemüdigkeit bei Meta Ads erkennen und beheben: woran du merkst, dass deine Anzeige verbraucht ist, warum das passiert und wie du mit frischen Creatives gegensteuerst, bevor die Leadkosten steigen.
+- [Creative Testing bei Meta Ads: So findest du deine Gewinner-Anzeige](https://ochsocial.de/news-creative-testing.html): 2026-07-20, Creatives. Creative Testing bei Meta Ads richtig aufsetzen: Warum die Anzeige über Erfolg oder Scheitern entscheidet und ein klares System, mit dem du systematisch Gewinner-Creatives findest statt zu raten.
+- [No-Show-Quote senken: Warum Leads nicht zum Termin kommen](https://ochsocial.de/news-no-show-quote.html): 2026-07-17, Prozesse. No-Show-Quote senken bei Meta Ads: warum qualifizierte Leads nicht zum Termin erscheinen und 6 konkrete Hebel, mit denen deutlich mehr Interessenten wirklich auftauchen.
+- [Landingpage oder Website? Was bei Meta Ads wirklich konvertiert](https://ochsocial.de/news-landingpage-vs-website.html): 2026-07-15, Strategie. Landingpage vs. Website für Meta Ads: warum eine fokussierte Landingpage meist mehr Anfragen bringt als die Unternehmens-Website, und wann sich beides kombinieren lässt.
+- [Was kostet ein Lead über Meta Ads? Echte Zahlen](https://ochsocial.de/news-was-kostet-ein-lead.html): 2026-07-13, Zahlen. Leadkosten bei Meta Ads nach Branche: echte Durchschnittswerte aus 450+ Projekten, von 6 € im Coaching bis 40 € bei Immobilien, und was den Preis wirklich treibt.
+- [So funktioniert KI-Lead-Qualifizierung — ochsocial News](https://ochsocial.de/news-ki-qualifizierung.html): 2026-07-13, System. Wie ochsocial mit KI-gestützter Vorqualifizierung aus Klicks echte Gespräche macht: automatische Antworten in Sekunden, Qualifizierungsfragen, Terminbuchung.
+
+## Optional
+
+- [RSS-Feed](https://ochsocial.de/feed.xml)
+- [Sitemap](https://ochsocial.de/sitemap.xml)
+- [Impressum](https://ochsocial.de/impressum.html)
