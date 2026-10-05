@@ -14,6 +14,7 @@ Gründung 2021. Geschäftsführerin Miriam Ochs, Co-Founder Bernd Ochs. Kontakt:
 
 ## Fachartikel
 
+- [Hook und Werbetext: Warum der erste Satz deiner Anzeige über deine Leadkosten entscheidet](https://ochsocial.de/news-hook-werbetext.html): 2026-10-05, Creatives. Hook und Werbetext bei Meta Ads: Warum der erste Satz deiner Anzeige über deine Leadkosten entscheidet und wie du Anzeigen baust, die die Richtigen stoppen.
 - [Saisonalität bei Meta Ads: Warum deine Leadkosten im Jahresverlauf schwanken](https://ochsocial.de/news-saisonalitaet-leadkosten.html): 2026-09-28, Budget. Saisonalität bei Meta Ads verstehen: warum Leadkosten im Jahresverlauf steigen und fallen, welche Phasen du kennen musst und wie du Budget und Creatives rechtzeitig planst, statt in teuren Wochen hektisch zu reagieren.
 - [Angebot positionieren: Warum gute Werbung an schwachen Angeboten scheitert](https://ochsocial.de/news-angebot-positionierung.html): 2026-09-21, Positionierung. Angebot positionieren statt Budget erhöhen: warum Meta Ads ein unscharfes Angebot nur teurer machen, welche vier Fragen deine Positionierung beantworten muss und fünf Schritte zum scharfen Angebot.
 - [Conversion Tracking bei Meta Ads: Warum dein Algorithmus blind läuft](https://ochsocial.de/news-conversion-tracking.html): 2026-09-14, Tracking. Conversion Tracking bei Meta Ads richtig aufsetzen: warum der Pixel allein nicht mehr reicht, was die Conversions API leistet und 6 Schritte zu sauberen Daten.
