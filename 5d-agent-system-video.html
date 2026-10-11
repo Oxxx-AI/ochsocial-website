@@ -108,6 +108,12 @@
     .sec-white .host b{color:#14163A}
     .sec-white .host span{color:var(--navy-55)}
   </style>
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-57eQyfLLjBIEiowdkS4xH.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
 </head>
 <body>
 
@@ -191,10 +197,10 @@
     var VIDEO_EMBED_URL = 'https://player.vimeo.com/video/1213913577?h=790c899034&title=0&byline=0&portrait=0&badge=0&dnt=1';
 
     /* ===== Funnel-Tracking (Schritt 3: Video/Termin) ===== */
-    var OS_TRACK_URL='https://n8n.srv1286795.hstgr.cloud/webhook/vsl-track';
+    var OS_TRACK_URL=''; /* vsl-track ist seit 08/2026 tot, ersetzt durch fs-event */
     function osVisitor(){try{var v=localStorage.getItem('os_vid');if(!v){v='v'+Date.now().toString(36)+Math.random().toString(36).slice(2,8);localStorage.setItem('os_vid',v);}return v;}catch(e){return 'v0';}}
     var leadData=null;
-    try{ leadData=JSON.parse(sessionStorage.getItem('os_lead')||'null'); }catch(e){}
+    try{ leadData=JSON.parse(sessionStorage.getItem('os_lead')||localStorage.getItem('os_lead_5d')||'null'); }catch(e){}
     function trackEvent(name,extra){
       var d={event:name,step:'3_video',vid:osVisitor(),page:'5d-agent-system-video.html',ts:new Date().toISOString()};
       if(leadData&&leadData.email) d.email=leadData.email;
@@ -203,6 +209,16 @@
       try{ if(window.fbq) fbq('trackCustom','vsl_'+name,d); }catch(e){}
     }
     trackEvent('page_view');
+
+    /* ===== Seiten-Funnel-Tracking fuer app.ochsocial.de (fs-event) ===== */
+    var FS_URL='https://n8n.srv1286795.hstgr.cloud/webhook/fs-event';
+    function fsUtm(){try{var raw=sessionStorage.getItem('os_utm')||localStorage.getItem('os_utm_5d')||location.search||'';var qs=raw.indexOf('?')>=0?raw.slice(raw.indexOf('?')):raw;var p=new URLSearchParams(qs),o={};['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k){if(p.get(k))o[k]=p.get(k);});return o;}catch(e){return {};}}
+    function fsSend(seite,ev,x){var d={funnel:'5d-agent-system',vid:osVisitor(),seite:seite,event:ev,utm:fsUtm(),ref:document.referrer||'',ts:new Date().toISOString()};if(x)for(var k in x)d[k]=x[k];try{var b=JSON.stringify(d);if(navigator.sendBeacon&&navigator.sendBeacon(FS_URL,new Blob([b],{type:'text/plain'})))return;fetch(FS_URL,{method:'POST',body:b,keepalive:true,headers:{'Content-Type':'text/plain'}});}catch(e){}}
+    var FS_LEAD='https://n8n.srv1286795.hstgr.cloud/webhook/fs-lead';
+    function fsLeadSenden(b){return fetch(FS_LEAD,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(b),keepalive:true}).then(function(r){return r.json().then(function(j){if(!r.ok||!j||j.ok!==true)throw new Error('nicht bestaetigt');try{var o=JSON.parse(localStorage.getItem('os_lead_offen')||'null');if(o&&o.email===b.email)localStorage.removeItem('os_lead_offen');}catch(e){}return j;});});}
+    function fsLeadNachsenden(){var o=null;try{o=JSON.parse(localStorage.getItem('os_lead_offen')||'null');}catch(e){}if(!o||!o.email)return;var n=0;(function los(){fsLeadSenden(o).catch(function(){if(++n<6)setTimeout(los,4000*n);});})();}
+    fsSend('video','seite_geladen');
+    fsLeadNachsenden();
 
     /* ===== Meta Pixel (Zustand aus Opt-in) ===== */
     var PIXEL_ID='760767924722009';
@@ -226,7 +242,10 @@
       var pctMarks={25:false,50:false,75:false,90:false};
       var watched=0, lastT=0, started=false, ended=false, maxPct=0;
       function mark(pct){ [25,50,75,90].forEach(function(m){ if(!pctMarks[m]&&pct>=m){ pctMarks[m]=true; trackEvent('video_progress',{pct:m}); } }); }
-      function sendWatch(){ trackEvent('video_watch_seconds',{seconds:Math.round(watched)}); if(maxPct>0) trackEvent('video_progress',{pct:maxPct}); }
+      var fsPos=0, fsMax=0, fsDauer=792, fsLetzt=-1;
+      function fsFort(ev){ if(!started) return; fsSend('video',ev||'video_fortschritt',{sek:Math.round(fsPos),max_sek:Math.round(fsMax),dauer_sek:fsDauer}); }
+      function fsZeit(t,dur){ fsPos=t; if(dur>0) fsDauer=Math.round(dur); if(t>fsMax) fsMax=t; var b=Math.floor(fsMax/10); if(b>fsLetzt){ fsLetzt=b; fsFort(); } }
+      function sendWatch(){ trackEvent('video_watch_seconds',{seconds:Math.round(watched)}); if(maxPct>0) trackEvent('video_progress',{pct:maxPct}); fsFort(); }
       window.addEventListener('pagehide',sendWatch);
       document.addEventListener('visibilitychange',function(){ if(document.visibilityState==='hidden') sendWatch(); });
 
@@ -262,9 +281,10 @@
           var player=new Vimeo.Player(ifr);
           var vplay=document.getElementById('vplay');
           if(vplay){ vplay.style.display='flex'; vplay.onclick=function(){ player.play(); }; }
-          player.on('play',function(){ if(!started){started=true;trackEvent('video_start');} if(vplay) vplay.style.display='none'; });
-          player.on('timeupdate',function(d){ if(d.seconds>lastT){ watched+=(d.seconds-lastT); } lastT=d.seconds; if(d.percent){ var pc=Math.round(d.percent*100); if(pc>maxPct)maxPct=pc; mark(pc); } });
-          player.on('ended',function(){ if(!ended){ended=true;trackEvent('video_complete');sendWatch();} });
+          player.on('play',function(){ if(!started){started=true;trackEvent('video_start');fsSend('video','video_start',{sek:Math.round(fsPos),max_sek:Math.round(fsMax),dauer_sek:fsDauer});} if(vplay) vplay.style.display='none'; });
+          player.on('pause',function(){ fsFort(); });
+          player.on('timeupdate',function(d){ fsZeit(d.seconds,d.duration); if(d.seconds>lastT){ watched+=(d.seconds-lastT); } lastT=d.seconds; if(d.percent){ var pc=Math.round(d.percent*100); if(pc>maxPct)maxPct=pc; mark(pc); } });
+          player.on('ended',function(){ if(!ended){ended=true;fsMax=fsDauer;fsSend('video','video_ende',{sek:fsDauer,max_sek:fsDauer,dauer_sek:fsDauer});trackEvent('video_complete');sendWatch();} });
         };
         document.head.appendChild(vs);
       } else {
@@ -276,7 +296,7 @@
 
     /* ===== CTA zur Terminseite ===== */
     var cta=document.getElementById('terminCta');
-    if(cta) cta.addEventListener('click',function(){ trackEvent('cta_termin_click'); });
+    if(cta) cta.addEventListener('click',function(){ trackEvent('cta_termin_click'); fsSend('video','termin_klick'); });
   </script>
 
 </body>
