@@ -230,6 +230,11 @@
       .fived-list .detail{margin-top:11px;font-size:.9rem;color:#fff;line-height:1.5;border-top:1px solid var(--white-14);padding-top:11px}
     }
 
+      /* Team-Bild am Desktop gross, darf bis an den Bildschirmrand laufen */
+    @media(min-width:961px){
+      .hero-vis{min-width:0;justify-content:flex-end}
+      .hero-vis .miri.duo{flex:none;width:min(640px,46vw);max-width:none;margin-right:calc(-1 * min(120px, (100vw - min(100vw, 1140px))/2 + 24px))}
+    }
   </style>
 <!-- Privacy-friendly analytics by Plausible -->
 <script async src="https://plausible.io/js/pa-57eQyfLLjBIEiowdkS4xH.js"></script>
