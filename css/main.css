@@ -243,6 +243,9 @@ section { position: relative; }
   .hero-split { grid-template-columns: 1fr; }
   .hero-miri { max-width: 320px; margin: 38px auto 0; }
 }
+/* Team-Bild Miriam und Bernd (breiter als das Einzelbild) */
+.hero-miri.duo img { max-width: 560px; }
+@media (max-width: 900px) { .hero-miri.duo { max-width: 420px; } }
 .hero-bg { position: absolute; inset: 0; pointer-events: none; overflow: hidden;   -webkit-mask-image: linear-gradient(180deg, #000 72%, transparent 100%);
   mask-image: linear-gradient(180deg, #000 72%, transparent 100%);
 }
