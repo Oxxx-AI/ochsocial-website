@@ -6,7 +6,7 @@
 
   /* ---------- WhatsApp Konfiguration ----------
      TODO: Echte Nummer eintragen (internationales Format ohne +, z.B. 4915112345678) */
-  var WHATSAPP_NUMBER = '491624932082';
+  var WHATSAPP_NUMBER = '4915679359801';
   var WHATSAPP_TEXT = 'Hi ochsocial Team! Ich interessiere mich für euer Meta Ads Management und möchte mehr erfahren. Können wir sprechen?';
 
   document.querySelectorAll('[data-whatsapp]').forEach(function (el) {
@@ -109,6 +109,42 @@
     });
   }
 
+  /* Lead-Versand mit Empfangsbestaetigung: angekommen = mind. ein Endpunkt antwortet 2xx.
+     Bei Fehler einmal nach 2 s wiederholen, nach 12 s ohne Antwort aufgeben. */
+  function leadSenden(ziele){
+    var start=Date.now();
+    function versuch(ms){
+      var ctl=window.AbortController?new AbortController():null, timer;
+      return new Promise(function(fertig){
+        var offen=ziele.length;
+        timer=setTimeout(function(){ if(ctl) ctl.abort(); fertig(false); }, ms);
+        ziele.forEach(function(z){
+          var o={}; for(var k in z[1]) o[k]=z[1][k]; if(ctl) o.signal=ctl.signal;
+          fetch(z[0],o).then(function(r){ if(r.ok) fertig(true); else throw 0; }).catch(function(){ if(--offen===0) fertig(false); });
+        });
+      }).then(function(ok){ clearTimeout(timer); return ok; });
+    }
+    return versuch(5000).then(function(ok){
+      if(ok) return true;
+      return new Promise(function(w){ setTimeout(w,2000); }).then(function(){
+        var rest=12000-(Date.now()-start);
+        return rest>0 ? versuch(rest) : false;
+      });
+    });
+  }
+  /* Fehlermeldung unter dem Absende-Knopf ein- oder ausblenden, Eingaben bleiben stehen */
+  function leadFehler(btn, zeigen){
+    var m=btn.parentNode.querySelector('.lead-fehler');
+    if(!m && zeigen){
+      m=document.createElement('p'); m.className='lead-fehler'; m.setAttribute('role','alert');
+      m.style.cssText='color:#B42328;background:#FDECEC;border-radius:8px;padding:10px 14px;font-size:.9rem;font-weight:700;line-height:1.5;margin-top:12px;text-align:left';
+      m.innerHTML='Das hat leider nicht geklappt. Bitte versuche es noch einmal oder schreib uns direkt per <a href="https://wa.me/4915679359801" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">WhatsApp</a>.';
+      btn.parentNode.insertBefore(m, btn.nextSibling);
+    }
+    if(m) m.style.display=zeigen?'block':'none';
+  }
+  function leadKnopf(btn, aktiv){ btn.disabled=!aktiv; btn.style.opacity=aktiv?'':'.6'; }
+
   /* ---------- Lead Modal ---------- */
   var overlay = document.querySelector('.modal-overlay');
   if (overlay) {
@@ -145,24 +181,15 @@
         var payload = {};
         for (var k in leadData) payload[k] = leadData[k];
         payload.event = eventName;
-        try {
-          fetch(WEBHOOK_URL, {
-            method: 'POST', mode: 'no-cors',
-            body: JSON.stringify(payload),
-            keepalive: true
-          });
-        } catch (err) {}
-        try {
-          fetch(N8N_CRM, {
-            method: 'POST', mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload),
-            keepalive: true
-          });
-        } catch (err) {}
+        return leadSenden([
+          [WEBHOOK_URL, { method: 'POST', body: JSON.stringify(payload) }],
+          [N8N_CRM, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }]
+        ]);
       }
       form.addEventListener('submit', function (e) {
         e.preventDefault();
+        var btn = form.querySelector('button[type="submit"]');
+        if (btn.disabled) return;
         leadData = {
           quelle: 'Website ochsocial.de',
           seite: location.pathname.split('/').pop() || 'index.html',
@@ -175,11 +202,15 @@
         var werbung = form.querySelector('[name="werbung"]');
         leadData.tags = (werbung && werbung.checked) ? 'website-anfrage, werbe-einwilligung' : 'website-anfrage';
         leadData.werbe_einwilligung = (werbung && werbung.checked) ? 'ja' : 'nein';
-        sendEvent('lead');
-        var q = 'vn=' + encodeURIComponent(leadData.vorname || '') +
-                '&em=' + encodeURIComponent(leadData.email || '') +
-                (location.search ? '&' + location.search.slice(1) : '');
-        window.location.href = 'danke.html?' + q;
+        leadKnopf(btn, false); leadFehler(btn, false);
+        sendEvent('lead').then(function (ok) {
+          leadKnopf(btn, true);
+          if (!ok) { leadFehler(btn, true); return; }
+          var q = 'vn=' + encodeURIComponent(leadData.vorname || '') +
+                  '&em=' + encodeURIComponent(leadData.email || '') +
+                  (location.search ? '&' + location.search.slice(1) : '');
+          window.location.href = 'danke.html?' + q;
+        });
       });
     }
   }
@@ -384,30 +415,32 @@
       var vn = magnetForm.querySelector('[name="vorname"]');
       var em = magnetForm.querySelector('[name="email"]');
       if (!em.value || em.value.indexOf('@') < 1) { em.focus(); return; }
+      var btn = magnetForm.querySelector('button[type="submit"]');
+      if (btn.disabled) return;
       var MAGNET_WEBHOOK = 'https://hooks.zapier.com/hooks/catch/10002468/4u7a2hn/'; /* Zap: Leadmagnet -> Guide-Mail */
+      var ziele = [];
       if (MAGNET_WEBHOOK) {
-        try {
-          fetch(MAGNET_WEBHOOK, {
-            method: 'POST', mode: 'no-cors',
-            body: JSON.stringify({ event: 'leadmagnet', vorname: vn.value, email: em.value, quelle: 'Website ochsocial.de', utm: location.search || '', zeitpunkt: new Date().toISOString() }),
-            keepalive: true
-          });
-        } catch (err) {}
+        ziele.push([MAGNET_WEBHOOK, {
+          method: 'POST',
+          body: JSON.stringify({ event: 'leadmagnet', vorname: vn.value, email: em.value, quelle: 'Website ochsocial.de', utm: location.search || '', zeitpunkt: new Date().toISOString() })
+        }]);
       }
-      try {
-        fetch('https://n8n.srv1286795.hstgr.cloud/webhook/crm-lead', {
-          method: 'POST', mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ event: 'lead', vorname: vn.value, nachname: '', email: em.value, telefon: '', angebot: 'Lead-Magnet 7 Fehler', quelle: 'Lead-Magnet', seite: location.pathname.split('/').pop() || 'index.html', zeitpunkt: new Date().toISOString() }),
-          keepalive: true
-        });
-      } catch (err) {}
-      if (window.fbq) fbq('track', 'Lead', { content_name: 'Leadmagnet 7 Fehler' });
-      var ok = document.createElement('p');
-      ok.className = 'magnet-success';
-      ok.innerHTML = 'Fast geschafft! Wir haben dir eine E-Mail geschickt. <strong>Bestätige kurz deine Adresse</strong>, direkt danach bekommst du den Guide.';
-      magnetForm.parentNode.insertBefore(ok, magnetForm.nextSibling);
-      magnetForm.style.display = 'none';
+      ziele.push(['https://n8n.srv1286795.hstgr.cloud/webhook/crm-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ event: 'lead', vorname: vn.value, nachname: '', email: em.value, telefon: '', angebot: 'Lead-Magnet 7 Fehler', quelle: 'Lead-Magnet', seite: location.pathname.split('/').pop() || 'index.html', zeitpunkt: new Date().toISOString() })
+      }]);
+      leadKnopf(btn, false); leadFehler(btn, false);
+      leadSenden(ziele).then(function (angekommen) {
+        leadKnopf(btn, true);
+        if (!angekommen) { leadFehler(btn, true); return; }
+        if (window.fbq) fbq('track', 'Lead', { content_name: 'Leadmagnet 7 Fehler' });
+        var ok = document.createElement('p');
+        ok.className = 'magnet-success';
+        ok.innerHTML = 'Fast geschafft! Wir haben dir eine E-Mail geschickt. <strong>Bestätige kurz deine Adresse</strong>, direkt danach bekommst du den Guide.';
+        magnetForm.parentNode.insertBefore(ok, magnetForm.nextSibling);
+        magnetForm.style.display = 'none';
+      });
     });
   }
 
