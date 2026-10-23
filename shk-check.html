@@ -794,12 +794,47 @@ const DEMO={
   /* CTA-Buttons oeffnen das Modal */
   ['ctaMain','ctaRoad'].forEach(id=>{const el=$(id);if(el)el.addEventListener('click',e=>{e.preventDefault();openModal();});});
 
+  /* Lead-Versand mit Empfangsbestaetigung: angekommen = mind. ein Endpunkt antwortet 2xx.
+     Bei Fehler einmal nach 2 s wiederholen, nach 12 s ohne Antwort aufgeben. */
+  function leadSenden(ziele){
+    var start=Date.now();
+    function versuch(ms){
+      var ctl=window.AbortController?new AbortController():null, timer;
+      return new Promise(function(fertig){
+        var offen=ziele.length;
+        timer=setTimeout(function(){ if(ctl) ctl.abort(); fertig(false); }, ms);
+        ziele.forEach(function(z){
+          var o={}; for(var k in z[1]) o[k]=z[1][k]; if(ctl) o.signal=ctl.signal;
+          fetch(z[0],o).then(function(r){ if(r.ok) fertig(true); else throw 0; }).catch(function(){ if(--offen===0) fertig(false); });
+        });
+      }).then(function(ok){ clearTimeout(timer); return ok; });
+    }
+    return versuch(5000).then(function(ok){
+      if(ok) return true;
+      return new Promise(function(w){ setTimeout(w,2000); }).then(function(){
+        var rest=12000-(Date.now()-start);
+        return rest>0 ? versuch(rest) : false;
+      });
+    });
+  }
+  /* Fehlermeldung unter dem Absende-Knopf ein- oder ausblenden, Eingaben bleiben stehen */
+  function leadFehler(btn, zeigen){
+    var m=btn.parentNode.querySelector('.lead-fehler');
+    if(!m && zeigen){
+      m=document.createElement('p'); m.className='lead-fehler'; m.setAttribute('role','alert');
+      m.style.cssText='color:#B42328;background:#FDECEC;border-radius:8px;padding:10px 14px;font-size:.9rem;font-weight:700;line-height:1.5;margin-top:12px;text-align:left';
+      m.innerHTML='Das hat leider nicht geklappt. Bitte versuche es noch einmal oder schreib uns direkt per <a href="https://wa.me/4915679359801" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">WhatsApp</a>.';
+      btn.parentNode.insertBefore(m, btn.nextSibling);
+    }
+    if(m) m.style.display=zeigen?'block':'none';
+  }
+  function leadKnopf(btn, aktiv){ btn.disabled=!aktiv; btn.style.opacity=aktiv?'':'.6'; }
   function sendLead(name,extra){
     if(!leadData)return;
     const p=Object.assign({},leadData,extra||{},{event:name});
     const url=(name==='termin_gebucht')?WEBHOOK_TERMIN:WEBHOOK_URL;
+    if(name==='lead'){return leadSenden([[url,{method:'POST',body:JSON.stringify(p)}],[N8N_CRM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)}]]);}
     try{fetch(url,{method:'POST',mode:'no-cors',body:JSON.stringify(p),keepalive:true});}catch(e){}
-    if(name==='lead'){try{fetch(N8N_CRM,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(p),keepalive:true});}catch(e){}}
   }
 
   function initCalendly(){
@@ -822,6 +857,8 @@ const DEMO={
 
   form.addEventListener('submit',function(e){
     e.preventDefault();
+    const btn=form.querySelector('button[type=submit]');
+    if(btn.disabled)return;
     const chk=$('lmWerbung'),cwrap=$('lmConsent');
     if(!chk.checked){cwrap.classList.add('err');chk.focus();return;}
     cwrap.classList.remove('err');
@@ -830,11 +867,15 @@ const DEMO={
     leadData={quelle:QUELLE,seite:'shk-check.html',zeitpunkt:new Date().toISOString(),tags:'shk-check',
       domain:ctx.domain||'',plz:ctx.plz||'',score:ctx.score,sparten:ctx.sparten||'',betrieb_gefunden:ctx.betrieb||'',utm:location.search||''};
     form.querySelectorAll('input').forEach(el=>{if(el.name)leadData[el.name]=el.value;});
-    sendLead('lead');
-    track('Lead',{content_name:QUELLE});
-    pv('SHK Lead',{betrieb:leadData.betrieb||'',score:String(ctx.score||'')});
-    stepForm.style.display='none';box.classList.add('light');stepCal.style.display='block';
-    initCalendly();box.scrollIntoView({block:'start',behavior:'smooth'});
+    leadKnopf(btn,false);leadFehler(btn,false);
+    sendLead('lead').then(function(ok){
+      leadKnopf(btn,true);
+      if(!ok){leadFehler(btn,true);return;}
+      track('Lead',{content_name:QUELLE});
+      pv('SHK Lead',{betrieb:leadData.betrieb||'',score:String(ctx.score||'')});
+      stepForm.style.display='none';box.classList.add('light');stepCal.style.display='block';
+      initCalendly();box.scrollIntoView({block:'start',behavior:'smooth'});
+    });
   });
   $('lmWerbung').addEventListener('change',function(){if(this.checked)$('lmConsent').classList.remove('err');});
 
