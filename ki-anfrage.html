@@ -613,12 +613,52 @@
     var form=document.getElementById('leadForm');
     var leadData=null, calInited=false;
 
+    /* Lead-Versand mit Empfangsbestaetigung: angekommen = mind. ein Endpunkt antwortet 2xx.
+       Bei Fehler einmal nach 2 s wiederholen, nach 12 s ohne Antwort aufgeben. */
+    function leadSenden(ziele){
+      var start=Date.now();
+      function versuch(ms){
+        var ctl=window.AbortController?new AbortController():null, timer;
+        return new Promise(function(fertig){
+          var offen=ziele.length;
+          timer=setTimeout(function(){ if(ctl) ctl.abort(); fertig(false); }, ms);
+          ziele.forEach(function(z){
+            var o={}; for(var k in z[1]) o[k]=z[1][k]; if(ctl) o.signal=ctl.signal;
+            fetch(z[0],o).then(function(r){ if(r.ok) fertig(true); else throw 0; }).catch(function(){ if(--offen===0) fertig(false); });
+          });
+        }).then(function(ok){ clearTimeout(timer); return ok; });
+      }
+      return versuch(5000).then(function(ok){
+        if(ok) return true;
+        return new Promise(function(w){ setTimeout(w,2000); }).then(function(){
+          var rest=12000-(Date.now()-start);
+          return rest>0 ? versuch(rest) : false;
+        });
+      });
+    }
+    /* Fehlermeldung unter dem Absende-Knopf ein- oder ausblenden, Eingaben bleiben stehen */
+    function leadFehler(btn, zeigen){
+      var m=btn.parentNode.querySelector('.lead-fehler');
+      if(!m && zeigen){
+        m=document.createElement('p'); m.className='lead-fehler'; m.setAttribute('role','alert');
+        m.style.cssText='color:#B42328;background:#FDECEC;border-radius:8px;padding:10px 14px;font-size:.9rem;font-weight:700;line-height:1.5;margin-top:12px;text-align:left';
+        m.innerHTML='Das hat leider nicht geklappt. Bitte versuche es noch einmal oder schreib uns direkt per <a href="https://wa.me/4915679359801" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">WhatsApp</a>.';
+        btn.parentNode.insertBefore(m, btn.nextSibling);
+      }
+      if(m) m.style.display=zeigen?'block':'none';
+    }
+    function leadKnopf(btn, aktiv){ btn.disabled=!aktiv; btn.style.opacity=aktiv?'':'.6'; }
     function sendEvent(name){
       if(!WEBHOOK_URL||!leadData) return;
       var p={}; for(var k in leadData) p[k]=leadData[k]; p.event=name;
       var url=(name==='termin_gebucht')?WEBHOOK_TERMIN:WEBHOOK_URL;
+      if(name==='lead'){
+        return leadSenden([[url,{method:'POST',body:JSON.stringify(p)}],[N8N_CRM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)}]]).then(function(ok){
+          if(ok){ try{ fetch(N8N_KI_LABEL,{method:'POST',mode:'no-cors',body:JSON.stringify(p),keepalive:true}); }catch(e){} }
+          return ok;
+        });
+      }
       try{ fetch(url,{method:'POST',mode:'no-cors',body:JSON.stringify(p),keepalive:true}); }catch(e){}
-      if(name==='lead'){ try{ fetch(N8N_KI_LABEL,{method:'POST',mode:'no-cors',body:JSON.stringify(p),keepalive:true}); }catch(e){} }
       try{ fetch(N8N_CRM,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(p),keepalive:true}); }catch(e){}
       if(name==='termin_gebucht'){ try{ fetch(CRM_EXEC,{method:'POST',mode:'no-cors',headers:{'content-type':'text/plain;charset=utf-8'},body:JSON.stringify({event:'termin_gebucht',email:(leadData.email||'')}),keepalive:true}); }catch(e){} }
     }
@@ -651,6 +691,8 @@
     if(form){
       form.addEventListener('submit',function(e){
         e.preventDefault();
+        var btn=form.querySelector('button[type=submit]');
+        if(btn.disabled) return;
         var chk=document.getElementById('werbung');
         var cbox=document.getElementById('consentBox');
         var cmsg=document.getElementById('consentMsg');
@@ -668,9 +710,13 @@
           if(el.name&&el.type!=='checkbox') leadData[el.name]=el.value;
         });
         try{var _u=new URLSearchParams(leadData.utm||'');var _c=_u.get('utm_campaign');if(_c){var _s=_u.get('utm_source')||'Ad';var _ct=_u.get('utm_content');leadData.quelle=_s.charAt(0).toUpperCase()+_s.slice(1)+' - '+_c+(_ct?' - '+_ct:'');}}catch(e){} leadData.tags='ki-partner-anfrage';
-        sendEvent('lead');
-        if(window.fbq) fbq('track','Lead',{content_name:'KI-Partner LP'});
-        leadWrap.style.display='none'; calWrap.style.display='block'; initCalendly();
+        leadKnopf(btn,false); leadFehler(btn,false);
+        sendEvent('lead').then(function(ok){
+          leadKnopf(btn,true);
+          if(!ok){ leadFehler(btn,true); return; }
+          if(window.fbq) fbq('track','Lead',{content_name:'KI-Partner LP'});
+          leadWrap.style.display='none'; calWrap.style.display='block'; initCalendly();
+        });
       });
     }
     var consentChk=document.getElementById('werbung');
