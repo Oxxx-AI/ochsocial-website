@@ -146,7 +146,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .btn-ghost.wa-gold svg { color: var(--champagne); }
 .btn-ghost.wa-gold:hover { border-color: var(--champagne); }
 
-.cta-note { font-size: 0.85rem; color: var(--navy-40); margin-top: 14px; }
+.cta-note { font-size: 0.85rem; color: var(--navy-60); margin-top: 14px; }
 .on-dark .cta-note { color: var(--white-60); }
 
 /* ---------- Header: schwebende Leiste mit Abstand (Feedback 04) ---------- */
@@ -321,7 +321,7 @@ section { position: relative; }
 /* ---------- Logo Marquee: wei\0000dfe Sektion, Original-Logos via multiply (wei\0000dfe R\0000e4nder unsichtbar) ---------- */
 .marquee { overflow: hidden; padding: 44px 0; position: relative; background: #FFFFFF; }
 .marquee-track img { mix-blend-mode: multiply; }
-.marquee-label { text-align: center; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy-40); margin-bottom: 30px; }
+.marquee-label { text-align: center; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy-60); margin-bottom: 30px; }
 .marquee-track { display: flex; gap: 80px; width: max-content; animation: marquee 36s linear infinite; align-items: center; }
 .marquee-track img { height: 44px; width: auto; }
 @keyframes marquee { to { transform: translateX(-50%); } }
@@ -1853,3 +1853,10 @@ h1 .accent-champagne, h2 .accent-champagne, h3 .accent-champagne, .display-xl .a
 @media (max-width: 1240px) { .site-header nav { gap: 24px; } }
 @media (max-width: 1080px) and (min-width: 961px) { .site-header nav { gap: 16px; } .site-header nav a { font-size: 0.88rem; } }
 @media (max-width: 960px) { .site-header nav { display: none; } .nav-toggle { display: flex; } }
+
+/* SEO/Performance 2026-10-28: Hero-Intro per CSS, damit der Text ohne JS-Wartezeit sichtbar wird (LCP) */
+@keyframes heroIn { from { opacity: 0.01; transform: translateY(56px); } to { opacity: 1; transform: none; } }
+[data-hero-css] { animation: heroIn 1.2s cubic-bezier(0.215, 0.61, 0.355, 1) both; animation-delay: calc(0.15s + var(--hi, 0) * 0.14s); }
+@media (prefers-reduced-motion: reduce) { [data-hero-css] { animation: none; } }
+.branche-item h3 { font-size: 1.02rem; font-weight: 800; color: #fff; }
+.site-footer .f-head { font-size: 0.8rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--champagne); margin-bottom: 18px; font-weight: 800; }
