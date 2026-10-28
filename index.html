@@ -20,17 +20,37 @@
     <link rel="preload" as="font" type="font/woff2" href="assets/fonts/manrope-400.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/manrope-800.woff2" crossorigin>
   <link rel="stylesheet" href="css/main.css">
+  <style>:where(img[width][height]){width:auto;height:auto}</style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "ochsocial Ltd",
-    "url": "https://ochsocial.de/",
-    "logo": "https://ochsocial.de/assets/logo/lockup_horizontal_schwarz.webp",
-    "email": "info@ochsocial.de",
-    "telephone": "+4915679359801",
-    "address": { "@type": "PostalAddress", "streetAddress": "Lordou Vyronos 61-63, Office 602", "postalCode": "6023", "addressLocality": "Larnaca", "addressCountry": "CY" },
-    "description": "Die Agentur f\u00fcr planbare Kundengewinnung: Werbekampagnen, Funnels und KI-Qualifizierung aus einer Hand."
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://ochsocial.de/#organization",
+        "name": "ochsocial Ltd",
+        "url": "https://ochsocial.de/",
+        "logo": "https://ochsocial.de/assets/logo/lockup_horizontal_schwarz.webp",
+        "email": "info@ochsocial.de",
+        "telephone": "+4915679359801",
+        "foundingDate": "2021",
+        "founder": [
+          { "@type": "Person", "@id": "https://ochsocial.de/#miriam-ochs", "name": "Miriam Ochs" },
+          { "@type": "Person", "@id": "https://ochsocial.de/#bernd-ochs", "name": "Bernd Ochs" }
+        ],
+        "areaServed": ["DE", "AT", "CH"],
+        "address": { "@type": "PostalAddress", "streetAddress": "Lordou Vyronos 61-63, Office 602", "postalCode": "6023", "addressLocality": "Larnaca", "addressCountry": "CY" },
+        "description": "Die Agentur f\u00fcr planbare Kundengewinnung: Werbekampagnen, Funnels und KI-Qualifizierung aus einer Hand."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://ochsocial.de/#website",
+        "url": "https://ochsocial.de/",
+        "name": "ochsocial",
+        "inLanguage": "de-DE",
+        "publisher": { "@id": "https://ochsocial.de/#organization" }
+      }
+    ]
   }
   </script>
 
@@ -46,7 +66,7 @@
   <!-- Fixed Header mit mix-blend-difference -->
   <header class="site-header">
     <div class="header-inner">
-      <a href="index.html" class="logo"><img src="assets/logo/lockup_horizontal_schwarz.webp" alt="ochsocial"></a>
+      <a href="index.html" class="logo"><img width="378" height="90" src="assets/opt/logo-lockup_horizontal_schwarz.webp" alt="ochsocial"></a>
       <nav>
         <a href="leistungen.html">Leistungen</a>
         <a href="mittelstand.html">Mittelstand</a>
@@ -82,17 +102,17 @@
       <div class="hero-bg"><span></span></div>
       <div class="container hero-split">
         <div>
-        <span class="eyebrow" data-hero>F&#252;r Unternehmen, die planbar wachsen wollen</span>
-        <h1 class="display-l" data-hero style="margin-top:26px;">
+        <span class="eyebrow" data-hero-css style="--hi:0">F&#252;r Unternehmen, die planbar wachsen wollen</span>
+        <h1 class="display-l" data-hero-css style="--hi:1;margin-top:26px;">
           Dein planbares <span class="accent-cobalt">Neukundensystem.</span>
         </h1>
-        <p class="lead" data-hero>
+        <p class="lead" data-hero-css style="--hi:2">
           Meta Ads, Funnels und KI-Qualifizierung arbeiten f&#252;r dich zusammen und liefern t&#228;glich neue Kundenanfragen in deinen Kalender. Du f&#252;llst deine Pipeline, w&#228;hrend wir den gesamten Marketingprozess f&#252;r dich &#252;bernehmen.
         </p>
-        <div class="hero-ohne" data-hero>
+        <div class="hero-ohne" data-hero-css style="--hi:3">
           <span>Ohne Empfehlungen</span><span>Ohne Kaltakquise</span><span>Ohne Zufall</span>
         </div>
-        <div class="hero-ctas" data-hero>
+        <div class="hero-ctas" data-hero-css style="--hi:4">
           <a href="#" class="btn btn-cobalt" data-open-form>Kostenlos anfragen
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
@@ -101,27 +121,27 @@
             Direkt per WhatsApp
           </a>
         </div>
-        <p class="cta-note" data-hero>&#10003; Unverbindlich & kostenfrei anfragen</p>
-        <div class="hero-proof" data-hero>
+        <p class="cta-note" data-hero-css style="--hi:5">&#10003; Unverbindlich & kostenfrei anfragen</p>
+        <div class="hero-proof" data-hero-css style="--hi:6">
           <span class="avatars">
-            <img src="assets/testimonials/claudia_43.webp" alt="">
-            <img src="assets/testimonials/daniel.webp" alt="">
-            <img src="assets/testimonials/anna.webp" alt="">
-            <img src="assets/testimonials/jennifer.webp" alt="">
+            <img width="180" height="135" src="assets/opt/av/claudia_43.webp" alt="">
+            <img width="180" height="180" src="assets/opt/av/daniel.webp" alt="">
+            <img width="180" height="180" src="assets/opt/av/anna.webp" alt="">
+            <img width="180" height="180" src="assets/opt/av/jennifer.webp" alt="">
           </span>
           <span class="hp-item"><b>450+</b> abgeschlossene Projekte</span>
           <span class="hp-sep"></span>
           <span class="hp-item"><span class="hp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <b>5,0</b> auf Google</span>
         </div>
-        <div class="hero-badges" data-hero>
+        <div class="hero-badges" data-hero-css style="--hi:7">
           <span class="hb-label">Zertifiziert &amp; gepr&#252;ft</span>
-          <img src="assets/badges/badge_t_meta_business_partner_trim.webp" alt="Meta Business Partner">
-          <img src="assets/badges/badge_t_meta_certified_trim.webp" alt="Meta Certified Media Buying Professional">
-          <img src="assets/badges/badge_t_funnelcockpit_trim.webp" alt="FunnelCockpit Certified Partner">
+          <img width="337" height="193" src="assets/opt/badges-badge_t_meta_business_partner_trim.webp" alt="Meta Business Partner">
+          <img width="192" height="192" src="assets/opt/badges-badge_t_meta_certified_trim.webp" alt="Meta Certified Media Buying Professional">
+          <img width="555" height="192" src="assets/opt/badges-badge_t_funnelcockpit_trim.webp" alt="FunnelCockpit Certified Partner">
         </div>
         </div>
-        <div class="hero-miri duo" data-hero>
-          <img fetchpriority="high" src="assets/team/team_duo_transparent.webp" alt="Miriam und Bernd Ochs, Gr&#252;nder von ochsocial">
+        <div class="hero-miri duo" data-hero-css style="--hi:8">
+          <img width="1085" height="1070" fetchpriority="high" src="assets/team/team_duo_transparent.webp" alt="Miriam und Bernd Ochs, Gr&#252;nder von ochsocial">
           <div class="miri-tag">Miriam &amp; Bernd Ochs <span>&#183; Gr&#252;nder von ochsocial</span></div>
         </div>
       </div>
@@ -146,34 +166,34 @@
     <section class="marquee">
       <p class="marquee-label">Diese Unternehmen setzen bereits auf planbare Kundengewinnung.</p>
       <div class="marquee-track">
-        <img src="assets/logos/l_jetzt_performance.webp" alt="Jetzt Performance">
-        <img src="assets/logos/n_theskyns.png" alt="The Skyns">
-        <img src="assets/logos/n_impuls.webp" alt="impuls Fitness Clubs">
-        <img src="assets/logos/l_begabtenzentrum.jpg" alt="Begabtenzentrum">
-        <img src="assets/logos/l_lilliancare.png" alt="LillianCare">
-        <img src="assets/logos/l_bondbeyond.png" alt="Bond & Beyond">
-        <img src="assets/logos/l_edeka.webp" alt="EDEKA Fedele">
-        <img src="assets/logos/n_delviento.webp" alt="Stefanie Del Viento">
-        <img src="assets/logos/l_fachdienst.png" alt="Fachdienst f&#252;r ambulante Hilfen">
-        <img src="assets/logos/l_profireha.png" alt="Profi Reha">
-        <img src="assets/logos/l_passmann.jpg" alt="Passmann">
-        <img src="assets/logos/n_tatjana.webp" alt="Tatjana">
-        <img src="assets/logos/n_coachingfellows.webp" alt="Coaching Fellows">
-        <img src="assets/logos/n_femestate.webp" alt="Femestate">
-        <img src="assets/logos/l_jetzt_performance.webp" alt="">
-        <img src="assets/logos/n_theskyns.png" alt="">
-        <img src="assets/logos/n_impuls.webp" alt="">
-        <img src="assets/logos/l_begabtenzentrum.jpg" alt="">
-        <img src="assets/logos/l_lilliancare.png" alt="">
-        <img src="assets/logos/l_bondbeyond.png" alt="">
-        <img src="assets/logos/l_edeka.webp" alt="">
-        <img src="assets/logos/n_delviento.webp" alt="">
-        <img src="assets/logos/l_fachdienst.png" alt="">
-        <img src="assets/logos/l_profireha.png" alt="">
-        <img src="assets/logos/l_passmann.jpg" alt="">
-        <img src="assets/logos/n_tatjana.webp" alt="">
-        <img src="assets/logos/n_coachingfellows.webp" alt="">
-        <img src="assets/logos/n_femestate.webp" alt="">
+        <img width="312" height="155" src="assets/opt/logos-l_jetzt_performance.webp" alt="Jetzt Performance">
+        <img width="899" height="129" src="assets/logos/n_theskyns.png" alt="The Skyns">
+        <img width="531" height="132" src="assets/opt/logos-n_impuls.webp" alt="impuls Fitness Clubs">
+        <img width="534" height="132" src="assets/opt/logos-l_begabtenzentrum.webp" alt="Begabtenzentrum">
+        <img width="385" height="131" src="assets/logos/l_lilliancare.png" alt="LillianCare">
+        <img width="453" height="111" src="assets/logos/l_bondbeyond.png" alt="Bond & Beyond">
+        <img width="500" height="125" src="assets/logos/l_edeka.webp" alt="EDEKA Fedele">
+        <img width="938" height="194" src="assets/logos/n_delviento.webp" alt="Stefanie Del Viento">
+        <img width="336" height="150" src="assets/logos/l_fachdienst.png" alt="Fachdienst f&#252;r ambulante Hilfen">
+        <img width="439" height="115" src="assets/logos/l_profireha.png" alt="Profi Reha">
+        <img width="401" height="125" src="assets/logos/l_passmann.jpg" alt="Passmann">
+        <img width="501" height="132" src="assets/opt/logos-n_tatjana.webp" alt="Tatjana">
+        <img width="432" height="132" src="assets/opt/logos-n_coachingfellows.webp" alt="Coaching Fellows">
+        <img width="934" height="123" src="assets/logos/n_femestate.webp" alt="Femestate">
+        <img width="312" height="155" src="assets/opt/logos-l_jetzt_performance.webp" alt="">
+        <img width="899" height="129" src="assets/logos/n_theskyns.png" alt="">
+        <img width="531" height="132" src="assets/opt/logos-n_impuls.webp" alt="">
+        <img width="534" height="132" src="assets/opt/logos-l_begabtenzentrum.webp" alt="">
+        <img width="385" height="131" src="assets/logos/l_lilliancare.png" alt="">
+        <img width="453" height="111" src="assets/logos/l_bondbeyond.png" alt="">
+        <img width="500" height="125" src="assets/logos/l_edeka.webp" alt="">
+        <img width="938" height="194" src="assets/logos/n_delviento.webp" alt="">
+        <img width="336" height="150" src="assets/logos/l_fachdienst.png" alt="">
+        <img width="439" height="115" src="assets/logos/l_profireha.png" alt="">
+        <img width="401" height="125" src="assets/logos/l_passmann.jpg" alt="">
+        <img width="501" height="132" src="assets/opt/logos-n_tatjana.webp" alt="">
+        <img width="432" height="132" src="assets/opt/logos-n_coachingfellows.webp" alt="">
+        <img width="934" height="123" src="assets/logos/n_femestate.webp" alt="">
       </div>
     </section>
 
@@ -262,7 +282,7 @@
               <span class="reach-logo ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></span>
               <span class="reach-logo fb"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.3 0-1.1-.1-2-.1-2 0-3.4 1.2-3.4 3.5V11H8.5v3H11v7h2.5z"/></svg></span>
             </div>
-            <img class="reach-av" src="assets/testimonials/claudia_43.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/daniel.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/anna.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/jennifer.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/bettina.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/cornelia.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/dietmar.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/katharina.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/nicole.webp" alt="" loading="lazy"><img class="reach-av" src="assets/testimonials/sahar.webp" alt="" loading="lazy">
+            <img width="180" height="135" class="reach-av" src="assets/opt/av/claudia_43.webp" alt="" loading="lazy"><img width="180" height="180" class="reach-av" src="assets/opt/av/daniel.webp" alt="" loading="lazy"><img width="180" height="180" class="reach-av" src="assets/opt/av/anna.webp" alt="" loading="lazy"><img width="180" height="180" class="reach-av" src="assets/opt/av/jennifer.webp" alt="" loading="lazy"><img width="180" height="113" class="reach-av" src="assets/opt/av/bettina.webp" alt="" loading="lazy"><img width="180" height="180" class="reach-av" src="assets/opt/av/cornelia.webp" alt="" loading="lazy"><img width="180" height="180" class="reach-av" src="assets/opt/av/dietmar.webp" alt="" loading="lazy"><img width="180" height="180" class="reach-av" src="assets/opt/av/katharina.webp" alt="" loading="lazy"><img width="180" height="240" class="reach-av" src="assets/opt/av/nicole.webp" alt="" loading="lazy"><img width="180" height="180" class="reach-av" src="assets/opt/av/sahar.webp" alt="" loading="lazy">
 </div>
           </div>
         </div>
@@ -307,7 +327,7 @@
             <p>Statt jeden Monat auf Empfehlungen oder Zuf&#228;lle zu hoffen, erh&#228;ltst du kontinuierlich qualifizierte Erstgespr&#228;che von Menschen, die wirklich zu deinem Angebot passen.</p>
             <div class="glow-visual">
               <div class="glow-chip">
-                <div class="chip-top"><img src="assets/logo/icon_only_weiss.webp" alt=""><span style="font-size:0.7rem;color:var(--white-60);">LIVE</span></div>
+                <div class="chip-top"><img width="222" height="251" src="assets/opt/logo-icon_only_weiss.webp" alt=""><span style="font-size:0.7rem;color:var(--white-60);">LIVE</span></div>
                 <div class="chip-num">43.000+</div>
                 <div class="chip-lbl">Qualifizierte Anfragen</div>
               </div>
@@ -319,7 +339,7 @@
             <p>Automatisierte Prozesse &#252;bernehmen die Vorarbeit, damit du dich auf das konzentrieren kannst, was dein Unternehmen wirklich voranbringt.</p>
             <div class="glow-visual">
               <div class="glow-chip">
-                <div class="chip-top"><img src="assets/logo/icon_only_weiss.webp" alt=""><span style="font-size:0.7rem;color:var(--white-60);">KI</span></div>
+                <div class="chip-top"><img width="222" height="251" src="assets/opt/logo-icon_only_weiss.webp" alt=""><span style="font-size:0.7rem;color:var(--white-60);">KI</span></div>
                 <div class="chip-num">24/7</div>
                 <div class="chip-lbl">Automatisch vorqualifiziert</div>
               </div>
@@ -331,7 +351,7 @@
             <p>Triff Entscheidungen mit Sicherheit statt Unsicherheit, weil deine Kundengewinnung planbar funktioniert und nicht mehr vom Zufall abh&#228;ngt.</p>
             <div class="glow-visual">
               <div class="glow-chip">
-                <div class="chip-top"><img src="assets/logo/icon_only_weiss.webp" alt=""><span style="font-size:0.7rem;color:var(--white-60);">DACH</span></div>
+                <div class="chip-top"><img width="222" height="251" src="assets/opt/logo-icon_only_weiss.webp" alt=""><span style="font-size:0.7rem;color:var(--white-60);">DACH</span></div>
                 <div class="chip-num">Nr. 1</div>
                 <div class="chip-lbl">Position in deiner Nische</div>
               </div>
@@ -349,16 +369,16 @@
         </div>
         <div class="ring-stage" data-reveal>
           <div class="ring">
-            <div class="ring-item"><img src="assets/tools2/n8n.webp" alt="n8n"><span>n8n</span></div>
-            <div class="ring-item"><img src="assets/tools2/zapier.webp" alt="Zapier"><span>Zapier</span></div>
-            <div class="ring-item"><img src="assets/tools2/activecampaign.webp" alt="ActiveCampaign"><span>ActiveCampaign</span></div>
-            <div class="ring-item"><img src="assets/tools2/claude.webp" alt="Claude"><span>Claude</span></div>
-            <div class="ring-item"><img src="assets/tools2/perspective.webp" alt="Perspective"><span>Perspective</span></div>
-            <div class="ring-item"><img src="assets/tools2/onepage.webp" alt="OnePage"><span>OnePage</span></div>
-            <div class="ring-item"><img src="assets/tools2/make.webp" alt="Make"><span>Make</span></div>
-            <div class="ring-item"><img src="assets/tools2/klicktipp.webp" alt="KlickTipp"><span>KlickTipp</span></div>
-            <div class="ring-item"><img src="assets/tools2/magnific.webp" alt="Magnific"><span>Magnific</span></div>
-            <div class="ring-item"><img src="assets/tools2/photoshop.webp" alt="Adobe Photoshop"><span>Photoshop</span></div>
+            <div class="ring-item"><img width="220" height="220" src="assets/tools2/n8n.webp" alt="n8n"><span>n8n</span></div>
+            <div class="ring-item"><img width="220" height="220" src="assets/tools2/zapier.webp" alt="Zapier"><span>Zapier</span></div>
+            <div class="ring-item"><img width="600" height="61" src="assets/tools2/activecampaign.webp" alt="ActiveCampaign"><span>ActiveCampaign</span></div>
+            <div class="ring-item"><img width="220" height="220" src="assets/tools2/claude.webp" alt="Claude"><span>Claude</span></div>
+            <div class="ring-item"><img width="665" height="160" src="assets/tools2/perspective.webp" alt="Perspective"><span>Perspective</span></div>
+            <div class="ring-item"><img width="199" height="200" src="assets/tools2/onepage.webp" alt="OnePage"><span>OnePage</span></div>
+            <div class="ring-item"><img width="220" height="220" src="assets/tools2/make.webp" alt="Make"><span>Make</span></div>
+            <div class="ring-item"><img width="200" height="190" src="assets/tools2/klicktipp.webp" alt="KlickTipp"><span>KlickTipp</span></div>
+            <div class="ring-item"><img width="500" height="84" src="assets/tools2/magnific.webp" alt="Magnific"><span>Magnific</span></div>
+            <div class="ring-item"><img width="200" height="194" src="assets/tools2/photoshop.webp" alt="Adobe Photoshop"><span>Photoshop</span></div>
           </div>
         </div>
         <div class="ring-floor"></div>
@@ -378,21 +398,21 @@
             <span class="case-badge">Coaching &#183; VSL-Funnel</span>
             <div class="case-num">10.887 <small>qualifizierte Anfragen</small></div>
             <div class="case-metrics"><span><b>6,59 &#8364;</b> pro Anfrage</span><span><b>71.723,36 &#8364;</b> Budget</span><span><b>3</b> Monate</span></div>
-            <div class="case-shot"><img src="assets/cases/m_coaching_vsl_10887.webp" alt="Ads Manager Screenshot: 10.887 Anfragen" loading="lazy"></div>
-            <a class="case-link" href="case-coaching.html">Zur Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <div class="case-shot"><img width="880" height="1197" src="assets/cases/m_coaching_vsl_10887.webp" alt="Ads Manager Screenshot: 10.887 Anfragen" loading="lazy"></div>
+            <a class="case-link" href="case-coaching.html" aria-label="Zur Case Study Coaching">Zur Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </div>
           <div class="case-card dark" data-reveal data-delay="0.12">
             <span class="case-badge">B2B Coaching &#183; Live-Webinar</span>
             <div class="case-num">1.593 <small>qualifizierte Anfragen</small></div>
             <div class="case-metrics"><span><b>12,58 &#8364;</b> pro Anfrage</span><span><b>20.041,59 &#8364;</b> Budget</span><span><b>3</b> Wochen</span></div>
-            <div class="case-shot"><img src="assets/cases/m_b2b_webinar_1593.webp" alt="Ads Manager Screenshot: 1.593 Anfragen" loading="lazy"></div>
-            <a class="case-link" href="case-b2b.html">Zur Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <div class="case-shot"><img width="834" height="1221" src="assets/cases/m_b2b_webinar_1593.webp" alt="Ads Manager Screenshot: 1.593 Anfragen" loading="lazy"></div>
+            <a class="case-link" href="case-b2b.html" aria-label="Zur Case Study B2B">Zur Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </div>
           <div class="case-card dark" data-reveal data-delay="0.24">
             <span class="case-badge">Hochpreis-Coaching</span>
             <div class="case-num">3.825 <small>qualifizierte Anfragen</small></div>
             <div class="case-metrics"><span><b>16,16 &#8364;</b> pro Anfrage</span><span><b>61.820,15 &#8364;</b> Budget</span><span><b>3</b> Monate</span></div>
-            <div class="case-shot"><img src="assets/cases/m_hochpreis_3825.webp" alt="Ads Manager Screenshot: 3.825 Anfragen" loading="lazy"></div>
+            <div class="case-shot"><img width="839" height="1190" src="assets/cases/m_hochpreis_3825.webp" alt="Ads Manager Screenshot: 3.825 Anfragen" loading="lazy"></div>
           </div>
         </div>
         <div style="text-align:center;margin-top:54px;" data-reveal>
@@ -412,7 +432,7 @@
           <p class="lead" data-reveal>Ein Auszug aus echten Kampagnen unserer Kunden, quer durch die Branchen. Konzipiert, gestaltet und getextet von uns.</p>
         </div>
       </div>
-      <div class="container cshow-fly"><div class="fly"><div class="ad-card"><div class="ad-top"><span class="ad-dot"></span><span class="ad-lines"><i></i><i></i></span><span class="ad-sp">Gesponsert</span></div><img src="assets/creatives/cr_kapitalanleger.webp" alt="Meta Ad Creative: Kapitalanlage" loading="lazy"><div class="ad-cta"><span>Mehr dazu</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div><div class="fly"><div class="ad-card"><div class="ad-top"><span class="ad-dot"></span><span class="ad-lines"><i></i><i></i></span><span class="ad-sp">Gesponsert</span></div><img src="assets/creatives/cr_instagram.webp" alt="Meta Ad Creative: Lokale Gesch&#228;fte" loading="lazy"><div class="ad-cta"><span>Mehr dazu</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div><div class="fly"><div class="ad-card"><div class="ad-top"><span class="ad-dot"></span><span class="ad-lines"><i></i><i></i></span><span class="ad-sp">Gesponsert</span></div><img src="assets/creatives/cr_transporter.webp" alt="Meta Ad Creative: Handwerk" loading="lazy"><div class="ad-cta"><span>Mehr dazu</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div><div class="fly"><div class="ad-card"><div class="ad-top"><span class="ad-dot"></span><span class="ad-lines"><i></i><i></i></span><span class="ad-sp">Gesponsert</span></div><img src="assets/creatives/cr_kapitalanlage.webp" alt="Meta Ad Creative: Immobilien" loading="lazy"><div class="ad-cta"><span>Mehr dazu</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div><div class="fly"><div class="ad-card"><div class="ad-top"><span class="ad-dot"></span><span class="ad-lines"><i></i><i></i></span><span class="ad-sp">Gesponsert</span></div><img src="assets/creatives/cr_job.webp" alt="Meta Ad Creative: Recruiting" loading="lazy"><div class="ad-cta"><span>Mehr dazu</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div><div class="fly"><div class="ad-card"><div class="ad-top"><span class="ad-dot"></span><span class="ad-lines"><i></i><i></i></span><span class="ad-sp">Gesponsert</span></div><img src="assets/creatives/cr_tier.webp" alt="Meta Ad Creative: Tierversicherung" loading="lazy"><div class="ad-cta"><span>Mehr dazu</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div></div>
+      <div class="container cshow-fly"><div class="fly"><div class="ad-card"><div class="ad-top"><span class="ad-dot"></span><span class="ad-lines"><i></i><i></i></span><span class="ad-sp">Gesponsert</span></div><img width="800" height="800" src="assets/creatives/cr_kapitalanleger.webp" alt="Meta Ad Creative: Kapitalanlage" loading="lazy"><div class="ad-cta"><span>Mehr dazu</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div><div class="fly"><div class="ad-card"><div class="ad-top"><span class="ad-dot"></span><span class="ad-lines"><i></i><i></i></span><span class="ad-sp">Gesponsert</span></div><img width="800" height="800" src="assets/creatives/cr_instagram.webp" alt="Meta Ad Creative: Lokale Gesch&#228;fte" loading="lazy"><div class="ad-cta"><span>Mehr dazu</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div><div class="fly"><div class="ad-card"><div class="ad-top"><span class="ad-dot"></span><span class="ad-lines"><i></i><i></i></span><span class="ad-sp">Gesponsert</span></div><img width="800" height="800" src="assets/creatives/cr_transporter.webp" alt="Meta Ad Creative: Handwerk" loading="lazy"><div class="ad-cta"><span>Mehr dazu</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div><div class="fly"><div class="ad-card"><div class="ad-top"><span class="ad-dot"></span><span class="ad-lines"><i></i><i></i></span><span class="ad-sp">Gesponsert</span></div><img width="800" height="800" src="assets/creatives/cr_kapitalanlage.webp" alt="Meta Ad Creative: Immobilien" loading="lazy"><div class="ad-cta"><span>Mehr dazu</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div><div class="fly"><div class="ad-card"><div class="ad-top"><span class="ad-dot"></span><span class="ad-lines"><i></i><i></i></span><span class="ad-sp">Gesponsert</span></div><img width="800" height="800" src="assets/creatives/cr_job.webp" alt="Meta Ad Creative: Recruiting" loading="lazy"><div class="ad-cta"><span>Mehr dazu</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div><div class="fly"><div class="ad-card"><div class="ad-top"><span class="ad-dot"></span><span class="ad-lines"><i></i><i></i></span><span class="ad-sp">Gesponsert</span></div><img width="800" height="800" src="assets/creatives/cr_tier.webp" alt="Meta Ad Creative: Tierversicherung" loading="lazy"><div class="ad-cta"><span>Mehr dazu</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div></div></div>
       <div class="container" style="text-align:center;margin-top:44px;" data-reveal>
         <a href="leistungen.html#creatives" class="btn btn-champagne">Alle Werbeanzeigen ansehen
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -533,20 +553,20 @@
         </div>
         <div class="testi-grid">
           <div class="testi-card big-photo" data-reveal>
-            <img class="photo-xl" src="assets/testimonials/lea_43.webp" alt="Lea Feder">
-            <span class="g-badge" aria-label="Google Bewertung"><svg viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></span><div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <img width="800" height="600" class="photo-xl" src="assets/testimonials/lea_43.webp" alt="Lea Feder">
+            <span class="g-badge" role="img" aria-label="Google Bewertung"><svg viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></span><div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <blockquote>&#8222;Wir haben bereits ein gut 6-stelliges Abschlussvolumen durch die Kampagnen erwirtschaftet. Ich habe ochsocial schon sehr oft weiterempfohlen und auch meine Empfehlungen haben herausragende Ergebnisse."</blockquote>
             <div><div class="name">Lea Feder</div><div class="role">Jetzt Performance GmbH</div></div>
           </div>
           <div class="testi-card big-photo" data-reveal data-delay="0.12">
-            <img class="photo-xl" src="assets/testimonials/claudia_43.webp" alt="Claudia Breit">
-            <span class="g-badge" aria-label="Google Bewertung"><svg viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></span><div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <img width="800" height="600" class="photo-xl" src="assets/testimonials/claudia_43.webp" alt="Claudia Breit">
+            <span class="g-badge" role="img" aria-label="Google Bewertung"><svg viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></span><div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <blockquote>&#8222;Schon im ersten Monat konnten wir meine Leads verdreifachen, bei gleichbleibendem Ad-Budget. Meine Leads kosten nun weniger als die H&#228;lfte. Aktuell bin ich so ausgebucht, dass ich kaum Zeit finde, diese Bewertung zu schreiben."</blockquote>
             <div><div class="name">Claudia Breit</div><div class="role">Hunting Tales</div></div>
           </div>
           <div class="testi-card big-photo" data-reveal data-delay="0.24">
-            <img class="photo-xl" src="assets/testimonials/stefanie_43.webp" alt="Stefanie Del Viento">
-            <span class="g-badge" aria-label="Google Bewertung"><svg viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></span><div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <img width="800" height="600" class="photo-xl" src="assets/testimonials/stefanie_43.webp" alt="Stefanie Del Viento">
+            <span class="g-badge" role="img" aria-label="Google Bewertung"><svg viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></span><div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <blockquote>&#8222;Die Werbeanzeigen sind endlich ordentlich strukturiert und nat&#252;rlich auch super erfolgreich. Ich freue mich &#252;ber die langfristige Zusammenarbeit und die Unterst&#252;tzung bei Ads, Social Media und Newsletter Marketing."</blockquote>
             <div><div class="name">Stefanie Del Viento</div><div class="role">Interior Design</div></div>
           </div>
@@ -565,7 +585,7 @@
           <h2 class="display-l" data-reveal>Mehr als eine Agentur.<br> Ein <span class="accent-champagne">Wachstumspartner.</span></h2>
         </div>
         <div class="orbit-stage" style="--orbR: min(280px, calc(50vw - 150px));" data-reveal>
-          <div class="orbit-center"><img src="assets/logo/icon_only_weiss.webp" alt="ochsocial"></div>
+          <div class="orbit-center"><img width="222" height="251" src="assets/opt/logo-icon_only_weiss.webp" alt="ochsocial"></div>
           <div class="orbit-track">
             <div class="orbit-node" style="transform: rotate(0deg) translateX(var(--orbR)) rotate(-0deg);">
               <div class="orbit-node-inner"><div class="orbit-chip"><div class="icon-badge champagne"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div>Unternehmer-Denke<div class="orbit-pop"><strong>Wir denken wie Unternehmer.</strong>Wir treffen Entscheidungen so, als w&#252;rden wir unser eigenes Werbebudget investieren.</div></div></div>
@@ -588,12 +608,12 @@
           </div>
         </div>
         <div class="orbit-list-mobile">
-          <div class="branche-item" style="display:flex;gap:14px;align-items:flex-start;" data-reveal><div class="icon-badge champagne" style="flex:none;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div><div><h4 style="color:#fff;font-size:1rem;">Wir denken wie Unternehmer.</h4><p style="color:var(--white-60);font-size:0.9rem;margin-top:4px;">Wir treffen Entscheidungen so, als w&#252;rden wir unser eigenes Werbebudget investieren.</p></div></div>
-          <div class="branche-item" style="display:flex;gap:14px;align-items:flex-start;" data-reveal><div class="icon-badge champagne" style="flex:none;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div><div><h4 style="color:#fff;font-size:1rem;">Wachstum statt kurzfristiger Kampagnen.</h4><p style="color:var(--white-60);font-size:0.9rem;margin-top:4px;">Unser Ziel sind nicht gute Klickzahlen, sondern ein System, das dein Unternehmen langfristig wachsen l&#228;sst.</p></div></div>
-          <div class="branche-item" style="display:flex;gap:14px;align-items:flex-start;" data-reveal><div class="icon-badge champagne" style="flex:none;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div><h4 style="color:#fff;font-size:1rem;">Schnelle Umsetzung.</h4><p style="color:var(--white-60);font-size:0.9rem;margin-top:4px;">W&#228;hrend andere noch Konzepte schreiben, bauen wir bereits dein Neukundensystem.</p></div></div>
-          <div class="branche-item" style="display:flex;gap:14px;align-items:flex-start;" data-reveal><div class="icon-badge champagne" style="flex:none;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div><div><h4 style="color:#fff;font-size:1rem;">Maximale Transparenz.</h4><p style="color:var(--white-60);font-size:0.9rem;margin-top:4px;">Du wei&#223;t jederzeit, was wir tun, warum wir es tun und welche Ergebnisse daraus entstehen.</p></div></div>
-          <div class="branche-item" style="display:flex;gap:14px;align-items:flex-start;" data-reveal><div class="icon-badge champagne" style="flex:none;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><div><h4 style="color:#fff;font-size:1rem;">Pers&#246;nlicher Ansprechpartner.</h4><p style="color:var(--white-60);font-size:0.9rem;margin-top:4px;">Kein Ticketsystem oder ewiges Weiterleiten. Du hast feste Ansprechpartner, die dein Unternehmen kennen.</p></div></div>
-          <div class="branche-item" style="display:flex;gap:14px;align-items:flex-start;" data-reveal><div class="icon-badge champagne" style="flex:none;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></svg></div><div><h4 style="color:#fff;font-size:1rem;">Automatisierung, wo sie Sinn macht.</h4><p style="color:var(--white-60);font-size:0.9rem;margin-top:4px;">KI ersetzt bei uns keine Menschen, sie &#252;bernimmt wiederkehrende Aufgaben, damit dein Unternehmen effizienter w&#228;chst.</p></div></div>
+          <div class="branche-item" style="display:flex;gap:14px;align-items:flex-start;" data-reveal><div class="icon-badge champagne" style="flex:none;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div><div><h3 style="color:#fff;font-size:1rem;">Wir denken wie Unternehmer.</h3><p style="color:var(--white-60);font-size:0.9rem;margin-top:4px;">Wir treffen Entscheidungen so, als w&#252;rden wir unser eigenes Werbebudget investieren.</p></div></div>
+          <div class="branche-item" style="display:flex;gap:14px;align-items:flex-start;" data-reveal><div class="icon-badge champagne" style="flex:none;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div><div><h3 style="color:#fff;font-size:1rem;">Wachstum statt kurzfristiger Kampagnen.</h3><p style="color:var(--white-60);font-size:0.9rem;margin-top:4px;">Unser Ziel sind nicht gute Klickzahlen, sondern ein System, das dein Unternehmen langfristig wachsen l&#228;sst.</p></div></div>
+          <div class="branche-item" style="display:flex;gap:14px;align-items:flex-start;" data-reveal><div class="icon-badge champagne" style="flex:none;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div><h3 style="color:#fff;font-size:1rem;">Schnelle Umsetzung.</h3><p style="color:var(--white-60);font-size:0.9rem;margin-top:4px;">W&#228;hrend andere noch Konzepte schreiben, bauen wir bereits dein Neukundensystem.</p></div></div>
+          <div class="branche-item" style="display:flex;gap:14px;align-items:flex-start;" data-reveal><div class="icon-badge champagne" style="flex:none;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div><div><h3 style="color:#fff;font-size:1rem;">Maximale Transparenz.</h3><p style="color:var(--white-60);font-size:0.9rem;margin-top:4px;">Du wei&#223;t jederzeit, was wir tun, warum wir es tun und welche Ergebnisse daraus entstehen.</p></div></div>
+          <div class="branche-item" style="display:flex;gap:14px;align-items:flex-start;" data-reveal><div class="icon-badge champagne" style="flex:none;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><div><h3 style="color:#fff;font-size:1rem;">Pers&#246;nlicher Ansprechpartner.</h3><p style="color:var(--white-60);font-size:0.9rem;margin-top:4px;">Kein Ticketsystem oder ewiges Weiterleiten. Du hast feste Ansprechpartner, die dein Unternehmen kennen.</p></div></div>
+          <div class="branche-item" style="display:flex;gap:14px;align-items:flex-start;" data-reveal><div class="icon-badge champagne" style="flex:none;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></svg></div><div><h3 style="color:#fff;font-size:1rem;">Automatisierung, wo sie Sinn macht.</h3><p style="color:var(--white-60);font-size:0.9rem;margin-top:4px;">KI ersetzt bei uns keine Menschen, sie &#252;bernimmt wiederkehrende Aufgaben, damit dein Unternehmen effizienter w&#228;chst.</p></div></div>
         </div>
       </div>
     </section>
@@ -604,7 +624,7 @@
       <div class="container">
         <div class="miriam-layout">
           <div class="miriam-side" data-reveal data-reveal-type="left">
-            <img src="assets/team/miri_business.webp" alt="Miriam Ochs, Gr&#252;nderin von ochsocial">
+            <img width="900" height="1125" src="assets/team/miri_business.webp" alt="Miriam Ochs, Gr&#252;nderin von ochsocial">
             <div class="ms-name">Miriam Ochs</div>
             <div class="ms-role">Founder & Ads Strategin</div>
           </div>
@@ -631,7 +651,7 @@
       <div class="container">
         <div class="magnet-panel" data-reveal>
           <div class="magnet-cover">
-            <img src="assets/download/leadmagnet-cover.webp" alt="Die 7 teuersten Meta-Ads-Fehler &#8212; kostenloser Guide">
+            <img width="480" height="679" src="assets/download/leadmagnet-cover.webp" alt="Die 7 teuersten Meta-Ads-Fehler &#8212; kostenloser Guide">
           </div>
           <div class="magnet-body">
             <span class="eyebrow light">Kostenloser Guide</span>
@@ -680,11 +700,11 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <a href="index.html" class="logo"><img src="assets/logo/lockup_horizontal_weiss.webp" alt="ochsocial"></a>
+          <a href="index.html" class="logo"><img width="426" height="102" src="assets/opt/logo-lockup_horizontal_weiss.webp" alt="ochsocial"></a>
           <p>Die Agentur f&#252;r planbare Kundengewinnung: Werbekampagnen, Funnels und KI-Qualifizierung aus einer Hand. Damit aus Klicks echte Anfragen werden.</p>
         </div>
         <div>
-          <h5>Navigation</h5>
+          <p class="f-head">Navigation</p>
           <ul>
             <li><a href="index.html">Startseite</a></li>
             <li><a href="leistungen.html">Leistungen</a></li>
@@ -696,18 +716,18 @@
           </ul>
         </div>
         <div>
-          <h5>Rechtliches</h5>
+          <p class="f-head">Rechtliches</p>
           <ul>
             <li><a href="impressum.html">Impressum</a></li>
             <li><a href="datenschutz.html">Datenschutzerkl&#228;rung</a></li>
           </ul>
         </div>
         <div>
-          <h5>Zertifiziert</h5>
+          <p class="f-head">Zertifiziert</p>
           <div class="footer-badges">
-            <img src="assets/badges/badge_t_meta_business_partner_trim.webp" alt="Meta Business Partner">
-            <img src="assets/badges/badge_t_meta_certified_trim.webp" alt="Meta Certified">
-            <img src="assets/badges/badge_t_funnelcockpit_trim.webp" alt="FunnelCockpit Certified Partner">
+            <img width="337" height="193" src="assets/opt/badges-badge_t_meta_business_partner_trim.webp" alt="Meta Business Partner">
+            <img width="192" height="192" src="assets/opt/badges-badge_t_meta_certified_trim.webp" alt="Meta Certified">
+            <img width="555" height="192" src="assets/opt/badges-badge_t_funnelcockpit_trim.webp" alt="FunnelCockpit Certified Partner">
           </div>
         </div>
       </div>
@@ -719,7 +739,7 @@
   </footer>
 
   <!-- ===== LEAD MODAL ===== -->
-  <div class="modal-overlay" role="dialog" aria-modal="true" data-lenis-prevent>
+  <div class="modal-overlay" role="dialog" aria-modal="true" aria-label="Kostenlos anfragen" data-lenis-prevent>
     <div class="modal">
       <button class="modal-close" aria-label="Schlie&#223;en">&#10005;</button>
       <h3>Kostenlos anfragen</h3>
