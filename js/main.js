@@ -1,4 +1,4 @@
-/* ochsocial.de — Shared JS: Lenis Smooth Scroll, GSAP Reveals, Tool-Ring, Modal, Nav */
+/* ochsocial.de \u2014 Shared JS: Lenis Smooth Scroll, GSAP Reveals, Tool-Ring, Modal, Nav */
 (function () {
   'use strict';
 
@@ -7,7 +7,7 @@
   /* ---------- WhatsApp Konfiguration ----------
      TODO: Echte Nummer eintragen (internationales Format ohne +, z.B. 4915112345678) */
   var WHATSAPP_NUMBER = '4915679359801';
-  var WHATSAPP_TEXT = 'Hi ochsocial Team! Ich interessiere mich für euer Meta Ads Management und möchte mehr erfahren. Können wir sprechen?';
+  var WHATSAPP_TEXT = 'Hi ochsocial Team! Ich interessiere mich f\u00fcr euer Meta Ads Management und m\u00f6chte mehr erfahren. K\u00f6nnen wir sprechen?';
 
   document.querySelectorAll('[data-whatsapp]').forEach(function (el) {
     var waText = el.getAttribute('data-wa-text') || WHATSAPP_TEXT;
@@ -61,7 +61,7 @@
       });
     }
 
-    /* Zahlen hochzählen */
+    /* Zahlen hochz\u00e4hlen */
     document.querySelectorAll('[data-count]').forEach(function (el) {
       var target = parseFloat(el.getAttribute('data-count'));
       var suffix = el.getAttribute('data-suffix') || '';
@@ -236,7 +236,7 @@
     var cb = document.createElement('div');
     cb.className = 'consent-banner';
     cb.innerHTML = '<p><strong>Cookies & Marketing:</strong> Wir nutzen den Meta-Pixel, um unsere Werbung zu verbessern. ' +
-      'Details in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>' +
+      'Details in der <a href="datenschutz.html">Datenschutzerkl\u00e4rung</a>.</p>' +
       '<div class="consent-actions"><button class="consent-yes">Akzeptieren</button>' +
       '<button class="consent-no">Nur notwendige</button></div>';
     document.body.appendChild(cb);
@@ -303,7 +303,7 @@
     paths[2].setAttribute('d', branches[0]); paths[3].setAttribute('d', branches[0]);
     paths[4].setAttribute('d', branches[1]); paths[5].setAttribute('d', branches[1]);
 /* Draw-Scrub (Feedback 07): durchgezogene Linie zeichnet sich beim Scrollen
-       vor und zurueck, mit leuchtendem Kopf an der Spitze — wie im Beispiel */
+       vor und zurueck, mit leuchtendem Kopf an der Spitze \u2014 wie im Beispiel */
     var clip = svg.querySelector('.thread-cliprect');
     if (clip) { clip.setAttribute('width', W); }
     var head = svg.querySelector('.thread-head');
@@ -398,7 +398,7 @@
       var cpl = parseFloat(calcSel.value);
       var anfragen = Math.round(budget / cpl);
       var kunden = Math.max(1, Math.floor(anfragen * 0.10));
-      outB.textContent = budget.toLocaleString('de-DE') + ' €';
+      outB.textContent = budget.toLocaleString('de-DE') + ' \u20ac';
       outA.textContent = anfragen.toLocaleString('de-DE');
       outK.textContent = kunden.toLocaleString('de-DE');
     }
@@ -437,7 +437,7 @@
         if (window.fbq) fbq('track', 'Lead', { content_name: 'Leadmagnet 7 Fehler' });
         var ok = document.createElement('p');
         ok.className = 'magnet-success';
-        ok.innerHTML = 'Fast geschafft! Wir haben dir eine E-Mail geschickt. <strong>Bestätige kurz deine Adresse</strong>, direkt danach bekommst du den Guide.';
+        ok.innerHTML = 'Fast geschafft! Wir haben dir eine E-Mail geschickt. <strong>Best\u00e4tige kurz deine Adresse</strong>, direkt danach bekommst du den Guide.';
         magnetForm.parentNode.insertBefore(ok, magnetForm.nextSibling);
         magnetForm.style.display = 'none';
       });
@@ -767,6 +767,7 @@
     var zoom = document.createElement('div');
     zoom.className = 'cr-zoom';
     var zimg = document.createElement('img');
+    zimg.alt = '';
     zoom.appendChild(zimg);
     document.body.appendChild(zoom);
     var hideT;
