@@ -540,7 +540,7 @@
       <div class="hero-grid">
         <div class="hero-txt">
           <span class="hero-eyebrow"><span class="eb-txt">F&#252;r Finanzberater<span class="dtonly"> &amp; Finanzvertriebe</span></span></span>
-          <h1>37&#8211;63 qualifizierte <span class="accent-cobalt">Beratungstermine</span><br> pro Monat.</h1>
+          <h1>37-63 qualifizierte <span class="accent-cobalt">Beratungstermine</span><br> pro Monat.</h1>
           <p class="sub">Wir bringen dir jeden Monat qualifizierte Anfragen f&#252;r Kapitalanlage, Immobilien, Baufinanzierung, Altersvorsorge und Edelmetalle direkt in deinen Kalender.</p>
           <div class="hero-ohne">
             <span>Keine Kaltakquise</span><span>Keine Leadb&#246;rsen</span><span>Keine Empfehlungen n&#246;tig</span>
@@ -574,7 +574,7 @@
           <p style="font-size:.72rem;color:var(--navy-55);margin-top:10px;line-height:1.4">*Abh&#228;ngig von der individuellen F&#246;rderf&#228;higkeit.</p>
         </div>
         <div class="hero-vis">
-          <img class="miri" fetchpriority="high" src="assets/team/miri_transparent.webp" alt="Miriam Ochs &#8212; Gr&#252;nderin von ochsocial">
+          <img class="miri" fetchpriority="high" src="assets/team/miri_transparent.webp" alt="Miriam Ochs, Gr&#252;nderin von ochsocial">
           <div class="miri-tag">Miriam Ochs <span>&#183; Gr&#252;nderin</span></div>
         </div>
       </div>
@@ -781,11 +781,11 @@
       </div>
       <div class="cmp-chart" id="cmpChart">
         <div class="cbar low">
-          <div class="fill"><span class="num" data-from="5" data-to="10">5&ndash;10</span></div>
+          <div class="fill"><span class="num" data-from="5" data-to="10">5-10</span></div>
           <div class="lbl">Vorher<br><span>Empfehlung &amp; gekaufte Leads</span></div>
         </div>
         <div class="cbar high">
-          <div class="fill"><span class="num" data-from="30" data-to="60">30&ndash;60</span></div>
+          <div class="fill"><span class="num" data-from="30" data-to="60">30-60</span></div>
           <div class="lbl"><span class="champ-text">Mit ochsocial</span><br><span>exklusiv &amp; vorqualifiziert</span></div>
         </div>
       </div>
@@ -1104,15 +1104,15 @@
       function countUp(el, dur){
         var from=parseInt(el.getAttribute('data-from'),10), to=parseInt(el.getAttribute('data-to'),10);
         if(isNaN(from)||isNaN(to)) return;
-        if(reduced){ el.innerHTML=from+'\u2013'+to; return; }
+        if(reduced){ el.innerHTML=from+'-'+to; return; }
         var t0=null;
-        el.innerHTML='0\u20130';
+        el.innerHTML='0-0';
         function step(ts){
           if(!t0) t0=ts;
           var p=Math.min((ts-t0)/dur,1);
           var e=1-Math.pow(1-p,3);
-          el.innerHTML=Math.round(from*e)+'\u2013'+Math.round(to*e);
-          if(p<1) requestAnimationFrame(step); else el.innerHTML=from+'\u2013'+to;
+          el.innerHTML=Math.round(from*e)+'-'+Math.round(to*e);
+          if(p<1) requestAnimationFrame(step); else el.innerHTML=from+'-'+to;
         }
         requestAnimationFrame(step);
       }
