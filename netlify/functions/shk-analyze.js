@@ -22,7 +22,7 @@ const RL_MAX = 5, RL_WINDOW = 60000;    // max 5 Analysen / Minute / IP
 
 const j = (o) => JSON.stringify(o);
 const num = (s) => (s || 0).toLocaleString("de-DE");
-const deStar = (n) => (n == null ? "\u2013" : n.toFixed(1).replace(".", ","));
+const deStar = (n) => (n == null ? "keine" : n.toFixed(1).replace(".", ","));
 
 exports.handler = async (event) => {
   const cors = {
