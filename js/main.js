@@ -65,12 +65,13 @@
     document.querySelectorAll('[data-count]').forEach(function (el) {
       var target = parseFloat(el.getAttribute('data-count'));
       var suffix = el.getAttribute('data-suffix') || '';
+      var dec = (el.getAttribute('data-count').split('.')[1] || '').length;
       var obj = { v: 0 };
       gsap.to(obj, {
         v: target, duration: 2, ease: 'power2.out',
         scrollTrigger: { trigger: el, start: 'top 90%', once: true },
         onUpdate: function () {
-          el.textContent = Math.round(obj.v).toLocaleString('de-DE') + suffix;
+          el.textContent = (dec ? obj.v.toLocaleString('de-DE', { minimumFractionDigits: dec, maximumFractionDigits: dec }) : Math.round(obj.v).toLocaleString('de-DE')) + suffix;
         }
       });
     });
