@@ -764,7 +764,7 @@ section { position: relative; }
 .thread-step:nth-child(even) { align-self: flex-end; }
 .thread-step .step-tag { font-size: 0.85rem; font-weight: 700; color: var(--champagne); }
 .thread-step h3 { color: #fff; font-size: 1.25rem; font-weight: 800; margin: 10px 0 8px; }
-.thread-step h3 em { font-style: normal; color: var(--ice); }
+.thread-step h3 em { font-style: normal; color: inherit; }
 .thread-step p { color: var(--white-60); font-size: 0.95rem; }
 @media (max-width: 860px) {
   .thread-step, .thread-step:nth-child(even) { align-self: center; }
