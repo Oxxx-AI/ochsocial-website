@@ -540,7 +540,7 @@ h1 .accent-cobalt, h2 .accent-cobalt, h3 .accent-cobalt, .display-xl .accent-cob
           <h2 class="display-l" data-reveal><span class="l1">In vier Schritten zum</span><br><span class="l1">produktiven Vertrieb.</span></h2>
         </div>
         <div class="mst-steps">
-          <div class="mst-steps-media" aria-hidden="true"><img src="assets/mittelstand/schritt_1_analyse.webp" alt="Erstgespr&#228;ch zwischen Gesch&#228;ftsf&#252;hrer und Beraterin" class="on"><img src="assets/mittelstand/schritt_2_aufbau.webp" alt="Team plant die Kampagne am Whiteboard"><img src="assets/mittelstand/schritt_3_optimierung.webp" alt="Spezialist wertet die Wochenzahlen aus"><img src="assets/mittelstand/schritt_4_abschluss.webp" alt="Handschlag nach Vertragsabschluss"><span class="badge">Schritt <b id="mst-step-no">01</b> von 04</span></div>
+          <div class="mst-steps-media" aria-hidden="true"><img src="assets/mittelstand/schritt_1_analyse.webp" alt="Erstgespr&#228;ch zwischen Gesch&#228;ftsf&#252;hrer und Beraterin" class="on"><img src="assets/mittelstand/schritt_2_aufbau.webp" alt="Team plant die Kampagne am Whiteboard"><img src="assets/mittelstand/schritt_3_optimierung.webp" alt="Spezialist wertet die Wochenzahlen aus"><img src="assets/mittelstand/schritt_4_abschluss.webp" alt="Handschlag nach Vertragsabschluss"><span class="badge">Schritt <b id="mst-step-no">1</b> von 4</span></div>
           <div class="mst-steps-list">
             <div class="mst-step on" data-step="0">
               <div class="mimg"><img src="assets/mittelstand/schritt_1_analyse.webp" alt="Erstgespr&#228;ch zwischen Gesch&#228;ftsf&#252;hrer und Beraterin" loading="lazy"></div>
@@ -816,7 +816,7 @@ h1 .accent-cobalt, h2 .accent-cobalt, h3 .accent-cobalt, .display-xl .accent-cob
         var i = +e.target.getAttribute('data-step');
         steps.forEach(function (st, k) { st.classList.toggle('on', k === i); });
         imgs.forEach(function (im, k) { im.classList.toggle('on', k === i); });
-        if (no) no.textContent = '0' + (i + 1);
+        if (no) no.textContent = String(i + 1);
       });
     }, { rootMargin: '-45% 0px -45% 0px' });
     steps.forEach(function (st) { io.observe(st); });
