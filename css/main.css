@@ -321,7 +321,7 @@ section { position: relative; }
 /* ---------- Logo Marquee: wei\0000dfe Sektion, Original-Logos via multiply (wei\0000dfe R\0000e4nder unsichtbar) ---------- */
 .marquee { overflow: hidden; padding: 44px 0; position: relative; background: #FFFFFF; }
 .marquee-track img { mix-blend-mode: multiply; }
-.marquee-label { text-align: center; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy-60); margin-bottom: 30px; }
+.marquee-label { text-align: center; font-size: 0.95rem; font-weight: 600; color: var(--navy-60); margin-bottom: 30px; }
 .marquee-track { display: flex; gap: 80px; width: max-content; animation: marquee 36s linear infinite; align-items: center; }
 .marquee-track img { height: 44px; width: auto; }
 @keyframes marquee { to { transform: translateX(-50%); } }
@@ -460,7 +460,7 @@ section { position: relative; }
 }
 .case-card:hover { transform: translateY(-8px) rotateX(2deg); box-shadow: 0 34px 70px -25px rgba(20, 22, 58, 0.25); }
 .case-badge {
-  display: inline-block; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
+  display: inline-block; font-size: 0.8rem; font-weight: 700;
   color: var(--cobalt); background: rgba(30, 79, 186, 0.08);
   padding: 7px 14px; border-radius: 100px; margin-bottom: 20px;
 }
@@ -762,7 +762,7 @@ section { position: relative; }
   box-shadow: 0 26px 60px -30px rgba(0, 0, 0, 0.6);
 }
 .thread-step:nth-child(even) { align-self: flex-end; }
-.thread-step .step-tag { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.16em; color: var(--champagne); }
+.thread-step .step-tag { font-size: 0.85rem; font-weight: 700; color: var(--champagne); }
 .thread-step h3 { color: #fff; font-size: 1.25rem; font-weight: 800; margin: 10px 0 8px; }
 .thread-step h3 em { font-style: normal; color: var(--ice); }
 .thread-step p { color: var(--white-60); font-size: 0.95rem; }
@@ -972,6 +972,7 @@ section { position: relative; }
   padding: 7px 14px; border-radius: 100px;
 }
 .dfy-panel h3 { font-size: clamp(1.6rem, 2.6vw, 2.2rem); font-weight: 800; letter-spacing: -0.02em; margin-top: 18px; }
+.dfy-panel h3:first-child { margin-top: 0; }
 .dfy-panel p { color: var(--navy-60); margin-top: 12px; max-width: 520px; }
 .dfy-list { display: grid; gap: 13px; margin-top: 24px; }
 .dfy-list li { display: flex; align-items: flex-start; gap: 12px; font-weight: 600; }
@@ -1136,7 +1137,7 @@ section { position: relative; }
 .cal-compare { display: grid; grid-template-columns: 1fr 60px 1fr; gap: 20px; align-items: center; margin-top: 76px; }
 .cal-card { background: #fff; border: 1px solid var(--navy-06); border-radius: 20px; padding: 22px; box-shadow: 0 26px 55px -30px var(--navy-40); }
 .cal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; font-weight: 800; }
-.cal-tag { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; }
+.cal-tag { font-size: 0.8rem; font-weight: 700; padding: 5px 12px; border-radius: 100px; }
 .cal-tag.bad { background: var(--navy-06); color: var(--navy-40); }
 .cal-tag.good { background: var(--grad-champagne); color: var(--navy); }
 .cal-days { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 8px; }
@@ -1764,8 +1765,7 @@ h1 .accent-champagne, h2 .accent-champagne, h3 .accent-champagne, .display-xl .a
 /* N1: Hero-Badges groesser + Label */
 .hb-label {
   display: block; width: 100%;
-  font-size: 0.72rem; font-weight: 800; letter-spacing: 2.5px;
-  text-transform: uppercase; color: var(--navy-60);
+  font-size: 0.85rem; font-weight: 600; color: var(--navy-60);
 }
 .hero-badges img { height: 64px; }
 
