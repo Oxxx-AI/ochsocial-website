@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="de" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KI und Automatisierung f&#252;r Unternehmen | Ochsocial</title>
+  <meta name="description" content="Ochsocial setzt KI in deinem Unternehmen um: KI-Mitarbeiter, Chatbots f&#252;r WhatsApp und Website, automatische Abl&#228;ufe und Dashboards. F&#252;r Betriebe jeder Gr&#246;&#223;e.">
+  <link rel="canonical" href="https://ochsocial.de/ki-automatisierung.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ochsocial">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:title" content="KI und Automatisierung f&#252;r Unternehmen | Ochsocial">
+  <meta property="og:description" content="KI-Mitarbeiter, Chatbots und automatische Abl&#228;ufe, die deinem Team jeden Tag Arbeit abnehmen. Umgesetzt von Ochsocial.">
+  <meta property="og:url" content="https://ochsocial.de/ki-automatisierung.html">
+  <meta property="og:image" content="https://ochsocial.de/assets/og/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/favicon/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon-180.png">
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/manrope-400.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/manrope-800.woff2" crossorigin>
+  <link rel="stylesheet" href="css/main.css">
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-57eQyfLLjBIEiowdkS4xH.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+
+<style>
+/* ===== KI-Seite: seitenspezifische Bausteine (Prefix kia-), Stand 25.11.2026 ===== */
+h1 .accent-cobalt, h2 .accent-cobalt { background: none; -webkit-background-clip: border-box; background-clip: border-box; color: var(--cobalt); -webkit-text-fill-color: var(--cobalt); }
+@media (min-width: 1001px) { .kia-h1 { font-size: clamp(2.6rem, 4.1vw, 3.7rem); } }
+
+/* Headlines einzeilig, wenn Platz ist (Bernd 25.11.) */
+.section-head { max-width: none; }
+.section-head .lead { max-width: 760px; }
+/* Abst&#228;nde kompakt: kein Leerraum &#252;ber dem Hero, kein Loch zwischen den Sektionen */
+main > .section { padding: clamp(72px, 8vw, 112px) 0; }
+.hero.kia-hero { min-height: 0; padding: calc(var(--header-h) + clamp(32px, 4.5vw, 64px)) 0 clamp(16px, 3vw, 40px); }
+.kia-hero .hero-split { align-items: center; }
+.hero-split > div { min-width: 0; }
+@media (max-width: 420px) { .hero .eyebrow { white-space: normal; } }
+.hero .hero-proof { flex-wrap: wrap; row-gap: 10px; }
+@media (max-width: 520px) { .hero .hero-proof .hp-sep { display: none; } .hero .hero-proof .hp-item { white-space: normal; flex-basis: 100%; } }
+
+/* Hero: KI-Mitarbeiter arbeitet live */
+.kia-stage { position: relative; }
+.kia-log { position: relative; z-index: 2; background: #fff; border: 1px solid var(--navy-06); border-radius: var(--radius-card); padding: 26px 26px 20px; box-shadow: 0 40px 80px -40px rgba(20,22,58,0.35); }
+.kia-log-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.kia-log-head b { font-size: 1.05rem; color: var(--navy); }
+.kia-live { display: inline-flex; align-items: center; gap: 7px; font-size: 0.78rem; font-weight: 800; color: var(--cobalt); }
+.kia-live i, .kia-pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--ice); box-shadow: 0 0 0 0 rgba(111,168,245,0.7); animation: kiaPulse 1.6s infinite; display: inline-block; }
+@keyframes kiaPulse { 0% { box-shadow: 0 0 0 0 rgba(111,168,245,0.65); } 70% { box-shadow: 0 0 0 9px rgba(111,168,245,0); } 100% { box-shadow: 0 0 0 0 rgba(111,168,245,0); } }
+.kia-prog { height: 4px; border-radius: 4px; background: var(--navy-06); margin: 14px 0 4px; overflow: hidden; }
+.kia-prog i { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, var(--ice), var(--cobalt)); transform-origin: left; transform: scaleX(var(--p, 1)); transition: transform 0.6s cubic-bezier(0.22,1,0.36,1); }
+.kia-sub { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--navy-40); font-weight: 700; padding-bottom: 6px; }
+.kia-log ul { margin: 0; padding: 0; list-style: none; }
+.kia-log li { display: grid; grid-template-columns: 52px 1fr 24px; gap: 12px; padding: 12px 0; border-bottom: 1px dashed var(--navy-12); align-items: start; opacity: 0.32; transition: opacity 0.4s; }
+.kia-log li:last-child { border-bottom: none; }
+.kia-log li.busy, .kia-log li.done { opacity: 1; }
+.kia-log .t { font-size: 0.8rem; font-weight: 800; color: var(--navy-40); padding-top: 2px; }
+.kia-log .w { font-size: 0.95rem; font-weight: 700; color: var(--navy); line-height: 1.4; }
+.kia-log .w small { display: block; font-size: 0.82rem; font-weight: 600; color: var(--navy-60); margin-top: 2px; }
+.kia-log .s { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+.kia-log .s svg { width: 13px; height: 13px; opacity: 0; transform: scale(0.4); transition: opacity 0.3s, transform 0.4s cubic-bezier(0.34,1.56,0.64,1); }
+.kia-log li.done .s { background: var(--cobalt); color: #fff; }
+.kia-log li.done .s svg { opacity: 1; transform: none; }
+.kia-log li.busy .s { border: 2px solid var(--navy-12); border-top-color: var(--cobalt); animation: kiaSpin 0.8s linear infinite; }
+@keyframes kiaSpin { to { transform: rotate(360deg); } }
+.kia-log-foot { margin-top: 12px; background: rgba(30,79,186,0.07); border-radius: 14px; padding: 12px 16px; font-size: 0.88rem; font-weight: 700; color: var(--cobalt); opacity: 0.25; transition: opacity 0.5s; }
+.kia-log-foot.show { opacity: 1; }
+.kia-chip { position: absolute; z-index: 3; display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid var(--navy-06); border-radius: 100px; padding: 9px 15px 9px 9px; font-size: 0.82rem; font-weight: 800; color: var(--navy); box-shadow: 0 18px 40px -20px rgba(20,22,58,0.45); animation: kiaBob 5s ease-in-out infinite; white-space: nowrap; }
+.kia-chip .ci { width: 26px; height: 26px; border-radius: 50%; background: var(--cobalt); color: #fff; display: flex; align-items: center; justify-content: center; }
+.kia-chip .ci svg { width: 14px; height: 14px; }
+.kia-chip.a { top: -18px; left: -34px; }
+.kia-chip.b { bottom: -20px; right: 36px; animation-delay: -2.5s; }
+.kia-chip.b .ci { background: var(--champagne); color: var(--navy); }
+@keyframes kiaBob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+@media (max-width: 1000px) { .kia-stage { max-width: 470px; margin: 40px auto 0; } .kia-chip.a { left: -8px; } .kia-chip.b { right: -8px; } }
+@media (max-width: 520px) { .kia-chip { display: none; } }
+
+/* Leistungen: Raster, jede Karte mit eigener Mini-Animation und Hover */
+.kia-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 22px; }
+.kia-cell { position: relative; overflow: hidden; background: #fff; border: 1px solid var(--navy-06); border-radius: var(--radius-card); padding: 32px; display: flex; flex-direction: column; transition: translate 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s, border-color 0.4s; }
+.kia-cell::before { content: ""; position: absolute; inset: 0; background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 50%), rgba(30,79,186,0.10), transparent 62%); opacity: 0; transition: opacity 0.35s; pointer-events: none; }
+.kia-cell > * { position: relative; }
+.kia-cell.big { grid-column: span 4; background: var(--navy); color: #fff; border-color: var(--navy); display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center; }
+.kia-cell.big::before { background: radial-gradient(440px circle at var(--mx, 50%) var(--my, 50%), rgba(111,168,245,0.20), transparent 62%); }
+.kia-cell.wide { grid-column: span 3; }
+.kia-cell.small { grid-column: span 2; }
+.kia-ico { width: 46px; height: 46px; border-radius: 13px; background: var(--cobalt); color: #fff; display: flex; align-items: center; justify-content: center; flex: none; transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1); }
+.kia-ico svg { width: 23px; height: 23px; }
+.kia-cell.big .kia-ico { background: var(--champagne); color: var(--navy); }
+.kia-cell h3 { font-size: 1.3rem; font-weight: 800; margin: 18px 0 10px; line-height: 1.25; }
+.kia-cell p { color: var(--navy-60); font-size: 0.98rem; margin: 0; }
+.kia-cell.big h3 { font-size: 1.6rem; color: #fff; }
+.kia-cell.big p { color: var(--white-60); }
+@media (hover: hover) {
+  .kia-cell:hover { translate: 0 -6px; box-shadow: 0 34px 64px -34px rgba(20,22,58,0.4); border-color: rgba(30,79,186,0.35); }
+  .kia-cell:hover::before { opacity: 1; }
+  .kia-cell:hover .kia-ico { transform: scale(1.1) rotate(-8deg); }
+}
+.kia-more { margin: 28px 0 0; max-width: 760px; color: var(--navy-60); font-size: 1rem; }
+/* Chat im gro&#223;en Feld */
+.kia-chat { height: 290px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 22px; padding: 16px; display: flex; flex-direction: column; justify-content: flex-end; gap: 9px; overflow: hidden; }
+.kia-chat-head { display: flex; align-items: center; gap: 9px; font-size: 0.78rem; font-weight: 700; color: var(--white-60); margin-bottom: auto; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.kia-chat-head .av { width: 28px; height: 28px; border-radius: 50%; background: var(--champagne); color: var(--navy); display: flex; align-items: center; justify-content: center; }
+.kia-chat-head .av svg { width: 15px; height: 15px; }
+.kia-chat-head b { color: #fff; display: block; font-size: 0.85rem; }
+.kia-b { max-width: 86%; padding: 9px 13px; border-radius: 16px; font-size: 0.86rem; line-height: 1.4; display: none; }
+.kia-b.show { display: block; animation: kiaIn 0.45s cubic-bezier(0.22,1,0.36,1); }
+@keyframes kiaIn { from { opacity: 0; transform: translateY(10px) scale(0.97); } to { opacity: 1; transform: none; } }
+.kia-b.in { align-self: flex-start; background: rgba(255,255,255,0.1); color: #fff; border-bottom-left-radius: 5px; }
+.kia-b.out { align-self: flex-end; background: var(--cobalt); color: #fff; border-bottom-right-radius: 5px; }
+.kia-b.done { align-self: center; background: var(--champagne); color: var(--navy); font-weight: 800; font-size: 0.8rem; border-radius: 100px; padding: 7px 14px; }
+.kia-typing { align-self: flex-end; display: none; gap: 4px; padding: 12px 14px; background: var(--cobalt); border-radius: 16px; border-bottom-right-radius: 5px; }
+.kia-typing.show { display: inline-flex; }
+.kia-typing i { width: 6px; height: 6px; border-radius: 50%; background: #fff; animation: kiaDot 1s infinite; }
+.kia-typing i:nth-child(2) { animation-delay: 0.15s; } .kia-typing i:nth-child(3) { animation-delay: 0.3s; }
+@keyframes kiaDot { 0%, 60%, 100% { opacity: 0.35; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-3px); } }
+/* Mini: Anfrage beantwortet */
+.kia-notif { margin-top: auto; padding-top: 22px; display: flex; flex-direction: column; gap: 8px; }
+.kia-notif .r { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 14px; background: var(--offwhite); font-size: 0.86rem; font-weight: 700; color: var(--navy); transition: opacity 0.4s, transform 0.45s cubic-bezier(0.22,1,0.36,1); }
+.kia-notif .r em { margin-left: auto; font-style: normal; color: var(--navy-40); font-size: 0.78rem; }
+.kia-notif .r .d { width: 9px; height: 9px; border-radius: 50%; background: var(--ice); }
+.kia-notif .r.a { background: rgba(30,79,186,0.08); color: var(--cobalt); opacity: 0; transform: translateY(8px); }
+.kia-notif .r.a svg { width: 15px; height: 15px; }
+.kia-notif.on .r.a { opacity: 1; transform: none; }
+/* Mini: Ablauf mit laufendem Punkt */
+.kia-flow { margin-top: auto; padding-top: 24px; display: flex; align-items: center; gap: 0; }
+.kia-flow .nd { display: inline-flex; align-items: center; gap: 7px; padding: 8px 12px; border-radius: 100px; background: var(--offwhite); border: 1px solid var(--navy-06); font-size: 0.8rem; font-weight: 800; color: var(--navy); white-space: nowrap; }
+.kia-flow .nd svg { width: 14px; height: 14px; color: var(--cobalt); }
+.kia-flow .ln { flex: 1; min-width: 18px; height: 2px; background: var(--navy-12); position: relative; overflow: hidden; }
+.kia-flow .ln i { position: absolute; top: -2px; left: 0; width: 40%; height: 6px; border-radius: 3px; background: linear-gradient(90deg, transparent, var(--cobalt)); animation: kiaRun 1.8s linear infinite; }
+.kia-flow .ln + .nd + .ln i { animation-delay: 0.9s; }
+@keyframes kiaRun { from { transform: translateX(-110%); } to { transform: translateX(260%); } }
+/* Mini: Balken, die sich live bewegen */
+.kia-bars { margin-top: auto; padding-top: 24px; height: 118px; display: flex; align-items: flex-end; gap: 8px; }
+.kia-bars i { flex: 1; height: var(--h, 50%); border-radius: 7px 7px 3px 3px; background: linear-gradient(180deg, var(--ice), var(--cobalt)); transform-origin: bottom; transition: height 0.9s cubic-bezier(0.22,1,0.36,1); }
+@media (max-width: 1000px) { .kia-grid { grid-template-columns: 1fr 1fr; } .kia-cell.big, .kia-cell.wide, .kia-cell.small { grid-column: span 2; } .kia-cell.big { grid-template-columns: 1fr; } }
+@media (min-width: 640px) and (max-width: 1000px) { .kia-cell.small, .kia-cell.wide { grid-column: span 1; } }
+@media (max-width: 420px) { .kia-cell { padding: 24px; } .kia-flow .nd { padding: 7px 9px; font-size: 0.74rem; } .kia-flow .nd svg { display: none; } }
+
+/* Alltag: Branche anklicken, Vorher/Nachher fliegt rein */
+.kia-tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 26px; }
+.kia-tabs button { position: relative; overflow: hidden; text-align: left; padding: 16px 18px 18px; min-height: 56px; border-radius: 16px; border: 1px solid var(--navy-12); background: #fff; font: inherit; font-weight: 800; font-size: 0.98rem; color: var(--navy-60); cursor: pointer; transition: color 0.25s, border-color 0.25s, background 0.25s, scale 0.25s; }
+.kia-tabs button .bar { position: absolute; left: 0; bottom: 0; height: 3px; width: 100%; background: var(--cobalt); transform-origin: left; transform: scaleX(0); }
+.kia-tabs button.on { color: var(--navy); border-color: var(--cobalt); background: rgba(30,79,186,0.05); }
+.kia-tabs button.on .bar { animation: kiaBar 6s linear forwards; }
+.kia-alltag:hover .kia-tabs button.on .bar { animation-play-state: paused; }
+@keyframes kiaBar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@media (hover: hover) { .kia-tabs button:hover { color: var(--navy); border-color: var(--navy-40); } }
+.kia-tabs button:active { scale: 0.99; }
+.kia-tabs button:focus-visible { outline: 3px solid var(--ice); outline-offset: 2px; }
+.kia-panes { display: grid; }
+.kia-pane { grid-area: 1 / 1; display: grid; grid-template-columns: 1fr 56px 1fr; align-items: stretch; gap: 0; opacity: 0; pointer-events: none; transition: opacity 0.35s; }
+.kia-pane.on { opacity: 1; pointer-events: auto; }
+.kia-vs { border-radius: var(--radius-card); padding: 30px 32px; transition: transform 0.6s cubic-bezier(0.22,1,0.36,1); }
+.kia-vs .lbl { display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 12px; }
+.kia-vs p { margin: 0; font-size: 1.05rem; line-height: 1.6; }
+.kia-vs.heute { background: var(--offwhite); border: 1px solid var(--navy-06); transform: translateX(-40px); }
+.kia-vs.heute .lbl { color: #D64545; }
+.kia-vs.heute p { color: var(--navy-60); }
+.kia-vs.mitki { background: var(--navy); color: #fff; transform: translateX(40px); box-shadow: 0 34px 64px -34px rgba(20,22,58,0.5); }
+.kia-vs.mitki .lbl { color: var(--champagne); }
+.kia-vs.mitki p { color: #fff; font-weight: 600; }
+.kia-pane.on .kia-vs { transform: none; }
+.kia-arrow { display: flex; align-items: center; justify-content: center; color: var(--cobalt); }
+.kia-arrow svg { width: 26px; height: 26px; }
+.kia-pane.on .kia-arrow svg { animation: kiaNudge 1.4s ease-in-out infinite; }
+@keyframes kiaNudge { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
+@media (max-width: 860px) {
+  .kia-tabs { grid-template-columns: 1fr 1fr; }
+  .kia-tabs button { font-size: 0.88rem; padding: 14px 14px 16px; hyphens: auto; -webkit-hyphens: auto; overflow-wrap: anywhere; }
+  .kia-pane { grid-template-columns: 1fr; grid-template-rows: auto 44px auto; }
+  .kia-arrow svg { transform: rotate(90deg); }
+  .kia-pane.on .kia-arrow svg { animation: none; }
+  .kia-vs { padding: 24px; }
+  .kia-vs.heute { transform: translateY(-16px); } .kia-vs.mitki { transform: translateY(16px); }
+}
+
+/* Beweis: eigenes System mit W&#228;chter */
+.kia-proof { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(36px, 5vw, 72px); align-items: center; }
+.kia-proof h2 { font-size: clamp(1.9rem, 3vw, 2.6rem); }
+.kia-proof .lead { margin-top: 20px; }
+.kia-fact b span { font: inherit; color: inherit; }
+.kia-watch { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-card); padding: 24px; }
+.kia-watch-head { display: flex; justify-content: space-between; align-items: center; padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.kia-watch-head b { color: #fff; font-size: 1rem; }
+.kia-watch-head span { display: inline-flex; align-items: center; gap: 8px; color: var(--white-60); font-size: 0.78rem; font-weight: 700; }
+.kia-watch ul { list-style: none; margin: 0; padding: 0; }
+.kia-watch li { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px dashed rgba(255,255,255,0.08); color: var(--white-90); font-weight: 600; font-size: 0.95rem; opacity: 0.4; transition: opacity 0.35s; }
+.kia-watch li:last-child { border-bottom: none; }
+.kia-watch li.chk, .kia-watch li.ok { opacity: 1; }
+.kia-watch .st { min-width: 64px; text-align: center; font-size: 0.74rem; font-weight: 800; padding: 5px 10px; border-radius: 100px; background: rgba(255,255,255,0.06); color: var(--white-60); }
+.kia-watch .st::after { content: "wartet"; }
+.kia-watch li.chk .st::after { content: "pr&#252;ft"; }
+.kia-watch li.chk .st { color: var(--ice); }
+.kia-watch li.ok .st { background: var(--champagne); color: var(--navy); }
+.kia-watch li.ok .st::after { content: "OK"; }
+.kia-watch-foot { margin-top: 10px; font-size: 0.78rem; color: var(--white-60); font-weight: 600; }
+.kia-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: clamp(40px, 5vw, 64px); }
+.kia-fact { display: flex; flex-direction: column; gap: 10px; padding: 22px 0 0; border-top: 1px solid var(--white-12); }
+.kia-fact b { font-size: 2.2rem; font-weight: 800; color: var(--champagne); line-height: 1; }
+.kia-fact span { color: var(--white-90); font-weight: 600; font-size: 0.98rem; }
+@media (max-width: 960px) { .kia-proof { grid-template-columns: 1fr; } }
+@media (max-width: 860px) { .kia-facts { grid-template-columns: 1fr; gap: 0; } .kia-fact { padding: 20px 0; } }
+
+/* Ablauf: Linie w&#228;chst beim Scrollen */
+.kia-steps { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); }
+.kia-track { position: absolute; top: 22px; left: 23px; right: calc(25% - 23px); height: 3px; background: var(--navy-12); border-radius: 3px; overflow: hidden; }
+.kia-track i { position: absolute; inset: 0; background: linear-gradient(90deg, var(--ice), var(--cobalt)); transform-origin: left; transform: scaleX(1); }
+.kia-step { position: relative; padding-right: 28px; }
+.kia-n { position: relative; z-index: 1; width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; background: var(--offwhite); border: 2px solid var(--navy-12); color: var(--navy-60); transition: background 0.4s, color 0.4s, border-color 0.4s, transform 0.5s cubic-bezier(0.34,1.56,0.64,1); }
+.kia-step.on .kia-n { background: var(--cobalt); border-color: var(--cobalt); color: #fff; transform: scale(1.08); }
+.kia-step h3 { font-size: 1.15rem; font-weight: 800; margin: 20px 0 8px; }
+.kia-step p { color: var(--navy-60); font-size: 0.95rem; margin: 0; }
+@media (max-width: 900px) {
+  .kia-steps { grid-template-columns: 1fr; gap: 30px; }
+  .kia-track { top: 23px; bottom: 23px; left: 21px; right: auto; width: 3px; height: auto; }
+  .kia-track i { transform-origin: top; }
+  .kia-step { padding: 0 0 0 66px; }
+  .kia-n { position: absolute; left: 0; top: 0; }
+  .kia-step h3 { margin-top: 10px; }
+}
+
+/* Br&#252;cke zur Meta-Werbung */
+.kia-bridge { background: var(--offwhite); border: 1px solid var(--navy-06); border-radius: var(--radius-card); padding: 40px 44px; transition: translate 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s; }
+@media (hover: hover) { .kia-bridge:hover { translate: 0 -4px; box-shadow: 0 30px 60px -36px rgba(20,22,58,0.35); } }
+.kia-bridge h2 { font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 800; margin: 0 0 10px; }
+.kia-bridge p { color: var(--navy-60); margin: 0; max-width: 640px; }
+@media (max-width: 860px) { .kia-bridge { padding: 32px 26px; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .kia-chip, .kia-live i, .kia-pulse, .kia-flow .ln i, .kia-typing i, .kia-arrow svg { animation: none !important; }
+  .kia-tabs button.on .bar { animation: none; transform: scaleX(1); }
+}
+</style>
+  <!-- seo-ld start -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://ochsocial.de/ki-automatisierung.html#webpage","url":"https://ochsocial.de/ki-automatisierung.html","name":"KI und Automatisierung f\u00fcr Unternehmen","description":"Ochsocial setzt KI in deinem Unternehmen um: KI-Mitarbeiter, Chatbots f\u00fcr WhatsApp und Website, automatische Abl\u00e4ufe und Dashboards. F\u00fcr Betriebe jeder Gr\u00f6\u00dfe.","inLanguage":"de-DE","isPartOf":{"@id":"https://ochsocial.de/#website"},"about":{"@id":"https://ochsocial.de/#organization"},"breadcrumb":{"@id":"https://ochsocial.de/ki-automatisierung.html#breadcrumb"},"mainEntity":{"@id":"https://ochsocial.de/ki-automatisierung.html#service"}},{"@type":"BreadcrumbList","@id":"https://ochsocial.de/ki-automatisierung.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Startseite","item":"https://ochsocial.de/"},{"@type":"ListItem","position":2,"name":"KI und Automatisierung","item":"https://ochsocial.de/ki-automatisierung.html"}]},{"@type":"Service","@id":"https://ochsocial.de/ki-automatisierung.html#service","name":"KI und Automatisierung f\u00fcr Unternehmen","serviceType":"KI-Implementierung und Prozessautomatisierung","description":"KI-Mitarbeiter, KI-Chatbots f\u00fcr WhatsApp und Website, automatische Abl\u00e4ufe zwischen Programmen, CRM, Dashboards und individuelle KI-L\u00f6sungen.","provider":{"@id":"https://ochsocial.de/#organization"},"areaServed":["DE","AT","CH"],"audience":{"@type":"BusinessAudience","audienceType":"Unternehmen, Betriebe, Studios, Praxen und Dienstleister"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"KI und Automatisierung","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"KI-Mitarbeiter f\u00fcr Unternehmen"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"KI-Chatbot f\u00fcr WhatsApp und Website"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Abl\u00e4ufe automatisieren"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"CRM einrichten"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Dashboards und Auswertungen"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Individuelle KI-L\u00f6sungen"}}]},"url":"https://ochsocial.de/ki-automatisierung.html"},{"@type":"FAQPage","@id":"https://ochsocial.de/ki-automatisierung.html#faq","mainEntity":[{"@type":"Question","name":"Was ist ein KI-Mitarbeiter?","acceptedAnswer":{"@type":"Answer","text":"Ein KI-Mitarbeiter ist eine KI mit einer festen Aufgabe in deinem Betrieb, zum Beispiel Anfragen beantworten, Termine vorbereiten oder Berichte schreiben. Er arbeitet nach deinen Regeln, rund um die Uhr, und gibt alles Wichtige an dein Team weiter."}},{"@type":"Question","name":"Lohnt sich KI auch f\u00fcr kleine Betriebe?","acceptedAnswer":{"@type":"Answer","text":"Ja, gerade dort. Wer wenig Personal hat, sp\u00fcrt jede Stunde, die an Routine verloren geht. Wir fangen mit dem Ablauf an, der dich heute am meisten Zeit kostet, und bauen erst weiter, wenn er sich rechnet."}},{"@type":"Question","name":"Brauche ich technisches Wissen?","acceptedAnswer":{"@type":"Answer","text":"Nein. Wir richten alles ein, testen es mit dir und erkl\u00e4ren, was du im Alltag siehst. Wenn etwas angepasst werden muss, machen wir das."}},{"@type":"Question","name":"Mit welchen Programmen funktioniert das?","acceptedAnswer":{"@type":"Answer","text":"Mit den meisten, die Betriebe heute nutzen: E-Mail und Outlook, WhatsApp, Kalender, Excel und Google-Tabellen, CRM wie HubSpot oder Pipedrive, ActiveCampaign und oft auch deine Branchensoftware. Was du schon hast, binden wir an, statt es zu ersetzen."}},{"@type":"Question","name":"Wie ist das mit dem Datenschutz?","acceptedAnswer":{"@type":"Answer","text":"Du entscheidest, welche Daten die KI sieht. Sensible Daten bleiben drau\u00dfen, wenn du das willst. Wo die Daten verarbeitet werden und welche Vertr\u00e4ge mit den Anbietern n\u00f6tig sind, kl\u00e4ren wir vor dem Start."}},{"@type":"Question","name":"Was kostet das?","acceptedAnswer":{"@type":"Answer","text":"Das h\u00e4ngt vom Umfang ab. Ein einzelner automatischer Ablauf ist etwas anderes als ein KI-Mitarbeiter mit eigenem Chat. Du kannst klein mit einem Ablauf starten und bekommst vor dem Start ein festes Angebot, damit du genau wei\u00dft, was es kostet."}}]}]}</script>
+  <!-- seo-ld end -->
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo"><img src="assets/logo/lockup_horizontal_schwarz.webp" alt="ochsocial"></a>
+      <nav>
+        <a href="leistungen.html">Leistungen</a>
+        <a href="ki-automatisierung.html">KI &amp; Automation</a>
+        <a href="mittelstand.html">Mittelstand</a>
+        <a href="ergebnisse.html">Ergebnisse</a>
+        <a href="ueber-uns.html">&#220;ber uns</a>
+        <a href="karriere.html">Karriere</a>
+        <a href="news.html">News</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:14px;">
+        <a href="#" class="header-cta" data-open-form>Kostenlos anfragen</a>
+        <button class="nav-toggle" aria-label="Men&#252;"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <a href="index.html">Startseite</a>
+    <a href="leistungen.html">Leistungen</a>
+    <a href="ki-automatisierung.html">KI &amp; Automation</a>
+    <a href="mittelstand.html">Mittelstand</a>
+    <a href="ergebnisse.html">Ergebnisse</a>
+    <a href="ueber-uns.html">&#220;ber uns</a>
+    <a href="karriere.html">Karriere</a>
+    <a href="news.html">News</a>
+    <a href="kontakt.html">Kontakt</a>
+    <a href="#" data-open-form style="color:var(--champagne);">Kostenlos anfragen &#8594;</a>
+  </div>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero kia-hero">
+      <div class="container hero-split">
+        <div>
+          <span class="eyebrow" data-hero>KI und Meta-Werbung aus einer Hand</span>
+          <h1 class="display-l kia-h1" data-hero style="margin-top:26px;">
+            KI-Mitarbeiter f&#252;r<br><span class="accent-cobalt">dein Unternehmen.</span>
+          </h1>
+          <p class="lead" data-hero>
+            Wir bauen dir KI-Mitarbeiter und Automatisierungen, die Anfragen beantworten, Angebote nachfassen und dein CRM pflegen. F&#252;r Betriebe, Studios, Praxen und den Mittelstand.
+          </p>
+          <div class="hero-ctas" data-hero>
+            <a href="#" class="btn btn-cobalt" data-open-form>Kostenloses Erstgespr&#228;ch
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#" class="btn btn-whatsapp" data-whatsapp>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.030-.967-.273-.099-.471-.148-.670.15-.197.297-.767.966-.940 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.390-1.475-.883-.788-1.480-1.761-1.653-2.059-.173-.297-.018-.458.130-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.040 1.016-1.040 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.360.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.510-5.260c.001-5.450 4.436-9.884 9.888-9.884 2.640 0 5.122 1.030 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.450-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.050 0C5.495 0 .160 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.480-8.413z"/></svg>
+              Direkt per WhatsApp
+            </a>
+          </div>
+          <p class="cta-note" data-hero>&#10003; Unverbindlich &amp; kostenfrei, pers&#246;nlich mit dem Gr&#252;nderteam</p>
+          <div class="hero-proof" data-hero>
+            <span class="hp-item"><b>450+</b> Projekte in der Kundengewinnung</span>
+            <span class="hp-sep"></span>
+            <span class="hp-item"><span class="hp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <b>5,0</b> auf Google</span>
+          </div>
+        </div>
+        <div class="kia-stage" data-hero>
+          <span class="kia-chip a" aria-hidden="true"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></span>Anfrage beantwortet</span>
+          <span class="kia-chip b" aria-hidden="true"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18M9 15l2 2 4-4"/></svg></span>Termin eingetragen</span>
+          <div class="kia-log" aria-label="Beispiel: ein Arbeitstag mit einem KI-Mitarbeiter">
+            <div class="kia-log-head"><b>Dein KI-Mitarbeiter heute</b><span class="kia-live"><i></i>arbeitet</span></div>
+            <div class="kia-prog"><i></i></div>
+            <div class="kia-sub"><span><span class="kia-cnt">4</span> von 4 Aufgaben erledigt</span><span>Beispiel</span></div>
+            <ul>
+              <li class="done"><span class="t">06:40</span><span class="w">Anfrage von gestern Abend beantwortet<small>per WhatsApp, Termin vorgeschlagen</small></span><span class="s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span></li>
+              <li class="done"><span class="t">09:15</span><span class="w">Neuer Kontakt im CRM angelegt<small>mit allen Angaben aus dem Formular</small></span><span class="s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span></li>
+              <li class="done"><span class="t">13:02</span><span class="w">Zwei offene Angebote nachgefasst<small>freundliche Erinnerung verschickt</small></span><span class="s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span></li>
+              <li class="done"><span class="t">17:30</span><span class="w">Tagesbericht an dich geschickt<small>Anfragen, Termine, offene Punkte</small></span><span class="s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span></li>
+            </ul>
+            <div class="kia-log-foot show">Du hast gearbeitet. Die Anfragen sind trotzdem alle beantwortet.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LEISTUNGEN ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="display-l" data-reveal><span class="l1">Was wir f&#252;r dich umsetzen.</span></h2>
+          <p class="lead" data-reveal>Wir schauen zuerst, wo bei dir jeden Tag Zeit verloren geht. Dann bauen wir genau daf&#252;r die passende L&#246;sung, statt dir ein Programm zu verkaufen.</p>
+        </div>
+        <div class="kia-grid">
+          <div class="kia-cell big" data-reveal data-reveal-type="left">
+            <div>
+              <span class="kia-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="12" rx="3"/><path d="M12 3v4M9 12h.01M15 12h.01M9 16h6"/></svg></span>
+              <h3>KI-Mitarbeiter</h3>
+              <p>Eine KI mit fester Aufgabe in deinem Betrieb. Sie arbeitet nach deinen Regeln, rund um die Uhr, und gibt alles Wichtige an dich weiter. Zum Beispiel beantwortet sie Anfragen, bereitet Termine vor oder schreibt dir jeden Abend, was heute los war.</p>
+            </div>
+            <div class="kia-chat" aria-label="Beispiel-Chat: KI-Mitarbeiter vergibt einen Termin">
+              <div class="kia-chat-head"><span class="av"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="12" rx="3"/><path d="M12 3v4M9 12h.01M15 12h.01"/></svg></span><span><b>KI-Mitarbeiter</b>antwortet sofort, auch um 21:47</span></div>
+              <div class="kia-b in show">Hallo, habt ihr Samstag noch einen Termin frei?</div>
+              <div class="kia-b out show">Hallo! Ja, um 10:30 oder 14:00 Uhr. Was passt dir besser?</div>
+              <div class="kia-b in show">10:30 bitte.</div>
+              <div class="kia-typing" aria-hidden="true"><i></i><i></i><i></i></div>
+              <div class="kia-b out show">Ist eingetragen. Du bekommst gleich eine Best&#228;tigung.</div>
+              <div class="kia-b done show">Termin im Kalender: Samstag, 10:30</div>
+            </div>
+          </div>
+          <div class="kia-cell small" data-reveal data-reveal-type="right" data-delay="0.1">
+            <span class="kia-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></span>
+            <h3>Anfragen sofort beantwortet</h3>
+            <p>Ein Chatbot f&#252;r WhatsApp und deine Website antwortet auch abends und am Wochenende und &#252;bergibt dir fertige Anfragen.</p>
+            <div class="kia-notif on" aria-hidden="true">
+              <div class="r q"><span class="d"></span>Neue Anfrage<em>Sa 21:47</em></div>
+              <div class="r a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Beantwortet<em>Sa 21:47</em></div>
+            </div>
+          </div>
+          <div class="kia-cell wide" data-reveal data-reveal-type="left">
+            <span class="kia-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h11M4 17h7"/><path d="M15 4l3 3-3 3M11 14l3 3-3 3"/></svg></span>
+            <h3>Nachfassen l&#228;uft von allein</h3>
+            <p>Was heute jemand abtippt, kopiert oder vergisst, erledigt ein automatischer Ablauf: Formular ins CRM, Erinnerung an den Kunden, Beleg in den richtigen Ordner.</p>
+            <div class="kia-flow" aria-hidden="true">
+              <span class="nd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>Formular</span>
+              <span class="ln"><i></i></span>
+              <span class="nd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0M17 11h4M19 9v4"/></svg>CRM</span>
+              <span class="ln"><i></i></span>
+              <span class="nd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>Erinnerung</span>
+            </div>
+          </div>
+          <div class="kia-cell wide" data-reveal data-reveal-type="right" data-delay="0.1">
+            <span class="kia-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-6"/></svg></span>
+            <h3>Alle Zahlen an einem Ort</h3>
+            <p>Ein CRM f&#252;r alle Kontakte und ein Dashboard f&#252;r deine wichtigsten Zahlen, live statt aus f&#252;nf Tabellen zusammengesucht.</p>
+            <div class="kia-bars" aria-hidden="true"><i style="--h:34%"></i><i style="--h:48%"></i><i style="--h:41%"></i><i style="--h:58%"></i><i style="--h:52%"></i><i style="--h:69%"></i><i style="--h:63%"></i><i style="--h:80%"></i><i style="--h:92%"></i></div>
+          </div>
+        </div>
+        <p class="kia-more" data-reveal>Dazu bauen wir Kontrollen, die melden, wenn ein Formular hakt, Werkzeuge nach Ma&#223;, wenn dein Ablauf in kein Standardprogramm passt, und Texte mit KI in deinem Ton.</p>
+      </div>
+    </section>
+
+    <!-- ===== ALLTAG ===== -->
+    <section class="section" style="background:#fff;">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="display-l" data-reveal><span class="l1">So sieht das im Alltag aus.</span></h2>
+          <p class="lead" data-reveal>W&#228;hle deine Branche. Du entscheidest weiter selbst, die KI nimmt dir nur das Abtippen, Nachfragen und Erinnern ab.</p>
+        </div>
+        <div class="kia-alltag" data-reveal>
+          <div class="kia-tabs" role="tablist" aria-label="Beispiele nach Branche">
+            <button type="button" role="tab" class="on" aria-selected="true" aria-controls="kp0" id="kt0">Studio oder Praxis<i class="bar"></i></button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="kp1" id="kt1" tabindex="-1">Handwerksbetrieb<i class="bar"></i></button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="kp2" id="kt2" tabindex="-1">Dienstleister und Berater<i class="bar"></i></button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="kp3" id="kt3" tabindex="-1">Mittelstand<i class="bar"></i></button>
+          </div>
+          <div class="kia-panes">
+            <div class="kia-pane on" role="tabpanel" id="kp0" aria-labelledby="kt0">
+              <div class="kia-vs heute"><span class="lbl">Heute</span><p>Terminanfragen kommen abends per WhatsApp und bleiben bis zum n&#228;chsten Morgen liegen. Manche Interessenten buchen bis dahin woanders.</p></div>
+              <div class="kia-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+              <div class="kia-vs mitki"><span class="lbl">Mit KI</span><p>Der Chatbot antwortet sofort, beantwortet die &#252;blichen Fragen und schl&#228;gt freie Termine vor.</p></div>
+            </div>
+            <div class="kia-pane" role="tabpanel" id="kp1" aria-labelledby="kt1">
+              <div class="kia-vs heute"><span class="lbl">Heute</span><p>Anfragen kommen per Mail, Telefon und Formular. Wer welche Angaben schon hat, steht nirgends sauber.</p></div>
+              <div class="kia-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+              <div class="kia-vs mitki"><span class="lbl">Mit KI</span><p>Jede Anfrage landet mit allen Angaben in einer Liste, fehlende Fotos oder Ma&#223;e fragt die KI selbst nach.</p></div>
+            </div>
+            <div class="kia-pane" role="tabpanel" id="kp2" aria-labelledby="kt2">
+              <div class="kia-vs heute"><span class="lbl">Heute</span><p>Angebote gehen raus, das Nachfassen bleibt im Alltag liegen. Gute Auftr&#228;ge versanden.</p></div>
+              <div class="kia-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+              <div class="kia-vs mitki"><span class="lbl">Mit KI</span><p>Offene Angebote werden automatisch nachgefasst, du siehst jeden Morgen, wer geantwortet hat.</p></div>
+            </div>
+            <div class="kia-pane" role="tabpanel" id="kp3" aria-labelledby="kt3">
+              <div class="kia-vs heute"><span class="lbl">Heute</span><p>Zahlen liegen in mehreren Programmen. F&#252;r den Wochenbericht sucht jemand stundenlang zusammen.</p></div>
+              <div class="kia-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+              <div class="kia-vs mitki"><span class="lbl">Mit KI</span><p>Ein Dashboard zeigt alles live, der Bericht kommt jeden Montag automatisch in dein Postfach.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BR&#220;CKE META-WERBUNG ===== -->
+    <section class="section" style="padding-top:0;background:#fff;">
+      <div class="container">
+        <div class="kia-bridge" data-reveal data-reveal-type="scale">
+          <h2>Neue Anfragen und KI aus einer Hand</h2>
+          <p>Wir bringen dir &#252;ber Meta-Werbung auf Facebook und Instagram neue Kundenanfragen und sorgen mit KI daf&#252;r, dass jede davon sofort beantwortet wird und keine liegen bleibt. <a href="leistungen.html" style="color:var(--cobalt);font-weight:700;text-decoration:underline;">So gewinnen wir neue Kunden f&#252;r dich</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BEWEIS: EIGENES SYSTEM ===== -->
+    <section class="section section-dark on-dark">
+      <div class="container">
+        <div class="kia-proof">
+          <div data-reveal data-reveal-type="left">
+            <span class="eyebrow">Wir arbeiten selbst so</span>
+            <h2 class="display-m" style="margin-top:20px;"><span class="l1">Was wir f&#252;r dich bauen,</span><br><span class="l1">nutzen wir jeden Tag selbst.</span></h2>
+            <p class="lead">Bei uns siehst du kein Fallbeispiel auf einer Folie, sondern das System, das jeden Tag in unserem eigenen Betrieb l&#228;uft. Im Erstgespr&#228;ch zeigen wir es dir.</p>
+          </div>
+          <div class="kia-watch" data-reveal data-reveal-type="right" aria-label="Vereinfachte Ansicht unseres W&#228;chters">
+            <div class="kia-watch-head"><b>Unser W&#228;chter</b><span><i class="kia-pulse"></i>pr&#252;ft rund um die Uhr</span></div>
+            <ul>
+              <li class="ok"><span>Website erreichbar</span><em class="st"></em></li>
+              <li class="ok"><span>Kontaktformular sendet</span><em class="st"></em></li>
+              <li class="ok"><span>WhatsApp-Weiterleitung</span><em class="st"></em></li>
+              <li class="ok"><span>Neue Anfragen im CRM</span><em class="st"></em></li>
+              <li class="ok"><span>Zahlen im Cockpit aktuell</span><em class="st"></em></li>
+            </ul>
+            <div class="kia-watch-foot">Vereinfachte Ansicht. Hakt etwas, bekommen wir sofort eine Nachricht.</div>
+          </div>
+        </div>
+        <div class="kia-facts">
+          <div class="kia-fact" data-reveal><b><span data-count="10" data-suffix="+">10+</span></b><span>KI-Mitarbeiter mit festen Aufgaben in unserem eigenen Betrieb</span></div>
+          <div class="kia-fact" data-reveal data-delay="0.1"><b>24/7</b><span>Unser Server pr&#252;ft rund um die Uhr Seiten, Formulare und Abl&#228;ufe und meldet, wenn etwas hakt</span></div>
+          <div class="kia-fact" data-reveal data-delay="0.2"><b>1</b><span>Cockpit f&#252;r alle Zahlen: Anfragen, Kosten und Umsatz, ohne Tabellen</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABLAUF ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="display-l" data-reveal><span class="l1">So kommst du zu deiner L&#246;sung.</span></h2>
+        </div>
+        <div class="kia-steps">
+          <div class="kia-track" aria-hidden="true"><i></i></div>
+          <div class="kia-step on" data-reveal><span class="kia-n">1</span><h3>Erstgespr&#228;ch</h3><p>Du erz&#228;hlst, wo im Alltag Zeit verloren geht. Kostenlos und ohne Fachchinesisch.</p></div>
+          <div class="kia-step on" data-reveal data-delay="0.1"><span class="kia-n">2</span><h3>Plan und Angebot</h3><p>Wir zeigen, was sich automatisieren l&#228;sst, was es bringt und was es kostet.</p></div>
+          <div class="kia-step on" data-reveal data-delay="0.2"><span class="kia-n">3</span><h3>Bauen und testen</h3><p>Wir richten alles ein und testen es mit echten F&#228;llen aus deinem Betrieb.</p></div>
+          <div class="kia-step on" data-reveal data-delay="0.3"><span class="kia-n">4</span><h3>Laufen lassen</h3><p>Du nutzt es im Alltag, wir passen an und bleiben dein Ansprechpartner.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-reveal>H&#228;ufige Fragen</span>
+          <h2 class="display-l" data-reveal><span class="l1">Was du vielleicht noch</span><br><span class="l1">wissen willst.</span></h2>
+        </div>
+        <div class="faq-list" data-reveal>
+          <div class="faq-item">
+            <button class="faq-q">Was ist ein KI-Mitarbeiter?<svg class="faq-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+            <div class="faq-a"><p>Ein KI-Mitarbeiter ist eine KI mit einer festen Aufgabe in deinem Betrieb, zum Beispiel Anfragen beantworten, Termine vorbereiten oder Berichte schreiben. Er arbeitet nach deinen Regeln, rund um die Uhr, und gibt alles Wichtige an dein Team weiter.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Lohnt sich KI auch f&#252;r kleine Betriebe?<svg class="faq-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+            <div class="faq-a"><p>Ja, gerade dort. Wer wenig Personal hat, sp&#252;rt jede Stunde, die an Routine verloren geht. Wir fangen mit dem Ablauf an, der dich heute am meisten Zeit kostet, und bauen erst weiter, wenn er sich rechnet.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Brauche ich technisches Wissen?<svg class="faq-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+            <div class="faq-a"><p>Nein. Wir richten alles ein, testen es mit dir und erkl&#228;ren, was du im Alltag siehst. Wenn etwas angepasst werden muss, machen wir das.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Mit welchen Programmen funktioniert das?<svg class="faq-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+            <div class="faq-a"><p>Mit den meisten, die Betriebe heute nutzen: E-Mail und Outlook, WhatsApp, Kalender, Excel und Google-Tabellen, CRM wie HubSpot oder Pipedrive, ActiveCampaign und oft auch deine Branchensoftware. Was du schon hast, binden wir an, statt es zu ersetzen.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Wie ist das mit dem Datenschutz?<svg class="faq-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+            <div class="faq-a"><p>Du entscheidest, welche Daten die KI sieht. Sensible Daten bleiben drau&#223;en, wenn du das willst. Wo die Daten verarbeitet werden und welche Vertr&#228;ge mit den Anbietern n&#246;tig sind, kl&#228;ren wir vor dem Start.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Was kostet das?<svg class="faq-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+            <div class="faq-a"><p>Das h&#228;ngt vom Umfang ab. Ein einzelner automatischer Ablauf ist etwas anderes als ein KI-Mitarbeiter mit eigenem Chat. Du kannst klein mit einem Ablauf starten und bekommst vor dem Start ein festes Angebot, damit du genau wei&#223;t, was es kostet.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FINAL CTA ===== -->
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="cta-panel on-dark" data-reveal data-reveal-type="scale">
+          <div class="cta-content">
+            <h2 class="display-m"><span class="l1">Wo kostet dich Routine</span><br><span class="l1">am meisten Zeit?</span></h2>
+            <p class="lead">Im kostenlosen Erstgespr&#228;ch finden wir die zwei, drei Abl&#228;ufe, bei denen KI dir sofort Arbeit abnimmt. Du gehst mit einem klaren Plan raus, auch wenn du nicht mit uns weitermachst.</p>
+            <div class="hero-ctas" style="margin-top:36px;">
+              <a href="#" class="btn btn-champagne" data-open-form>Kostenloses Erstgespr&#228;ch sichern
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="#" class="btn btn-ghost wa-gold" data-whatsapp>Direkt per WhatsApp</a>
+            </div>
+            <div class="cta-checks"><span>&#10003; 100 % kostenlos</span><span>&#10003; Unverbindlich</span><span>&#10003; Pers&#246;nlich mit dem Gr&#252;nderteam</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="logo"><img src="assets/logo/lockup_horizontal_weiss.webp" alt="ochsocial"></a>
+          <p>Die Agentur f&#252;r planbare Kundengewinnung: Werbekampagnen, Funnels, KI und Automatisierung aus einer Hand.</p>
+        </div>
+        <div>
+          <h5>Navigation</h5>
+          <ul>
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="leistungen.html">Leistungen</a></li>
+            <li><a href="ki-automatisierung.html">KI &amp; Automation</a></li>
+            <li><a href="ergebnisse.html">Ergebnisse</a></li>
+            <li><a href="ueber-uns.html">&#220;ber uns</a></li>
+            <li><a href="karriere.html">Karriere</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a href="mittelstand.html">F&#252;r den Mittelstand</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Rechtliches</h5>
+          <ul>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutzerkl&#228;rung</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Zertifiziert</h5>
+          <div class="footer-badges">
+            <img src="assets/badges/badge_t_meta_business_partner_trim.webp" alt="Meta Business Partner">
+            <img src="assets/badges/badge_t_meta_certified_trim.webp" alt="Meta Certified">
+            <img src="assets/badges/badge_t_funnelcockpit_trim.webp" alt="FunnelCockpit Certified Partner">
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&#169; 2026 ochsocial.de &#183; Alle Rechte vorbehalten.</span>
+        <span>Planbare Kundengewinnung mit System</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== LEAD MODAL (identisch Startseite, Quelle wird &#252;ber seite=ki-automatisierung.html erfasst) ===== -->
+  <div class="modal-overlay" role="dialog" aria-modal="true" data-lenis-prevent>
+    <div class="modal">
+      <button class="modal-close" aria-label="Schlie&#223;en">&#10005;</button>
+      <h3>Kostenloses Erstgespr&#228;ch</h3>
+      <p class="sub">Trag dich ein. Das Team ochsocial meldet sich schnellstm&#246;glich pers&#246;nlich bei dir.</p>
+      <form action="#" method="POST">
+        <div class="form-row">
+          <div class="form-field"><label for="f-vorname">Vorname*</label><input id="f-vorname" name="vorname" type="text" autocomplete="given-name" required></div>
+          <div class="form-field"><label for="f-nachname">Nachname</label><input id="f-nachname" name="nachname" type="text" autocomplete="family-name"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-field"><label for="f-firma">Firma</label><input id="f-firma" name="firma" type="text" autocomplete="organization"></div>
+          <div class="form-field"><label for="f-telefon">Telefon</label><input id="f-telefon" name="telefon" type="tel" autocomplete="tel"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-field"><label for="f-email">E-Mail*</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="form-field"><label for="f-msg">Worum geht es? (optional)</label><input id="f-msg" name="nachricht" type="text" placeholder="z. B. WhatsApp-Chatbot"></div>
+        </div>
+        <label class="form-consent"><input type="checkbox" required><span>Ich bin mit der Verarbeitung meiner Daten gem&#228;&#223; der <a href="datenschutz.html" style="text-decoration:underline;">Datenschutzerkl&#228;rung</a> einverstanden.*</span></label>
+        <label class="form-consent"><input type="checkbox" name="werbung" id="f-werbung"><span>Ihr d&#252;rft mir per E-Mail weitere Infos und Angebote zur Kundengewinnung schicken.</span></label>
+        <button type="submit" class="btn btn-cobalt">Anfrage absenden</button>
+      </form>
+      <div class="form-success">
+        <div class="icon-badge mint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <h3>Anfrage gesendet!</h3>
+        <p class="sub" style="margin-bottom:0;">Wir melden uns schnellstm&#246;glich pers&#246;nlich bei dir.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="vendor/lenis.min.js"></script>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <div class="mobile-cta-bar"><a href="#" class="mcb-btn form" data-open-form>Kostenlos anfragen</a><a href="#" class="mcb-btn wa" data-whatsapp><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a></div>
+  <script src="js/main.js?v=20261118"></script>
+
+<script>
+/* KI-Seite: Live-Animationen (25.11.2026). Ohne JS oder bei reduzierter Bewegung bleibt der fertige Endzustand stehen. */
+(function () {
+  var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function onView(el, cb) {
+    if (!el || !('IntersectionObserver' in window)) return;
+    new IntersectionObserver(function (es) { es.forEach(function (e) { cb(e.isIntersecting); }); }, { threshold: 0.2 }).observe(el);
+  }
+  /* Schrittfolge, laeuft nur solange sichtbar */
+  function loop(el, steps) {
+    var vis = false, i = 0, running = false;
+    function next() {
+      if (!vis || document.hidden) { running = false; return; }
+      running = true;
+      var s = steps[i]; s[0](); i = (i + 1) % steps.length;
+      setTimeout(next, s[1]);
+    }
+    onView(el, function (v) { vis = v; if (v && !running) next(); });
+    document.addEventListener('visibilitychange', function () { if (!document.hidden && vis && !running) next(); });
+  }
+
+  /* 1. Hero: KI-Mitarbeiter arbeitet Aufgaben ab */
+  var log = document.querySelector('.kia-log');
+  if (log && !rm) {
+    var lis = [].slice.call(log.querySelectorAll('li'));
+    var cnt = log.querySelector('.kia-cnt'), prog = log.querySelector('.kia-prog i'), foot = log.querySelector('.kia-log-foot');
+    var setLog = function (k) {
+      lis.forEach(function (li, j) { li.classList.toggle('done', j < k); li.classList.toggle('busy', j === k); });
+      cnt.textContent = Math.min(k, lis.length);
+      prog.style.setProperty('--p', Math.min(k, lis.length) / lis.length);
+      foot.classList.toggle('show', k >= lis.length);
+    };
+    setLog(0);
+    var st = [];
+    for (var k = 0; k <= lis.length; k++) { (function (k) { st.push([function () { setLog(k); }, k === lis.length ? 4200 : 1500]); })(k); }
+    loop(log, st);
+  }
+
+  /* 2. Chat im KI-Mitarbeiter-Feld */
+  var chat = document.querySelector('.kia-chat');
+  if (chat && !rm) {
+    var b = chat.querySelectorAll('.kia-b'), typ = chat.querySelector('.kia-typing');
+    var show = function (n) { return function () { b[n].classList.add('show'); typ.classList.remove('show'); }; };
+    var reset = function () { [].forEach.call(b, function (x) { x.classList.remove('show'); }); typ.classList.remove('show'); };
+    var typing = function () { typ.classList.add('show'); };
+    reset();
+    loop(chat, [[reset, 700], [show(0), 1100], [typing, 1200], [show(1), 1700], [show(2), 1000], [typing, 1200], [show(3), 1100], [show(4), 3600]]);
+  }
+
+  /* 3. Anfrage beantwortet */
+  var nt = document.querySelector('.kia-notif');
+  if (nt && !rm) { nt.classList.remove('on'); loop(nt, [[function () { nt.classList.remove('on'); }, 1400], [function () { nt.classList.add('on'); }, 3000]]); }
+
+  /* 4. Balken leben */
+  var bars = document.querySelectorAll('.kia-bars i');
+  if (bars.length && !rm) {
+    var base = [].map.call(bars, function (x) { return parseFloat(x.style.getPropertyValue('--h')); });
+    loop(bars[0].parentNode, [[function () {
+      [].forEach.call(bars, function (x, j) { var v = Math.max(18, Math.min(100, base[j] + (Math.random() * 24 - 12))); x.style.setProperty('--h', v + '%'); });
+    }, 2200]]);
+  }
+
+  /* 5. Alltag: Tabs, laufen von allein weiter */
+  var wrap = document.querySelector('.kia-alltag');
+  if (wrap) {
+    var tabs = [].slice.call(wrap.querySelectorAll('[role=tab]')), panes = [].slice.call(wrap.querySelectorAll('.kia-pane'));
+    var cur = 0;
+    var go = function (n, focus) {
+      cur = (n + tabs.length) % tabs.length;
+      tabs.forEach(function (t, j) { var on = j === cur; t.classList.toggle('on', on); t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1; });
+      panes.forEach(function (p, j) { p.classList.toggle('on', j === cur); p.setAttribute('aria-hidden', j !== cur); });
+      if (focus) tabs[cur].focus();
+    };
+    panes.forEach(function (p, j) { p.setAttribute('aria-hidden', j !== 0); });
+    tabs.forEach(function (t, j) {
+      t.addEventListener('click', function () { go(j); });
+      t.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight') go(cur + 1, true); if (e.key === 'ArrowLeft') go(cur - 1, true); });
+      t.querySelector('.bar').addEventListener('animationend', function () { if (j === cur) go(cur + 1); });
+    });
+  }
+
+  /* 6. Waechter prueft nacheinander */
+  var watch = document.querySelector('.kia-watch');
+  if (watch && !rm) {
+    var rows = [].slice.call(watch.querySelectorAll('li'));
+    var setW = function (k) { rows.forEach(function (r, j) { r.classList.toggle('ok', j < k); r.classList.toggle('chk', j === k); }); };
+    setW(-1);
+    var ws = [[function () { setW(-1); }, 600]];
+    for (var q = 0; q <= rows.length; q++) { (function (q) { ws.push([function () { setW(q); }, q === rows.length ? 3800 : 750]); })(q); }
+    loop(watch, ws);
+  }
+
+  /* 7. Lichtkegel folgt der Maus auf den Karten */
+  document.querySelectorAll('.kia-cell').forEach(function (c) {
+    c.addEventListener('pointermove', function (e) {
+      var r = c.getBoundingClientRect();
+      c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+
+  /* 8. Ablauf: Linie waechst beim Scrollen, Schritte leuchten auf */
+  var steps = document.querySelector('.kia-steps');
+  if (steps && window.gsap && window.ScrollTrigger && !rm) {
+    var fill = steps.querySelector('.kia-track i'), sEls = [].slice.call(steps.querySelectorAll('.kia-step'));
+    var vert = window.matchMedia('(max-width: 900px)').matches;
+    var axis = vert ? 'scaleY' : 'scaleX';
+    var from = {}; from[axis] = 0; gsap.set(fill, from);
+    var mark = function (p) { sEls.forEach(function (s, j) { s.classList.toggle('on', p >= j / (sEls.length - 1) - 0.02); }); };
+    mark(0);
+    var to = { ease: 'none', scrollTrigger: { trigger: steps, start: 'top 75%', end: 'bottom 60%', scrub: 0.6, onUpdate: function (self) { mark(self.progress); } } };
+    to[axis] = 1;
+    gsap.to(fill, to);
+  }
+})();
+</script>
+
+</body>
+</html>
