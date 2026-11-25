@@ -750,6 +750,7 @@ section { position: relative; }
 .thread-svg .t-branch1f, .thread-svg .t-branch2f { display: none; }
 .thread-svg .t-branch1, .thread-svg .t-branch2 { stroke: url(#branchGrad); }
 .thread-head { filter: drop-shadow(0 0 10px rgba(207, 227, 252, 1)) drop-shadow(0 0 26px rgba(111, 168, 245, 0.95)); }
+.prozess-final { position: relative; z-index: 2; max-width: 760px; background: rgba(28, 31, 78, 0.94); border: 1px solid var(--white-12); border-radius: 16px; padding: 22px 34px; }
 .thread-ctas { display: flex; gap: 18px; justify-content: center; margin-top: clamp(70px, 9vw, 120px); flex-wrap: wrap; position: relative; z-index: 1; }
 .thread-steps { position: relative; display: flex; flex-direction: column; gap: clamp(70px, 9vw, 130px); }
 .thread-step {
