@@ -158,7 +158,6 @@
 /* Abschluss-Fragen */
 .mst-questions { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 40px; margin: 30px auto 0; max-width: 860px; text-align: left; position: relative; }
 .mst-questions div { display: flex; gap: 14px; align-items: center; color: var(--white-90); font-weight: 700; }
-.mst-questions span { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--white-12); color: var(--champagne); font-size: 0.8rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex: none; }
 @media (max-width: 700px) { .mst-questions { grid-template-columns: 1fr; } }
 
 /* ===== Runde 2 (Bernd 29.09.): kompakte Zeilen, weisserer Hero, Bilder ===== */
@@ -191,11 +190,9 @@ html, body { overflow-x: clip !important; overflow-y: visible !important; }
 .mst-steps-media .badge { position: absolute; left: 20px; bottom: 20px; background: #fff; border-radius: 14px; padding: 10px 16px; font-weight: 800; font-size: 0.85rem; color: var(--navy); box-shadow: 0 16px 40px -18px rgba(20,22,58,0.4); }
 .mst-steps-media .badge b { color: var(--cobalt); }
 .mst-steps-list { display: flex; flex-direction: column; }
-.mst-step { display: grid; grid-template-columns: 56px 1fr; gap: 22px; padding: 44px 0; min-height: 44vh; align-content: center; border-top: 1px solid var(--navy-06); opacity: 0.35; transition: opacity .4s ease; }
+.mst-step { display: grid; grid-template-columns: 1fr; gap: 22px; padding: 44px 0; min-height: 44vh; align-content: center; border-top: 1px solid var(--navy-06); opacity: 0.35; transition: opacity .4s ease; }
 .mst-step:first-child { border-top: none; }
 .mst-step.on { opacity: 1; }
-.mst-step .n { width: 56px; height: 56px; border-radius: 50%; border: 1.5px solid var(--navy-12); display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--navy-60); transition: all .4s ease; }
-.mst-step.on .n { background: var(--cobalt); border-color: var(--cobalt); color: #fff; }
 .mst-step .tag { font-size:.75rem; font-weight: 800; color: var(--cobalt); }
 .mst-step h3 { font-size: 1.45rem; font-weight: 800; margin: 8px 0 10px; }
 .mst-step p { color: var(--navy-60); }
@@ -207,7 +204,6 @@ html, body { overflow-x: clip !important; overflow-y: visible !important; }
   .mst-step { opacity: 1; min-height: 0; padding: 32px 0; }
   .mst-step .mimg { display: block; grid-column: 1 / -1; border-radius: 20px; overflow: hidden; margin-bottom: 4px; }
   .mst-step .mimg img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
-  .mst-step .n { background: var(--cobalt); border-color: var(--cobalt); color: #fff; }
 }
 
 /* ===== Runde 3 (Bernd 29.09.) ===== */
@@ -544,22 +540,18 @@ h1 .accent-cobalt, h2 .accent-cobalt, h3 .accent-cobalt, .display-xl .accent-cob
           <div class="mst-steps-list">
             <div class="mst-step on" data-step="0">
               <div class="mimg"><img src="assets/mittelstand/schritt_1_analyse.webp" alt="Erstgespr&#228;ch zwischen Gesch&#228;ftsf&#252;hrer und Beraterin" loading="lazy"></div>
-              <span class="n">01</span>
               <div><span class="tag">Schritt 1</span><h3>Kostenlose Vertriebsanalyse</h3><p>Wir schauen uns an, woher deine Kunden heute kommen, wo im Vertrieb Zeit verloren geht und welche Anfragequellen zu deinem Unternehmen passen.</p></div>
             </div>
             <div class="mst-step" data-step="1">
               <div class="mimg"><img src="assets/mittelstand/schritt_2_aufbau.webp" alt="Team plant die Kampagne am Whiteboard" loading="lazy"></div>
-              <span class="n">02</span>
               <div><span class="tag">Schritt 2</span><h3>System aufbauen</h3><p>Wir definieren deine Zielkunden, bauen Kampagnen und Anfragestrecke und richten die KI-Vorbereitung samt &#220;bergabe an deinen Vertrieb ein.</p></div>
             </div>
             <div class="mst-step" data-step="2">
               <div class="mimg"><img src="assets/mittelstand/schritt_3_optimierung.webp" alt="Spezialist wertet die Wochenzahlen aus" loading="lazy"></div>
-              <span class="n">03</span>
               <div><span class="tag">Schritt 3</span><h3>Livegang und Optimierung</h3><p>Die Kampagnen gehen live. Wir messen, welche Anfragen zu Abschl&#252;ssen f&#252;hren, und optimieren jede Woche auf Qualit&#228;t statt auf Masse.</p></div>
             </div>
             <div class="mst-step" data-step="3">
               <div class="mimg"><img src="assets/mittelstand/schritt_4_abschluss.webp" alt="Handschlag nach Vertragsabschluss" loading="lazy"></div>
-              <span class="n">04</span>
               <div><span class="tag">Schritt 4</span><h3>Planbarer Vertrieb</h3><p>Dein Vertrieb startet jede Woche mit vorbereiteten Kontakten. Was funktioniert, wird skaliert, auf weitere Regionen, Produkte oder Standorte.</p></div>
             </div>
           </div>
@@ -702,10 +694,10 @@ h1 .accent-cobalt, h2 .accent-cobalt, h3 .accent-cobalt, .display-xl .accent-cob
             <h2 class="display-m"><span class="l1">Mehr Umsatz beginnt nicht immer</span><br><span class="l1">mit mehr Vertrieb.</span></h2>
             <p class="lead">Vielleicht brauchst du zuerst einen besseren Weg, deine bestehenden Verk&#228;ufer regelm&#228;&#223;ig mit guten Kontakten zu versorgen. Dar&#252;ber sprechen wir im kostenlosen Erstgespr&#228;ch:</p>
             <div class="mst-questions">
-              <div><span>01</span>Wo kommen eure Kunden heute her?</div>
-              <div><span>02</span>Wo geht im Vertrieb Zeit verloren?</div>
-              <div><span>03</span>Welche Anfragequellen passen zu euch?</div>
-              <div><span>04</span>Was l&#228;sst sich sinnvoll vereinfachen?</div>
+              <div>Wo kommen eure Kunden heute her?</div>
+              <div>Wo geht im Vertrieb Zeit verloren?</div>
+              <div>Welche Anfragequellen passen zu euch?</div>
+              <div>Was l&#228;sst sich sinnvoll vereinfachen?</div>
             </div>
             <div class="hero-ctas" style="margin-top:36px;">
               <a href="#" class="btn btn-champagne" data-open-form>Kostenloses Erstgespr&#228;ch sichern
