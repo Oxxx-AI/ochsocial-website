@@ -790,3 +790,10 @@
     if (a.getAttribute('href') === path) a.classList.add('active');
   });
 })();
+
+/* Klick-Chatbot auf allen ochsocial-Seiten (26.11.2026), nicht auf Dashboard, Danke-Seiten und sofortleads */
+(function () {
+  if (location.hostname.indexOf('sofortleads') > -1) return;
+  if (/dashboard|danke/i.test(location.pathname)) return;
+  var s = document.createElement('script'); s.src = '/js/chatbot.js?v=20261126'; s.defer = true; document.body.appendChild(s);
+})();
