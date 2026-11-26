@@ -1,3 +1,11 @@
+# Reklamation abgeschaltet (Bernd, 26.11.2026): Formular war Spam-Ziel, sofortleads pausiert
+/reklamation                                /  301!
+/reklamation.html                           /  301!
+/immobilienmakler-angebot/reklamation       /  301!
+/immobilienmakler-angebot/reklamation.html  /  301!
+/kapitalanleger-leads/reklamation           /  301!
+/kapitalanleger-leads/reklamation.html      /  301!
+
 # Kurze, merkbare Adresse fuer die Funnel-Statistik
 /stat  https://n8n.srv1286795.hstgr.cloud/webhook/sl-statistik  200
 /statistik  https://n8n.srv1286795.hstgr.cloud/webhook/sl-statistik  200
@@ -18,9 +26,8 @@
 /portal/*  /:splat  301!
 
 # Starterpaket-Seite abgeloest durch das Neukunden-Angebot (Bernd, 23.09.2026)
-# Verkaufsseite und Checkout leiten um. AGB, Reklamation und Danke bleiben
-# erreichbar, damit Bestandskunden ihre Vertragsunterlagen und das
-# Reklamationsformular nach ihren AGB weiter aufrufen koennen.
+# Verkaufsseite und Checkout leiten um. AGB und Danke bleiben
+# erreichbar, damit Bestandskunden ihre Vertragsunterlagen aufrufen koennen.
 /immobilienmakler-angebot            /kapitalanleger-leads/  301!
 /immobilienmakler-angebot/           /kapitalanleger-leads/  301!
 /immobilienmakler-angebot/index.html /kapitalanleger-leads/  301!
