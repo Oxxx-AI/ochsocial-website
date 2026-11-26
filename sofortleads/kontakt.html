@@ -215,7 +215,6 @@
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>
         <a href="agb.html">AGB</a>
-        <a href="reklamation.html" onclick="slRekOpen(event)">Reklamation</a>
       </div>
     </div>
     <div class="fbottom">
@@ -225,73 +224,8 @@
   </div>
 </footer>
 
-<div id="sl-rek" style="display:none;position:fixed;inset:0;z-index:10000;background:rgba(20,22,58,.62);padding:20px;overflow-y:auto">
-  <div style="max-width:560px;margin:40px auto;background:#fff;border-radius:16px;padding:32px 30px 28px;position:relative;color:#14163A">
-    <button type="button" onclick="slRekClose()" aria-label="Schliessen" style="position:absolute;top:14px;right:16px;background:none;border:none;font-size:26px;line-height:1;color:#5B6079;cursor:pointer">&times;</button>
-    <h2 style="font-size:26px;font-weight:800;margin-bottom:8px">Lead reklamieren</h2>
-    <p style="color:#5B6079;font-size:15px;margin-bottom:22px">Nach &sect; 6 unserer <a href="agb.html" target="_blank" style="color:#1E4FBA">AGB</a> innerhalb von 7 Tagen nach Lieferung. Grund und Nachweis sind Pflicht.</p>
-    <form name="reklamation" method="POST" action="https://n8n.srv1286795.hstgr.cloud/webhook/reklamation-sofortleads" enctype="multipart/form-data" class="sl-rek-form">
-      <p style="display:none" aria-hidden="true"><label>Bitte frei lassen <input name="firma-zusatz" tabindex="-1" autocomplete="off"></label></p>
-      <div style="display:grid;gap:14px">
-        <label style="font-size:14px;font-weight:700">Ihre E-Mail-Adresse
-          <input type="email" name="email" required style="width:100%;margin-top:5px;padding:11px 12px;border:1px solid #E5E9F2;border-radius:8px;font:inherit">
-        </label>
-        <label style="font-size:14px;font-weight:700">Lead-ID
-          <input type="text" name="lead-id" required placeholder="z.B. SL-2026-04812" style="width:100%;margin-top:5px;padding:11px 12px;border:1px solid #E5E9F2;border-radius:8px;font:inherit">
-        </label>
-        <label style="font-size:14px;font-weight:700">Grund
-          <select name="grund" required style="width:100%;margin-top:5px;padding:11px 12px;border:1px solid #E5E9F2;border-radius:8px;font:inherit;background:#fff">
-            <option value="">Bitte w&auml;hlen</option>
-            <option>Rufnummer nachweislich falsch oder nicht vergeben</option>
-            <option>Offensichtlich gef&auml;lschte Daten</option>
-            <option>Dublette</option>
-            <option>Ausserhalb des gebuchten Gebiets oder falsches Thema</option>
-            <option>Andere als die vereinbarte Leistungsart</option>
-            <option>Werbeeinwilligung fehlt oder nicht nachweisbar</option>
-            <option>Exklusivit&auml;t verletzt, Lead mehrfach vergeben</option>
-            <option>Zugesagte Qualifizierung nicht durchgef&uuml;hrt</option>
-            <option>Interessent nicht erreichbar nach &sect; 6 Abs. 3</option>
-          </select>
-        </label>
-        <label style="font-size:14px;font-weight:700">Nachweis
-          <textarea name="nachweis" required rows="4" placeholder="Was genau ist passiert, wann, mit welchem Ergebnis. Bei Nichterreichbarkeit bitte die Kontaktversuche mit Datum und Uhrzeit angeben." style="width:100%;margin-top:5px;padding:11px 12px;border:1px solid #E5E9F2;border-radius:8px;font:inherit;resize:vertical"></textarea>
-        </label>
-        <label style="font-size:14px;font-weight:700">Nachweis als Datei, optional
-          <input type="file" name="anhang" accept=".pdf,.png,.jpg,.jpeg,.csv,.xlsx,.txt,.eml,.msg" style="width:100%;margin-top:5px;padding:10px 12px;border:1px solid #E5E9F2;border-radius:8px;font:inherit;background:#fff">
-          <span style="display:block;font-weight:400;font-size:13px;color:#5B6079;margin-top:4px">Screenshot, Anrufliste oder Protokoll. Eine Datei, h&ouml;chstens 8 MB. Bitte nur den betreffenden Ausschnitt, keine vollst&auml;ndigen Postf&auml;cher und keine Gesundheitsdaten.</span>
-        </label>
-        <p style="font-size:13px;color:#5B6079;margin:0">Ohne Nachweis besteht kein Anspruch. Nicht ersatzf&auml;hig sind unter anderem fehlendes Interesse, Meinungs&auml;nderung, ein nicht zustande gekommener Abschluss sowie die optionalen Wunschkriterien nach &sect; 2 Abs. 4.</p>
-        <p style="font-size:13px;color:#5B6079;margin:0">Wie wir Ihre Angaben verarbeiten, steht in unserer <a href="datenschutz.html" target="_blank" style="color:#1E4FBA">Datenschutzerkl&auml;rung</a>.</p>
-        <button type="submit" class="btn" style="justify-self:start">Reklamation senden</button>
-      </div>
-    </form>
-    <p class="sl-rek-ok" style="display:none;color:#0E9E6E;font-weight:700;margin-top:16px">Eingegangen. Sie bekommen gleich eine Best&auml;tigung per E-Mail. Geht die nicht ein, schicken Sie dieselben Angaben in Textform an info@sofortleads.de.</p>
-  </div>
-</div>
 
-<script>
-function slRekOpen(e){var b=document.getElementById('sl-rek');if(!b)return;if(e)e.preventDefault();b.style.display='block';document.body.style.overflow='hidden';}
-function slRekClose(){var b=document.getElementById('sl-rek');if(!b)return;b.style.display='none';document.body.style.overflow='';}
-document.addEventListener('keydown',function(e){if(e.key==='Escape')slRekClose();});
-(function(){
-  var box=document.getElementById('sl-rek');
-  if(box)box.addEventListener('click',function(e){if(e.target===this)slRekClose();});
-  Array.prototype.forEach.call(document.querySelectorAll('.sl-rek-form'),function(f){
-    f.addEventListener('submit',function(e){
-      e.preventDefault();
-      var b=f.querySelector('button[type=submit]'),d=f.querySelector('input[name=anhang]');
-      if(d&&d.files[0]&&d.files[0].size>8*1024*1024){alert('Die Datei ist groesser als 8 MB. Bitte kleiner speichern.');return;}
-      b.disabled=true;b.textContent='Wird gesendet...';
-      fetch(f.action,{method:'POST',body:new FormData(f)})
-        .then(function(r){if(!r.ok)throw 0;
-          f.style.display='none';
-          var ok=f.parentNode.querySelector('.sl-rek-ok');if(ok)ok.style.display='block';})
-        .catch(function(){b.disabled=false;b.textContent='Reklamation senden';
-          alert('Senden fehlgeschlagen. Zur Fristwahrung genuegt eine Reklamation in Textform mit denselben Angaben an info@sofortleads.de.');});
-    });
-  });
-})();
-</script>
+
 
 <div class="mcb">
   <a class="a1" href="kaufen.html">Leads sichern</a>
